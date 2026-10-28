@@ -1,0 +1,12 @@
+{
+  "version": "1.6 Beta",
+  "build": 175,
+  "html": "update/exodus.html",
+  "notes": [
+    "Check for updates in Settings › About",
+    "Show only character skins or only monster skins",
+    "Tidier side panel in My collection"
+  ],
+  "win": { "version": "1.5.0", "url": "https://github.com/OWNER/REPO/releases/download/v1.6/Exodus-Lorebuilder-1.6-Beta-Windows.zip" },
+  "apk": { "version": "1.5.0", "url": "https://github.com/OWNER/REPO/releases/download/v1.6/Exodus-Lorebuilder-1.6-Beta.apk" }
+}
