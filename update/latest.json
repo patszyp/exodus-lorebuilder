@@ -1,9 +1,10 @@
 {
-  "version": "1.6.2 Beta",
-  "build": 177,
+  "version": "1.6.3 Beta",
+  "build": 178,
   "html": "update/exodus.html",
   "notes": [
-    "Importing a backup on the Android app works again"
+    "Battlepass buttons, Home slides and Shimshop tabs fit phone screens",
+    "Restore full backup works on Android"
   ],
   "win": {
     "version": "1.5.0",

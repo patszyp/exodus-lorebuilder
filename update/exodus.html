@@ -2009,6 +2009,45 @@ aside.cls>select[data-skf]{width:100%}
 .ghpi{width:56px;height:56px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;color:var(--gold);margin-bottom:8px}.ghpi svg{display:block}
 .ghn{text-align:left;margin:0 0 8px;padding-left:18px;max-height:200px;overflow:auto;align-self:stretch}.ghn li{margin:3px 0;font-size:13px}
 .ghsh{align-self:stretch;border:1px solid var(--line);padding:10px;margin-top:6px}
+.fbbar{position:fixed;left:50%;bottom:70px;transform:translateX(-50%);z-index:999;background:#010a13;border:1px solid var(--gold);padding:12px 16px;display:flex;flex-direction:column;gap:6px;min-width:260px;box-shadow:0 8px 24px #000a}
+.fbbar span{height:6px;background:#1e2d3d;display:block}.fbbar i{display:block;height:100%;width:0;background:var(--gold);transition:width .2s}.fbbar small{color:var(--mut)}
+/* 1.6.3 phone fixes */
+.shs button small{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;margin-left:6px;border-radius:9px;background:#1e2328;border:1px solid #785a2866;color:#a09b8c;font:700 11px/1 system-ui,sans-serif;vertical-align:middle;position:static;top:auto}
+.shs button.on small{border-color:#c8aa6e;color:#f0e6d2}
+.hbsd::-webkit-scrollbar,.shs::-webkit-scrollbar,.bp4tabs::-webkit-scrollbar{display:none}.hbsd,.shs{scrollbar-width:none}
+@media(max-width:720px){
+ .bp4{min-height:0;width:100%;left:auto;transform:none}
+ .bp4top{padding:10px 12px 0}.bp4hd{padding:8px 14px 0}.bp4hd h2{font-size:17px}
+ .bp4main{padding:4px 12px;gap:6px!important;min-height:0}
+ .bp4art{width:150px!important;height:150px!important}.bp4bi{width:130px;height:130px}.bp4bc{width:100px;height:100px}.bp4arc{inset:-8px}
+ .bp4inf h1{font-size:19px;margin:6px 0}.bp4k{font-size:12px}
+ .bp4t{width:64px;height:64px;padding:4px}.bp4lv{min-width:42px;height:22px;font-size:12px;padding:0 8px}
+ .bp4bot{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;padding:12px;align-items:center}
+ .bp4lvl{grid-column:1/-1;justify-content:center}
+ .bp4bot>.bp3sp{display:none}
+ .bp4b{min-width:0;width:100%;height:38px;padding:0 6px;font-size:11px;letter-spacing:.02em;overflow:hidden;text-overflow:ellipsis}
+ .bp4lb{width:38px;height:38px}
+ /* home slides */
+ .hsw0{height:auto!important;min-height:0!important;display:flex;flex-direction:column}
+ .hsc{flex:1;display:flex;flex-direction:column;height:auto}
+ .hsc>*{flex:1}
+ .hsf,.hsm,.hsst,.hsbpt,.hsspt,.hscnt,.hscds,.hsshw,.hsvid,.hslst{height:auto;min-height:520px}
+ .hsft{flex:1;padding:20px 18px 10px;max-width:none}
+ .hsh1{font-size:32px}.hsh2{font-size:28px}.hsh3{font-size:40px}
+ .hsfb{min-height:0;padding:14px 18px;gap:12px}
+ .hsb{height:38px;padding:0 14px;font-size:12px;letter-spacing:.03em;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+ .hsbpt{display:flex;flex-direction:column;padding:18px;gap:12px}
+ .hsbpl{max-width:none}.hsbplv{margin:10px 0}
+ .hsbpb{display:grid;grid-template-columns:1fr 1fr;gap:8px}.hsbpb .hsb{width:100%}
+ .hsbps{overflow:hidden;margin-top:auto}
+ .hsbps .bp4row{--n:4!important;grid-template-columns:repeat(4,1fr)}
+ .hsbps .bp4c:nth-child(n+5){display:none}
+ .hsbps .bp4t{width:62px;height:62px}
+ .hsm{display:flex;flex-direction:column}.hsmt{padding:20px 18px}.hsmb{padding:0 18px 18px;margin-top:auto}.hsecs,.hslold{margin-top:auto}
+ .hsspt{flex-direction:column;justify-content:flex-end}.hsspi{padding:18px}
+ .hsstc{padding:14px}.hssl{margin:0 10px;padding:10px 6px 14px}
+ .hscd{gap:8px}.hscd span{min-width:0;flex:1;padding:10px 4px}
+}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -6742,8 +6781,15 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='1.6.2';
+const WNV='1.6.3';
 const WN=[
+ ['1.6.3','29 Oct 2026',[
+  ['App','Big backups restore on phones','Full backups are now read piece by piece with a progress bar, so big backups with many pictures also restore on Android.',"openSet();render()"]]],
+ ['1.6.3','29 Oct 2026',[
+  ['App','Restore full backup on Android','Picking a full backup on the Android app now starts the restore, and shows how big the file is while it reads it.',"openSet();render()"]]],
+ ['1.6.3','29 Oct 2026',[
+  ['App','Better on phones','The Battlepass buttons, the Home page slides and the Shimshop tabs fit phone screens properly.',"go('home');render()"],
+  ['App','Restore full backup on Android','Picking a full backup on the Android app now starts the restore.',"openSet();render()"]]],
  ['1.6.2','29 Oct 2026',[
   ['App','Backups on Android','Importing a backup on the Android app works again: the file picker now shows backup files.',"openSet();render()"]]],
  ['1.6.1','29 Oct 2026',[
@@ -8289,7 +8335,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='1.6.2 Beta',APPB=177;
+const APPV='1.6.3 Beta',APPB=178;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -9233,8 +9279,34 @@ if(window.ExodusAndroid){
  document.addEventListener('click',e=>{const t=e.target;if(t&&t.tagName=='INPUT')anyFile(t);else if(t&&t.closest){const l=t.closest('label');if(l){const i=l.control||l.querySelector('input[type=file]');anyFile(i)}}},true);
  XPOST.push(function anyFilePost(){document.querySelectorAll('input[type=file][accept]').forEach(anyFile)});
 }
-/* a backup file that is not JSON gives a clear message */
-{const _fr=fullRestore;fullRestore=async function(f){if(f&&f.name&&!/\.json$/i.test(f.name)&&!/json|text|octet/i.test(f.type||''))return toast('Pick the backup file that ends in .json');return _fr.apply(this,arguments)}}
+/* the full-backup picker lives in the page while it is open, so Android reports the picked file back */
+fullRestorePick=function(){const i=document.createElement('input');i.type='file';if(!window.ExodusAndroid)i.accept='.json,application/json';i.style.cssText='position:fixed;left:-9999px;top:0;width:1px;height:1px;opacity:0';document.body.appendChild(i);i.addEventListener('change',()=>{const f=i.files&&i.files[0];setTimeout(()=>i.remove(),0);if(f)fullRestore(f)});i.click()};
+{const _fr=fullRestore;fullRestore=async function(f){if(!f)return;toast('Reading the backup ('+Math.max(1,Math.round(f.size/1048576))+' MB)…');await new Promise(r=>setTimeout(r,60));try{return await _fr.apply(this,arguments)}catch(e){toast('Could not read that backup file')}}}
+
+/* ===== 1.6.3: restore big backups without running out of memory (Android), clearer progress ===== */
+/* reads the backup piece by piece: the data first, then each picture one at a time */
+async function fbStream(f,onS,onMedia,onProg){const CH=4<<20,dec=new TextDecoder('utf-8');let pos=0,s='',i=0,depth=0,inStr=false,esc=false,strStart=-1,strKey=false,exp=['', 'key','key','key'],key1='',key2='',vsS=-1,vsM=-1,mObj=false,inMedia=false;
+ while(pos<f.size||i<s.length){if(i>=s.length&&pos<f.size){const buf=await f.slice(pos,pos+CH).arrayBuffer();pos+=CH;s+=dec.decode(buf,{stream:pos<f.size});onProg&&onProg(Math.min(1,pos/f.size))}else if(i>=s.length)break;
+  const jobs=[];
+  for(;i<s.length;i++){const c=s.charCodeAt(i);
+   if(inStr){if(esc){esc=false;continue}if(c===92){esc=true;continue}if(c===34){inStr=false;if(strKey){const k=JSON.parse(s.slice(strStart,i+1));if(depth===1)key1=k;else if(depth===2&&inMedia)key2=k}else if(depth===2&&inMedia&&vsM>=0&&!mObj){jobs.push([key2,s.slice(vsM,i+1)]);vsM=-1}strStart=-1}continue}
+   if(c===34){inStr=true;strStart=i;strKey=exp[depth]==='key';if(!strKey&&depth===2&&inMedia&&vsM<0){vsM=i;mObj=false}continue}
+   if(c===123||c===91){if(depth===1&&exp[1]==='val'&&key1==='S'&&vsS<0)vsS=i;if(depth===1&&exp[1]==='val'&&key1==='media')inMedia=true;if(depth===2&&inMedia&&exp[2]==='val'&&vsM<0){vsM=i;mObj=true}depth++;exp[depth]=c===123?'key':'val';continue}
+   if(c===125||c===93){depth--;if(depth===1&&vsS>=0){onS(JSON.parse(s.slice(vsS,i+1)));vsS=-1}if(depth===2&&inMedia&&vsM>=0&&mObj){jobs.push([key2,s.slice(vsM,i+1)]);vsM=-1}if(depth===1&&inMedia)inMedia=false;continue}
+   if(c===58){exp[depth]='val';continue}
+   if(c===44){exp[depth]='key';continue}}
+  for(const [k,v] of jobs)await onMedia(k,v);
+  /* keep only what an unfinished value still needs */
+  let keep=s.length;[vsS,vsM,inStr?strStart:-1].forEach(x=>{if(x>=0&&x<keep)keep=x});if(keep>0){s=s.slice(keep);i-=keep;if(vsS>=0)vsS-=keep;if(vsM>=0)vsM-=keep;if(strStart>=0)strStart-=keep}}}
+fullRestore=async function(f){if(!f)return;let head='';try{head=await f.slice(0,64).text()}catch(e){}
+ if(!/"exodusFull"\s*:\s*1/.test(head)){toast('Reading the backup…');let d;try{d=JSON.parse(await f.text())}catch(e){return toast('That file is not a backup')}if(d&&d.chars&&d.lore){cfm('This is a text-only backup. Replace your current data with it?',()=>{S=d;save();render();toast('Imported')});return}return toast('That file is not a backup')}
+ const mb=Math.round(f.size/1048576);cfm(`Replace everything here with this full backup (${mb} MB, with pictures and media)?`,async()=>{let newS=null,n=0,last=0;const bar=fbBar();try{await fbStream(f,v=>{newS=v},async(k,v)=>{try{await mset(k,fbDec(JSON.parse(v)));n++}catch(e){}},p=>{const t=Date.now();if(t-last>250){last=t;fbBar(p)}});if(!newS||!newS.chars)throw new Error('no data');S=newS;save();fbBar(1);toast('Restored '+n+' pictures and media files. Reloading…');setTimeout(()=>location.reload(),1200)}catch(e){fbBar(-1);toast('Could not restore this backup'+(e&&e.message?': '+e.message:''))}})};
+function fbBar(p){let d=document.getElementById('fbbar');if(p===-1){if(d)d.remove();return}if(!d){d=document.createElement('div');d.id='fbbar';d.className='fbbar';d.innerHTML='<b>Restoring the backup…</b><span><i></i></span><small></small>';document.body.appendChild(d)}const v=Math.round((p||0)*100);d.querySelector('i').style.width=v+'%';d.querySelector('small').textContent=v+'%';return d}
+/* the picker is in the page while it is open, so phones always report the chosen file */
+fullRestorePick=function(){const i=document.createElement('input');i.type='file';i.style.cssText='position:fixed;left:-9999px;opacity:0';document.body.appendChild(i);i.onchange=()=>{const f=i.files&&i.files[0];setTimeout(()=>i.remove(),1000);if(f){toast('Opening '+f.name);fullRestore(f)}};i.click()};
+/* the text backup file button also understands full backups, and big files skip the text box */
+{const _imf2=imFile;imFile=async function(inp){const f=inp&&inp.files&&inp.files[0];if(!f)return;let head='';try{head=await f.slice(0,64).text()}catch(e){}if(/"exodusFull"\s*:\s*1/.test(head)||f.size>4e6)return fullRestore(f);return _imf2.apply(this,arguments)}}
+/* writing a full backup also goes piece by piece on phones */
 
 
 render();
