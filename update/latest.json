@@ -1,8 +1,8 @@
 {
- "version": "1.9 Beta",
- "build": 184,
+ "version": "2.0 Beta",
+ "build": 185,
  "html": "update/exodus.html",
- "notes": "Workshop pages redesigned with more options. Bigger set rewards, backup reminders and safety copies.",
+ "notes": "Chroma creator in the Workshop: paint, smart select and automatic colour zones.",
  "win": {
   "version": "1.5.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/1.6/Exodus-Lorebuilder-1.6-Beta-Windows.zip"

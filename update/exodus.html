@@ -2308,6 +2308,74 @@ html[style*="--uibord"] .panel,html[style*="--uibord"] .wsc{border-color:var(--u
  .uhi{flex-wrap:wrap}
  .gct thead{display:none}.gct tr{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px 0;border-bottom:1px solid #785a2833}.gct td{border:0!important;padding:2px 4px!important}.gct td.tga{grid-column:1/-1;text-align:left}
 }
+
+/* 2.0 Chroma creator */
+#chce{position:fixed;inset:0;z-index:90;background:#010a13;display:flex}
+body.chcopen{overflow:hidden}
+.chcx{flex:1;display:flex;flex-direction:column;min-width:0;min-height:0}
+.chch{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #785a2866;background:linear-gradient(90deg,rgba(200,170,110,.10),rgba(1,10,19,.6))}
+.chchn{flex:1;min-width:0}.chchn b{display:block;color:#f0e6d2;font-family:Beaufort,serif;text-transform:uppercase;letter-spacing:.06em}.chchn small{color:#8a8577}
+.chcha{display:flex;gap:6px;align-items:center}.chcha>*{margin:0}
+.chccmp{display:inline-flex;gap:6px;align-items:center;user-select:none;touch-action:none}
+.chcb{flex:1;display:grid;grid-template-columns:220px minmax(0,1fr) 300px;min-height:0}
+.chct,.chcp{overflow:auto;padding:12px;background:rgba(1,10,19,.75)}
+.chct{border-right:1px solid #785a2844}.chcp{border-left:1px solid #785a2844}
+.chct h4,.chcp h4{display:flex;gap:6px;align-items:center;font-size:11px;color:#c8aa6e;text-transform:uppercase;letter-spacing:.07em;margin:14px 0 6px}
+.chcp section{border-bottom:1px solid #785a2833;padding-bottom:12px;margin-bottom:4px}
+.chcp section:last-child{border:0}
+.chctb{display:grid;grid-template-columns:1fr;gap:4px}
+.chctb button{display:flex;gap:10px;align-items:center;padding:8px 10px;background:none;border:1px solid #785a2833;color:#a09b8c;cursor:pointer;font:inherit;font-size:13px}
+.chctb button.on{border-color:#0ac8b9;color:#f0e6d2;background:#0ac8b918}
+.chctb button:hover{color:#f0e6d2}
+.chcsl{display:block;margin:10px 0 0!important}
+.chcsl>span{display:flex;justify-content:space-between;font-size:12px;color:#a09b8c;text-transform:none;letter-spacing:0}
+.chcsl b{color:#f0e6d2;font-weight:500}
+.chcsl input[type=range]{width:100%;margin:4px 0 0}
+.chcsl input[type=color]{width:100%;height:34px;padding:2px;margin-top:4px}
+.chcck{display:flex!important;gap:8px;align-items:flex-start;margin:10px 0 0!important;cursor:pointer;text-transform:none!important;letter-spacing:0!important}
+.chcck input{margin:2px 0 0;flex:none}
+.chcck b{display:block;font-size:13px;color:#f0e6d2;font-weight:500}.chcck small{display:block;font-size:11px;color:#8a8577;line-height:1.35}
+.chcseg{display:grid;grid-template-columns:1fr 1fr;border:1px solid #785a2866;margin-top:10px}
+.chcseg button{background:none;border:0;color:#a09b8c;padding:6px;cursor:pointer;font:inherit;font-size:12px}
+.chcseg button.on{background:#c8aa6e22;color:#f0e6d2}
+.chchint{font-size:11px;color:#8a8577;margin:8px 0 0;line-height:1.4}
+.chcops{display:flex;flex-wrap:wrap;gap:4px}.chcops .btn{padding:4px 9px;font-size:12px;margin:0}
+.chcm{position:relative;overflow:auto;display:flex;min-width:0;min-height:0;background:repeating-conic-gradient(#0d1522 0 25%,#111b2a 0 50%) 0 0/20px 20px}
+.chcw{margin:auto;padding:12px;position:relative}
+#chcv{display:block;touch-action:none;cursor:crosshair;box-shadow:0 0 0 1px #785a2866,0 10px 40px #000a;image-rendering:auto}
+.chcc{position:absolute;pointer-events:none;border:1px solid #fff;border-radius:50%;box-shadow:0 0 0 1px #000a;transform:translate(-50%,-50%);display:none;left:0;top:0}
+.chcc.on{display:block}
+.chcl{display:flex;flex-direction:column;gap:4px}
+.chcli{display:grid;grid-template-columns:18px 14px minmax(0,1fr) auto 22px;gap:6px;align-items:center;padding:5px 6px;border:1px solid #785a2833;cursor:pointer}
+.chcli.on{border-color:#0ac8b9;background:#0ac8b912}
+.chcli i{width:14px;height:14px;border-radius:50%;box-shadow:0 0 0 1px #fff3}
+.chcli input:not([type=checkbox]){margin:0;padding:3px 6px;font-size:12px;min-width:0}
+.chcli small{font-size:10px;color:#8a8577}
+.chcli .ic{width:22px;height:22px}
+.chcon{margin:0!important;display:flex}.chcon input{margin:0}
+.chcadd{margin-top:6px!important;width:100%}
+.chcsw{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-top:6px}
+.chcsw button{aspect-ratio:1;border:1px solid #0006;cursor:pointer;padding:0}
+.chcth{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.chcth button{display:flex;gap:6px;align-items:center;background:rgba(1,10,19,.6);border:1px solid #785a2844;color:#c8c3b5;padding:5px 7px;cursor:pointer;font:inherit;font-size:12px}
+.chcth button:hover{border-color:#c8aa6e;color:#f0e6d2}
+.chcth i{width:22px;height:14px;flex:none;background:linear-gradient(90deg,var(--a) 0 33%,var(--b) 0 66%,var(--c) 0)}
+.chcent>header{flex-wrap:wrap}.chcent>header>div{flex:1;min-width:200px}
+@media(max-width:900px){
+ .chcb{display:block;overflow:auto}
+ .chcm{height:48vh}.chct{overflow:visible;border:0;border-bottom:1px solid #785a2844}.chcp{border:0;overflow:visible}
+ .chct{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:flex-end;padding:8px 10px}
+ .chct h4,.chchint{display:none}
+ .chctb{grid-template-columns:repeat(3,auto)}.chctb button span{display:none}
+ .chct .chcsl{width:120px;margin:0!important}.chct .chcck{margin:0!important}.chct .chcck small{display:none}
+ .chct .chcseg{margin:0;width:120px}
+ .chch{flex-wrap:wrap;padding:8px 10px}.chchn{min-width:120px}.chccmp{font-size:11px}
+}
+body.chcopen #toast{z-index:120}
+
+.chcck>input[type=checkbox]{width:16px!important;height:16px;min-width:0;padding:0}
+.chcck>span{flex:1;min-width:0;display:block}
+.chcli input[type=checkbox]{width:15px!important;height:15px;padding:0}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -8611,7 +8679,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='1.9 Beta',APPB=184;
+const APPV='2.0 Beta',APPB=185;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -9954,6 +10022,139 @@ const WSHD={quests:['qst','Quests','Tasks for players, with rewards. Drag them t
 XPOST.push(function wsHeadPost(){if(tab!='dev'||edit&&edit.t)return;const w=document.querySelector('.wsm');if(!w||w.querySelector('.wxh'))return;const d=WSHD[wsub];if(!d)return;const h1=w.querySelector('h1.wstt');if(!h1)return;const p=h1.nextElementSibling;if(p&&p.tagName=='P'&&p.classList.contains('mut')&&p.textContent.length<260)p.remove();h1.insertAdjacentHTML('afterend',wsHero(d[0],d[1],esc(d[2]),[]))});
 
 XPOST.push(function ilBarPost(){document.querySelectorAll('.ilbar').forEach(b=>b.querySelectorAll('button').forEach(x=>{if(/Library/.test(x.textContent))x.remove()}))});
+
+/* ===== 2.0: Chroma creator — paint, smart select and automatic colour zones ===== */
+Object.assign(ICOP,{brsh:'M10.5 2.5l3 3-6 6-3-3zM4.5 8.5l3 3c-.5 2-2 3-4.5 3 .3-1.2.2-2.2-.5-3 .7-.3 1.3-1.6 2-3z',ersr:'M9 2.5l4.5 4.5-6 6.5H4L2 11.5zM5.5 6l4.5 4.5M7.5 13.5H14',wand:'M2.5 13.5l7-7M9.5 6.5l1.5-1.5M11 2v2M14 5h-2M13 2.5l-1 1M6 2.5v1.5M2.5 6H4',auto:'M8 1.5l1.6 3.6 3.9.4-2.9 2.6.8 3.9L8 10l-3.4 2 .8-3.9-2.9-2.6 3.9-.4z',undo:'M4 6h6a3.5 3.5 0 0 1 0 7H6M4 6l2.5-2.5M4 6l2.5 2.5',redo:'M12 6H6a3.5 3.5 0 0 0 0 7h4M12 6L9.5 3.5M12 6L9.5 8.5',eye:'M1.5 8s2.5-4.5 6.5-4.5S14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8zM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',lyr:'M8 2l6 3-6 3-6-3zM2 8l6 3 6-3M2 11l6 3 6-3'});
+const CCE={};let chcRaf=0;
+const CCTH=[['Cyberpunk',[[300,.85],[190,.9],[55,.9]]],['Forest',[[110,.55],[85,.5],[40,.45]]],['Void',[[270,.6],[250,.35],[285,.8]]],['Golden',[[45,.85],[38,.7],[28,.6]]],['Ice',[[195,.6],[210,.45],[185,.3]]],['Inferno',[[8,.9],[25,.95],[45,.9]]],['Toxic',[[90,.9],[75,.8],[120,.6]]],['Rose',[[340,.7],[320,.55],[10,.5]]],['Ocean',[[205,.8],[175,.7],[225,.6]]],['Shadow',[[230,.15],[260,.25],[0,0]]]];
+/* ---------- colour helpers ---------- */
+function chcHsl(r,g,b){r/=255;g/=255;b/=255;const mx=Math.max(r,g,b),mn=Math.min(r,g,b),l=(mx+mn)/2;let h=0,s=0;if(mx!=mn){const d=mx-mn;s=l>.5?d/(2-mx-mn):d/(mx+mn);h=mx==r?(g-b)/d+(g<b?6:0):mx==g?(b-r)/d+2:(r-g)/d+4;h*=60}return [h,s,l]}
+function chcRgb(h,s,l,o,i){h=((h%360)+360)%360/360;let r,g,b;if(s<=0){r=g=b=l}else{const q=l<.5?l*(1+s):l+s-l*s,p=2*l-q,f=t=>{t<0&&(t+=1);t>1&&(t-=1);return t<1/6?p+(q-p)*6*t:t<.5?q:t<2/3?p+(q-p)*(2/3-t)*6:p};r=f(h+1/3);g=f(h);b=f(h-1/3)}o[i]=r*255;o[i+1]=g*255;o[i+2]=b*255}
+function chcLab(r,g,b){const f=c=>{c/=255;return c>.04045?Math.pow((c+.055)/1.055,2.4):c/12.92};const R=f(r),G=f(g),B=f(b);let x=(R*.4124+G*.3576+B*.1805)/.95047,y=R*.2126+G*.7152+B*.0722,z=(R*.0193+G*.1192+B*.9505)/1.08883;const k=t=>t>.008856?Math.cbrt(t):7.787*t+16/116;x=k(x);y=k(y);z=k(z);return [116*y-16,500*(x-y),200*(y-z)]}
+const chcSkinPx=(r,g,b)=>{const y=.299*r+.587*g+.114*b,cb=128-.168736*r-.331264*g+.5*b,cr=128+.5*r-.418688*g-.081312*b;return y>55&&cr>=136&&cr<=175&&cb>=80&&cb<=130&&r>g&&r>b};
+const chcHex=(h,s,l)=>{const o=[0,0,0];chcRgb(h,s,l,o,0);return '#'+o.map(v=>Math.round(v).toString(16).padStart(2,'0')).join('')};
+const chcHexHsl=hex=>{const n=parseInt(String(hex).slice(1),16);return chcHsl(n>>16&255,n>>8&255,n&255)};
+/* ---------- opening ---------- */
+async function chcSrc(k){try{const id=S.hqx&&k.img&&S.hqx[hqxSig(k.img)];if(id){const v=await mget('hqx_'+id);if(v)return v instanceof Blob?URL.createObjectURL(v):typeof v=='string'?v:(v.d||k.img)}}catch(e){}return k.img}
+const chcLoadImg=src=>new Promise((ok,no)=>{const im=new Image();im.onload=()=>ok(im);im.onerror=no;im.src=src});
+async function chcOpen(skId,chId){const k=S.skins.find(x=>x.id==skId);if(!k)return;if(!k.img)return toast('This skin has no picture yet');let src=await chcSrc(k),im;try{im=await chcLoadImg(src)}catch(e){return toast('Could not open the picture')}
+ Object.keys(CCE).forEach(x=>delete CCE[x]);Object.assign(CCE,{sk:skId,ch:chId||'',img:im,tool:'brush',size:40,soft:50,tol:18,edge:45,smart:1,wmode:'add',show:1,cmp:0,zoom:1,skin:1,zones:5,L:[],a:0,undo:[],redo:[],name:'',price:10});
+ const c=chId&&chrOf(k).find(x=>x.id==chId);if(c){CCE.name=c.name;CCE.price=c.p||0}
+ chcPrep(im);
+ if(chId){try{const r=await mget('chm_'+chId);if(r&&r.L){for(const l of r.L){const m=await chcMaskFrom(l.m);CCE.L.push(Object.assign({},l,{m}))}CCE.skin=r.skin==null?1:r.skin}}catch(e){}}
+ if(!CCE.L.length)chcAddLayer('Layer 1',1);
+ chcBuild();chcDraw()}
+function chcPrep(im){const M=1200,sc=Math.min(1,M/Math.max(im.naturalWidth,im.naturalHeight)),w=Math.max(1,Math.round(im.naturalWidth*sc)),h=Math.max(1,Math.round(im.naturalHeight*sc));const cv=document.createElement('canvas');cv.width=w;cv.height=h;const x=cv.getContext('2d');x.drawImage(im,0,0,w,h);const d=x.getImageData(0,0,w,h).data,n=w*h;
+ const H=new Float32Array(n),Sa=new Float32Array(n),Li=new Float32Array(n),La=new Float32Array(n*3),skm=new Uint8Array(n),G=new Float32Array(n);
+ for(let i=0,j=0;i<n;i++,j+=4){const r=d[j],g=d[j+1],b=d[j+2],q=chcHsl(r,g,b);H[i]=q[0];Sa[i]=q[1];Li[i]=q[2];const lb=chcLab(r,g,b);La[i*3]=lb[0];La[i*3+1]=lb[1];La[i*3+2]=lb[2];skm[i]=chcSkinPx(r,g,b)?1:0}
+ for(let y=1;y<h-1;y++)for(let x2=1;x2<w-1;x2++){const i=y*w+x2,L=p=>La[p*3];const gx=L(i-w+1)+2*L(i+1)+L(i+w+1)-L(i-w-1)-2*L(i-1)-L(i+w-1),gy=L(i+w-1)+2*L(i+w)+L(i+w+1)-L(i-w-1)-2*L(i-w)-L(i-w+1);G[i]=Math.min(100,Math.hypot(gx,gy)/4)}
+ Object.assign(CCE,{w,h,n,src:new Uint8ClampedArray(d),H,S:Sa,Li,La,skm,G})}
+function chcAddLayer(name,silent){const l={n:name||('Layer '+(CCE.L.length+1)),on:1,mode:'tint',c:CCTH[0][1][CCE.L.length%3]?chcHex(CCTH[0][1][CCE.L.length%3][0],.7,.5):'#3a8cff',dh:0,ds:0,dl:0,m:new Uint8Array(CCE.n)};CCE.L.push(l);CCE.a=CCE.L.length-1;if(!silent){chcPanel();chcDraw()}}
+/* ---------- drawing the preview ---------- */
+function chcDraw(){if(chcRaf)return;chcRaf=requestAnimationFrame(()=>{chcRaf=0;chcRender()})}
+function chcApply(out,i,j,H,Sa,Li,l,a){let h,s,L=Li;if(l.mode=='tint'){const t=l._t||(l._t=chcHexHsl(l.c));h=t[0]+l.dh;s=Math.min(1,t[1]*.65+Sa*.35)}else{h=H+l.dh;s=Sa}s=Math.max(0,Math.min(1,s*(1+l.ds/100)));const dl=l.dl/100;L=dl>0?L+(1-L)*dl:L*(1+dl);const r0=out[j],g0=out[j+1],b0=out[j+2];chcRgb(h,s,L,out,j);if(a<255){const f=a/255;out[j]=r0+(out[j]-r0)*f;out[j+1]=g0+(out[j+1]-g0)*f;out[j+2]=b0+(out[j+2]-b0)*f}}
+function chcRender(){const cv=document.getElementById('chcv');if(!cv||!CCE.n)return;const x=cv.getContext('2d'),id=x.createImageData(CCE.w,CCE.h),o=id.data;o.set(CCE.src);
+ if(!CCE.cmp){const L=CCE.L.filter(l=>l.on);L.forEach(l=>l._t=null);for(let i=0,j=0;i<CCE.n;i++,j+=4){if(CCE.skin&&CCE.skm[i])continue;for(const l of L){const a=l.m[i];if(a)chcApply(o,i,j,CCE.H[i],CCE.S[i],CCE.Li[i],l,a)}}
+  const A=CCE.L[CCE.a];if(CCE.show&&A){const w=CCE.w,m=A.m,ph=(performance.now()/120|0);for(let i=0,j=0;i<CCE.n;i++,j+=4){const a=m[i];if(a>127){const x=i%w;const edge=(x>0&&m[i-1]<=127)||(x<w-1&&m[i+1]<=127)||(i>=w&&m[i-w]<=127)||(i<CCE.n-w&&m[i+w]<=127);if(edge){const on=((x+(i/w|0))>>2)%2;o[j]=on?255:0;o[j+1]=on?255:0;o[j+2]=on?255:0}else{const f=.12;o[j]+=(10-o[j])*f;o[j+1]+=(200-o[j+1])*f;o[j+2]+=(185-o[j+2])*f}}}}}
+ x.putImageData(id,0,0)}
+/* ---------- the editor window ---------- */
+function chcBuild(){let d=document.getElementById('chce');if(!d){d=document.createElement('div');d.id='chce';document.body.appendChild(d)}const k=S.skins.find(x=>x.id==CCE.sk);
+ d.innerHTML=`<div class="chcx"><header class="chch"><span class="qxi">${ico('chrx',15)}</span><div class="chchn"><b>${esc(nm('Chroma creator'))}</b><small>${esc(k?k.name:'')}</small></div><div class="chcha"><button class="ic" onclick="chcUndo()" title="Undo (Ctrl+Z)" aria-label="Undo">${ico('undo',15)}</button><button class="ic" onclick="chcRedo()" title="Redo (Ctrl+Y)" aria-label="Redo">${ico('redo',15)}</button><button class="btn chccmp" onpointerdown="CCE.cmp=1;chcDraw()" onpointerup="CCE.cmp=0;chcDraw()" onpointerleave="CCE.cmp=0;chcDraw()">${ico('eye',13)} Hold: original</button><button class="btn dev" onclick="chcSaveAsk()">Save chroma</button><button class="ic" onclick="chcClose()" aria-label="Close">${ico('x',15)}</button></div></header>
+ <div class="chcb"><aside class="chct" id="chct"></aside><main class="chcm" id="chcm"><div class="chcw" id="chcw"><canvas id="chcv" width="${CCE.w}" height="${CCE.h}"></canvas><i class="chcc" id="chcc"></i></div></main><aside class="chcp" id="chcp"></aside></div></div>`;
+ chcTools();chcPanel();chcBind();document.body.classList.add('chcopen');chcFit();requestAnimationFrame(()=>chcFit());setTimeout(chcFit,120)}
+function chcClose(){cfm('Close the Chroma creator? Changes you did not save will be lost.',()=>{const d=document.getElementById('chce');if(d)d.remove();document.body.classList.remove('chcopen');Object.keys(CCE).forEach(x=>delete CCE[x])})}
+const chcSl=(id,l,v,mn,mx,fn,suf)=>`<label class="chcsl"><span>${l}<b id="${id}v">${v}${suf||''}</b></span><input type="range" min="${mn}" max="${mx}" value="${v}" oninput="${fn};document.getElementById('${id}v').textContent=this.value+'${suf||''}'"></label>`;
+function chcTools(){const t=document.getElementById('chct');if(!t)return;const T=[['brush','brsh','Brush','B'],['erase','ersr','Eraser','E'],['wand','wand','Magic select','W']];
+ t.innerHTML=`<div class="chctb">${T.map(x=>`<button class="${CCE.tool==x[0]?'on':''}" onclick="CCE.tool='${x[0]}';chcTools()" title="${x[2]} (${x[3]})">${ico(x[1],17)}<span>${x[2]}</span></button>`).join('')}</div>
+ ${CCE.tool!='wand'?`${chcSl('chs1','Size',CCE.size,4,250,'CCE.size=+this.value;chcCur()','px')}${chcSl('chs2','Soft edge',CCE.soft,0,100,'CCE.soft=+this.value','%')}${CCE.tool=='brush'?`<label class="chcck"><input type="checkbox" ${CCE.smart?'checked':''} onchange="CCE.smart=this.checked?1:0;chcTools()"><span><b>Smart brush</b><small>Only paints the colour you start on, so going over the edge of the hair won't colour the background.</small></span></label>`:''}`:`<div class="chcseg"><button class="${CCE.wmode=='add'?'on':''}" onclick="CCE.wmode='add';chcTools()">Add</button><button class="${CCE.wmode=='sub'?'on':''}" onclick="CCE.wmode='sub';chcTools()">Remove</button></div><p class="chchint">Click an element (hair, armour, cape…). The selection grows over similar colours and stops at edges.</p>`}
+ ${CCE.tool=='wand'||CCE.smart&&CCE.tool=='brush'?chcSl('chs3','Colour tolerance',CCE.tol,3,60,'CCE.tol=+this.value'):''}${CCE.tool=='wand'?chcSl('chs4','Stop at edges',CCE.edge,0,100,'CCE.edge=+this.value','%'):''}
+ <h4>Selection</h4><div class="chcops"><button class="btn" onclick="chcOp('grow')">Grow</button><button class="btn" onclick="chcOp('shrink')">Shrink</button><button class="btn" onclick="chcOp('soft')">Soften</button><button class="btn" onclick="chcOp('fill')">Fill holes</button><button class="btn" onclick="chcOp('inv')">Invert</button><button class="btn red" onclick="chcOp('clear')">Clear</button></div>
+ <label class="chcck"><input type="checkbox" ${CCE.show?'checked':''} onchange="CCE.show=this.checked?1:0;chcDraw()"><span><b>Show the selection</b></span></label>
+ <h4>View</h4><div class="chcops"><button class="btn" onclick="chcZoom(-1)">−</button><button class="btn" onclick="CCE.zoom=1;chcFit()">Fit</button><button class="btn" onclick="chcZoom(1)">+</button></div>`;chcCur()}
+function chcPanel(){const p=document.getElementById('chcp');if(!p)return;const A=CCE.L[CCE.a];
+ p.innerHTML=`<section><h4>${ico('lyr',13)} Layers</h4><div class="chcl">${CCE.L.map((l,i)=>{let c=0;for(let q=0;q<l.m.length;q+=97)if(l.m[q])c++;const pc=Math.round(c/(l.m.length/97)*100);return `<div class="chcli ${i==CCE.a?'on':''}" onclick="if(event.target.closest('input,button'))return;CCE.a=${i};chcPanel();chcDraw()"><label class="chcon" title="Show this layer"><input type="checkbox" ${l.on?'checked':''} onchange="CCE.L[${i}].on=this.checked?1:0;chcDraw()"></label><i style="background:${l.mode=='tint'?esc(l.c):'conic-gradient(red,yellow,lime,cyan,blue,magenta,red)'}"></i><input value="${esc(l.n)}" onchange="CCE.L[${i}].n=this.value.trim()||'Layer'"><small>${pc}%</small><button class="ic" onclick="chcDelLayer(${i})" aria-label="Delete layer">${ico('x',11)}</button></div>`}).join('')}</div><button class="btn chcadd" onclick="chcAddLayer()">+ Add layer</button></section>
+ ${A?`<section><h4>Colour of “${esc(A.n)}”</h4><div class="chcseg"><button class="${A.mode=='tint'?'on':''}" onclick="chcSetA('mode','tint')">New colour</button><button class="${A.mode=='shift'?'on':''}" onclick="chcSetA('mode','shift')">Shift colours</button></div>
+ ${A.mode=='tint'?`<label class="chcsl"><span>Colour</span><input type="color" value="${esc(A.c)}" oninput="CCE.L[CCE.a].c=this.value;chcDraw();chcDot()"></label><div class="chcsw">${['#e23b3b','#ff8a1f','#f2c84b','#57c84b','#18b8a6','#3a8cff','#7a4cff','#d84bd0','#f4f0e6','#2a2a33'].map(c=>`<button style="background:${c}" onclick="CCE.L[CCE.a].c='${c}';chcPanel();chcDraw()" aria-label="${c}"></button>`).join('')}</div>`:''}
+ ${chcSl('chh','Hue',A.dh,-180,180,'CCE.L[CCE.a].dh=+this.value;chcDraw()','°')}${chcSl('chs','Saturation',A.ds,-100,100,'CCE.L[CCE.a].ds=+this.value;chcDraw()','%')}${chcSl('chl','Lightness',A.dl,-60,60,'CCE.L[CCE.a].dl=+this.value;chcDraw()','%')}
+ <div class="chcops"><button class="btn" onclick="chcSetA('dh',0);chcSetA('ds',0);chcSetA('dl',0)">Reset sliders</button><button class="btn" onclick="chcDupLayer()">Duplicate layer</button></div><p class="chchint">Shading, shadows and highlights stay as they are; only the colour changes.</p></section>`:''}
+ <section><label class="chcck"><input type="checkbox" ${CCE.skin?'checked':''} onchange="CCE.skin=this.checked?1:0;chcDraw()"><span><b>Keep skin tones</b><small>Faces and hands never change colour.</small></span></label></section>
+ <section><h4>${ico('auto',13)} Automatic</h4><p class="chchint">Finds the main colour zones of the picture and makes a layer for each one. Works best when parts have their own colours, like red armour on a blue cape.</p>${chcSl('chz','Colour zones',CCE.zones,2,8,'CCE.zones=+this.value')}<button class="btn" onclick="chcAuto()">Find colour zones</button><h4 style="margin-top:12px">Themes</h4><div class="chcth">${CCTH.map((t,i)=>`<button onclick="chcTheme(${i})" style="--a:${chcHex(t[1][0][0],t[1][0][1],.5)};--b:${chcHex(t[1][1][0],t[1][1][1],.45)};--c:${chcHex(t[1][2][0],t[1][2][1],.4)}"><i></i>${t[0]}</button>`).join('')}<button onclick="chcTheme(-1)"><i style="background:conic-gradient(red,yellow,lime,cyan,blue,magenta,red)"></i>Random</button></div><p class="chchint">Themes colour every visible layer.</p></section>`}
+function chcDot(){const A=CCE.L[CCE.a],i=document.querySelector('.chcli.on i');if(i&&A)i.style.background=A.c}
+function chcSetA(k,v){const A=CCE.L[CCE.a];if(!A)return;A[k]=v;chcPanel();chcDraw()}
+function chcDelLayer(i){if(CCE.L.length<2){CCE.L[0].m.fill(0);chcPanel();chcDraw();return}CCE.L.splice(i,1);CCE.a=Math.min(CCE.a,CCE.L.length-1);chcPanel();chcDraw()}
+function chcDupLayer(){const A=CCE.L[CCE.a];if(!A)return;const l=Object.assign({},A,{n:A.n+' copy',m:new Uint8Array(A.m)});CCE.L.splice(CCE.a+1,0,l);CCE.a++;chcPanel();chcDraw()}
+/* ---------- view ---------- */
+function chcFit(){const m=document.getElementById('chcm'),c=document.getElementById('chcv');if(!m||!c)return;const fw=(m.clientWidth-24)/CCE.w,fh=(m.clientHeight-24)/CCE.h,f=Math.max(.05,Math.min(fw,fh||fw));CCE.fit=f;c.style.width=Math.round(CCE.w*f*CCE.zoom)+'px';c.style.height=Math.round(CCE.h*f*CCE.zoom)+'px';chcCur()}
+function chcZoom(d){CCE.zoom=Math.max(1,Math.min(6,CCE.zoom*(d>0?1.4:1/1.4)));chcFit()}
+function chcCur(){const c=document.getElementById('chcc'),v=document.getElementById('chcv');if(!c||!v)return;const s=CCE.size*(v.clientWidth/CCE.w);c.style.width=c.style.height=s+'px';c.style.display=CCE.tool=='wand'?'none':''}
+/* ---------- painting ---------- */
+function chcPt(e){const v=document.getElementById('chcv'),r=v.getBoundingClientRect();return [(e.clientX-r.left)/r.width*CCE.w,(e.clientY-r.top)/r.height*CCE.h]}
+function chcPush(){const A=CCE.L[CCE.a];if(!A)return;CCE.undo.push({a:CCE.a,l:A,m:new Uint8Array(A.m)});if(CCE.undo.length>25)CCE.undo.shift();CCE.redo=[]}
+function chcUndo(){const u=CCE.undo.pop();if(!u)return;CCE.redo.push({a:u.a,l:u.l,m:new Uint8Array(u.l.m)});u.l.m.set(u.m);chcPanel();chcDraw()}
+function chcRedo(){const u=CCE.redo.pop();if(!u)return;CCE.undo.push({a:u.a,l:u.l,m:new Uint8Array(u.l.m)});u.l.m.set(u.m);chcPanel();chcDraw()}
+function chcRef(x,y){const w=CCE.w,La=CCE.La;let a=0,b=0,c=0,n=0;for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const px=Math.round(x+dx),py=Math.round(y+dy);if(px<0||py<0||px>=w||py>=CCE.h)continue;const i=(py*w+px)*3;a+=La[i];b+=La[i+1];c+=La[i+2];n++}return n?[a/n,b/n,c/n]:[50,0,0]}
+function chcDab(x,y,ref){const A=CCE.L[CCE.a];if(!A)return;const r=CCE.size/2,hard=1-CCE.soft/100,w=CCE.w,h=CCE.h,er=CCE.tool=='erase',La=CCE.La,tol=CCE.tol;
+ const x0=Math.max(0,Math.floor(x-r)),x1=Math.min(w-1,Math.ceil(x+r)),y0=Math.max(0,Math.floor(y-r)),y1=Math.min(h-1,Math.ceil(y+r));
+ for(let py=y0;py<=y1;py++)for(let px=x0;px<=x1;px++){const d=Math.hypot(px-x,py-y);if(d>r)continue;let f=d<=r*hard?1:1-(d-r*hard)/(r*(1-hard)+1e-6);const i=py*w+px;
+  if(ref){const q=i*3,de=Math.hypot(La[q]-ref[0],La[q+1]-ref[1],La[q+2]-ref[2]);if(de>tol*1.5)continue;if(de>tol)f*=1-(de-tol)/(tol*.5)}
+  const v=f*255;if(er){const nv=A.m[i]*(1-f);A.m[i]=nv}else if(v>A.m[i])A.m[i]=v}}
+function chcWand(x,y){const A=CCE.L[CCE.a];if(!A)return;const w=CCE.w,h=CCE.h,sx=Math.round(x),sy=Math.round(y);if(sx<0||sy<0||sx>=w||sy>=h)return;const La=CCE.La,G=CCE.G,s=(sy*w+sx)*3,ref=[La[s],La[s+1],La[s+2]],tol=CCE.tol*1.2,eth=100-CCE.edge*.9;
+ const seen=new Uint8Array(CCE.n),q=new Int32Array(CCE.n);let qh=0,qt=0;q[qt++]=sy*w+sx;seen[sy*w+sx]=1;
+ while(qh<qt){const i=q[qh++],px=i%w,py=(i-px)/w;const nb=[px>0?i-1:-1,px<w-1?i+1:-1,py>0?i-w:-1,py<h-1?i+w:-1];for(const n of nb){if(n<0||seen[n])continue;seen[n]=1;const k=n*3,de=Math.hypot(La[k]-ref[0],La[k+1]-ref[1],La[k+2]-ref[2]);if(de>tol)continue;if(G[n]>eth&&de>tol*.35)continue;q[qt++]=n}}
+ /* soft one-pixel edge */
+ const sm=new Uint8Array(CCE.n);for(let i=0;i<CCE.n;i++)if(seen[i]&&chcIn(i,ref,tol))sm[i]=255;const bl=chcBlur(sm,1);
+ for(let i=0;i<CCE.n;i++){const v=Math.max(sm[i],bl[i]);if(!v)continue;if(CCE.wmode=='add'){if(v>A.m[i])A.m[i]=v}else A.m[i]=A.m[i]*(1-v/255)}}
+function chcIn(i,ref,tol){const k=i*3,La=CCE.La;return Math.hypot(La[k]-ref[0],La[k+1]-ref[1],La[k+2]-ref[2])<=tol}
+function chcBlur(m,r){const w=CCE.w,h=CCE.h,t=new Float32Array(m.length),o=new Uint8Array(m.length);for(let y=0;y<h;y++){let s=0;for(let x=-r;x<=r;x++)s+=m[y*w+Math.min(w-1,Math.max(0,x))];for(let x=0;x<w;x++){t[y*w+x]=s/(2*r+1);s+=m[y*w+Math.min(w-1,x+r+1)]-m[y*w+Math.max(0,x-r)]}}
+ for(let x=0;x<w;x++){let s=0;for(let y=-r;y<=r;y++)s+=t[Math.min(h-1,Math.max(0,y))*w+x];for(let y=0;y<h;y++){o[y*w+x]=s/(2*r+1);s+=t[Math.min(h-1,y+r+1)*w+x]-t[Math.max(0,y-r)*w+x]}}return o}
+function chcMorph(m,grow){const w=CCE.w,h=CCE.h,o=new Uint8Array(m.length);for(let y=0;y<h;y++)for(let x=0;x<w;x++){let v=m[y*w+x];for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const px=x+dx,py=y+dy;if(px<0||py<0||px>=w||py>=h)continue;const u=m[py*w+px];v=grow?Math.max(v,u):Math.min(v,u)}o[y*w+x]=v}return o}
+function chcOp(k){const A=CCE.L[CCE.a];if(!A)return;chcPush();let m=A.m;
+ if(k=='grow'){m=chcMorph(chcMorph(m,1),1)}else if(k=='shrink'){m=chcMorph(chcMorph(m,0),0)}else if(k=='soft'){m=chcBlur(m,2)}else if(k=='inv'){m=m.map(v=>255-v)}else if(k=='clear'){m=new Uint8Array(m.length)}
+ else if(k=='fill'){const w=CCE.w,h=CCE.h,out=new Uint8Array(m.length),q=new Int32Array(m.length);let qh=0,qt=0;const add=i=>{if(!out[i]&&m[i]<128){out[i]=1;q[qt++]=i}};for(let x=0;x<w;x++){add(x);add((h-1)*w+x)}for(let y=0;y<h;y++){add(y*w);add(y*w+w-1)}while(qh<qt){const i=q[qh++],x=i%w;if(x>0)add(i-1);if(x<w-1)add(i+1);if(i>=w)add(i-w);if(i<m.length-w)add(i+w)}m=new Uint8Array(m);for(let i=0;i<m.length;i++)if(!out[i]&&m[i]<128)m[i]=255}
+ A.m.set(m);chcPanel();chcDraw()}
+function chcBind(){const v=document.getElementById('chcv'),c=document.getElementById('chcc'),m=document.getElementById('chcm');let down=0,last=null,ref=null;
+ const move=e=>{const r=m.getBoundingClientRect();c.style.left=(e.clientX-r.left+m.scrollLeft)+'px';c.style.top=(e.clientY-r.top+m.scrollTop)+'px'};
+ v.addEventListener('pointerdown',e=>{e.preventDefault();const p=chcPt(e);if(CCE.tool=='wand'){chcPush();chcWand(p[0],p[1]);chcPanel();chcDraw();return}try{v.setPointerCapture(e.pointerId)}catch(x){}down=1;chcPush();ref=CCE.tool=='brush'&&CCE.smart?chcRef(p[0],p[1]):null;chcDab(p[0],p[1],ref);last=p;chcDraw()});
+ v.addEventListener('pointermove',e=>{move(e);if(!down)return;const p=chcPt(e),d=Math.hypot(p[0]-last[0],p[1]-last[1]),st=Math.max(1,CCE.size/5);for(let t=st;t<=d;t+=st){const f=t/d;chcDab(last[0]+(p[0]-last[0])*f,last[1]+(p[1]-last[1])*f,ref)}if(d>=st)last=p;chcDraw()});
+ const up=()=>{if(down){down=0;chcPanel()}};v.addEventListener('pointerup',up);v.addEventListener('pointercancel',up);
+ v.addEventListener('pointerenter',()=>c.classList.add('on'));v.addEventListener('pointerleave',()=>c.classList.remove('on'));
+ m.addEventListener('wheel',e=>{if(!e.ctrlKey)return;e.preventDefault();chcZoom(e.deltaY<0?1:-1)},{passive:false})}
+try{window.addEventListener('resize',()=>{if(document.getElementById('chce'))chcFit()})}catch(e){}
+try{document.addEventListener('keydown',e=>{if(!document.getElementById('chce')||document.getElementById('cfm'))return;if(/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||'')&&e.target.type!='range'&&e.target.type!='checkbox')return;const k=e.key.toLowerCase();
+ if((e.ctrlKey||e.metaKey)&&k=='z'){e.preventDefault();e.shiftKey?chcRedo():chcUndo()}else if((e.ctrlKey||e.metaKey)&&k=='y'){e.preventDefault();chcRedo()}else if(k=='b'){CCE.tool='brush';chcTools()}else if(k=='e'){CCE.tool='erase';chcTools()}else if(k=='w'){CCE.tool='wand';chcTools()}else if(k=='['){CCE.size=Math.max(4,CCE.size-6);chcTools()}else if(k==']'){CCE.size=Math.min(250,CCE.size+6);chcTools()}else if(k=='escape'){e.stopPropagation();chcClose()}else return;e.stopPropagation()},true)}catch(e){}
+/* ---------- automatic colour zones (k-means) ---------- */
+function chcAuto(){const go=()=>{const K=CCE.zones,n=CCE.n,La=CCE.La,src=CCE.src,P=[];const step=Math.max(1,Math.floor(n/25000));for(let i=0;i<n;i+=step){if(src[i*4+3]<20)continue;if(CCE.skin&&CCE.skm[i])continue;P.push(i)}if(P.length<K)return toast('Not enough colour in this picture');
+ let C=[];C.push(P[(Math.random()*P.length)|0]);const D=new Float32Array(P.length).fill(1e9);while(C.length<K){let tot=0;const c=C[C.length-1]*3;for(let j=0;j<P.length;j++){const q=P[j]*3,d=(La[q]-La[c])**2+(La[q+1]-La[c+1])**2+(La[q+2]-La[c+2])**2;if(d<D[j])D[j]=d;tot+=D[j]}let r=Math.random()*tot,j=0;for(;j<P.length-1;j++){r-=D[j];if(r<=0)break}C.push(P[j])}
+ C=C.map(i=>[La[i*3],La[i*3+1],La[i*3+2]]);const as=new Uint8Array(P.length);
+ for(let it=0;it<12;it++){const sum=C.map(()=>[0,0,0,0]);for(let j=0;j<P.length;j++){const q=P[j]*3;let b=0,bd=1e9;for(let c=0;c<K;c++){const d=(La[q]-C[c][0])**2+(La[q+1]-C[c][1])**2+(La[q+2]-C[c][2])**2;if(d<bd){bd=d;b=c}}as[j]=b;const s=sum[b];s[0]+=La[q];s[1]+=La[q+1];s[2]+=La[q+2];s[3]++}C=C.map((c,i)=>sum[i][3]?[sum[i][0]/sum[i][3],sum[i][1]/sum[i][3],sum[i][2]/sum[i][3]]:c)}
+ const M=C.map(()=>new Uint8Array(n)),cnt=C.map(()=>0);for(let i=0;i<n;i++){if(src[i*4+3]<20)continue;const q=i*3;let b=0,bd=1e9;for(let c=0;c<K;c++){const d=(La[q]-C[c][0])**2+(La[q+1]-C[c][1])**2+(La[q+2]-C[c][2])**2;if(d<bd){bd=d;b=c}}M[b][i]=255;cnt[b]++}
+ const ord=C.map((c,i)=>i).sort((a,b)=>cnt[b]-cnt[a]);const name=c=>{const l=c[0],ch=Math.hypot(c[1],c[2]),h=(Math.atan2(c[2],c[1])*180/Math.PI+360)%360;if(ch<10)return l>75?'White':l<25?'Black':'Grey';return h<35?'Red':h<70?'Orange':h<105?'Yellow':h<160?'Green':h<230?'Cyan':h<290?'Blue':h<330?'Purple':'Pink'};
+ chcPush();CCE.L=CCE.L.filter(l=>!l.auto&&l.m.some(v=>v));const used={};ord.forEach((ci,r)=>{const bn=name(C[ci]);used[bn]=(used[bn]||0)+1;const sm=chcBlur(M[ci],1),m=new Uint8Array(n);for(let i=0;i<n;i++)m[i]=Math.max(M[ci][i]?200:0,sm[i]);CCE.L.push({n:bn+(used[bn]>1?' '+used[bn]:''),on:1,auto:1,mode:'shift',c:'#3a8cff',dh:0,ds:0,dl:0,m,pc:cnt[ci]})});CCE.a=CCE.L.length-ord.length;chcPanel();chcDraw();toast(ord.length+' colour zones found')};
+ toast('Finding colour zones…');setTimeout(go,30)}
+function chcTheme(t){const L=CCE.L.filter(l=>l.on);if(!L.length)return toast('Turn on a layer first');const T=t<0?[0,1,2].map(()=>[Math.random()*360,.4+Math.random()*.5]):CCTH[t][1];
+ L.forEach((l,i)=>{const c=T[i%T.length];l.mode='tint';l.c=chcHex(c[0],c[1],.5);l.dh=0;l.ds=c[1]<.2?-60:0;l.dl=0});chcPanel();chcDraw()}
+/* ---------- saving ---------- */
+function chcSaveAsk(){const k=S.skins.find(x=>x.id==CCE.sk);if(!k)return;const ex=CCE.ch&&chrOf(k).find(x=>x.id==CCE.ch);
+ XMOD('chcsv',`<h3 style="margin-top:0">${ex?'Save chroma':'New chroma'}</h3><label>Name</label><input id="chcn" value="${esc(CCE.name||'')}" placeholder="Obsidian"><div class="row"><div><label>Price (skin shards)</label><input id="chcp2" type="number" min="0" value="${CCE.price||10}"></div><div><label>Colour dot</label><input id="chcc2" type="color" value="${esc(chcMain())}" style="height:38px;padding:2px"></div></div>${ex?`<label class="chk" style="margin-top:8px"><input type="checkbox" id="chcnew"> Save as a new chroma instead</label>`:''}<p class="mut" style="font-size:12px">Saved as a new picture in full quality. You can open it again in the creator to keep editing.</p><div class="wsrow"><button class="btn dev" onclick="chcSave()">Save</button><button class="btn" onclick="XCLOSE('chcsv')">Cancel</button></div>`,420)}
+function chcMain(){const l=CCE.L.find(x=>x.on&&x.mode=='tint');if(l)return l.c;const s=CCE.L.find(x=>x.on);if(s){let h=0,n=0;for(let i=0;i<CCE.n;i+=53)if(s.m[i]>127){h+=CCE.H[i];n++}return chcHex((n?h/n:200)+s.dh,.6,.5)}return '#7fb7ff'}
+async function chcSave(){const g=i=>(document.getElementById(i)||{}).value||'',n=g('chcn').trim();if(!n)return toast('Name the chroma');const k=S.skins.find(x=>x.id==CCE.sk);if(!k)return;toast('Saving…');
+ await new Promise(r=>setTimeout(r,20));const out=chcFull();const asNew=(document.getElementById('chcnew')||{}).checked;let c=CCE.ch&&!asNew&&chrOf(k).find(x=>x.id==CCE.ch);
+ if(!c){c={id:uid('cr'),name:n,col:g('chcc2'),p:Math.max(0,Math.floor(+g('chcp2')||0))};k.chr=chrOf(k).concat([c])}else{c.name=n;c.col=g('chcc2');c.p=Math.max(0,Math.floor(+g('chcp2')||0))}
+ await mset('chr_'+c.id,{d:out});CHRI[c.id]=out;
+ try{await mset('chm_'+c.id,{skin:CCE.skin,L:CCE.L.map(l=>({n:l.n,on:l.on,mode:l.mode,c:l.c,dh:l.dh,ds:l.ds,dl:l.dl,auto:l.auto?1:0,m:chcMaskUrl(l.m)}))})}catch(e){}
+ CCE.ch=c.id;CCE.name=n;save();XCLOSE('chcsv');toast('Chroma saved: '+n);render()}
+function chcFull(){const im=CCE.img,MX=2400,sc=Math.min(1,MX/Math.max(im.naturalWidth,im.naturalHeight)),W=Math.round(im.naturalWidth*sc),H=Math.round(im.naturalHeight*sc);const cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');x.drawImage(im,0,0,W,H);const id=x.getImageData(0,0,W,H),o=id.data;
+ const L=CCE.L.filter(l=>l.on).map(l=>{l._t=null;const mc=document.createElement('canvas');mc.width=CCE.w;mc.height=CCE.h;const mx=mc.getContext('2d'),md=mx.createImageData(CCE.w,CCE.h);for(let i=0;i<CCE.n;i++){md.data[i*4]=md.data[i*4+1]=md.data[i*4+2]=l.m[i];md.data[i*4+3]=255}mx.putImageData(md,0,0);const bc=document.createElement('canvas');bc.width=W;bc.height=H;const bx=bc.getContext('2d');bx.imageSmoothingEnabled=true;bx.imageSmoothingQuality='high';bx.drawImage(mc,0,0,W,H);return {l,m:bx.getImageData(0,0,W,H).data}});
+ let alpha=false;for(let i=0,j=0;i<W*H;i++,j+=4){if(o[j+3]<255)alpha=true;const r=o[j],g=o[j+1],b=o[j+2];if(CCE.skin&&chcSkinPx(r,g,b))continue;let q=null;for(const e of L){const a=e.m[j];if(!a)continue;if(!q)q=chcHsl(r,g,b);chcApply(o,i,j,q[0],q[1],q[2],e.l,a)}}
+ x.putImageData(id,0,0);return alpha?cv.toDataURL('image/png'):cv.toDataURL('image/webp',.93)}
+function chcMaskUrl(m){const c=document.createElement('canvas');c.width=CCE.w;c.height=CCE.h;const x=c.getContext('2d'),d=x.createImageData(CCE.w,CCE.h);for(let i=0;i<CCE.n;i++){d.data[i*4]=d.data[i*4+1]=d.data[i*4+2]=m[i];d.data[i*4+3]=255}x.putImageData(d,0,0);return c.toDataURL('image/png')}
+async function chcMaskFrom(u){const m=new Uint8Array(CCE.n);if(!u)return m;try{const im=await chcLoadImg(u),c=document.createElement('canvas');c.width=CCE.w;c.height=CCE.h;const x=c.getContext('2d');x.drawImage(im,0,0,CCE.w,CCE.h);const d=x.getImageData(0,0,CCE.w,CCE.h).data;for(let i=0;i<CCE.n;i++)m[i]=d[i*4]}catch(e){}return m}
+/* ---------- entry points on the Chromas page ---------- */
+{const _cv2=chrView;chrView=function(){let h=_cv2.apply(this,arguments);const k=S.skins.find(x=>x.id==chrK);if(!k)return h;
+ const box=`<section class="wsc chcent"><header><span class="qxi">${ico('brsh',15)}</span><div><b>${esc(nm('Chroma creator'))}</b><small>Recolour “${esc(k.name)}” yourself: paint the parts to change, click to select an element, or let it find the colour zones.</small></div><button class="btn dev" onclick="chcOpen('${k.id}')" ${k.img?'':'disabled'}>${k.img?'Open the creator':'This skin has no picture'}</button></header></section>`;
+ const i=h.indexOf('<div class="chrxg">');h=i>=0?h.slice(0,i)+box+h.slice(i):box+h;
+ return h.replace(/(<div class="panel chrxc">[\s\S]*?)(<button class="btn red" onclick="chrDel\('([^']+)'\)">)/g,(m0,a,b,id)=>a+`<button class="btn" onclick="chcOpen('${k.id}','${id}')">${ico('brsh',12)} Edit in creator</button>`+b)}}
+try{WSX.chroma.f=()=>chrView()}catch(e){}
 
 
 render();
