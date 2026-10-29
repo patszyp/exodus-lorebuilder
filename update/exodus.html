@@ -6742,8 +6742,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='1.6.1';
+const WNV='1.6.2';
 const WN=[
+ ['1.6.2','29 Oct 2026',[
+  ['App','Backups on Android','Importing a backup on the Android app works again: the file picker now shows backup files.',"openSet();render()"]]],
  ['1.6.1','29 Oct 2026',[
   ['App','Updates from GitHub','A small test update: it checks that installing new versions from GitHub works.',"openSet();stSec='abt';render()"]]],
  ['1.6','29 Oct 2026',[
@@ -8287,7 +8289,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='1.6.1 Beta',APPB=176;
+const APPV='1.6.2 Beta',APPB=177;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -9222,6 +9224,17 @@ wsxAdd('ghupd','Updates','dl','App',()=>`<div class="panel"><h3 style="margin-to
  <div class="panel"><h3 style="margin-top:0">This copy of the app</h3><p class="mut" style="margin:0">Page ${esc(APPV)} (build ${APPB}) · ${ghPlat()=='win'?'Windows app '+esc(ghShell()):ghPlat()=='apk'?'Android app '+esc(ghShell()):'web version'}</p></div>`);
 try{const g=WSR.find(x=>x[0]=='App and look');if(g&&!g[1].includes('ghupd'))g[1].push('ghupd')}catch(e){}
 function ghTpl(){const j=ghSt.j||{};return {version:APPV,build:APPB,html:'update/exodus.html',notes:(()=>{try{return WN[0][2].map(x=>x[1])}catch(e){return []}})(),win:j.win||{version:'1.5.0',url:'https://github.com/OWNER/REPO/releases/download/v1.5/Exodus-Lorebuilder-Windows.zip'},apk:j.apk||{version:'1.5.0',url:'https://github.com/OWNER/REPO/releases/download/v1.5/Exodus-Lorebuilder.apk'}}}
+
+/* ===== 1.6.2: Android file picker shows backup, text and font files ===== */
+/* Android's picker hides .json and other non-media files when the app asks for them by type, so let it show every file there */
+if(window.ExodusAndroid){
+ const anyFile=i=>{try{if(i&&i.tagName=='INPUT'&&i.type=='file'){const a=i.getAttribute('accept')||'';if(a&&!/image|video|audio/i.test(a)){i.dataset.acc=a;i.removeAttribute('accept')}}}catch(e){}};
+ {const _ck=HTMLInputElement.prototype.click;HTMLInputElement.prototype.click=function(){anyFile(this);return _ck.apply(this,arguments)}}
+ document.addEventListener('click',e=>{const t=e.target;if(t&&t.tagName=='INPUT')anyFile(t);else if(t&&t.closest){const l=t.closest('label');if(l){const i=l.control||l.querySelector('input[type=file]');anyFile(i)}}},true);
+ XPOST.push(function anyFilePost(){document.querySelectorAll('input[type=file][accept]').forEach(anyFile)});
+}
+/* a backup file that is not JSON gives a clear message */
+{const _fr=fullRestore;fullRestore=async function(f){if(f&&f.name&&!/\.json$/i.test(f.name)&&!/json|text|octet/i.test(f.type||''))return toast('Pick the backup file that ends in .json');return _fr.apply(this,arguments)}}
 
 
 render();

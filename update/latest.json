@@ -1,9 +1,9 @@
 {
-  "version": "1.6.1 Beta",
-  "build": 176,
+  "version": "1.6.2 Beta",
+  "build": 177,
   "html": "update/exodus.html",
   "notes": [
-    "Test update: checks that installing new versions from GitHub works"
+    "Importing a backup on the Android app works again"
   ],
   "win": {
     "version": "1.5.0",
