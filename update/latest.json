@@ -1,10 +1,9 @@
 {
-  "version": "1.6.4 Beta",
-  "build": 179,
+  "version": "1.6.5 Beta",
+  "build": 180,
   "html": "update/exodus.html",
   "notes": [
-    "Every slide type fits phone screens: picture on top, text and buttons at the bottom",
-    "Smaller Shimshop items on phones"
+    "Battlepass slide fits properly on phones"
   ],
   "win": {
     "version": "1.5.0",

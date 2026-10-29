@@ -2067,7 +2067,18 @@ aside.cls>select[data-skf]{width:100%}
  .shg{grid-template-columns:repeat(2,1fr)!important;grid-auto-rows:auto!important}
  .shc{height:auto!important;aspect-ratio:3/4}
  .shc.big{grid-column:span 2;grid-row:auto!important;aspect-ratio:16/10;max-height:240px}
+ .hsbpr svg{width:100%!important;height:100%!important}
+ .hsbplv{gap:12px}
+ .bp4t .bp4tc{width:54%;height:54%}
+ .bp4t .bp4ti{width:82%;height:82%}
+ .bp4t .bp4n{font-size:12px;right:3px;bottom:1px}
+ .bp4t .bp4lk{width:15px;height:15px;left:2px;top:2px}.bp4t .bp4lk svg{width:9px;height:9px}
+ .bp4t.pr::before{font-size:10px;right:3px;top:1px}
+ .bp4t .bp4ok{width:28px;height:28px}
+ .hsbps .bp4t,.bp4row .bp4t{width:60px!important;height:60px!important}
+ .hsbps{padding:12px 6px 14px!important}
 }
+.hsbs{display:none}@media(max-width:720px){.hsbl{display:none}.hsbs{display:inline}}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -6801,8 +6812,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='1.6.4';
+const WNV='1.6.5';
 const WN=[
+ ['1.6.5','29 Oct 2026',[
+  ['Battlepass','Battlepass slide on phones','The level ring, buttons and rewards on the Battlepass slide fit properly on phones.',"go('home');render()"]]],
  ['1.6.4','29 Oct 2026',[
   ['App','Slides made for phones','On phones, every slide type fills the screen with the picture on top and the text, quest and buttons at the bottom. Shimshop items are smaller.',"go('home');render()"]]],
  ['1.6.3','29 Oct 2026',[
@@ -8357,7 +8370,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='1.6.4 Beta',APPB=179;
+const APPV='1.6.5 Beta',APPB=180;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -9213,7 +9226,7 @@ function hsBpT(s){const b=hsBpOf(s);if(!b)return `<div class="hsbpt"><p class="m
  const go2=`S.bpCur='${b.id}';bpSel=null;bp3Sel=null;bp3Pg=null;pickSub('prof','bp')`;
  return `<div class="hsbpt"><div class="hsbpl hsin">${`<div class="hsmeb"><small class="hseb">${esc(s.eb||'Battlepass')}</small>${left?`<span class="hstm">${ico('clock',13)} ${left}</span>`:''}${b.prem?`<span class="bp4own">♛ ${esc(nm('Pass owned'))}</span>`:''}</div>`}<h1 class="hsh1 ${hsTitleCls(s)}">${esc(s.title||b.name)}</h1>${s.text?`<p class="hsp">${fmt(s.text)}</p>`:''}
   <div class="hsbplv"><span class="hsbpr"><svg viewBox="0 0 92 92" width="92" height="92" aria-hidden="true"><circle cx="46" cy="46" r="40" fill="none" stroke="#1e2d3d" stroke-width="5"/><circle cx="46" cy="46" r="40" fill="none" stroke="#0ac8b9" stroke-width="5" stroke-linecap="round" stroke-dasharray="${(C*pct).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 46 46)"/></svg><b>${L}</b><small>${esc(nm('Level'))}</small></span><div><b class="hsbpx">${L>=BPN?'MAX':`${into} / ${b.per} XP`}</b><small class="mut">${L>=BPN?'All levels done':`${b.per-into} XP to level ${L+1}`}</small></div></div>
-  <div class="hsbpb"><button class="hsb gd" onclick="${go2}">${esc(nm('Open the Battlepass'))}</button>${b.prem?'':`<button class="hsb dk" onclick="S.bpCur='${b.id}';bp3Up()">${esc(nm('Upgrade pass'))}</button>`}</div></div>
+  <div class="hsbpb"><button class="hsb gd" onclick="${go2}"><span class="hsbl">${esc(nm('Open the Battlepass'))}</span><span class="hsbs">${esc(nm('Open pass'))}</span></button>${b.prem?'':`<button class="hsb dk" onclick="S.bpCur='${b.id}';bp3Up()">${esc(nm('Upgrade pass'))}</button>`}</div></div>
   ${nr?`<div class="hsbpn hsin"><small class="hseb">${esc(nm('Next reward'))} · ${esc(nm('Level'))} ${nx.i+1}${nx.row=='pr'?' · ♛':''}</small><span class="hsbpni">${bp4Big(nr,no)}</span><b>${esc(bpLabel(nr))}</b></div>`:''}
   <div class="hsbps hsin2"><div class="bp4row" style="--n:${Math.max(1,E.length)}">${E.map(e=>{const r=(e.row=='pr'?b.pr:b.fr)[e.i],o=bpObj(r),g=(e.row=='pr'?b.cp:b.cf).includes(e.i),lk=e.row=='pr'&&!b.prem;return `<div class="bp4c"><button class="bp4t ${g?'got':''} ${lk?'lk':''} ${e.row=='pr'?'pr':''} ${L<e.i+1?'far':''}" onclick="${go2}" title="${esc(bpLabel(r))}">${bp4Ico(r,o)}${r&&!o&&bpAmt(r)?`<small class="bp4n">${esc(bpAmt(r))}</small>`:''}${g?`<i class="bp4ok">${ico('chk',16)}</i>`:lk?`<i class="bp4lk">${ico('lockk',11)}</i>`:''}</button><span class="bp4lv ${L>=e.i+1?'ok':''}">${e.i+1}</span></div>`}).join('')}</div></div></div>`})}
 {const _hv2=hsView;hsView=function(s){if(!s||s.t!='bp')return _hv2.apply(this,arguments);const b=hsBpOf(s),m=hsBg(s);const ss=Object.assign({},s);if(!(m&&m.u)&&b){const bb=bpBg(b);if(bb){ss.bgk='';HZM_['__bp_'+b.id]={u:bb,v:0};ss.bgk='__bp_'+b.id}}
