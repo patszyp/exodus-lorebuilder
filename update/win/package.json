@@ -1,0 +1,8 @@
+{
+  "name": "exodus-lorebuilder",
+  "productName": "Exodus Lorebuilder",
+  "version": "1.8.0",
+  "description": "Exodus Lorebuilder",
+  "author": "MIRAI",
+  "main": "main.js"
+}

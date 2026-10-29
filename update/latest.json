@@ -1,14 +1,20 @@
 {
- "version": "2.2.4 Beta",
- "build": 192,
+ "version": "2.3 Beta",
+ "build": 193,
  "html": "update/exodus.html",
- "notes": "New fragment window.",
+ "notes": "The Windows and Android apps can now update themselves. Install the 1.8.0 apps once by hand; after that, Check for updates does it.",
  "win": {
-  "version": "1.7.0",
-  "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.2/Exodus-Lorebuilder-2.2-Beta-Windows.zip"
+  "version": "1.8.0",
+  "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.3/Exodus-Lorebuilder-2.3-Beta-Windows.zip",
+  "files": {
+   "main": "update/win/main.js",
+   "preload": "update/win/preload.js",
+   "package": "update/win/package.json"
+  }
  },
  "apk": {
-  "version": "1.7.0",
-  "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.2/Exodus-Lorebuilder-2.2-Beta.apk"
+  "version": "1.8.0",
+  "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.3/Exodus-Lorebuilder-2.3-Beta.apk",
+  "raw": "update/android/exodus.apk"
  }
 }

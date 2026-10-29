@@ -7175,8 +7175,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.2.4';
+const WNV='2.3';
 const WN=[
+ ['2.3','29 Oct 2026',[
+  ['App','Apps that update themselves','From now on the Windows app downloads, installs and reopens by itself, and the Android app downloads its update and opens the installer. Settings › About › Check for updates.',"openSet();stSec='abt';render()"]]],
  ['2.2.4','29 Oct 2026',[
   ['Collection','New fragment window','The fragment window has even cards with rarity, price and how many more you need, plus a timer for the next choices.',"go('store');ssub='inv';render()"]]],
  ['2.2.3','29 Oct 2026',[
@@ -8757,7 +8759,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.2.4 Beta',APPB=192;
+const APPV='2.3 Beta',APPB=193;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -10372,6 +10374,23 @@ frPanel=function(k){const L=frRoll(k),key=k=='c'?'frc':'frs',n=S.inv[key]||0,lab
  return `<div class="frx fgx"><div class="fgh"><span class="fghi">${ico(k=='c'?'frc':'frs',26)}</span><div><small class="evk">${esc(nm(lab))}</small><h2 class="f">${esc(nm('You have'))} ${n}</h2><p class="mut">Pick one ${k=='c'?'character':'skin'}.${left?` New choices in <b>${left}</b>.`:''}</p></div></div>
   ${L.length?`<div class="fgg">${cards}</div>`:`<p class="mut fgempty">You own every ${k=='c'?'character':'skin'} that fragments can give.</p>`}
   ${n?'':`<p class="mut fgtip">${ico('gift',12)} Get fragments from chests, orbs, the Gacha and quests.</p>`}</div>`};
+/* ---------- 2.3: the Windows and Android apps update themselves ---------- */
+const ghSelf=()=>!!(window.exodus&&(window.exodus.shellFiles||window.exodus.shellUpdate)||window.ExodusAndroid&&ExodusAndroid.downloadApk);
+const ghRawAt=p=>{const r=ghRepo();return ghSha?`https://raw.githubusercontent.com/${r}/${ghSha}/${p}`:ghRaw(r,p)};let ghShSel=null;
+{const _gp=ghPop;ghPop=function(j,html,shNew,sh){_gp.apply(this,arguments);ghShSel=sh;if(!shNew||!sh||!ghSelf())return;const box=document.querySelector('#ghm .ghsh');if(!box)return;const app=ghPlat()=='win'?'Windows':'Android';
+ box.innerHTML=`<b>New ${app} app ${esc(sh.version)}</b><p class="mut" style="margin:2px 0 8px">${ghPlat()=='win'?'It downloads, installs and reopens by itself. Your lore stays where it is.':'It downloads by itself, then Android asks you to tap <b>Install</b>. Your lore stays where it is.'}</p><div class="ghshp" hidden><div class="pzbar"><i style="width:0%"></i></div><small class="mut"></small></div><div class="wsrow"><button class="btn dev ghb" onclick="ghShellGo()">Update the ${app} app</button></div>`;
+ if(html){const b=document.querySelector('#ghm .sy2 .btn.dev');if(b)b.textContent='Install only the page update'}}}
+function ghShellBar(n,t,msg){const w=document.querySelector('#ghm .ghshp');if(!w)return;w.hidden=false;const i=w.querySelector('i'),s=w.querySelector('small');if(i)i.style.width=(t?Math.round(n/t*100):5)+'%';if(s)s.textContent=msg||(t?`Downloading… ${(n/1048576).toFixed(1)} of ${(t/1048576).toFixed(1)} MB`:`Downloading… ${(n/1048576).toFixed(1)} MB`)}
+async function ghShellGo(){const sh=ghShSel||{},url=sh.url||'';document.querySelectorAll('#ghm .ghb').forEach(b=>b.disabled=true);const back=()=>document.querySelectorAll('#ghm .ghb').forEach(b=>b.disabled=false);
+ if(window.exodus&&window.exodus.shellFiles&&sh.files){ghShellBar(0,0,'Downloading…');try{const F={};for(const k of ['main','preload','package']){const r=await fetch(ghRawAt(sh.files[k])+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;F[k]=await r.text()}ghShellBar(1,1,'Installing…');const x=await window.exodus.shellFiles(F);if(x&&x.ok){ghShellBar(1,1,'Done. The app restarts now.');toast('Windows app updated. Restarting…');return}ghShellBar(0,0,(x&&x.msg)||'Could not update the app');toast((x&&x.msg)||'Could not update the app')}catch(e){ghShellBar(0,0,'Could not download the update');toast('Could not download the update')}back();return}
+ if(window.exodus&&window.exodus.shellUpdate&&/\/releases\/download\//.test(url)){try{window.exodus.onShellProg&&!window._ghsp&&(window._ghsp=1,window.exodus.onShellProg(m=>ghShellBar(m.n,m.total)))}catch(e){}ghShellBar(0,0,'Starting the download…');
+  const r=await window.exodus.shellUpdate(url);if(r&&r.ok){ghShellBar(1,1,'Installing… The app closes now and opens again by itself in about a minute.');toast('Installing the new Windows app…')}else{ghShellBar(0,0,(r&&r.msg)||'Could not update the app');toast((r&&r.msg)||'Could not update the app');document.querySelectorAll('#ghm .ghb').forEach(b=>b.disabled=false)}return}
+ if(window.ExodusAndroid&&ExodusAndroid.downloadApk){const id=ExodusAndroid.downloadApk(sh.raw?ghRawAt(sh.raw):url);if(id<0){toast('Could not start the download');document.querySelectorAll('#ghm .ghb').forEach(b=>b.disabled=false);return}ghShellBar(0,0,'Starting the download…');
+  const t=setInterval(()=>{let p;try{p=String(ExodusAndroid.apkProgress(id)).split(',').map(Number)}catch(e){p=[16,0,0]}const [st,n,tot]=p;
+   if(st==8){clearInterval(t);ghShellBar(1,1,'Downloaded. Tap Install in the window that opens. If Android asks, allow installing from Exodus Lorebuilder first.');try{if(!ExodusAndroid.openApk(id))toast('Open the downloaded update from your notifications')}catch(e){}document.querySelectorAll('#ghm .ghb').forEach(b=>b.disabled=false);document.querySelectorAll('#ghm .ghsh .ghb').forEach(b=>{b.textContent='Open the installer again';b.setAttribute('onclick',`ExodusAndroid.openApk(${id})`)})}
+   else if(st==16){clearInterval(t);ghShellBar(0,0,'The download failed. Check the connection and try again.');document.querySelectorAll('#ghm .ghb').forEach(b=>b.disabled=false)}
+   else ghShellBar(n,tot>0?tot:0)},600);return}
+ ghOpen(url);back()}
 
 
 render();
