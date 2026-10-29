@@ -2419,6 +2419,11 @@ body.chcopen #toast{z-index:120}
 .qbpv:after{content:'';position:absolute;inset:0;background:rgba(1,10,19,var(--qd,.35));pointer-events:none}
 .qbpv.off:after{display:none}.qbpv span{display:flex;flex-direction:column;align-items:center;gap:4px;color:#5b5a56}
 @media(max-width:760px){.frxr{grid-template-columns:1fr}.frxbar{grid-template-columns:1fr 1fr!important}.qban{height:80px}}
+.fgcost{margin:0 0 10px}.fgcost>label{margin-top:0}
+.fgcr{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:6px;margin-bottom:4px}
+.fgcr small{display:block;font-size:11px;color:#a09b8c;margin-bottom:2px}.fgcr input{margin:0}
+.frt{position:relative}.frcost{position:absolute;top:4px;right:4px;z-index:1;font-style:normal;font-size:11px;padding:1px 6px;background:rgba(1,10,19,.85);border:1px solid #785a28;color:#f0e6d2;display:inline-flex;gap:3px;align-items:center}
+.frt[disabled] .frcost{color:#e06666;border-color:#e0666688}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -7152,8 +7157,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.2.2';
+const WNV='2.2.3';
 const WN=[
+ ['2.2.3','29 Oct 2026',[
+  ['Collection','Fragment prices','Each character or skin in the fragment list shows how many fragments it costs.',"go('store');ssub='inv';render()"]]],
  ['2.2.2','29 Oct 2026',[
   ['Collection','Fragments open again','Tapping a character or skin fragment in the inventory opens the list to pick from again.',"go('store');ssub='inv';render()"]]],
  ['2.2.1','29 Oct 2026',[
@@ -8730,7 +8737,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.2.2 Beta',APPB=190;
+const APPV='2.2.3 Beta',APPB=191;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -10328,6 +10335,15 @@ XPOST.push(function qbPost(){if(!edit||edit.t!='q')return;const c=document.query
  <div class="wsrow"><label class="btn dev" style="cursor:pointer;margin:0">${ico('plus',12)} ${b?'Change picture':'Add a picture'}<input type="file" accept="image/*" data-asp="3:1" hidden onchange="qbUp(this)"></label>${b?`<button class="btn red" onclick="qbDel()">Remove</button>`:''}</div>
  ${b?`<div class="row"><div><label>Show it as</label><select onchange="qbSet('bans',this.value)"><option value="ban" ${(q.bans||'ban')=='ban'?'selected':''}>A banner across the top</option><option value="icon" ${q.bans=='icon'?'selected':''}>A small picture on the left</option></select></div><div><label>Show which part</label><select onchange="qbSet('banp',this.value)">${[['top','Top'],['center','Middle'],['bottom','Bottom']].map(([v,l])=>`<option value="${v}" ${QBP(q)==v?'selected':''}>${l}</option>`).join('')}</select></div><div><label>Darken for readable text</label><input type="range" min="0" max="80" value="${q.band==null?35:q.band}" oninput="qbSet('band',+this.value)"></div></div>`:''}`});
 {const _sq9=saveQ;saveQ=function(){const id=edit&&edit.id,before=new Set(S.quests.map(x=>x.id)),n=window._qbn;const r=_sq9.apply(this,arguments);const q=S.quests.find(x=>x.id==id)||S.quests.find(x=>!before.has(x.id));if(q){if(!id&&COV.__new){COV[q.id]=COV.__new;delete COV.__new;covSave()}if(n){Object.assign(q,n);save()}}window._qbn=null;return r}}
+/* ---------- 2.2.3: how many fragments each character or skin costs ---------- */
+const fgCost=(k,o)=>{const c=FGX()[k=='c'?'c':'k'];if(!o)return Math.max(1,+c.cost||1);const r=(c.rc||{})[o.rar||0];return Math.max(1,+(r!=null&&r!==''?r:c.cost)||1)};
+frPick=function(k,id){const o=k=='c'?S.chars.find(x=>x.id==id):S.skins.find(x=>x.id==id);if(!o)return;const key=k=='c'?'frc':'frs',have=S.inv[key]||0,need=fgCost(k,o);if(have<need)return toast(`You need ${need} ${frName(k).toLowerCase()}${need==1?'':'s'} for ${o.name} (you have ${have})`);
+ cfm(`Use ${need} ${frName(k).toLowerCase()}${need==1?'':'s'} to get ${o.name}?`,()=>{S.inv[key]-=need;if(k=='c'){if(!S.owned.includes(id))S.owned.push(id)}else getSkin(id);const R=S.frr&&S.frr[k];if(R)R.l=R.l.filter(x=>x!=id);snd('claim');toast('Got '+o.name+'!');track('frag');save();XCLOSE('frm');render()})};
+{const _fpc=frPanel;frPanel=function(k){let h=_fpc.apply(this,arguments);const have=S.inv[k=='c'?'frc':'frs']||0;return h.replace(/<button class="frt"([^>]*?)onclick="frPick\('([ck])','([^']+)'\)">/g,(m,a,kk,id)=>{const o=kk=='c'?S.chars.find(x=>x.id==id):S.skins.find(x=>x.id==id),need=fgCost(kk,o);a=a.replace(/\sdisabled(?=\s|$)/,'');return `<button class="frt"${a}${have<need?' disabled':''} onclick="frPick('${kk}','${id}')"><i class="frcost">${ico(kk=='c'?'frc':'frs',10)} ${need}</i>`})}}
+function fgSetCost(k,v){FGX()[k].cost=Math.max(1,Math.floor(+v||1));save();render()}
+function fgSetRc(k,r,v){const c=FGX()[k];c.rc=c.rc||{};if(v===''||v==null)delete c.rc[r];else c.rc[r]=Math.max(1,Math.floor(+v||1));save()}
+{const _fxc=frxCard;frxCard=function(k){let h=_fxc.apply(this,arguments);const c=FGX()[k];const box=`<div class="fgcost"><label>Fragments needed</label><div class="fgcr"><div><small>Normally</small><input type="number" min="1" value="${Math.max(1,+c.cost||1)}" onchange="fgSetCost('${k}',this.value)"></div>${RN.map((n,i)=>`<div><small style="color:${rc(i)}">${esc(n)}</small><input type="number" min="1" placeholder="${Math.max(1,+c.cost||1)}" value="${(c.rc||{})[i]!=null?c.rc[i]:''}" onchange="fgSetRc('${k}',${i},this.value)"></div>`).join('')}</div><small class="mut">Leave a rarity empty to use the normal number.</small></div>`;
+ return h.replace('<div class="frxr">',box+'<div class="frxr">')}}
 
 
 render();
