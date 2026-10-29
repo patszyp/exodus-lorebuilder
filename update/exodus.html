@@ -2402,6 +2402,23 @@ body.chcopen #toast{z-index:120}
 .wfnote{font-size:11px;margin:10px 0 0}
 .wfpv{margin:0 0 10px;text-align:center}.wfpv img{max-width:100%;max-height:240px;border:1px solid #785a2855}
 #wfmark{position:relative}#wfmark .wfdot{position:absolute;right:3px;bottom:3px;width:7px;height:7px}
+/* 2.2.1 fragments + quest banners */
+.frxr{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:8px}.frxr label{margin-top:0}
+.frxbar{grid-template-columns:1fr auto auto auto!important;margin:10px 0 8px;align-items:center}
+.frxg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;max-height:360px;overflow:auto;padding:2px}
+.frxi{display:grid!important;grid-template-columns:auto 34px 1fr;grid-template-rows:auto auto;gap:0 8px;align-items:center;padding:6px 8px;border:1px solid #785a2833;background:rgba(1,10,19,.4);cursor:pointer;margin:0!important;text-transform:none!important;letter-spacing:0!important}
+.frxi input{grid-row:1/3;margin:0;width:15px!important;height:15px}
+.frxi .frxp{grid-row:1/3;width:34px;height:34px;background:#0a1428 center/cover;border:1px solid var(--rc,#785a28);display:grid;place-items:center;color:#c8aa6e}
+.frxi b{font-size:12px;color:#f0e6d2;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.frxi small{font-size:10px;color:#8a8577}
+.frxi:has(input:checked){border-color:#0ac8b9;background:#0ac8b912}
+.frxed{margin-top:12px}
+.panel.qhb{padding-top:0;overflow:hidden}
+.qban{height:110px;margin:0 -16px 12px;background:#0a1428 center/cover no-repeat;position:relative;border-bottom:1px solid #785a2855}
+.qban:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,10,19,0) 30%,rgba(1,10,19,var(--qd,.35)*2.2));background:linear-gradient(180deg,transparent 20%,rgba(1,10,19,var(--qd,.35)))}
+.qbpv{height:100px;width:100%;background:#0a1428 center/cover no-repeat;border:1px solid #785a2855;position:relative;display:grid;place-items:center}
+.qbpv:after{content:'';position:absolute;inset:0;background:rgba(1,10,19,var(--qd,.35));pointer-events:none}
+.qbpv.off:after{display:none}.qbpv span{display:flex;flex-direction:column;align-items:center;gap:4px;color:#5b5a56}
+@media(max-width:760px){.frxr{grid-template-columns:1fr}.frxbar{grid-template-columns:1fr 1fr!important}.qban{height:80px}}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -7135,8 +7152,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.2';
+const WNV='2.2.1';
 const WN=[
+ ['2.2.1','29 Oct 2026',[
+  ['App','Quest banners','Quests can have a banner picture across the top of their card.',"pickSub('prof','quests')"]]],
  ['2.2','29 Oct 2026',[
   ['App','Wi-Fi pairing','Pair your phone with the Windows app on the same Wi-Fi. A mark in the top bar shows when they are connected, and you can send your universe and files both ways. Settings › Sync.',"openSet();stSec='sync';render()"]]],
  ['2.0.1','29 Oct 2026',[
@@ -8709,7 +8728,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.2 Beta',APPB=188;
+const APPV='2.2.1 Beta',APPB=189;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -8967,7 +8986,7 @@ S.inv.frc=S.inv.frc||0;S.inv.frs=S.inv.frs||0;
 Object.assign(ICOP,{frc:'M8 1.5l5.5 3.2v6.6L8 14.5l-5.5-3.2V4.7zM8 1.5v13M2.5 4.7L8 8l5.5-3.3',frs:'M8 1.5l5.5 3.2v6.6L8 14.5l-5.5-3.2V4.7zM5.5 6.2h5v4h-5z',rollx:'M13 5.5A5.5 5.5 0 0 0 3.2 6M3 10.5A5.5 5.5 0 0 0 12.8 10M13 2.5v3h-3M3 13.5v-3h3'});
 /* ---- 21. fragments: the roll of 6, refreshed each day ---- */
 const frDay=()=>{const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()};
-const frPool=k=>k=='c'?S.chars.filter(c=>!c.lo&&!S.owned.includes(c.id)).map(c=>c.id):S.skins.filter(s=>!S.inv.skins.includes(s.id)&&!S.inv.pend.includes(s.id)&&!(S.chars.find(c=>c.id==s.cid)||{}).lo).map(s=>s.id);
+let frPool=k=>k=='c'?S.chars.filter(c=>!c.lo&&!S.owned.includes(c.id)).map(c=>c.id):S.skins.filter(s=>!S.inv.skins.includes(s.id)&&!S.inv.pend.includes(s.id)&&!(S.chars.find(c=>c.id==s.cid)||{}).lo).map(s=>s.id);
 function frRoll(k){S.frr=S.frr||{};const d=frDay();let R=S.frr[k];const P=frPool(k);if(!R||R.d!=d){const a=P.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}R=S.frr[k]={d,l:a.slice(0,6)}}R.l=R.l.filter(id=>P.includes(id));while(R.l.length<6){const left=P.filter(id=>!R.l.includes(id));if(!left.length)break;R.l.push(left[Math.random()*left.length|0])}return R.l}
 const frName=k=>nm(k=='c'?'Character fragment':'Skin fragment');
 function frPick(k,id){const o=k=='c'?S.chars.find(x=>x.id==id):S.skins.find(x=>x.id==id);if(!o)return;const have=k=='c'?S.inv.frc:S.inv.frs;if(!have)return toast('You have no '+frName(k).toLowerCase()+'s');cfm('Use 1 '+frName(k).toLowerCase()+' to get '+o.name+'?',()=>{if(k=='c'){S.inv.frc--;if(!S.owned.includes(id))S.owned.push(id)}else{S.inv.frs--;getSkin(id)}const R=S.frr&&S.frr[k];if(R)R.l=R.l.filter(x=>x!=id);snd('claim');toast('Got '+o.name+'!');track('frag');save();XCLOSE('frm');render()})}
@@ -10261,6 +10280,52 @@ function wfCard(force){if(typeof stOpen=='undefined'||!stOpen)return;if(stSec!='
  if(old){old.outerHTML=h;return}if(stSec=='sync'){const h2=sr.querySelector('h2');if(h2)h2.insertAdjacentHTML('afterend',h);else sr.insertAdjacentHTML('afterbegin',h)}else{const w=sr.querySelector('.bkw .wsg2');if(w)w.insertAdjacentHTML('beforebegin',h)}}
 XPOST.push(function wfPost(){wfMark();wfCard()});
 Object.assign(ICOP,{wifi:'M1.5 6a9.5 9.5 0 0 1 13 0M3.8 8.6a6.2 6.2 0 0 1 8.4 0M6.1 11.1a3 3 0 0 1 3.8 0M8 13.5h.01'});
+
+/* ===== 2.2.1: Wi-Fi pairing on an older PC app, fragment pools, quest banners ===== */
+/* ---------- Wi-Fi pairing: the PC never shows the phone screen ---------- */
+const wfOldPC=()=>!!(window.exodus&&!window.exodus.wfStart);
+const wfDesk=()=>!window.exodus&&!window.ExodusAndroid&&!/Android|iPhone|iPad/i.test(navigator.userAgent||'');
+{const _wv=wfView;wfView=function(){const d=document.querySelector('#wfm .pzb');if(!d)return;
+ if(wfOldPC()){d.innerHTML=`<div class="pzask"><span class="qxi">${ico('dl',15)}</span><div><b>Update the Windows app first</b><small>Wi-Fi pairing needs the Windows app 1.7.0 or newer. You have ${esc(String(window.exodus.version||'an older one'))}.</small></div></div><p class="mut" style="font-size:12px">Download it, close Exodus Lorebuilder and run Install.cmd. Your universe stays where it is.</p><div class="wsrow"><button class="btn dev" onclick="ghOpen('https://github.com/patszyp/exodus-lorebuilder/releases/latest')">Download the Windows app</button></div>`;return}
+ if(wfDesk()&&!wfGet()&&!window._wfPh){d.innerHTML=`<div class="pzask"><span class="qxi">${ico('wifi',15)}</span><div><b>Open this in the Windows app</b><small>On a PC, Wi-Fi pairing works in the Exodus Lorebuilder Windows app. A browser can't be found by your phone.</small></div></div><div class="wsrow"><button class="btn dev" onclick="ghOpen('https://github.com/patszyp/exodus-lorebuilder/releases/latest')">Get the Windows app</button><button class="btn" onclick="window._wfPh=1;wfView()">This is not a PC</button></div>`;return}
+ return _wv.apply(this,arguments)}}
+{const _ws=wfState;wfState=function(){if(wfOldPC())return null;return _ws.apply(this,arguments)}}
+/* ---------- fragments: which characters and skins they can give ---------- */
+const FGX=()=>{S.cfg.frx=S.cfg.frx||{};['c','k'].forEach(k=>{S.cfg.frx[k]=Object.assign({mode:'all',ids:[],n:6,ref:'day'},S.cfg.frx[k]||{})});return S.cfg.frx};
+{const _fp=frPool;frPool=function(k){const all=_fp(k),c=FGX()[k=='c'?'c':'k'];if(c.mode!='pick')return all;const set=new Set(c.ids);return all.filter(id=>set.has(id))}}
+const frWeek=()=>{const d=new Date(),j=new Date(d.getFullYear(),0,1);return d.getFullYear()+'-w'+Math.ceil(((d-j)/864e5+j.getDay()+1)/7)};
+frRoll=function(k){S.frr=S.frr||{};const c=FGX()[k=='c'?'c':'k'],N=Math.max(1,Math.min(12,+c.n||6)),d=c.ref=='week'?frWeek():c.ref=='fixed'?'fixed':frDay();let R=S.frr[k];const P=frPool(k);
+ if(!R||R.d!=d||R.cfg!==JSON.stringify(c)){const a=P.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}R=S.frr[k]={d,cfg:JSON.stringify(c),l:a.slice(0,N)}}
+ R.l=R.l.filter(id=>P.includes(id)).slice(0,N);while(R.l.length<N){const left=P.filter(id=>!R.l.includes(id));if(!left.length)break;R.l.push(left[Math.random()*left.length|0])}return R.l};
+{const _fpn=frPanel;frPanel=function(k){const c=FGX()[k=='c'?'c':'k'];return _fpn.apply(this,arguments).replace('The choice changes every day.',c.ref=='week'?'The choice changes every week.':c.ref=='fixed'?'':'The choice changes every day.')}}
+let fgQ={c:'',k:''};
+function frxSet(k,f,v){FGX()[k][f]=v;if(S.frr)delete S.frr[k];save();render()}
+function frxTog(k,id,on){const c=FGX()[k],s=new Set(c.ids);on?s.add(id):s.delete(id);c.ids=[...s];if(S.frr)delete S.frr[k];save();const e=document.getElementById('frxn_'+k);if(e)e.textContent=c.ids.length+' picked'}
+function frxAll(k,on){const c=FGX()[k],L=k=='c'?S.chars:S.skins;c.ids=on?L.map(o=>o.id):[];if(S.frr)delete S.frr[k];save();render()}
+function frxCard(k){const c=FGX()[k],L=k=='c'?S.chars:S.skins,lab=k=='c'?'Character fragments':'Skin fragments',set=new Set(c.ids),q=fgQ[k].toLowerCase(),pool=frPool(k).length;
+ return wsCard(k=='c'?'frc':'frs',lab,`Players have ${k=='c'?S.inv.frc||0:S.inv.frs||0} · ${pool} ${k=='c'?'characters':'skins'} can come out right now`,`
+ <div class="frxr"><div><label>What they can give</label><select onchange="frxSet('${k}','mode',this.value)"><option value="all" ${c.mode!='pick'?'selected':''}>Any ${k=='c'?'character':'skin'} the player doesn't own</option><option value="pick" ${c.mode=='pick'?'selected':''}>Only the ones I pick</option></select></div>
+ <div><label>Choices shown</label><select onchange="frxSet('${k}','n',+this.value)">${[3,4,5,6,8,10,12].map(n=>`<option ${+c.n==n?'selected':''}>${n}</option>`).join('')}</select></div>
+ <div><label>New choices</label><select onchange="frxSet('${k}','ref',this.value)"><option value="day" ${c.ref=='day'?'selected':''}>Every day</option><option value="week" ${c.ref=='week'?'selected':''}>Every week</option><option value="fixed" ${c.ref=='fixed'?'selected':''}>Never (always the same)</option></select></div></div>
+ ${c.mode=='pick'?`<div class="g2add frxbar"><input placeholder="Search" value="${esc(fgQ[k])}" oninput="fgQ['${k}']=this.value;document.querySelectorAll('.frxg[data-k=${k}] label').forEach(l=>l.style.display=!this.value||l.textContent.toLowerCase().includes(this.value.toLowerCase())?'':'none')"><button class="btn" onclick="frxAll('${k}',1)">Pick all</button><button class="btn" onclick="frxAll('${k}',0)">Clear</button><span class="mut" id="frxn_${k}">${c.ids.length} picked</span></div>
+ <div class="frxg" data-k="${k}">${L.map(o=>{const ch=k=='k'?S.chars.find(x=>x.id==o.cid):null;return `<label class="frxi" style="--rc:${rc(o.rar||0)};${q&&!(o.name+' '+(ch?ch.name:'')).toLowerCase().includes(q)?'display:none':''}"><input type="checkbox" ${set.has(o.id)?'checked':''} onchange="frxTog('${k}','${o.id}',this.checked)"><span class="frxp" style="${o.img?`background-image:url(${o.img})`:''}">${o.img?'':esc((o.name||'?')[0])}</span><b>${esc(o.name)}</b>${ch?`<small>${esc(ch.name)}</small>`:''}${o.lo?'<small class="mut">Lore only, never given</small>':''}</label>`}).join('')||`<p class="mut">No ${k=='c'?'characters':'skins'} yet.</p>`}</div>`:''}
+ <div class="wsrow"><button class="btn" onclick="if(S.frr)delete S.frr['${k}'];save();toast('New choices made');render()">Make new choices now</button><button class="btn" onclick="S.inv.${k=='c'?'frc':'frs'}=(S.inv.${k=='c'?'frc':'frs'}||0)+5;save();render()">+5 for testing</button><button class="btn" onclick="frOpen('${k}')">Preview</button></div>`)}
+wsxAdd('frags','Fragments','frc','Economy',()=>wsHero('frc','Fragments','A fragment lets the player pick one character or skin from a short list. Choose what the lists can show and how often they change.',[(S.inv.frc||0)+' character fragments',(S.inv.frs||0)+' skin fragments'])+`<div class="wsg2">${frxCard('c')}${frxCard('k')}</div>`);
+try{const g=WSR.find(x=>x[0]=='Economy');if(g&&!g[1].includes('frags'))g[1].splice(Math.max(0,g[1].indexOf('gacha')+1),0,'frags')}catch(e){}
+/* right-click / inventory detail: a shortcut for the creator */
+XPOST.push(function frxPost(){if(!S.dev)return;document.querySelectorAll('.ivd.fr .frx').forEach(b=>{if(b.querySelector('.frxed'))return;b.insertAdjacentHTML('beforeend',`<div class="wsrow frxed"><button class="btn dev" onclick="XCLOSE('frm');go('dev');wsub='frags';edit=null;render()">${ico('pen',12)} Choose what fragments give</button></div>`)})});
+/* ---------- quest banners ---------- */
+const QBP=q=>(q&&q.banp)||'center';
+{const _qc8=qCard;qCard=function(q){let h=_qc8.apply(this,arguments);const pv=q&&q.id=='qprev'&&edit&&edit.t=='q',src=pv?Object.assign({},S.quests.find(x=>x.id==edit.id)||{},window._qbn||{}):q,b=q&&COV[pv?(edit.id||'__new'):q.id];if(!b||h.includes('class="qban'))return h;if((src.bans||'ban')=='icon')return h;
+ h=h.replace(/<i class="qim"[^>]*><\/i>/,'');return h.replace(/<div class="panel([^"]*)"([^>]*)>/,(m,c,r)=>`<div class="panel${c.replace(/\bqhi\b/,'')} qhb"${r}><div class="qban" style="background-image:url(${b});background-position:center ${QBP(src)};--qd:${(+(src.band==null?35:src.band))/100}"></div>`)}}
+function qbUp(inp){const id=edit&&edit.id||'__new';const f=inp.files&&inp.files[0];if(!f)return;nvImg(f,1400).then(async d=>{if(!d)return toast('Could not read that picture');COV[id]=d;await covSave();render()})}
+function qbDel(){const id=edit&&edit.id||'__new';delete COV[id];covSave();render()}
+function qbSet(k,v){const q=S.quests.find(x=>x.id==(edit&&edit.id));if(q){q[k]=v;save()}else{window._qbn=Object.assign(window._qbn||{},{[k]:v})}const p=document.querySelector('.qbpv');if(p){if(k=='banp')p.style.backgroundPosition='center '+v;else if(k=='band')p.style.setProperty('--qd',v/100)}try{const f=document.getElementById('q1');f&&f.dispatchEvent(new Event('input',{bubbles:true}))}catch(e){}}
+XPOST.push(function qbPost(){if(!edit||edit.t!='q')return;const c=document.querySelector('.qxcov');if(!c||c.dataset.qb)return;c.dataset.qb=1;const id=edit.id||'__new',q=S.quests.find(x=>x.id==edit.id)||{},b=COV[id];
+ c.innerHTML=`<label>Banner picture</label><div class="qbpv ${b?'':'off'}" style="${b?`background-image:url(${b});background-position:center ${QBP(q)};--qd:${(+(q.band==null?35:q.band))/100}`:''}">${b?'':`<span>${ico('img',18)}<small>No banner yet</small></span>`}</div>
+ <div class="wsrow"><label class="btn dev" style="cursor:pointer;margin:0">${ico('plus',12)} ${b?'Change picture':'Add a picture'}<input type="file" accept="image/*" data-asp="3:1" hidden onchange="qbUp(this)"></label>${b?`<button class="btn red" onclick="qbDel()">Remove</button>`:''}</div>
+ ${b?`<div class="row"><div><label>Show it as</label><select onchange="qbSet('bans',this.value)"><option value="ban" ${(q.bans||'ban')=='ban'?'selected':''}>A banner across the top</option><option value="icon" ${q.bans=='icon'?'selected':''}>A small picture on the left</option></select></div><div><label>Show which part</label><select onchange="qbSet('banp',this.value)">${[['top','Top'],['center','Middle'],['bottom','Bottom']].map(([v,l])=>`<option value="${v}" ${QBP(q)==v?'selected':''}>${l}</option>`).join('')}</select></div><div><label>Darken for readable text</label><input type="range" min="0" max="80" value="${q.band==null?35:q.band}" oninput="qbSet('band',+this.value)"></div></div>`:''}`});
+{const _sq9=saveQ;saveQ=function(){const id=edit&&edit.id,before=new Set(S.quests.map(x=>x.id)),n=window._qbn;const r=_sq9.apply(this,arguments);const q=S.quests.find(x=>x.id==id)||S.quests.find(x=>!before.has(x.id));if(q){if(!id&&COV.__new){COV[q.id]=COV.__new;delete COV.__new;covSave()}if(n){Object.assign(q,n);save()}}window._qbn=null;return r}}
 
 
 render();
