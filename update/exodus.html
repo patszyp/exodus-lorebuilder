@@ -2027,26 +2027,46 @@ aside.cls>select[data-skf]{width:100%}
  .bp4bot>.bp3sp{display:none}
  .bp4b{min-width:0;width:100%;height:38px;padding:0 6px;font-size:11px;letter-spacing:.02em;overflow:hidden;text-overflow:ellipsis}
  .bp4lb{width:38px;height:38px}
- /* home slides */
- .hsw0{height:auto!important;min-height:0!important;display:flex;flex-direction:column}
- .hsc{flex:1;display:flex;flex-direction:column;height:auto}
- .hsc>*{flex:1}
- .hsf,.hsm,.hsst,.hsbpt,.hsspt,.hscnt,.hscds,.hsshw,.hsvid,.hslst{height:auto;min-height:520px}
- .hsft{flex:1;padding:20px 18px 10px;max-width:none}
- .hsh1{font-size:32px}.hsh2{font-size:28px}.hsh3{font-size:40px}
- .hsfb{min-height:0;padding:14px 18px;gap:12px}
- .hsb{height:38px;padding:0 14px;font-size:12px;letter-spacing:.03em;max-width:100%;overflow:hidden;text-overflow:ellipsis}
- .hsbpt{display:flex;flex-direction:column;padding:18px;gap:12px}
- .hsbpl{max-width:none}.hsbplv{margin:10px 0}
- .hsbpb{display:grid;grid-template-columns:1fr 1fr;gap:8px}.hsbpb .hsb{width:100%}
- .hsbps{overflow:hidden;margin-top:auto}
- .hsbps .bp4row{--n:4!important;grid-template-columns:repeat(4,1fr)}
+ /* home slides: fill the screen, art on top, content at the bottom */
+ .hsx .hsw0{height:var(--hsfit,auto)!important;min-height:440px!important;display:flex;flex-direction:column}
+ .hsprev .hsw0{height:600px!important;display:flex;flex-direction:column}
+ .hsc{flex:1;min-height:0;height:auto;display:flex;flex-direction:column;justify-content:flex-end;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+ .hsc::-webkit-scrollbar{display:none}
+ .hsc>*{flex:none!important;height:auto!important;min-height:0!important}
+ .hsov{background:linear-gradient(0deg,rgba(1,10,19,.95) 0%,rgba(1,10,19,.75) 40%,rgba(1,10,19,.2) 72%,transparent 100%)!important}
+ .hsf,.hsm,.hsbpt,.hsspt,.hscnt,.hscds,.hsshw,.hsvid,.hslst{display:flex;flex-direction:column;justify-content:flex-end;padding:0}
+ .hsft,.hsmt,.hsbpl,.hsspi,.hsvt{padding:16px 18px 8px!important;max-width:none!important;flex:none!important;position:static!important;margin:0!important;text-align:left}
+ .hsfc{position:static!important;padding:0 18px 8px}
+ .hsh1{font-size:30px!important;margin:6px 0 8px}.hsh2{font-size:26px!important;margin:6px 0}.hsh3{font-size:38px!important}
+ .hssub{font-size:15px}.hsp{font-size:13px;line-height:1.6;max-width:none}
+ .hsfb{min-height:0;padding:12px 18px 16px;gap:10px;flex-direction:column;align-items:stretch;background:none;border:0}
+ .hsfi{gap:12px}.hsfim{width:84px;height:70px}.hsfit h3{font-size:16px}
+ .hsb{height:38px;padding:0 12px;font-size:12px;letter-spacing:.03em;max-width:100%;overflow:hidden;text-overflow:ellipsis;width:100%}
+ .hsmb,.hsecs,.hslold{position:static!important;padding:4px 18px 16px!important;margin:0!important;align-items:stretch!important;max-width:none!important}
+ .hsqc{min-width:0;max-width:none}
+ .hsbpt{gap:0}.hsbplv{margin:8px 0}.hsbpr{width:72px;height:72px}.hsbpr b{font-size:24px}.hsbpr small{bottom:14px}
+ .hsbpb{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+ .hsbpn{display:none!important}
+ .hsbps{overflow:hidden;padding:10px 12px 14px}
+ .hsbps .bp4row{grid-template-columns:repeat(4,1fr)!important}.hsbps .bp4row::after{left:0;right:0}
  .hsbps .bp4c:nth-child(n+5){display:none}
- .hsbps .bp4t{width:62px;height:62px}
- .hsm{display:flex;flex-direction:column}.hsmt{padding:20px 18px}.hsmb{padding:0 18px 18px;margin-top:auto}.hsecs,.hslold{margin-top:auto}
- .hsspt{flex-direction:column;justify-content:flex-end}.hsspi{padding:18px}
- .hsstc{padding:14px}.hssl{margin:0 10px;padding:10px 6px 14px}
- .hscd{gap:8px}.hscd span{min-width:0;flex:1;padding:10px 4px}
+ .hsbps .bp4t{width:56px;height:56px;padding:3px}
+ .hscnt{align-items:center;text-align:center;padding:16px 14px}
+ .hscnt .hsin{width:100%}
+ .hscd{gap:6px;margin-top:12px;width:100%;justify-content:center}.hscd span{min-width:0;flex:1;max-width:84px;padding:8px 2px}.hscd b{font-size:26px}.hscd small{font-size:9px;letter-spacing:.02em}
+ .hscnt .hsin2{width:100%}
+ .hsshw{padding:16px 14px;align-items:stretch}.hsshg{grid-template-columns:repeat(3,1fr)!important;gap:10px}
+ .hscds{padding:16px 14px}.hscg{grid-template-columns:1fr!important;gap:10px}.hscc{flex-direction:row}.hscci{min-height:0;width:96px;flex:none}
+ .hsspa{width:100%!important;opacity:.55;-webkit-mask:linear-gradient(180deg,#000 40%,transparent);mask:linear-gradient(180deg,#000 40%,transparent)}
+ .hsspb{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+ .hsplay{top:38%}
+ .hsst{justify-content:flex-end}.hsstc{padding:14px;flex:none}.hssl{margin:0 10px;padding:10px 6px 14px}
+ .hslst{padding:14px}.hsrw{grid-template-columns:1fr}
+ .hssn{top:8px}
+ /* shimshop cards */
+ .shg{grid-template-columns:repeat(2,1fr)!important;grid-auto-rows:auto!important}
+ .shc{height:auto!important;aspect-ratio:3/4}
+ .shc.big{grid-column:span 2;grid-row:auto!important;aspect-ratio:16/10;max-height:240px}
 }
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
@@ -6781,8 +6801,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='1.6.3';
+const WNV='1.6.4';
 const WN=[
+ ['1.6.4','29 Oct 2026',[
+  ['App','Slides made for phones','On phones, every slide type fills the screen with the picture on top and the text, quest and buttons at the bottom. Shimshop items are smaller.',"go('home');render()"]]],
  ['1.6.3','29 Oct 2026',[
   ['App','Big backups restore on phones','Full backups are now read piece by piece with a progress bar, so big backups with many pictures also restore on Android.',"openSet();render()"]]],
  ['1.6.3','29 Oct 2026',[
@@ -8335,7 +8357,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='1.6.3 Beta',APPB=178;
+const APPV='1.6.4 Beta',APPB=179;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -9059,7 +9081,7 @@ function hsForm(){const s=hsCur();if(!s){edit=null;return ''}const f=(k,l,ph,ta)
 wsxAdd('slides','Home slides','grid4','Content',()=>`<p class="mut" style="margin:0 0 10px">Slides are shown at the top of the Home page side list. Pick one to edit it.</p>${HZS().map(s=>`<div class="bunr"><span class="cpxa">${ico(s.ic||'star',16)}</span><span class="bunn"><b>${esc(s.nav||s.title||'Slide')}</b><small class="mut">${esc((HZT_.find(t=>t[0]==(s.t||'feat'))||[0,''])[1])}${s.on===0?' · hidden':''}</small></span><button class="btn dev" onclick="go('home');hsub='sl:${s.id}';edit={t:'hs',id:'${s.id}'};render()">Edit</button></div>`).join('')||'<p class="mut">No slides yet.</p>'}<p><button class="btn dev" onclick="go('home');hsNew()">${esc(nm('New slide'))}</button></p>`);
 try{const g=WSR.find(x=>x[0]=='Content');if(g&&!g[1].includes('slides'))g[1].unshift('slides')}catch(e){}
 /* fill the screen down to the bottom bar */
-function hsFit(){const v=document.querySelector('.hsx .hsw0');if(!v)return;const ft=document.getElementById('ftr'),t=v.getBoundingClientRect().top,b=ft?ft.getBoundingClientRect().top:innerHeight;v.style.height=Math.max(420,Math.round(b-t-8))+'px'}
+function hsFit(){const v=document.querySelector('.hsx .hsw0');if(!v)return;const ft=document.getElementById('ftr'),t=v.getBoundingClientRect().top,b=ft?ft.getBoundingClientRect().top:innerHeight;const hh=Math.max(440,Math.round(b-t-8))+'px';v.style.height=hh;v.style.setProperty('--hsfit',hh)}
 XPOST.push(function hsFitP(){if(!document.querySelector('.hsx'))return;hsFit();requestAnimationFrame(hsFit);setTimeout(hsFit,200)});
 try{window.addEventListener('resize',()=>{try{hsFit()}catch(e){}})}catch(e){}
 
