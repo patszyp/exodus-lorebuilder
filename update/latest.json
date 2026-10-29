@@ -1,12 +1,16 @@
 {
-  "version": "1.6 Beta",
-  "build": 175,
+  "version": "1.6.1 Beta",
+  "build": 176,
   "html": "update/exodus.html",
   "notes": [
-    "Check for updates in Settings › About",
-    "Show only character skins or only monster skins",
-    "Tidier side panel in My collection"
+    "Test update: checks that installing new versions from GitHub works"
   ],
-  "win": { "version": "1.5.0", "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/1.6/Exodus-Lorebuilder-1.6-Beta-Windows.zip" },
-  "apk": { "version": "1.5.0", "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/1.6/Exodus-Lorebuilder-1.6-Beta.apk" }
+  "win": {
+    "version": "1.5.0",
+    "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/1.6/Exodus-Lorebuilder-1.6-Beta-Windows.zip"
+  },
+  "apk": {
+    "version": "1.5.0",
+    "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/1.6/Exodus-Lorebuilder-1.6-Beta.apk"
+  }
 }

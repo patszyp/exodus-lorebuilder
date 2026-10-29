@@ -6742,8 +6742,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='1.6';
+const WNV='1.6.1';
 const WN=[
+ ['1.6.1','29 Oct 2026',[
+  ['App','Updates from GitHub','A small test update: it checks that installing new versions from GitHub works.',"openSet();stSec='abt';render()"]]],
  ['1.6','29 Oct 2026',[
   ['App','Check for updates','Settings › About can now look for a new version and install it in one click, on the Windows app and on Android.',"openSet();stSec='abt';render()"],
   ['Collection','Character or monster skins','My collection › Skins can show only character skins or only monster skins.',"go('store');ssub='col';ccat='skins';render()"],
@@ -8285,7 +8287,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='1.6 Beta',APPB=175;
+const APPV='1.6.1 Beta',APPB=176;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -9183,7 +9185,7 @@ XPOST.push(function skfPost(){if(!skfView()||sel)return;const a=document.querySe
 /* keep the full skin list safe while the filtered one is on screen */
 {const _rsk2=render;render=function(){window.__skKeep=S.skins;return _rsk2.apply(this,arguments)}}
 /* ---- updates from GitHub ---- */
-Object.assign(ICOP,{dl:ICOP.dl||'M8 2v8M4.5 7L8 10.5 11.5 7M3 13.5h10'});const GHR='';
+Object.assign(ICOP,{dl:ICOP.dl||'M8 2v8M4.5 7L8 10.5 11.5 7M3 13.5h10'});const GHR='patszyp/exodus-lorebuilder';
 const ghRepo=()=>String(S.cfg.ghRepo||GHR||'').trim().replace(/^https?:\/\/github\.com\//i,'').replace(/\.git$/,'').replace(/\/+$/,'');
 const ghRaw=(r,p)=>`https://raw.githubusercontent.com/${r}/${S.cfg.ghBr||'main'}/${p}`;
 const ghPlat=()=>window.exodus?'win':window.ExodusAndroid?'apk':'web';
