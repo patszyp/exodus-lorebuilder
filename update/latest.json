@@ -1,8 +1,8 @@
 {
- "version": "2.0 Beta",
- "build": 185,
+ "version": "2.0.1 Beta",
+ "build": 186,
  "html": "update/exodus.html",
- "notes": "Chroma creator in the Workshop: paint, smart select and automatic colour zones.",
+ "notes": "Settings \u203a Storage & data scrolls again and shows all its sections.",
  "win": {
   "version": "1.5.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/1.6/Exodus-Lorebuilder-1.6-Beta-Windows.zip"
