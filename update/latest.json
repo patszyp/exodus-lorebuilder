@@ -1,8 +1,8 @@
 {
- "version": "2.0.1 Beta",
- "build": 186,
+ "version": "2.1 Beta",
+ "build": 187,
  "html": "update/exodus.html",
- "notes": "Settings \u203a Storage & data scrolls again and shows all its sections.",
+ "notes": "Move your universe between PC and phone with a 6-digit code (Settings \u203a Sync).",
  "win": {
   "version": "1.5.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/1.6/Exodus-Lorebuilder-1.6-Beta-Windows.zip"

@@ -2376,6 +2376,20 @@ body.chcopen #toast{z-index:120}
 .chcck>input[type=checkbox]{width:16px!important;height:16px;min-width:0;padding:0}
 .chcck>span{flex:1;min-width:0;display:block}
 .chcli input[type=checkbox]{width:15px!important;height:15px;padding:0}
+/* 2.1 move to another device */
+.pzh{display:flex;gap:10px;align-items:center;margin:0 30px 14px 0}.pzh b{display:block;color:#f0e6d2;font-family:Beaufort,serif;text-transform:uppercase;letter-spacing:.05em}.pzh small{color:#8a8577;font-size:12px}
+.pzc2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pzbig{display:flex;flex-direction:column;gap:6px;align-items:flex-start;text-align:left;padding:14px;border:1px solid #785a2866;background:rgba(1,10,19,.5);color:var(--gold);cursor:pointer;font:inherit}
+.pzbig:hover{border-color:#0ac8b9}.pzbig b{color:#f0e6d2;font-size:14px}.pzbig small{color:#8a8577;font-size:12px;line-height:1.35}
+.pzcode{font-family:ui-monospace,Consolas,monospace;font-size:44px;letter-spacing:.12em;text-align:center;color:#f0e6d2;padding:14px 0;margin:6px 0;border:1px solid #785a28;background:rgba(1,10,19,.6)}
+.pzin{font-family:ui-monospace,Consolas,monospace;font-size:28px!important;letter-spacing:.15em;text-align:center}
+.pzwait{display:flex;gap:6px;align-items:center;font-size:12px}
+.pzbar{height:8px;background:#1e2d3d;overflow:hidden}.pzbar i{display:block;height:100%;background:linear-gradient(90deg,#0ac8b9,#c8aa6e);transition:width .2s}
+.pzok{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;color:#0ac8b9;padding:6px 0 10px}.pzok b{color:#f0e6d2;font-size:16px}.pzok small{color:#8a8577}
+.pzst{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:6px 0 10px}.pzst span{display:flex;flex-direction:column;align-items:center;padding:6px;border:1px solid #785a2833;font-size:11px;color:#8a8577}.pzst b{color:#f0e6d2;font-size:16px}
+.pzask{display:flex;gap:10px;align-items:center;padding:10px;border:1px solid #c8aa6e66;background:#c8aa6e11}.pzask b{display:block;color:#f0e6d2}.pzask small{color:#8a8577}
+.pzcard{margin:10px 0}.pzcard>header{flex-wrap:wrap}.pzcard>header>div{flex:1;min-width:200px}
+@media(max-width:520px){.pzc2{grid-template-columns:1fr}.pzcode{font-size:36px}}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -7109,8 +7123,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.0.1';
+const WNV='2.1';
 const WN=[
+ ['2.1','29 Oct 2026',[
+  ['App','Move to another device','Send your whole universe from PC to phone or back with a 6-digit code. No account needed. Settings › Sync.',"openSet();stSec='sync';render()"]]],
  ['2.0.1','29 Oct 2026',[
   ['App','Storage & data scrolls again','The Storage & data page in Settings scrolls down again and shows all its sections.',"openSet();stSec='sto';render()"]]],
  ['1.9','29 Oct 2026',[
@@ -8681,7 +8697,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.0.1 Beta',APPB=186;
+const APPV='2.1 Beta',APPB=187;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -10157,6 +10173,71 @@ async function chcMaskFrom(u){const m=new Uint8Array(CCE.n);if(!u)return m;try{c
  const i=h.indexOf('<div class="chrxg">');h=i>=0?h.slice(0,i)+box+h.slice(i):box+h;
  return h.replace(/(<div class="panel chrxc">[\s\S]*?)(<button class="btn red" onclick="chrDel\('([^']+)'\)">)/g,(m0,a,b,id)=>a+`<button class="btn" onclick="chcOpen('${k.id}','${id}')">${ico('brsh',12)} Edit in creator</button>`+b)}}
 try{WSX.chroma.f=()=>chrView()}catch(e){}
+
+/* ===== 2.1: move your universe between devices with a 6-digit code (WebRTC, no account) ===== */
+const PZ={sig:'wss://0.peerjs.com:443/peerjs',key:'peerjs',pfx:'exodus-lb-',ice:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun.cloudflare.com:3478'},{urls:['turn:eu-0.turn.peerjs.com:3478','turn:us-0.turn.peerjs.com:3478'],username:'peerjs',credential:'peerjsp'}],chunk:65536};
+let PZS=null;
+const pzDev=()=>window.exodus?'Windows app':/Android/i.test(navigator.userAgent||'')?'Android phone':/iPhone|iPad/i.test(navigator.userAgent||'')?'iPhone':'Browser';
+const pzMB=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
+function pzSig(id,on){const t=Math.random().toString(36).slice(2);const ws=new WebSocket(`${PZ.sig}?key=${PZ.key}&id=${encodeURIComponent(id)}&token=${t}&version=1.5.4`);const hb=setInterval(()=>{try{ws.readyState==1&&ws.send(JSON.stringify({type:'HEARTBEAT'}))}catch(e){}},5000);
+ ws.onmessage=e=>{let m;try{m=JSON.parse(e.data)}catch(x){return}on(m)};ws.onerror=()=>on({type:'WSERR'});ws.onclose=()=>{clearInterval(hb);on({type:'CLOSED'})};
+ return {ws,send:(type,dst,payload)=>{try{ws.send(JSON.stringify({type,dst,payload}))}catch(e){}},close:()=>{clearInterval(hb);try{ws.close()}catch(e){}}}}
+function pzStop(){const s=PZS;PZS=null;if(!s)return;try{s.sig&&s.sig.close()}catch(e){}try{s.dc&&s.dc.close()}catch(e){}try{s.pc&&s.pc.close()}catch(e){}clearTimeout(s.tm)}
+function pzUI(html){const d=document.getElementById('pzm');if(d){const p=d.querySelector('.pzb');if(p){p.innerHTML=html;return}}XMOD('pzm',`<div class="pzh"><span class="qxi">${ico('swap',15)}</span><div><b>${esc(nm('Move to another device'))}</b><small>PC ↔ phone, no account needed</small></div></div><div class="pzb">${html}</div>`,460);const o=document.getElementById('pzm');if(o){const x=o.querySelector('.xmcx');if(x)x.setAttribute('onclick',"pzStop();XCLOSE('pzm')")}}
+function pzClose(){pzStop();XCLOSE('pzm')}
+function pzOpen(){pzStop();if(typeof RTCPeerConnection=='undefined'||typeof WebSocket=='undefined')return pzUI(`<p class="bxe">This device can't send directly. Use Settings › Storage & data › Full backup and move the file instead.</p>`);
+ pzUI(`<p class="mut" style="margin:0 0 12px">Open this on both devices. The one that has your universe sends it, the other one receives it. Both need the internet.</p><div class="pzc2"><button class="pzbig" onclick="pzSend()">${ico('dl',22)}<b>Send from this device</b><small>Shows a code to type on the other device.</small></button><button class="pzbig" onclick="pzAsk()">${ico('save',22)}<b>Receive on this device</b><small>Type the code shown on the other device.</small></button></div>`)}
+function pzAsk(){pzUI(`<label>Code from the other device</label><input id="pzcode" inputmode="numeric" maxlength="7" placeholder="123 456" class="pzin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/^(\\d{3})(\\d)/,'$1 $2');if(this.value.replace(/ /g,'').length==6)pzRecv(this.value)" onkeydown="if(event.key=='Enter')pzRecv(this.value)"><div class="wsrow"><button class="btn dev" onclick="pzRecv(document.getElementById('pzcode').value)">Connect</button><button class="btn" onclick="pzOpen()">Back</button></div>`);setTimeout(()=>{const e=document.getElementById('pzcode');e&&e.focus()},50)}
+/* ---------- the sending device ---------- */
+async function pzPack(){const keys=await fbKeys(),parts=['{"exodusFull":1,"app":',JSON.stringify(APPV),',"at":',String(Date.now()),',"S":',JSON.stringify(S),',"media":{'];let n=0;for(const k of keys){const v=await mget(k);if(v==null)continue;parts.push((n?',':'')+JSON.stringify(String(k))+':'+JSON.stringify(await fbEnc(v)));n++}parts.push('}}');return {buf:new TextEncoder().encode(parts.join('')),media:n}}
+function pzSend(){pzStop();const code=String(100000+Math.floor(Math.random()*900000)),id=PZ.pfx+code;const s=PZS={role:'send',code,cand:[]};
+ pzUI(`<p class="mut" style="margin:0">Connecting…</p>`);
+ s.sig=pzSig(id,m=>{if(PZS!==s)return;if(m.type=='OPEN'){pzUI(`<p class="mut" style="margin:0 0 6px">On the other device, choose <b>Receive on this device</b> and type:</p><div class="pzcode">${code.slice(0,3)} ${code.slice(3)}</div><p class="mut pzwait">${ico('clock',12)} Waiting for the other device… The code works for 10 minutes.</p><div class="wsrow"><button class="btn" onclick="pzSend()">New code</button><button class="btn" onclick="pzClose()">Cancel</button></div>`)}
+  else if(m.type=='ID-TAKEN'){pzSend()}
+  else if(m.type=='OFFER'&&!s.offer){s.offer=m.payload;s.peer=m.src;const p=m.payload||{};pzUI(`<div class="pzask"><span class="qxi">${ico('prof',15)}</span><div><b>${esc(p.dev||'A device')} wants your universe</b><small>Only send if this is your own device.</small></div></div><div class="wsrow"><button class="btn dev" onclick="pzAccept()">Send</button><button class="btn red" onclick="pzDecline()">Don't send</button></div>`)}
+  else if(m.type=='CANDIDATE'){if(s.pc)s.pc.addIceCandidate(m.payload.c).catch(()=>{});else s.cand.push(m.payload.c)}
+  else if((m.type=='WSERR'||m.type=='ERROR')&&!s.done)pzFail('Could not reach the matching service. Check the internet connection and try again.')});
+ s.tm=setTimeout(()=>{if(PZS===s&&!s.pc){pzStop();pzUI(`<p class="mut">The code ran out. Make a new one when both devices are ready.</p><div class="wsrow"><button class="btn dev" onclick="pzSend()">New code</button></div>`)}},600000)}
+function pzDecline(){const s=PZS;if(s&&s.peer)s.sig.send('LEAVE',s.peer,{no:1});pzStop();pzUI(`<p class="mut">Not sent.</p><div class="wsrow"><button class="btn" onclick="pzClose()">Close</button></div>`)}
+async function pzAccept(){const s=PZS;if(!s||!s.offer)return;pzUI(`<p class="mut">Getting your universe ready…</p>`);let pk;try{pk=await pzPack()}catch(e){return pzFail('Could not read everything on this device.')}if(PZS!==s)return;
+ const pc=s.pc=new RTCPeerConnection({iceServers:PZ.ice});pc.onicecandidate=e=>{if(e.candidate)s.sig.send('CANDIDATE',s.peer,{c:e.candidate.toJSON?e.candidate.toJSON():e.candidate})};
+ pc.onconnectionstatechange=()=>{if(['failed'].includes(pc.connectionState)&&!s.done)pzFail('The devices could not connect to each other. Try again, or put both on the same Wi-Fi.')};
+ pc.ondatachannel=e=>{const dc=s.dc=e.channel;dc.binaryType='arraybuffer';dc.onopen=()=>pzStream(s,dc,pk);dc.onmessage=ev=>{try{const m=JSON.parse(ev.data);if(m.t=='ok'){s.done=1;pzUI(`<div class="pzok">${ico('chk',22)}<b>Sent</b><small>${pzMB(pk.buf.length)} · ${pk.media} pictures and media files</small></div><div class="wsrow"><button class="btn" onclick="pzClose()">Close</button></div>`);setTimeout(pzStop,1500)}}catch(x){}}};
+ try{await pc.setRemoteDescription(s.offer.sdp);s.cand.forEach(c=>pc.addIceCandidate(c).catch(()=>{}));s.cand=[];const a=await pc.createAnswer();await pc.setLocalDescription(a);s.sig.send('ANSWER',s.peer,{sdp:pc.localDescription})}catch(e){pzFail('The devices could not connect to each other.')}
+ pzUI(`<p class="mut">Connecting to the other device…</p>`)}
+function pzStream(s,dc,pk){const b=pk.buf,N=b.length,C=PZ.chunk;let off=0;const info={t:'meta',size:N,media:pk.media,app:APPV,dev:pzDev(),at:Date.now(),lore:(S.lore||[]).length,chars:(S.chars||[]).length,skins:(S.skins||[]).length,items:(S.items||[]).length,story:(S.story||[]).length};dc.send(JSON.stringify(info));
+ dc.bufferedAmountLowThreshold=1<<20;const bar=()=>{const p=Math.round(off/N*100);pzUI(`<p class="mut" style="margin:0 0 8px">Sending… ${pzMB(off)} of ${pzMB(N)}</p><div class="pzbar"><i style="width:${p}%"></i></div><p class="mut pzwait">Keep both devices open.</p>`)};let lt=0;
+ const pump=()=>{if(PZS!==s)return;while(off<N&&dc.bufferedAmount<4<<20){dc.send(b.slice(off,off+C));off+=C}if(Date.now()-lt>250||off>=N){lt=Date.now();bar()}if(off<N){dc.onbufferedamountlow=pump}else{dc.onbufferedamountlow=null;dc.send(JSON.stringify({t:'end'}))}};pump()}
+function pzFail(t){pzStop();pzUI(`<p class="bxe" style="margin:0 0 10px">${esc(t)}</p><p class="mut" style="font-size:12px">You can also use Settings › Storage & data › Full backup and move the file instead.</p><div class="wsrow"><button class="btn" onclick="pzOpen()">Try again</button><button class="btn" onclick="pzClose()">Close</button></div>`)}
+/* ---------- the receiving device ---------- */
+function pzRecv(v){const code=String(v||'').replace(/\D/g,'');if(code.length!=6)return toast('The code has 6 digits');pzStop();const me=PZ.pfx+'r'+Math.random().toString(36).slice(2,10),dst=PZ.pfx+code;const s=PZS={role:'recv',code,cand:[],parts:[],got:0};
+ pzUI(`<p class="mut">Looking for the other device…</p>`);
+ s.sig=pzSig(me,async m=>{if(PZS!==s)return;
+  if(m.type=='OPEN'){const pc=s.pc=new RTCPeerConnection({iceServers:PZ.ice});pc.onicecandidate=e=>{if(e.candidate)s.sig.send('CANDIDATE',dst,{c:e.candidate.toJSON?e.candidate.toJSON():e.candidate})};
+   pc.onconnectionstatechange=()=>{if(pc.connectionState=='failed'&&!s.done)pzFail('The devices could not connect to each other. Try again, or put both on the same Wi-Fi.')};
+   const dc=s.dc=pc.createDataChannel('exodus',{ordered:true});dc.binaryType='arraybuffer';dc.onmessage=ev=>pzGot(s,ev.data);
+   try{await pc.setLocalDescription(await pc.createOffer());s.sig.send('OFFER',dst,{sdp:pc.localDescription,dev:pzDev(),app:APPV})}catch(e){return pzFail('This device could not start the connection.')}
+   pzUI(`<p class="mut pzwait">${ico('clock',12)} Waiting for the other device to press <b>Send</b>…</p><div class="wsrow"><button class="btn" onclick="pzClose()">Cancel</button></div>`);
+   s.tm=setTimeout(()=>{if(PZS===s&&!s.meta)pzFail('No answer. Check the code, and that the other device is showing it.')},120000)}
+  else if(m.type=='ANSWER'){try{await s.pc.setRemoteDescription(m.payload.sdp);s.cand.forEach(c=>s.pc.addIceCandidate(c).catch(()=>{}));s.cand=[];s.ans=1}catch(e){pzFail('The devices could not connect to each other.')}}
+  else if(m.type=='CANDIDATE'){if(s.ans)s.pc.addIceCandidate(m.payload.c).catch(()=>{});else s.cand.push(m.payload.c)}
+  else if(m.type=='EXPIRE'){if(!s.meta)pzFail('No device is showing that code. Check the number and try again.')}
+  else if(m.type=='LEAVE'){if(!s.done)pzFail(m.payload&&m.payload.no?'The other device chose not to send.':'The other device left.')}
+  else if((m.type=='WSERR'||m.type=='ERROR')&&!s.done&&!s.meta)pzFail('Could not reach the matching service. Check the internet connection and try again.')})}
+function pzGot(s,d){if(PZS!==s)return;if(typeof d=='string'){let m;try{m=JSON.parse(d)}catch(e){return}
+  if(m.t=='meta'){s.meta=m;clearTimeout(s.tm);try{s.sig.close()}catch(e){}}
+  else if(m.t=='end'){s.done=1;try{s.dc.send(JSON.stringify({t:'ok'}))}catch(e){}const blob=new Blob(s.parts,{type:'application/json'});s.parts=[];s.blob=blob;pzReady(s)}return}
+ s.parts.push(d);s.got+=d.byteLength;const N=(s.meta||{}).size||1;if(!s.lt||Date.now()-s.lt>250){s.lt=Date.now();pzUI(`<p class="mut" style="margin:0 0 8px">Receiving… ${pzMB(s.got)} of ${pzMB(N)}</p><div class="pzbar"><i style="width:${Math.round(s.got/N*100)}%"></i></div><p class="mut pzwait">Keep both devices open.</p>`)}}
+function pzReady(s){const m=s.meta||{},when=m.at?new Date(m.at).toLocaleString():'';if(s.blob.size!=m.size)return pzFail('Part of the data got lost on the way. Please try again.');
+ pzUI(`<div class="pzok">${ico('chk',22)}<b>Received from ${esc(m.dev||'the other device')}</b><small>${pzMB(m.size)} · version ${esc(m.app||'?')} · ${esc(when)}</small></div><div class="pzst">${[['Lore',m.lore],['Characters',m.chars],['Skins',m.skins],['Items',m.items],['Chapters',m.story],['Pictures and media',m.media]].map(([l,v])=>`<span><b>${v||0}</b>${l}</span>`).join('')}</div><p class="mut" style="font-size:12px">This replaces everything on this device. A safety copy of what's here now is kept, so you can go back in Settings › Storage & data.</p><div class="wsrow"><button class="btn dev" onclick="pzApply()">Replace this device's universe</button><button class="btn" onclick="pzKeep()">Save as a file instead</button></div>`)}
+async function pzApply(){const s=PZS;if(!s||!s.blob)return;let d;try{d=JSON.parse(await s.blob.text())}catch(e){return pzFail('The data could not be read. Please try again.')}if(!d||!d.exodusFull||!d.S)return pzFail('The data could not be read. Please try again.');
+ try{localStorage.setItem(K+'.prev',JSON.stringify(S))}catch(e){}pzUI(`<p class="mut" style="margin:0 0 8px">Putting your universe in place…</p><div class="pzbar"><i style="width:100%"></i></div>`);
+ try{const M=d.media||{};for(const k of Object.keys(M))await mset(k,fbDec(M[k]));S=d.S;save();pzStop();pzUI(`<div class="pzok">${ico('chk',22)}<b>Done</b><small>Reloading…</small></div>`);setTimeout(()=>location.reload(),900)}catch(e){pzFail('Could not put everything in place. Your old universe is in Settings › Storage & data › safety copy.')}}
+function pzKeep(){const s=PZS;if(!s||!s.blob)return;s.blob.text().then(t=>saveFile('exodus-full-backup-'+new Date().toISOString().slice(0,10)+'.json',t,'application/json'))}
+/* ---------- where to find it ---------- */
+XPOST.push(function pzPost(){if(typeof stOpen=='undefined'||!stOpen)return;if(stSec!='sync'&&stSec!='sto')return;const sr=document.querySelector('.sr');if(!sr||sr.querySelector('.pzcard'))return;
+ const h=`<section class="wsc pzcard"><header><span class="qxi">${ico('swap',15)}</span><div><b>${esc(nm('Move to another device'))}</b><small>Send your whole universe from PC to phone or back, with a 6-digit code. No account needed; both devices must be open.</small></div><button class="btn dev" onclick="pzOpen()">Start</button></header></section>`;
+ if(stSec=='sync'){const h2=sr.querySelector('h2');if(h2)h2.insertAdjacentHTML('afterend',h);else sr.insertAdjacentHTML('afterbegin',h)}else{const w=sr.querySelector('.bkw .wsg2');if(w)w.insertAdjacentHTML('beforebegin',h)}});
 
 
 render();
