@@ -1,8 +1,8 @@
 {
- "version": "2.3 Beta",
- "build": 193,
+ "version": "2.4 Beta",
+ "build": 194,
  "html": "update/exodus.html",
- "notes": "The Windows and Android apps can now update themselves. Install the 1.8.0 apps once by hand; after that, Check for updates does it.",
+ "notes": "Seven new slide templates and style options for every slide.",
  "win": {
   "version": "1.8.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.3/Exodus-Lorebuilder-2.3-Beta-Windows.zip",

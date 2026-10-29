@@ -2442,6 +2442,119 @@ body.chcopen #toast{z-index:120}
 .fgtip{display:flex;gap:6px;align-items:center;font-size:12px;margin:12px 0 0;padding:8px 10px;border:1px dashed #785a2855}
 .fgempty{padding:16px;text-align:center;border:1px dashed #785a2855}
 @media(max-width:520px){.fgg{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.fgt b{font-size:12px}.fgp{font-size:12px;padding:3px 6px 6px}.fgt{padding:6px 6px 1px}.fgh h2{font-size:19px}}
+/* 2.4 slide templates */
+.hstp-quote i:nth-child(1){left:20%;right:20%;top:12px;height:6px}.hstp-quote i:nth-child(2){left:28%;right:28%;top:24px;height:4px}.hstp-quote i:nth-child(3){left:44%;width:12%;top:34px;height:12px;border-radius:50%}
+.hstp-split i:nth-child(1){left:0;width:49%;top:0;bottom:0;background:#0a1428cc;border-right:1px solid #c8aa6e}.hstp-split i:nth-child(2){left:8%;width:26%;bottom:10px;height:5px}.hstp-split i:nth-child(3){right:8%;width:26%;bottom:10px;height:5px}
+.hstp-gal i:nth-child(1){left:6%;width:26%;top:12px;bottom:12px}.hstp-gal i:nth-child(2){left:37%;width:26%;top:12px;bottom:12px}.hstp-gal i:nth-child(3){right:6%;width:26%;top:12px;bottom:12px}
+.hstp-patch i:nth-child(1){left:8%;width:20%;top:10px;height:8px}.hstp-patch i:nth-child(2){left:8%;width:60%;top:24px;height:3px;box-shadow:0 7px 0 #c8aa6e99,0 14px 0 #c8aa6e99}.hstp-patch i:nth-child(3){left:8%;width:22%;bottom:6px;height:6px}
+.hstp-stats i:nth-child(1){left:10%;width:22%;top:16px;height:18px}.hstp-stats i:nth-child(2){left:39%;width:22%;top:16px;height:18px}.hstp-stats i:nth-child(3){right:10%;width:22%;top:16px;height:18px}
+.hstp-promo i:nth-child(1){right:0;width:45%;top:0;bottom:0;background:#c8aa6e44}.hstp-promo i:nth-child(2){left:8%;width:18%;top:10px;height:10px;background:#c8463c}.hstp-promo i:nth-child(3){left:8%;width:34%;top:28px;height:8px}
+.hstp-roster i{border-radius:50%}.hstp-roster i:nth-child(1){left:18%;width:16%;top:14px;height:26px}.hstp-roster i:nth-child(2){left:42%;width:16%;top:14px;height:26px}.hstp-roster i:nth-child(3){left:66%;width:16%;top:14px;height:26px}
+/* quote */
+.hsqo{height:100%;display:flex;align-items:center;justify-content:center;padding:40px 60px;text-align:center}
+.hsqo.al-left{justify-content:flex-start;text-align:left}.hsqo.al-right{justify-content:flex-end;text-align:right}
+.hsqo .hsin{max-width:760px}
+.hsqq{margin:14px 0 22px;font:italic 600 30px/1.35 Georgia,serif;color:#f0e6d2;text-shadow:0 3px 16px rgba(0,0,0,.8);position:relative;quotes:'“' '”'}
+.hsqq:before{content:open-quote;position:absolute;left:-0.1em;top:-.55em;font-size:120px;line-height:1;color:var(--hac);opacity:.35;font-style:normal}
+.hsqo.al-center .hsqq:before{left:50%;transform:translateX(-50%)}
+.hsqa{display:inline-flex;gap:12px;align-items:center;text-align:left;padding:8px 16px 8px 8px;background:rgba(1,10,19,.7);border:1px solid #785a2866}.hsqa b{display:block;font:700 17px Cinzel,Georgia,serif;color:#f0e6d2;letter-spacing:.04em}.hsqa small{color:#cdbe91;font-size:13px}
+.hsqp{width:54px;height:54px;border-radius:50%;border:2px solid var(--hac);background:center top/cover;flex:none}
+.hsqb{margin-top:20px}
+/* split */
+.hssp{height:100%;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.hssph{position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:30px}
+.hssphi{position:absolute;inset:0;background:var(--im,none) center/cover no-repeat;transition:transform .6s;opacity:.95}
+.hssph:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(1,10,19,.92),rgba(1,10,19,.15) 60%);pointer-events:none}
+.hssph:hover .hssphi{transform:scale(1.05)}
+.hssph+.hssph{border-left:2px solid var(--hac)}
+.hssphb{position:relative;z-index:1;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.hsspt2{position:absolute;top:24px;left:0;right:0;text-align:center;z-index:2}.hsspt2 .hseb{justify-content:center}
+/* gallery */
+.hsgal{height:100%;display:flex;flex-direction:column;justify-content:center;padding:30px}
+.hsgg{display:grid;grid-template-columns:repeat(min(var(--n),8),minmax(0,1fr));gap:12px;margin-top:20px}
+.hsgal.grid .hsgg{grid-template-columns:repeat(4,minmax(0,1fr))}
+.hsgi{display:flex;flex-direction:column;gap:6px;background:none;border:0;padding:0;cursor:pointer;color:inherit;text-align:center;min-width:0}
+.hsgi span{aspect-ratio:3/4;border:1px solid var(--rc);background:#0a1428 center/cover;display:grid;place-items:center;font:700 30px Georgia,serif;color:#c8aa6e55;transition:transform .2s,box-shadow .2s}
+.hsgal.grid .hsgi span{aspect-ratio:4/3}
+.hsgi:hover span{transform:translateY(-4px);box-shadow:0 8px 24px #000a,0 0 0 1px var(--rc)}
+.hsgi b{font-size:12px;color:#f0e6d2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hsgb{margin-top:18px}.hsgal.al-center{text-align:center}.hsgal.al-center .hseb{justify-content:center}
+/* update notes */
+.hspn{height:100%;display:flex;flex-direction:column;justify-content:center;padding:34px 40px;max-width:640px}
+.hspnv{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.hspnv .hsh2{margin:6px 0}
+.hspnn{font:800 30px Cinzel,Georgia,serif;color:#010a13;background:var(--hac);padding:2px 12px}
+.hspnd{color:#a09b8c;font-size:13px}
+.hspnl{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.hspnl li{position:relative;padding:8px 12px 8px 30px;background:rgba(1,10,19,.72);border-left:2px solid var(--hac);font-size:14px;color:#f0e6d2}
+.hspnl li:before{content:'';position:absolute;left:12px;top:15px;width:7px;height:7px;background:var(--hac);transform:rotate(45deg)}
+.hspnm{color:#a09b8c;margin-top:6px}.hspnb{margin-top:18px}
+/* big numbers */
+.hsnum{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center}
+.hsnum.al-left{align-items:flex-start;text-align:left}.hsnum.al-right{align-items:flex-end;text-align:right}
+.hsnumg{display:grid;grid-template-columns:repeat(var(--n),minmax(120px,190px));gap:16px;margin-top:22px}
+.hsnumi{padding:18px 12px;background:rgba(1,10,19,.75);border:1px solid #785a2866;border-top:2px solid var(--hac);display:flex;flex-direction:column;gap:4px}
+.hsnumi b{font:800 46px/1 Cinzel,Georgia,serif;color:#f0e6d2;text-shadow:0 0 20px rgba(200,170,110,.25)}.hsnumi small{font-size:12px;color:#cdbe91;text-transform:uppercase;letter-spacing:.06em}
+/* offer */
+.hspr2{position:relative;height:100%;display:flex;align-items:center}
+.hspra{position:absolute;top:0;right:0;bottom:0;width:58%;background:center top/cover no-repeat;-webkit-mask:linear-gradient(90deg,transparent,#000 30%);mask:linear-gradient(90deg,transparent,#000 30%)}
+.hspri{position:relative;padding:34px;max-width:480px}
+.hsprb{display:inline-block;font:900 26px/1 system-ui,Arial,sans-serif;color:#fff;background:linear-gradient(135deg,#e0483c,#a8231b);padding:8px 14px;transform:rotate(-3deg);box-shadow:0 6px 18px #000a;margin-bottom:12px}
+.hsprp{display:flex;gap:12px;align-items:baseline;margin:10px 0}.hsprp s{color:#a09b8c;font-size:18px}.hsprp b{font:800 28px Cinzel,Georgia,serif;color:var(--hac)}
+.hsprc{justify-content:flex-start;margin:6px 0 14px}.hsprc span{min-width:52px;padding:6px}.hsprc b{font-size:22px}
+/* roster */
+.hsro{height:100%;display:flex;flex-direction:column;justify-content:center;padding:30px;text-align:center}
+.hsro.al-left{text-align:left}.hsro.al-center .hseb{justify-content:center}
+.hsrog{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:22px}.hsro.al-left .hsrog{justify-content:flex-start}
+.hsroc{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;cursor:pointer;color:inherit;width:110px;padding:0}
+.hsrop{width:96px;height:96px;border-radius:50%;border:3px solid var(--rc);background:#0a1428 center top/cover;display:grid;place-items:center;font:700 30px Georgia,serif;color:#c8aa6e66;box-shadow:0 6px 20px #000a;transition:transform .2s}
+.hsroc:hover .hsrop{transform:scale(1.06)}.hsroc:not(.own) .hsrop{filter:grayscale(.5)}
+.hsrop{position:relative}.hsroi{position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);display:flex;gap:4px}.hsroi .cci{width:22px;height:22px}
+.hsroc b{font-size:13px;color:#f0e6d2;margin-top:12px}.hsroc small{font-size:11px;color:#a09b8c;margin-top:-4px}
+/* style options */
+.hsw0.hts-s .hsh1{font-size:28px}.hsw0.hts-s .hsh2{font-size:24px}
+.hsw0.hts-l .hsh1{font-size:64px}.hsw0.hts-l .hsh2{font-size:46px}
+.hsw0.hts-xl .hsh1{font-size:84px}.hsw0.hts-xl .hsh2{font-size:60px}
+.hsw0.htw-nar .hsp{max-width:260px}.hsw0.htw-wide .hsp{max-width:620px}
+.hsw0.hov-bottom .hsov{background:linear-gradient(0deg,rgba(1,10,19,var(--ov)) 0%,rgba(1,10,19,calc(var(--ov) * .4)) 45%,transparent 75%)!important}
+.hsw0.hov-full .hsov{background:rgba(1,10,19,var(--ov))!important}
+.hsw0.hov-vig .hsov{background:radial-gradient(ellipse at 50% 45%,transparent 35%,rgba(1,10,19,var(--ov)) 100%)!important}
+.hsw0.hov-none .hsov{background:none!important}
+.hsw0[style*="--hbl"] .hsi{filter:blur(var(--hbl))}
+.hsw0.hen-none .hsin>*,.hsw0.hen-none .hsin2{animation:none!important}
+.hsw0.hen-fade .hsin>*{animation:hsFade .7s both!important}
+.hsw0.hen-left .hsin>*{animation:hsLft .6s cubic-bezier(.2,.7,.2,1) both!important}
+.hsw0.hen-zoom .hsin>*{animation:hsZm .6s cubic-bezier(.2,.7,.2,1) both!important}
+@keyframes hsLft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
+@keyframes hsZm{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+.hsw0.hbs-gold .hsb{background:linear-gradient(180deg,#c8aa6e,#8a6a2e)!important;color:#010a13!important;border-color:#f0e6d2!important}
+.hsw0.hbs-dark .hsb{background:rgba(1,10,19,.9)!important;border-color:#785a28!important}
+.hsw0.hbs-line .hsb{background:transparent!important;border-color:var(--hac)!important}
+.hsw0.hbs-acc .hsb{background:var(--hac)!important;color:#010a13!important;border-color:var(--hac)!important}
+.hsw0.hbr .hsb{border-radius:999px}
+.hsw0.hgl .hsh1,.hsw0.hgl .hsh2{text-shadow:0 0 18px var(--hac),0 0 42px color-mix(in srgb,var(--hac) 50%,transparent),0 3px 14px #000}
+.hsw0.hfr{box-shadow:inset 0 0 0 2px var(--hac),inset 0 0 40px color-mix(in srgb,var(--hac) 25%,transparent)}
+.hsrib{position:absolute;top:22px;right:-46px;z-index:6;width:170px;text-align:center;transform:rotate(45deg);background:var(--rbc);color:#fff;font:800 12px system-ui,Arial,sans-serif;letter-spacing:.12em;padding:5px 0;box-shadow:0 4px 12px #0008;text-transform:uppercase;pointer-events:none}
+.hsbg.an-zoomout .hsi{animation:hsZo 26s ease-in-out infinite alternate}
+@keyframes hsZo{from{transform:scale(1.15)}to{transform:scale(1)}}
+.hsbg.an-sway .hsi{animation:hsSw 14s ease-in-out infinite alternate}
+@keyframes hsSw{from{transform:rotate(-1deg) scale(1.08)}to{transform:rotate(1deg) scale(1.08)}}
+.hsbg.an-mouse .hsi{animation:none;transition:transform .4s ease-out;transform:scale(1.06)}
+@media(max-width:760px){
+ .hsqo{padding:20px 18px;align-items:flex-end}.hsqq{font-size:21px}.hsqq:before{font-size:80px}
+ .hssp{grid-template-columns:1fr;grid-template-rows:1fr 1fr;min-height:520px}.hssph{padding:16px}.hssph+.hssph{border-left:0;border-top:2px solid var(--hac)}.hsspt2{top:10px}
+ .hsgal{padding:16px 14px;justify-content:flex-end}.hsgg{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px}.hsgi b{font-size:10px}
+ .hspn{padding:16px 14px;justify-content:flex-end}.hspnn{font-size:22px}.hspnl li{font-size:13px;padding:6px 10px 6px 26px}
+ .hsnum{padding:16px 14px;justify-content:flex-end}.hsnumg{grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:8px}.hsnumi b{font-size:32px}
+ .hspr2{flex-direction:column;justify-content:flex-end;align-items:stretch}.hspra{width:100%;opacity:.45}.hspri{padding:16px 18px 10px;max-width:none}.hsprb{font-size:20px}
+ .hsro{padding:16px 14px;justify-content:flex-end}.hsrog{gap:10px}.hsroc{width:72px}.hsrop{width:64px;height:64px}.hsroc small{display:none}
+ .hsw0.hts-l .hsh1,.hsw0.hts-xl .hsh1{font-size:40px}.hsw0.hts-l .hsh2,.hsw0.hts-xl .hsh2{font-size:32px}
+ .hsrib{top:14px;right:-52px;font-size:10px}
+}
+
+.hs-split .hsc{display:block!important;height:100%}.hsw0.hs-split .hsc>.hssp{min-height:560px!important;height:100%!important}
+@media(max-width:760px){.hsw0.hs-split .hsc>.hssp{min-height:600px!important;grid-template-rows:1fr 1fr}.hsroi .cci{width:18px;height:18px}.hsroc b{font-size:11px;margin-top:10px}}
+
+.hsw0:has(.hsrib) .hstr{right:70px!important}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -8759,7 +8872,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.3 Beta',APPB=193;
+const APPV='2.4 Beta',APPB=194;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -10391,6 +10504,74 @@ async function ghShellGo(){const sh=ghShSel||{},url=sh.url||'';document.querySel
    else if(st==16){clearInterval(t);ghShellBar(0,0,'The download failed. Check the connection and try again.');document.querySelectorAll('#ghm .ghb').forEach(b=>b.disabled=false)}
    else ghShellBar(n,tot>0?tot:0)},600);return}
  ghOpen(url);back()}
+
+/* ===== 2.4: seven more slide templates, and style options for every slide ===== */
+HZT_.push(['quote','Quote','A big quote with who said it, their portrait and a button to the lore'],['split','Two sides','The slide split in two halves, each with its own picture, text and button'],['gal','Gallery','Up to 8 pictures from your collection as a strip or a grid'],['patch','Update notes','A version number, a list of changes and a button; can fill itself from What’s new'],['stats','Big numbers','Up to 4 large numbers, typed in or counted from your universe'],['promo','Offer','One thing with a badge like −30%, its old and new price, a timer and Buy'],['roster','Roster','A row of up to 8 characters with their class and element']);
+const HSX2=['quote','split','gal','patch','stats','promo','roster'];
+HZA_.push(['zoomout','Slow zoom out'],['sway','Sway'],['mouse','Follows the mouse']);
+HZF_.push(['rain','Rain'],['petals','Petals'],['leaves','Leaves'],['confetti','Confetti'],['ash','Ash'],['glitter','Glitter']);
+const hsRef=r=>{try{return r?refInfo(r):null}catch(e){return null}};
+const hsEb=s=>s.eb?`<small class="hseb">${esc(s.eb)}</small>`:'';
+const hsTt=(s,big)=>s.title?`<h1 class="${big?'hsh1':'hsh2'} ${hsTitleCls(s)}">${esc(s.title)}</h1>`:'';
+const hsB1=(s,c)=>s.b1&&s.b1.l?hsBtn(hsReg(s.b1),c||'gd'):'';
+/* ---------- the templates ---------- */
+function hsQuote(s){const o=hsRef(s.ch);return `<div class="hsqo al-${s.al||'center'}"><div class="hsin">${hsEb(s)}<blockquote class="hsqq ${hsTitleCls(s)}">${esc(s.text||(S.dev?'Write the quote in the Text box.':''))}</blockquote><div class="hsqa">${o&&o.img?`<span class="hsqp" style="background-image:url(${o.img})"></span>`:''}<span><b>${esc(s.who||(o&&o.name)||'')}</b>${s.sub?`<small>${esc(s.sub)}</small>`:o&&o.title?`<small>${esc(o.title)}</small>`:''}</span></div><div class="hsqb">${hsB1(s,'dk')}</div></div></div>`}
+function hsSplit(s){const L=(s.items||[]).slice(0,2);while(L.length<2)L.push({});return `<div class="hssp">${L.map((it,i)=>{const io=hsRef(it.r),img=(hsMedia('hsit_'+s.id+'_'+(it.k||i))||{}).u||(io&&io.img)||'',b=it.l?hsReg(it):null;return `<div class="hssph" style="${img?`--im:url(${img})`:''}"><span class="hssphi"></span><div class="hssphb hsin">${it.e?`<small class="hseb">${esc(it.e)}</small>`:''}<h2 class="hsh2 ${hsTitleCls(s)}">${esc(it.t||(io&&io.name)||(S.dev?'Side '+(i+1):''))}</h2>${it.d?`<p class="hsp">${fmt(it.d)}</p>`:''}${b?`<button class="hsb ${i?'dk':'gd'}" onclick="hsAct('${b.id}')">${esc(it.l)}</button>`:''}</div></div>`}).join('')}${s.title?`<div class="hsspt2">${hsEb(s)}${hsTt(s)}</div>`:''}</div>`}
+function hsGal(s){const L=(s.refs||[]).map(r=>[r,hsRef(r)]).filter(x=>x[1]).slice(0,8),grid=s.gl=='grid';return `<div class="hsgal ${grid?'grid':'strip'} al-${s.al||'left'}"><div class="hsin">${hsEb(s)}${hsTt(s)}${s.text?`<p class="hsp">${fmt(s.text)}</p>`:''}</div><div class="hsgg hsin2" style="--n:${Math.max(1,L.length)}">${L.map(([r,o])=>`<button class="hsgi" onclick="otOpen('${r}')" style="--rc:${rc(o.rar??0)}"><span style="${o.img?`background-image:url(${o.img})`:''}">${o.img?'':esc((o.name||'?')[0])}</span>${s.gn!==0?`<b>${esc(o.name||'')}</b>`:''}</button>`).join('')||`<p class="mut">${S.dev?'Pick pictures in the slide settings.':''}</p>`}</div>${hsB1(s)?`<div class="hsin2 hsgb">${hsB1(s)}</div>`:''}</div>`}
+function hsPatchData(s){if(s.pauto){try{const w=WN[0];return {v:w[0],d:w[1],L:w[2].map(x=>x[1]+(x[2]?' — '+x[2]:''))}}catch(e){}}return {v:s.ver||'',d:s.date||'',L:String(s.text||'').split('\n').map(x=>x.replace(/^\s*[-•*]\s*/,'').trim()).filter(Boolean)}}
+function hsPatch(s){const p=hsPatchData(s),L=p.L.slice(0,+s.pmax||6);return `<div class="hspn al-${s.al||'left'}"><div class="hsin">${hsEb(s)||`<small class="hseb">${esc(nm('Update notes'))}</small>`}<div class="hspnv">${p.v?`<span class="hspnn">${esc(p.v)}</span>`:''}${hsTt(s)}</div>${p.d?`<small class="hspnd">${esc(p.d)}</small>`:''}</div><ul class="hspnl hsin2">${L.map(x=>`<li>${esc(x)}</li>`).join('')||`<li class="mut">${S.dev?'Write one change per line in the Text box, or tick “Fill from What’s new”.':''}</li>`}</ul>${p.L.length>L.length?`<small class="hspnm hsin2">+${p.L.length-L.length} more</small>`:''}<div class="hsin2 hspnb">${hsB1(s)||`<button class="hsb dk" onclick="wnOpen()">${esc(nm('All update notes'))}</button>`}</div></div>`}
+const HSTAT=[['','Typed in'],['lore','Lore entries'],['chars','Characters'],['skins','Skins'],['items','Items'],['story','Chapters'],['owned','Characters owned (%)'],['level','Player level'],['quests','Quests done'],['days','Days to the date']];
+function hsStatV(t){const k=t.src;if(!k)return t.v||'0';if(k=='lore')return S.lore.length;if(k=='chars')return S.chars.length;if(k=='skins')return S.skins.length;if(k=='items')return S.items.length;if(k=='story')return S.story.length;if(k=='owned')return (S.chars.length?Math.round(S.owned.length/S.chars.length*100):0)+'%';if(k=='level'){try{return lvlOf(S.xp||0)}catch(e){return 1}}if(k=='quests')return S.quests.filter(q=>q.claimed).length;if(k=='days'){const d=t.dt?Math.ceil((new Date(t.dt)-Date.now())/864e5):0;return Math.max(0,d)}return t.v||'0'}
+function hsStats(s){const L=(s.st||[]).slice(0,4);return `<div class="hsnum al-${s.al||'center'}"><div class="hsin">${hsEb(s)}${hsTt(s,1)}${s.text?`<p class="hsp">${fmt(s.text)}</p>`:''}</div><div class="hsnumg hsin2" style="--n:${Math.max(1,L.length)}">${L.map(t=>`<div class="hsnumi"><b data-cnt="${esc(String(hsStatV(t)))}">${esc(String(hsStatV(t)))}</b><small>${esc(t.l||(HSTAT.find(x=>x[0]==t.src)||['',''])[1])}</small></div>`).join('')||`<p class="mut">${S.dev?'Add numbers in the slide settings.':''}</p>`}</div>${hsB1(s)?`<div class="hsin2" style="margin-top:20px">${hsB1(s)}</div>`:''}</div>`}
+function hsPromo(s){const r=s.ch,o=hsRef(r);if(!o)return `<div class="hspr2"><p class="mut" style="padding:30px">${S.dev?'Pick a character, skin, item or bundle in the slide settings.':''}</p></div>`;const own=r[0]=='b'?bOwn(o):lOwn(r),price=(r[0]=='b'?o.price:pr(o))||0,buyFn=r[0]=='c'||r[0]=='k'?`buy('${r.slice(2)}')`:r[0]=='i'?`buyItem('${r.slice(2)}')`:`bunOpen('${r.slice(2)}')`,t=s.end||0,v=t?hsCountTxt(t):null;
+ return `<div class="hspr2"><div class="hspra" style="${o.img?`background-image:url(${o.img})`:''}"></div><div class="hspri hsin">${s.badge!==''?`<span class="hsprb">${esc(s.badge||'−30%')}</span>`:''}${hsEb(s)}<h1 class="hsh1 ${hsTitleCls(s)}">${esc(s.title||o.name||'')}</h1>${s.text?`<p class="hsp">${fmt(s.text)}</p>`:''}<div class="hsprp">${s.was?`<s>${esc(String(s.was))} CE</s>`:''}<b>${own?esc(nm('Owned')):price+' CE'}</b></div>${t&&t>Date.now()?`<div class="hscd hsprc" data-t="${t}">${v.map((x,i)=>`<span><b>${String(x).padStart(2,'0')}</b><small>${['d','h','m','s'][i]}</small></span>`).join('')}</div>`:''}<div class="hsspb">${own?'':`<button class="hsb gd" onclick="${buyFn}">${esc(nm('Buy now'))}</button>`}<button class="hsb dk" onclick="otOpen('${r}')">${esc(nm('Details'))}</button>${hsB1(s,'dk')}</div></div></div>`}
+function hsRosterL(s){let L;if(s.rmode=='cls')L=S.chars.filter(c=>c.cls==s.rcls&&!c.lo);else if(s.rmode=='el')L=S.chars.filter(c=>c.el==s.rel&&!c.lo);else if(s.rmode=='new')L=S.chars.filter(c=>!c.lo).slice(-8).reverse();else L=(s.refs||[]).filter(r=>r[0]=='c').map(r=>S.chars.find(c=>c.id==r.slice(2))).filter(Boolean);return L.slice(0,8)}
+function hsRoster(s){const L=hsRosterL(s);return `<div class="hsro al-${s.al||'center'}"><div class="hsin">${hsEb(s)}${hsTt(s)}${s.text?`<p class="hsp">${fmt(s.text)}</p>`:''}</div><div class="hsrog hsin2" style="--n:${Math.max(1,L.length)}">${L.map(c=>`<button class="hsroc ${S.owned.includes(c.id)?'own':''}" onclick="otOpen('c:${c.id}')" style="--rc:${rc(c.rar||0)}"><span class="hsrop" style="${c.img?`background-image:url(${c.img})`:''}">${c.img?'':esc((c.name||'?')[0])}<span class="hsroi">${c.cls?clIco(c.cls):''}${c.el?elIco(c.el):''}</span></span><b>${esc(c.name)}</b>${c.title?`<small>${esc(c.title)}</small>`:''}</button>`).join('')||`<p class="mut">${S.dev?'Pick characters in the slide settings.':''}</p>`}</div>${hsB1(s)?`<div class="hsin2" style="margin-top:16px">${hsB1(s)}</div>`:''}</div>`}
+const HSX2F={quote:hsQuote,split:hsSplit,gal:hsGal,patch:hsPatch,stats:hsStats,promo:hsPromo,roster:hsRoster};
+{const _hv3=hsView;hsView=function(s){if(!s||!HSX2.includes(s.t))return _hv3.apply(this,arguments);const body=HSX2F[s.t](s);return `<div style="${s.ac?`--hac:${s.ac};`:''}" class="hsw0 ${hsTitleCls(s)} al-${s.al||'d'} hs-${s.t} ${hsHide?'hide':''} ${s.on===0?'off':''}" data-id="${s.id}">${hsBgH(s)}${hsTop(s)}<div class="hsc">${body}</div>${hsDev(s)}${s.on===0?'<span class="hsoff">Hidden from players</span>':''}</div>`}}
+{const _hb3=hsBg;hsBg=s=>{const m=_hb3(s);if(m&&m.u)return m;if(s.t=='quote'&&s.ch){const o=hsRef(s.ch);if(o&&o.img)return {u:o.img,v:0}}return m||{u:'',v:0}}}
+/* ---------- style options for every slide ---------- */
+const HSTY={hts:[['m','Normal'],['s','Small'],['l','Large'],['xl','Huge']],htw:[['n','Normal'],['nar','Narrow'],['wide','Wide']],hov:[['side','From the text side'],['bottom','From the bottom'],['full','Even'],['vig','Vignette'],['none','None']],hen:[['up','Slide up'],['fade','Fade'],['left','From the side'],['zoom','Zoom'],['none','None']],hbs:[['d','Template default'],['gold','Gold'],['dark','Dark'],['line','Outline'],['acc','Accent colour']]};
+{const _hv4=hsView;hsView=function(s){let h=_hv4.apply(this,arguments);if(!s)return h;const cl=[s.hts&&s.hts!='m'?'hts-'+s.hts:'',s.htw&&s.htw!='n'?'htw-'+s.htw:'',s.hov&&s.hov!='side'?'hov-'+s.hov:'',s.hen&&s.hen!='up'?'hen-'+s.hen:'',s.hbs&&s.hbs!='d'?'hbs-'+s.hbs:'',s.hgl?'hgl':'',s.hbr?'hbr':'',s.hfr?'hfr':''].filter(Boolean).join(' '),st=(s.hbl?`--hbl:${+s.hbl}px;`:'');
+ h=h.replace(/<div style="([^"]*)" class="hsw0 /,(m,a)=>`<div style="${a}${st}" class="hsw0 ${cl} `);
+ if(s.rib)h=h.replace('<div class="hsc">',`<span class="hsrib" style="--rbc:${esc(s.ribc||'#c8463c')}">${esc(s.rib)}</span><div class="hsc">`);return h}}
+document.addEventListener&&document.addEventListener('mousemove',e=>{const w=document.querySelector('.hsw0 .hsbg.an-mouse .hsi');if(!w)return;const r=w.parentElement.getBoundingClientRect();if(e.clientY<r.top||e.clientY>r.bottom)return;const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;w.style.transform=`translate(${(-x*3).toFixed(2)}%,${(-y*3).toFixed(2)}%) scale(1.06)`});
+/* count up animation for Big numbers */
+XPOST.push(function hsCountUp(){if(S.cfg.motion===0)return;document.querySelectorAll('.hsnumi b[data-cnt]').forEach(b=>{if(b.dataset.done)return;b.dataset.done=1;const raw=b.dataset.cnt,m=/^(\d+)(.*)$/.exec(raw);if(!m)return;const to=+m[1],suf=m[2],t0=performance.now();const step=t=>{const p=Math.min(1,(t-t0)/900),v=Math.round(to*(1-Math.pow(1-p,3)));b.textContent=v+suf;if(p<1&&b.isConnected)requestAnimationFrame(step)};requestAnimationFrame(step)})});
+/* ---------- more particles ---------- */
+{const _fx=hsFx;hsFx=function(){const c=document.querySelector('canvas.hsfx');const k=c&&c.dataset.fx;if(!c||!['rain','petals','leaves','confetti','ash','glitter'].includes(k))return _fx.apply(this,arguments);cancelAnimationFrame(hsRaf);if(S.cfg.motion===0)return;const x=c.getContext('2d'),d=devicePixelRatio;const fit=()=>{const r=c.getBoundingClientRect();c.width=r.width*d;c.height=r.height*d};fit();const W=()=>c.width,H=()=>c.height,N={rain:140,petals:36,leaves:28,confetti:90,ash:70,glitter:80}[k];
+ const pal={petals:['255,183,213','255,214,230','247,160,190'],leaves:['214,140,60','180,90,40','230,180,70','140,110,50'],confetti:['255,90,90','255,210,80','90,200,255','140,255,140','220,120,255'],ash:['200,200,200','150,150,150'],glitter:['255,240,200','255,255,255','200,230,255'],rain:['170,200,255']}[k];
+ const P=[...Array(N)].map(()=>({x:Math.random()*W(),y:Math.random()*H(),s:Math.random()*.7+.3,r:(Math.random()*3+2)*d,a:Math.random()*6.28,va:(Math.random()-.5)*.06,t:Math.random()*100,c:pal[Math.random()*pal.length|0]}));
+ const step=()=>{if(!c.isConnected)return;x.clearRect(0,0,W(),H());P.forEach(p=>{p.t+=.02;p.a+=p.va;
+  if(k=='rain'){p.y+=p.s*14*d;p.x-=p.s*2*d;x.strokeStyle=`rgba(${p.c},${.25+p.s*.35})`;x.lineWidth=d;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(p.x+2*d,p.y-12*d*p.s);x.stroke()}
+  else if(k=='glitter'){const al=Math.max(0,Math.sin(p.t*3+p.a));x.fillStyle=`rgba(${p.c},${al})`;x.beginPath();x.arc(p.x,p.y,p.r*.35,0,7);x.fill();if(al>.9){x.strokeStyle=`rgba(${p.c},${al*.6})`;x.lineWidth=d*.7;x.beginPath();x.moveTo(p.x-p.r,p.y);x.lineTo(p.x+p.r,p.y);x.moveTo(p.x,p.y-p.r);x.lineTo(p.x,p.y+p.r);x.stroke()}p.y-=.1*d}
+  else{p.y+=p.s*(k=='ash'?.6:k=='confetti'?2.2:1.2)*d;p.x+=Math.sin(p.t*(k=='leaves'?1.2:2))*(k=='ash'?.3:1)*d;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=`rgba(${p.c},${k=='ash'?.5:.85})`;
+   if(k=='confetti')x.fillRect(-p.r/2,-p.r,p.r,p.r*2);else if(k=='ash'){x.beginPath();x.arc(0,0,p.r*.3,0,7);x.fill()}else{x.beginPath();x.ellipse(0,0,p.r*(k=='leaves'?1.4:1.1),p.r*(k=='leaves'?.6:.75),0,0,7);x.fill()}x.restore()}
+  if(p.y>H()+20){p.y=-20;p.x=Math.random()*W()}if(p.y<-20)p.y=H()+20;if(p.x<-20)p.x=W()+20;if(p.x>W()+20)p.x=-20});hsRaf=requestAnimationFrame(step)};step()}}
+/* ---------- the editor ---------- */
+function hsStSet(i,k,v){const s=hsCur();if(!s)return;s.st=s.st||[];if(!s.st[i])return;s.st[i][k]=v;save()}
+function hsStAdd(){const s=hsCur();if(!s)return;s.st=s.st||[];if(s.st.length>=4)return toast('Up to 4 numbers');s.st.push({l:'',v:'',src:'lore'});save();render()}
+function hsStDel(i){const s=hsCur();if(!s)return;(s.st||[]).splice(i,1);save();render()}
+{const _hf3=hsForm;hsForm=function(){const s=hsCur();let h=String(_hf3.apply(this,arguments));if(!s)return h;const o2=(k,L)=>`<select onchange="hsSet('${k}',this.value);render()">${L.map(([v,l])=>`<option value="${v}" ${(s[k]||L[0][0])==v?'selected':''}>${esc(l)}</option>`).join('')}</select>`;
+ /* style panel for every slide */
+ const sty=`<div class="panel"><h3 style="margin-top:0">Style</h3><div class="row3"><div><label>Title size</label>${o2('hts',HSTY.hts)}</div><div><label>Text width</label>${o2('htw',HSTY.htw)}</div><div><label>Text comes in</label>${o2('hen',HSTY.hen)}</div></div><div class="row3"><div><label>Darkening shape</label>${o2('hov',HSTY.hov)}</div><div><label>Button look</label>${o2('hbs',HSTY.hbs)}</div><div><label>Blur the background: ${+s.hbl||0}px</label><input type="range" min="0" max="16" value="${+s.hbl||0}" onchange="hsSet('hbl',+this.value);render()"></div></div>
+ <div class="row3"><div><label>Corner ribbon (optional)</label><input value="${esc(s.rib||'')}" placeholder="e.g. LIMITED" onchange="hsSet('rib',this.value.trim());render()"></div><div><label>Ribbon colour</label><input type="color" value="${esc(s.ribc||'#c8463c')}" onchange="hsSet('ribc',this.value);render()"></div><div><label>&nbsp;</label><label class="chk"><input type="checkbox" ${s.hgl?'checked':''} onchange="hsSet('hgl',this.checked?1:0);render()"> Glowing title</label></div></div>
+ <div class="row"><label class="chk"><input type="checkbox" ${s.hbr?'checked':''} onchange="hsSet('hbr',this.checked?1:0);render()"> Rounded buttons</label><label class="chk"><input type="checkbox" ${s.hfr?'checked':''} onchange="hsSet('hfr',this.checked?1:0);render()"> Golden frame around the slide</label></div></div>`;
+ const bgp='<div class="panel"><h3 style="margin-top:0">Background</h3>';const bi=h.indexOf(bgp);if(bi>=0)h=h.slice(0,bi)+sty+h.slice(bi);else{const pv='<div class="panel"><h3 style="margin-top:0">Preview</h3>',k=h.lastIndexOf(pv);if(k>=0)h=h.slice(0,k)+sty+h.slice(k)}
+ if(!HSX2.includes(s.t))return h;
+ h=h.replace('<div class="panel"><h3 style="margin-top:0">Text</h3><div class="row">',`<div class="panel"><h3 style="margin-top:0">Text</h3><div class="row"><div><label>Small text above the title</label><input value="${esc(s.eb||'')}" onchange="hsSet('eb',this.value);render()"></div>`);
+ const chips=(k,filt)=>(s[k]||[]).map((r,i)=>{const o=hsRef(r);return `<span class="g2p">${esc(o?o.name:'Missing')}<button class="ic" onclick="hsArr('${k}','del',${i})" aria-label="Remove">${ico('x',11)}</button></span>`}).join('')||'<p class="mut">Nothing yet.</p>';
+ let ex='';
+ if(s.t=='quote')ex=`<div class="panel"><h3 style="margin-top:0">Quote</h3><p class="mut" style="margin:0 0 8px">The quote itself goes in the Text box above.</p><div class="row3"><div><label>Who said it</label><input value="${esc(s.who||'')}" placeholder="Their name" onchange="hsSet('who',this.value);render()"></div><div><label>Under the name</label><input value="${esc(s.sub||'')}" placeholder="e.g. Queen of the North" onchange="hsSet('sub',this.value);render()"></div><div><label>Portrait from the collection</label><select onchange="hsSet('ch',this.value);render()">${hsRefOpts(s.ch)}</select></div></div><b>Button</b>${hsActEd('b1',s.b1)}</div>`;
+ if(s.t=='split')ex=`<div class="panel"><h3 style="margin-top:0">The two sides</h3>${[0,1].map(i=>{const it=(s.items||[])[i];if(!it)return '';return `<div class="hsrow"><b>${i?'Right side':'Left side'}</b><div class="row3"><div><label>Small text</label><input value="${esc(it.e||'')}" onchange="hsCardSet(${i},'e',this.value)"></div><div><label>Title</label><input value="${esc(it.t||'')}" onchange="hsCardSet(${i},'t',this.value)"></div><div><label>Picture from the collection</label><select onchange="hsCardSet(${i},'r',this.value);render()">${hsRefOpts(it.r)}</select></div></div><label>Text</label><textarea style="min-height:50px" onchange="hsCardSet(${i},'d',this.value)">${esc(it.d||'')}</textarea><label>Or your own picture</label><input type="file" accept="image/*" data-asp="1:1" onchange="hsItUp(${i},this)">${hsActX(it,`hsCard${i}`)}</div>`}).join('')}${(s.items||[]).length<2?`<button class="btn dev" onclick="hsArr('items','add');${(s.items||[]).length?'':"hsArr('items','add');"}">Add ${(s.items||[]).length?'the right side':'the two sides'}</button>`:''}</div>`;
+ if(s.t=='gal')ex=`<div class="panel"><h3 style="margin-top:0">Pictures (up to 8)</h3>${chips('refs')}<div class="g2add" style="margin-top:8px"><select id="hsra">${hsRefOpts('','Pick something')}</select><button class="btn dev" onclick="if((hsCur().refs||[]).length>=8)return toast('Up to 8');hsRefAdd()">Add</button></div><div class="row3"><div><label>Layout</label><select onchange="hsSet('gl',this.value);render()"><option value="strip" ${s.gl!='grid'?'selected':''}>A strip</option><option value="grid" ${s.gl=='grid'?'selected':''}>A grid</option></select></div><div><label>&nbsp;</label><label class="chk"><input type="checkbox" ${s.gn!==0?'checked':''} onchange="hsSet('gn',this.checked?1:0);render()"> Show names</label></div></div><b>Button</b>${hsActEd('b1',s.b1)}</div>`;
+ if(s.t=='patch')ex=`<div class="panel"><h3 style="margin-top:0">Update notes</h3><label class="chk"><input type="checkbox" ${s.pauto?'checked':''} onchange="hsSet('pauto',this.checked?1:0);render()"> Fill from What’s new by itself (the newest version)</label>${s.pauto?'':`<div class="row"><div><label>Version</label><input value="${esc(s.ver||'')}" placeholder="e.g. 2.4" onchange="hsSet('ver',this.value);render()"></div><div><label>Date</label><input value="${esc(s.date||'')}" placeholder="e.g. 30 Oct 2026" onchange="hsSet('date',this.value);render()"></div></div><p class="mut" style="margin:4px 0 0">Write one change per line in the Text box above.</p>`}<div class="row"><div><label>Changes shown</label><input type="number" min="1" max="12" value="${+s.pmax||6}" onchange="hsSet('pmax',+this.value);render()"></div></div><b>Button</b> <small class="mut">(empty = opens all update notes)</small>${hsActEd('b1',s.b1)}</div>`;
+ if(s.t=='stats')ex=`<div class="panel"><h3 style="margin-top:0">Numbers (up to 4)</h3>${(s.st||[]).map((t,i)=>`<div class="hsrow"><div class="row3"><div><label>Counts</label><select onchange="hsStSet(${i},'src',this.value);render()">${HSTAT.map(([k,l])=>`<option value="${k}" ${(t.src||'')==k?'selected':''}>${esc(l)}</option>`).join('')}</select></div>${!t.src?`<div><label>Number</label><input value="${esc(t.v||'')}" placeholder="e.g. 120" onchange="hsStSet(${i},'v',this.value);render()"></div>`:t.src=='days'?`<div><label>Date</label><input type="date" value="${esc(t.dt||'')}" onchange="hsStSet(${i},'dt',this.value);render()"></div>`:`<div><label>Right now</label><input disabled value="${esc(String(hsStatV(t)))}"></div>`}<div><label>Label</label><input value="${esc(t.l||'')}" placeholder="${esc((HSTAT.find(x=>x[0]==t.src)||['',''])[1]||'Label')}" onchange="hsStSet(${i},'l',this.value);render()"></div></div><button class="btn red" onclick="hsStDel(${i})">Remove</button></div>`).join('')}${(s.st||[]).length<4?`<button class="btn dev" onclick="hsStAdd()">Add a number</button>`:''}<p style="margin:10px 0 0"><b>Button</b></p>${hsActEd('b1',s.b1)}</div>`;
+ if(s.t=='promo')ex=`<div class="panel"><h3 style="margin-top:0">Offer</h3><label>Character, skin, item or bundle</label><select onchange="hsSet('ch',this.value);render()">${hsRefOpts(s.ch,'Pick something')}</select><div class="row3"><div><label>Badge</label><input value="${esc(s.badge==null?'−30%':s.badge)}" placeholder="Empty = no badge" onchange="hsSet('badge',this.value);render()"></div><div><label>Old price shown crossed out (CE)</label><input type="number" min="0" value="${esc(String(s.was||''))}" onchange="hsSet('was',+this.value||0);render()"></div><div><label>Offer ends (shows a timer)</label><input type="datetime-local" value="${hsDt(s.end)}" onchange="hsSet('end',this.value?new Date(this.value).getTime():0);render()"></div></div><p class="mut" style="margin:4px 0 8px">The Buy button uses the thing’s real price from the shop. Change the price there; the badge and old price are only shown.</p><b>Extra button</b>${hsActEd('b1',s.b1)}</div>`;
+ if(s.t=='roster')ex=`<div class="panel"><h3 style="margin-top:0">Characters (up to 8)</h3><label>Who is shown</label><select onchange="hsSet('rmode',this.value);render()">${[['pick','The ones I pick'],['cls','Everyone of one class'],['el','Everyone of one element'],['new','The newest characters']].map(([k,l])=>`<option value="${k}" ${(s.rmode||'pick')==k?'selected':''}>${l}</option>`).join('')}</select>${s.rmode=='cls'?`<label>Class</label><select onchange="hsSet('rcls',this.value);render()">${CLS.concat(CLSX()).map(c=>`<option ${s.rcls==c?'selected':''}>${esc(c)}</option>`).join('')}</select>`:s.rmode=='el'?`<label>Element</label><select onchange="hsSet('rel',this.value);render()">${ELS.map(e=>`<option ${s.rel==e[0]?'selected':''}>${esc(e[0])}</option>`).join('')}</select>`:s.rmode=='new'?'':`${chips('refs')}<div class="g2add" style="margin-top:8px"><select id="hsra"><option value="">Pick a character</option>${S.chars.map(c=>`<option value="c:${c.id}">${esc(c.name)}</option>`).join('')}</select><button class="btn dev" onclick="if((hsCur().refs||[]).length>=8)return toast('Up to 8');hsRefAdd()">Add</button></div>`}<p style="margin:10px 0 0"><b>Button</b></p>${hsActEd('b1',s.b1)}</div>`;
+ const pv='<div class="panel"><h3 style="margin-top:0">Preview</h3>',k=h.lastIndexOf(pv);if(k>=0)h=h.slice(0,k)+ex+h.slice(k);return h}}
+/* sensible starting content for a new slide of these kinds */
+{const _hs3=hsSet;hsSet=function(k,v){const s=hsCur();const r=_hs3.apply(this,arguments);try{if(k=='t'&&s){if(v=='split'&&!(s.items||[]).length){s.items=[{e:'',t:'',l:''},{e:'',t:'',l:''}]}if(v=='stats'&&!(s.st||[]).length){s.st=[{src:'lore',l:''},{src:'chars',l:''},{src:'skins',l:''}]}if(v=='patch'&&s.pauto==null)s.pauto=1;if(v=='roster'&&!s.rmode)s.rmode='new';save()}}catch(e){}return r}}
 
 
 render();
