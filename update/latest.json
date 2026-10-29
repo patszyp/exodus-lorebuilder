@@ -1,8 +1,8 @@
 {
- "version": "2.2.3 Beta",
- "build": 191,
+ "version": "2.2.4 Beta",
+ "build": 192,
  "html": "update/exodus.html",
- "notes": "Set how many fragments a character or skin costs.",
+ "notes": "New fragment window.",
  "win": {
   "version": "1.7.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.2/Exodus-Lorebuilder-2.2-Beta-Windows.zip"
