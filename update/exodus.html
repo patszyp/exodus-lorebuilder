@@ -2079,6 +2079,69 @@ aside.cls>select[data-skf]{width:100%}
  .hsbps{padding:12px 6px 14px!important}
 }
 .hsbs{display:none}@media(max-width:720px){.hsbl{display:none}.hsbs{display:inline}}
+/* ===== 1.7 ===== */
+/* quest editor */
+.qxp>h2{margin-bottom:12px}
+.qxw{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+.qxl{display:flex;flex-direction:column;gap:14px;min-width:0}
+.qxs{border:1px solid #785a2855;background:linear-gradient(180deg,rgba(13,27,46,.6),rgba(7,17,32,.6))}
+.qxs>header{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #785a2844;background:rgba(1,10,19,.35)}
+.qxs>header b{display:block;font:700 13px Cinzel,Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--gold2)}.qxs>header small{color:var(--mut);font-size:12px}
+.qxi{width:30px;height:30px;border:1px solid #785a28;display:grid;place-items:center;color:var(--gold);flex:none}.qxi svg{display:block}
+.qxb{padding:12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+.qxb>*{grid-column:1/-1}.qxb>.qxf:has(#q3),.qxb>.qxf:has(#q9),.qxb>.qxf:has(#q10),.qxb>.qxf:has(#q11),.qxb>.qxf:has(#q14){grid-column:auto}
+.qxf label{margin-top:4px}
+.qxsub{border-top:1px dashed #785a2855;margin-top:8px;padding-top:6px}.qxsub h3{font-size:13px;margin:4px 0}
+.qxrg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.qxrc{border:1px solid #785a2844;padding:6px 8px;background:rgba(1,10,19,.4)}.qxrc label{margin:0 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.05em}.qxrc input{margin:0}
+.qxtg{margin-bottom:4px}.qxbd{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:2px 9px;border-radius:10px;background:#0ac8b922;color:#0ac8b9;border:1px solid #0ac8b955}.qxbd.dev{background:#c8aa6e22;color:#c8aa6e;border-color:#c8aa6e55}
+.qxr{position:sticky;top:12px}
+.qxst{border:1px solid #785a28;padding:12px;background:rgba(1,10,19,.55);display:flex;flex-direction:column;gap:10px}
+.qxk{color:var(--gold);font:700 11px Cinzel,Georgia,serif;letter-spacing:.08em;text-transform:uppercase}
+#qxpv{pointer-events:none}#qxpv>*{margin:0}
+.qxa{display:flex;gap:8px}.qxa .btn{flex:1}
+.qdsc{margin:2px 0 6px;font-size:12px;color:var(--mut)}
+@media(max-width:900px){.qxw{grid-template-columns:1fr}.qxr{position:static;order:-1}.qxb{grid-template-columns:1fr}}
+/* economy and tags pages */
+.ecotab{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:14px;flex-wrap:wrap}
+.ecotab button{display:inline-flex;align-items:center;gap:6px;background:none;border:0;border-bottom:2px solid transparent;color:var(--mut);padding:8px 14px;font:700 12px Cinzel,Georgia,serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}.ecotab button.on{color:var(--gold2);border-color:var(--gold)}.ecotab svg{display:block}
+.ecog{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.ecoc{border:1px solid #785a2855;background:linear-gradient(180deg,rgba(13,27,46,.6),rgba(7,17,32,.6));padding:14px;margin-bottom:12px}
+.ecog .ecoc{margin:0}
+.ecoh{display:flex;align-items:center;gap:12px;margin-bottom:8px}.ecoh b{display:block;color:#f0e6d2}.ecoh small{color:var(--mut);font-size:12px}
+.ecoi{width:44px;height:44px;flex:none;border:1px solid #785a28;border-radius:50%;display:grid;place-items:center;background:rgba(1,10,19,.6);color:var(--gold)}.ecoi svg{display:block}
+.ecoi.lv{font:800 18px Cinzel,Georgia,serif;color:#f0e6d2;border:2px solid #0ac8b9}
+.ecoc p.mut{margin:0 0 10px;font-size:12px;min-height:32px}
+.ecov{display:flex;align-items:center;gap:8px}.ecov input{margin:0;font-size:18px;font-weight:700}.ecov span{color:var(--mut);font-size:12px;white-space:nowrap}
+.ecob{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}.ecob .btn{padding:3px 9px;font-size:12px}
+.ecobar{height:8px;background:#1e2d3d;margin:6px 0 12px}.ecobar i{display:block;height:100%;background:linear-gradient(90deg,#0a8a9a,#0ac8b9)}
+.ecolv{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:6px;margin-top:8px}.ecolv span{border:1px solid var(--line);padding:6px;text-align:center;display:flex;flex-direction:column}.ecolv span.on{border-color:#0ac8b9}.ecolv small{color:var(--mut);font-size:11px}
+.ecot{width:100%}.ecot input{max-width:96px;margin:0}.ecot td{vertical-align:middle}.ecot td svg{vertical-align:-2px}
+.ecop{display:inline-block;width:60px;height:6px;background:#1e2d3d;margin-right:8px;vertical-align:middle}.ecop i{display:block;height:100%;background:var(--gold)}
+.ecoo{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;max-height:420px;overflow:auto;margin-top:6px}
+.ecoo label{display:grid;grid-template-columns:auto 1fr;gap:0 6px;align-items:center;border:1px solid var(--line);padding:6px 8px;margin:0}.ecoo label.on{border-color:var(--gold);background:#c8aa6e14}.ecoo small{grid-column:2;color:var(--mut);font-size:11px}
+.tgt input[type=text],.tgt td>input:not([type]){max-width:180px}.tgt input[type=color]{width:40px;height:28px;padding:0;border:1px solid var(--line);background:none}
+.tgo{white-space:nowrap}.tga{display:flex;gap:4px;align-items:center}.tga select{max-width:130px;margin:0}
+.tgdot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:1px}
+.chxb{color:#0ac8b9}
+/* advent calendar */
+.advw{display:flex;flex-direction:column;height:100%;padding:0 0 18px}
+.advh{padding:24px 30px 10px;max-width:560px}
+.advg{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(var(--c),minmax(0,1fr));grid-auto-rows:minmax(0,auto);gap:8px;padding:6px 30px 0;align-content:start;max-width:960px}.advg .advd{max-height:110px;aspect-ratio:auto;min-height:72px}
+.advd{position:relative;aspect-ratio:1;border:1px solid #785a28aa;background:linear-gradient(160deg,rgba(30,40,70,.85),rgba(5,12,26,.9));color:#f0e6d2;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:4px;transition:transform .15s,box-shadow .15s}
+.advd b{font:800 22px/1 Cinzel,Georgia,serif}.advd i{font-style:normal;color:var(--mut)}.advd em{font-style:normal;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#0ac8b9}
+.advd.last{border-color:#c8aa6e;box-shadow:inset 0 0 0 1px #c8aa6e55}
+.advd.today,.advd.late{border-color:#0ac8b9;box-shadow:0 0 14px rgba(10,200,185,.45);animation:advP 2s ease-in-out infinite}.advd.today:hover,.advd.late:hover{transform:translateY(-3px)}
+@keyframes advP{50%{box-shadow:0 0 22px rgba(10,200,185,.7)}}
+.advd.lock{opacity:.55;cursor:default}.advd.miss{opacity:.35;cursor:default}
+.advd.open{background:linear-gradient(160deg,rgba(60,45,15,.75),rgba(5,12,26,.9));border-color:#c8aa6e}.advd.open b{position:absolute;top:4px;left:6px;font-size:12px;color:var(--gold)}
+.advr{width:62%;height:62%;display:grid;place-items:center}.advr .bp4ti,.advr .bp4tc{width:100%;height:100%}
+.advm{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}.advmi{width:170px;height:170px;display:grid;place-items:center}.advmi .bp4bi{width:150px;height:150px}.advmi .bp4bc{width:120px;height:120px}
+.adve{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.advec{border:1px solid var(--line);padding:8px;display:flex;flex-direction:column;gap:4px}.advec.last{border-color:var(--gold)}.advec select,.advec input{margin:0}
+@media(max-width:720px){.advh{padding:16px 18px 6px}.advg{--c:5!important;padding:6px 14px 0;gap:6px}.advd b{font-size:16px}.advd.last{grid-column:span 1;aspect-ratio:1}}
+#qxpv button{display:none}
+.qxcov{display:flex;flex-wrap:wrap;align-items:center;gap:6px}.qxcov>label{width:100%}.qxcov input[type=file]{flex:1;min-width:200px;margin:0}.qxcb{display:flex;gap:6px}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -6812,8 +6875,12 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='1.6.6';
+const WNV='1.7';
 const WN=[
+ ['1.7','29 Oct 2026',[
+  ['App','Advent calendars','A door to open every day, each with its own reward. Find it on the Home page while it runs.',"go('home');hsub='adv';render()"],
+  ['App','New quests anyone can do','Roll on the Gacha, open orbs, log in, claim daily and Battlepass rewards, read lore, spend CE and more. Quests can also give chests, orbs and Sapphire Essence.',"pickSub('prof','quests')"],
+  ['Collection','Bigger chests','Chests can now give Shim Tokens, Gacha Tokens, Sapphire Essence or another chest, and sometimes more than one reward.',"go('store');ssub='inv';render()"]]],
  ['1.6.6','29 Oct 2026',[
   ['App','Updates show up right away','Check for updates now sees a new version as soon as it is published, instead of a few minutes later.',"openSet();stSec='abt';render()"]]],
  ['1.6.5','29 Oct 2026',[
@@ -7341,7 +7408,7 @@ const CHT=()=>{S.chestT=S.chestT||{rows:[]};return S.chestT},ORT=()=>{S.orbT=S.o
 const LTK=[['ref','A character, skin or item'],['at','Ancient Tokens (AT)'],['se','Sapphire Essence (SE)'],['orb','Orbs'],['ce','Creator Essence (CE)']];
 function chestRows(){const R=CHT().rows.filter(r=>r.t!='ref'||refObj(r.ref));if(R.length)return R;const W=[60,25,10,5],L=[...S.chars.map(c=>'c:'+c.id),...S.skins.map(k=>'k:'+k.id),...S.items.filter(i=>!['boosters','icons','banners','borders','backgrounds'].includes(i.cat)).map(i=>'i:'+i.id)];
  return [...L.map(r=>{const o=refObj(r)||{};return {t:'ref',ref:r,w:W[Math.min(3,o.rar??o.rarity??0)]/10}}),{t:'at',n:25,w:Math.max(1,L.length)*1.2},{t:'orb',n:1,w:Math.max(1,L.length)*.6}]}
-const chestLbl=r=>r.t=='ref'?(refName(r.ref)||'?'):r.t=='at'?'+'+r.n+' AT':r.t=='se'?'+'+r.n+' SE':r.t=='ce'?'+'+r.n+' CE':'+'+r.n+' orb'+(r.n==1?'':'s');
+let chestLbl=r=>r.t=='ref'?(refName(r.ref)||'?'):r.t=='at'?'+'+r.n+' AT':r.t=='se'?'+'+r.n+' SE':r.t=='ce'?'+'+r.n+' CE':'+'+r.n+' orb'+(r.n==1?'':'s');
 function chestRoll(){const R=chestRows(),T=R.reduce((a,r)=>a+(+r.w||0),0);if(!T)return null;let x=Math.random()*T;for(const r of R){x-=+r.w||0;if(x<=0)return r}return R[R.length-1]}
 function chestOpen(){XCLOSE('chpx');if(!S.inv.chests)return toast('No chests left');const r=chestRoll();if(!r)return toast('This chest has nothing in it yet');S.inv.chests--;const res=[];
  if(r.t=='ref'){const o=refObj(r.ref);const g=gGrant(o);res.push({c:g.c,note:g.note,main:(o.rar??o.rarity??0)>=2?1:0})}else{if(r.t=='at')S.tokens+=+r.n||0;else if(r.t=='se')S.se=(S.se||0)+(+r.n||0);else if(r.t=='ce')S.ce=(S.ce||0)+(+r.n||0);else S.inv.orbs=(S.inv.orbs||0)+(+r.n||1);res.push({c:{id:'cx',name:chestLbl(r),img:'',rarity:0,region:'Item'},note:'Reward'})}
@@ -8372,7 +8439,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='1.6.6 Beta',APPB=181;
+const APPV='1.7 Beta',APPB=182;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -9320,30 +9387,159 @@ if(window.ExodusAndroid){
 fullRestorePick=function(){const i=document.createElement('input');i.type='file';if(!window.ExodusAndroid)i.accept='.json,application/json';i.style.cssText='position:fixed;left:-9999px;top:0;width:1px;height:1px;opacity:0';document.body.appendChild(i);i.addEventListener('change',()=>{const f=i.files&&i.files[0];setTimeout(()=>i.remove(),0);if(f)fullRestore(f)});i.click()};
 {const _fr=fullRestore;fullRestore=async function(f){if(!f)return;toast('Reading the backup ('+Math.max(1,Math.round(f.size/1048576))+' MB)…');await new Promise(r=>setTimeout(r,60));try{return await _fr.apply(this,arguments)}catch(e){toast('Could not read that backup file')}}}
 
-/* ===== 1.6.3: restore big backups without running out of memory (Android), clearer progress ===== */
-/* reads the backup piece by piece: the data first, then each picture one at a time */
-async function fbStream(f,onS,onMedia,onProg){const CH=4<<20,dec=new TextDecoder('utf-8');let pos=0,s='',i=0,depth=0,inStr=false,esc=false,strStart=-1,strKey=false,exp=['', 'key','key','key'],key1='',key2='',vsS=-1,vsM=-1,mObj=false,inMedia=false;
- while(pos<f.size||i<s.length){if(i>=s.length&&pos<f.size){const buf=await f.slice(pos,pos+CH).arrayBuffer();pos+=CH;s+=dec.decode(buf,{stream:pos<f.size});onProg&&onProg(Math.min(1,pos/f.size))}else if(i>=s.length)break;
-  const jobs=[];
-  for(;i<s.length;i++){const c=s.charCodeAt(i);
-   if(inStr){if(esc){esc=false;continue}if(c===92){esc=true;continue}if(c===34){inStr=false;if(strKey){const k=JSON.parse(s.slice(strStart,i+1));if(depth===1)key1=k;else if(depth===2&&inMedia)key2=k}else if(depth===2&&inMedia&&vsM>=0&&!mObj){jobs.push([key2,s.slice(vsM,i+1)]);vsM=-1}strStart=-1}continue}
-   if(c===34){inStr=true;strStart=i;strKey=exp[depth]==='key';if(!strKey&&depth===2&&inMedia&&vsM<0){vsM=i;mObj=false}continue}
-   if(c===123||c===91){if(depth===1&&exp[1]==='val'&&key1==='S'&&vsS<0)vsS=i;if(depth===1&&exp[1]==='val'&&key1==='media')inMedia=true;if(depth===2&&inMedia&&exp[2]==='val'&&vsM<0){vsM=i;mObj=true}depth++;exp[depth]=c===123?'key':'val';continue}
-   if(c===125||c===93){depth--;if(depth===1&&vsS>=0){onS(JSON.parse(s.slice(vsS,i+1)));vsS=-1}if(depth===2&&inMedia&&vsM>=0&&mObj){jobs.push([key2,s.slice(vsM,i+1)]);vsM=-1}if(depth===1&&inMedia)inMedia=false;continue}
-   if(c===58){exp[depth]='val';continue}
-   if(c===44){exp[depth]='key';continue}}
-  for(const [k,v] of jobs)await onMedia(k,v);
-  /* keep only what an unfinished value still needs */
-  let keep=s.length;[vsS,vsM,inStr?strStart:-1].forEach(x=>{if(x>=0&&x<keep)keep=x});if(keep>0){s=s.slice(keep);i-=keep;if(vsS>=0)vsS-=keep;if(vsM>=0)vsM-=keep;if(strStart>=0)strStart-=keep}}}
-fullRestore=async function(f){if(!f)return;let head='';try{head=await f.slice(0,64).text()}catch(e){}
- if(!/"exodusFull"\s*:\s*1/.test(head)){toast('Reading the backup…');let d;try{d=JSON.parse(await f.text())}catch(e){return toast('That file is not a backup')}if(d&&d.chars&&d.lore){cfm('This is a text-only backup. Replace your current data with it?',()=>{S=d;save();render();toast('Imported')});return}return toast('That file is not a backup')}
- const mb=Math.round(f.size/1048576);cfm(`Replace everything here with this full backup (${mb} MB, with pictures and media)?`,async()=>{let newS=null,n=0,last=0;const bar=fbBar();try{await fbStream(f,v=>{newS=v},async(k,v)=>{try{await mset(k,fbDec(JSON.parse(v)));n++}catch(e){}},p=>{const t=Date.now();if(t-last>250){last=t;fbBar(p)}});if(!newS||!newS.chars)throw new Error('no data');S=newS;save();fbBar(1);toast('Restored '+n+' pictures and media files. Reloading…');setTimeout(()=>location.reload(),1200)}catch(e){fbBar(-1);toast('Could not restore this backup'+(e&&e.message?': '+e.message:''))}})};
-function fbBar(p){let d=document.getElementById('fbbar');if(p===-1){if(d)d.remove();return}if(!d){d=document.createElement('div');d.id='fbbar';d.className='fbbar';d.innerHTML='<b>Restoring the backup…</b><span><i></i></span><small></small>';document.body.appendChild(d)}const v=Math.round((p||0)*100);d.querySelector('i').style.width=v+'%';d.querySelector('small').textContent=v+'%';return d}
-/* the picker is in the page while it is open, so phones always report the chosen file */
-fullRestorePick=function(){const i=document.createElement('input');i.type='file';i.style.cssText='position:fixed;left:-9999px;opacity:0';document.body.appendChild(i);i.onchange=()=>{const f=i.files&&i.files[0];setTimeout(()=>i.remove(),1000);if(f){toast('Opening '+f.name);fullRestore(f)}};i.click()};
-/* the text backup file button also understands full backups, and big files skip the text box */
-{const _imf2=imFile;imFile=async function(inp){const f=inp&&inp.files&&inp.files[0];if(!f)return;let head='';try{head=await f.slice(0,64).text()}catch(e){}if(/"exodusFull"\s*:\s*1/.test(head)||f.size>4e6)return fullRestore(f);return _imf2.apply(this,arguments)}}
-/* writing a full backup also goes piece by piece on phones */
+/* ===== 1.7: quest editor, player tasks, advent calendars, tags page, currency/XP/loot page, bigger chests ===== */
+Object.assign(PL,{"Advent calendar":"Kalendarz adwentowy","Advent calendars":"Kalendarze adwentowe","Open door":"Otwórz drzwi","Basics":"Podstawy","Task":"Zadanie","Schedule":"Harmonogram","Rewards":"Nagrody","Preview":"Podgląd","Currency, XP and loot":"Waluty, XP i łupy","Wallet":"Portfel","Chests":"Skrzynie","Orbs":"Kule","Extra rewards":"Dodatkowe nagrody"});
+/* ---------- 1. quest tasks anyone can do (no Developer Mode needed) ---------- */
+const cIco=l=>CURI[l]?curIcon(l):l=="SE"?SEG:"";
+const QTX_={gacha:'Roll on the Gacha',orb:'Open orbs',login:'Log in on different days',daily:'Claim the daily reward',bpclaim:'Claim Battlepass rewards',read:'Read lore entries',spendce:'Spend Creators Essence',shim:'Buy in the Shimshop',craft:'Craft from shards',dismantle:'Dismantle loot',fragment:'Use fragments',bundle:'Buy a bundle',code:'Redeem a gift code',advent:'Open advent calendar doors'};
+const QTY_=['char','lore','story','skin','event','item','patch','words'];
+Object.assign(QT,QTX_);
+const qw=(n,f)=>{const o=window[n];if(typeof o!='function')return;window[n]=function(){const r=o.apply(this,arguments);try{f.apply(this,[r,...arguments])}catch(e){}return r}};
+qw('pull',(r,n)=>track('gacha',+n||1));
+{const _oo=orbOpen;orbOpen=function(){const had=S.inv.orbs||0;const r=_oo.apply(this,arguments);if((S.inv.orbs||0)<had)track('orb',1);return r}}
+qw('calClaim',()=>track('daily',1));
+{const _bc=bpClaim;bpClaim=function(row,i){const b=BP(),L=(row=='pr'?b.cp:b.cf),had=L.includes(i);const r=_bc.apply(this,arguments);if(!had&&(row=='pr'?b.cp:b.cf).includes(i))track('bpclaim',1);return r}}
+{const _lt=loginTick;loginTick=function(){const l=LG(),before=l.d;const r=_lt.apply(this,arguments);if(LG().d!==before)track('login',1);return r}}
+{const _gr=goRef;goRef=function(r){if(String(r||'').startsWith('l:')){const d=dk();S.rdL=S.rdL||{};const k=r+'|'+d;if(!S.rdL[k]){S.rdL[k]=1;track('read',1)}}return _gr.apply(this,arguments)}}
+['buyShim','buyShimItem'].forEach(n=>{const o=window[n];if(typeof o!='function')return;window[n]=function(){const a=S.shim;const r=o.apply(this,arguments);if(S.shim<a)track('shim',1);return r}});
+['lUnlock'].forEach(n=>qw(n,()=>track('craft',1)));['lDis'].forEach(n=>qw(n,()=>track('dismantle',1)));['frPick'].forEach(n=>qw(n,()=>track('fragment',1)));
+{const _bb2=buyBundle;buyBundle=function(){const a=S.ce;const r=_bb2.apply(this,arguments);if(S.ce<a)track('bundle',1);return r}}
+qw('gcdRedeem',()=>track('code',1));
+{const _wt=wTick;wTick=function(){const b=S.wlb&&+S.wlb.ce;const r=_wt.apply(this,arguments);try{const d=(b||0)-(+S.ce||0);if(b!=null&&d>0&&!pvIsDev())track('spendce',d)}catch(e){}return r}}
+/* extra quest rewards: chests, orbs, Sapphire Essence */
+{const _cl7=claim;claim=function(id){const q=S.quests.find(x=>x.id==id),ok=q&&q.done&&!q.claimed;const r=_cl7.apply(this,arguments);if(ok&&q.claimed){S.inv.chests=(S.inv.chests||0)+(+q.rch||0);S.inv.orbs=(S.inv.orbs||0)+(+q.ror||0);S.se=(S.se||0)+(+q.rse||0);if(q.rch||q.ror||q.rse)save()}return r}}
+{const _qc7=qCard;qCard=function(q){let h=_qc7(q);const ex=[q.rch?q.rch+' chest'+(q.rch==1?'':'s'):'',q.ror?q.ror+' orb'+(q.ror==1?'':'s'):'',q.rse?q.rse+' SE':''].filter(Boolean).join(', ');if(ex)h=h.replace(/(Reward[s]?:\s*)([^<]*)/,(a,x,y)=>x+(y&&y!='none'?y+', ':'')+ex);if(q.desc&&!h.includes('class="qdsc"'))h=h.replace(/(<\/h3>|<\/b>)/,`$1<p class="qdsc">${esc(q.desc)}</p>`);return h}}
+{const _sq7=saveQ;saveQ=function(){const g=i=>(document.getElementById(i)||{}).value,v={desc:g('qx1'),rch:g('qx2'),ror:g('qx3'),rse:g('qx4')},id=edit&&edit.id,before=new Set(S.quests.map(x=>x.id));const r=_sq7.apply(this,arguments);const q=S.quests.find(x=>x.id==id)||S.quests.find(x=>!before.has(x.id));if(q){if(v.desc!=null)q.desc=String(v.desc).trim();['rch','ror','rse'].forEach(k=>{if(v[k]!=null)q[k]=Math.max(0,Math.floor(+v[k]||0))});save()}return r}}
+/* ---------- the quest editor, laid out in sections with a live preview ---------- */
+function qxWrap(id){const e=document.getElementById(id);if(!e)return null;const p=e.parentElement;if(p&&p.tagName=='DIV'&&p.children.length<=3&&p.querySelector('label'))return p;const f=document.createElement('div');f.className='qxf';const l=e.previousElementSibling;e.parentNode.insertBefore(f,e);if(l&&l.tagName=='LABEL')f.appendChild(l);f.appendChild(e);return f}
+function qxSec(t,ic,sub){const s=document.createElement('section');s.className='qxs';s.innerHTML=`<header><span class="qxi">${ico(ic,15)}</span><div><b>${esc(nm(t))}</b>${sub?`<small>${esc(sub)}</small>`:''}</div></header><div class="qxb"></div>`;return s}
+function qxPrev(){const pv=document.getElementById('qxpv');if(!pv)return;const g=i=>(document.getElementById(i)||{}).value,q={id:'qprev',title:g('q1')||'New quest',type:g('q2')||'char',kind:g('q9')||'normal',goal:Math.max(1,+g('q3')||1),p:0,rxp:+g('q4')||0,rat:+g('q5')||0,rst:+g('q6')||0,rce:+g('q7')||0,rgt:+g('q8')||0,rbp:+g('q15')||0,rsp:+g('q17')||0,rch:+g('qx2')||0,ror:+g('qx3')||0,rse:+g('qx4')||0,desc:g('qx1')||'',rs:g('q10'),until:g('q14')};let h='';try{h=qCard(q).replace(/onclick="[^"]*"/g,'')}catch(e){h=`<div class="panel"><b>${esc(q.title)}</b></div>`}pv.innerHTML=h;
+ const t=q.type,sh=(id,on)=>{const w=document.getElementById(id);const f=w&&(w.closest('.qxf')||w.parentElement);if(f)f.style.display=on?'':'none'};sh('q12',t=='link');sh('q13',t=='app');sh('q11',g('q10')=='days');
+ const tg=document.getElementById('qxtg');if(tg)tg.innerHTML=QTY_.includes(t)?`<span class="qxbd dev">${ico('dev',11)} Done in Developer Mode</span>`:`<span class="qxbd">${ico('prof',11)} Anyone can do it</span>`}
+XPOST.push(function qxPost(){if(!edit||edit.t!='q')return;const m0=document.getElementById('m'),q1=document.getElementById('q1');if(!q1||m0.querySelector('.qxw'))return;const P=q1.closest('.panel');if(!P)return;
+ const q=S.quests.find(x=>x.id==edit.id)||{};
+ /* task list in two groups */
+ const s2=document.getElementById('q2');if(s2){const cur=s2.value||q.type||'char';const og=(l,keys)=>`<optgroup label="${esc(l)}">${keys.filter(k=>QT[k]).map(k=>`<option value="${k}" ${cur==k?'selected':''}>${esc(QT[k])}</option>`).join('')}</optgroup>`;const all=Object.keys(QT);s2.innerHTML=og('Anyone can do these',all.filter(k=>!QTY_.includes(k)))+og('Creating (Developer Mode)',all.filter(k=>QTY_.includes(k)))}
+ const head=P.querySelector('h2'),saveBtn=[...P.querySelectorAll('button')].find(b=>(b.getAttribute('onclick')||'')=='saveQ()'),cancel=saveBtn&&saveBtn.nextElementSibling;
+ const W=document.createElement('div');W.className='qxw';const L=document.createElement('div');L.className='qxl';const R=document.createElement('aside');R.className='qxr';
+ const sB=qxSec('Basics','pen','Name, picture and kind of quest'),sT=qxSec('Task','qst','What the player has to do'),sS=qxSec('Schedule','clock','When it is available and when it resets'),sR=qxSec('Rewards','gift','What the player gets'),sX=qxSec('Steps','list','Turn it into a chain of steps');
+ const put=(sec,ids)=>ids.forEach(id=>{const w=qxWrap(id);if(w)sec.querySelector('.qxb').appendChild(w)});
+ put(sB,['q1']);const ds=document.createElement('div');ds.className='qxf';ds.innerHTML=`<label>Description (optional)</label><textarea id="qx1" style="min-height:60px" placeholder="A short line shown under the title">${esc(q.desc||'')}</textarea>`;sB.querySelector('.qxb').appendChild(ds);
+ const cov=P.querySelector('input[type=file]');if(cov){const box=document.createElement('div');box.className='qxf qxcov';let n=cov.previousElementSibling;if(n&&n.tagName=='LABEL')box.appendChild(n);box.appendChild(cov);let x=box.lastChild.nextElementSibling;while(x&&x.tagName=='BUTTON'){const nx=x.nextElementSibling;box.appendChild(x);x=nx}sB.querySelector('.qxb').appendChild(box)}
+ put(sB,['q9']);
+ put(sT,['q2','q3','q12','q13']);const tg=document.createElement('div');tg.id='qxtg';tg.className='qxtg';sT.querySelector('.qxb').prepend(tg);
+ put(sS,['q10','q11','q14']);
+ const cal=[...P.querySelectorAll('h3')].find(h=>/Calendar/i.test(h.textContent));if(cal){const box=document.createElement('div');box.className='qxsub';let x=cal;const stop=e=>!e||e.tagName=='H3'&&e!==cal||/Rewards/.test(e.textContent||'')&&e.tagName=='P';const nodes=[];while(x&&!stop(x)){nodes.push(x);x=x.nextElementSibling}nodes.forEach(n=>box.appendChild(n));sS.querySelector('.qxb').appendChild(box)}
+ const rg=document.createElement('div');rg.className='qxrg';[['q4','XP','star'],['q5','AT','dia'],['q7','CE','dia'],['q8','GT','dia'],['q6','ST','dia'],['q15','Battlepass XP','bpi'],['q17','Magic spells','spell']].forEach(([id])=>{const w=qxWrap(id);if(w){w.classList.add('qxrc');rg.appendChild(w)}});
+ const ex=document.createElement('div');ex.innerHTML=[['qx4','Sapphire Essence',q.rse],['qx2','Chests',q.rch],['qx3','Orbs',q.ror]].map(([i,l,v])=>`<div class="qxf qxrc"><label>${l}</label><input id="${i}" type="number" min="0" value="${v||0}"></div>`).join('');[...ex.children].forEach(c=>rg.appendChild(c));
+ sR.querySelector('.qxb').appendChild(rg);put(sR,['q16','qbp']);
+ const st=[...P.querySelectorAll('h3')].find(h=>/Extra steps|Dodatkowe/i.test(h.textContent));if(st){const box=sX.querySelector('.qxb');let x=st.nextElementSibling;const nodes=[];while(x&&!(x.tagName=='P'&&x.contains(saveBtn))){nodes.push(x);x=x.nextElementSibling}st.remove();nodes.forEach(n=>box.appendChild(n))}
+ [...P.querySelectorAll('.row')].forEach(r=>{if(!r.children.length)r.remove()});[...P.querySelectorAll('p.mut')].forEach(p=>{if(/^Rewards$/.test(p.textContent.trim()))p.remove()});
+ {const cb=sB.querySelector('.qxcov')||(()=>{const b=document.createElement('div');b.className='qxf qxcov';sB.querySelector('.qxb').appendChild(b);return b})();[...P.querySelectorAll('label,button')].forEach(e=>{if(sB.contains(e)||W.contains(e))return;const t=e.textContent;if((e.tagName=='LABEL'&&/^Image \(optional/.test(t.trim()))||(e.tagName=='BUTTON'&&/Library|Remove cover/.test(t)))cb.appendChild(e)});const fi=cb.querySelector('input[type=file]'),lb=[...cb.querySelectorAll('label')].find(l=>/^Image/.test(l.textContent.trim()));if(lb)cb.prepend(lb);const bx=document.createElement('div');bx.className='qxcb';[...cb.querySelectorAll('button')].forEach(b=>bx.appendChild(b));cb.appendChild(bx);const ty=sB.querySelector('.qxf:has(#q9)');if(ty)sB.querySelector('.qxb').appendChild(ty)}
+ L.append(sB,sT,sS,sR);if(sX.querySelector('.qxb').children.length)L.append(sX);
+ R.innerHTML=`<div class="qxst"><small class="qxk">${esc(nm('Preview'))}</small><div id="qxpv"></div><div class="qxa"></div></div>`;
+ const tplBox=P.querySelector('.tplx,[class*=tpl]')||null;
+ const rest=[...P.children].filter(c=>c!==head&&!(tplBox&&c===tplBox));
+ const act=R.querySelector('.qxa');if(saveBtn){saveBtn.classList.add('dev');act.appendChild(saveBtn);if(cancel&&cancel.tagName=='BUTTON')act.appendChild(cancel)}
+ rest.forEach(c=>{if(c.tagName=='P'&&!c.textContent.trim()&&!c.children.length)c.remove();else if(!L.contains(c)&&!R.contains(c))L.appendChild(c)});
+ W.append(L,R);P.appendChild(W);P.classList.add('qxp');
+ P.addEventListener('input',()=>{clearTimeout(window._qxp);window._qxp=setTimeout(qxPrev,120)});P.addEventListener('change',qxPrev);qxPrev()});
+/* ---------- 2. advent calendars ---------- */
+if(!PVK.includes('advo'))PVK.push('advo');
+const AXL_=()=>{S.adv=S.adv||[];return S.adv};const AXO_=()=>{S.advo=S.advo||{};return S.advo};
+const axD0=c=>{const d=new Date((c.start||ymd())+'T00:00:00');return d.getTime()};
+const axToday=c=>Math.floor((Date.now()-axD0(c))/864e5)+1;
+const axLive=c=>c&&c.on!==0&&axToday(c)>=1&&axToday(c)<=(+c.days||24)+(c.late?7:0);
+const axOpen=c=>AXO_()[c.id]=AXO_()[c.id]||[];
+const AXBG_={};function axBg(c){const k='advbg_'+c.id;if(AXBG_[k]!==undefined)return AXBG_[k];AXBG_[k]='';mget(k).then(v=>{AXBG_[k]=v&&v.d?v.d:'';if(AXBG_[k])render()}).catch(()=>{});return ''}
+function axState(c,d){const T=axToday(c),o=axOpen(c).includes(d);if(o)return 'open';if(d>T)return 'lock';if(d==T)return 'today';return c.late?'late':'miss'}
+function axDoor(id,d){const c=AXL_().find(x=>x.id==id);if(!c)return;const s=axState(c,d);if(s=='lock')return toast('This door opens on day '+d);if(s=='miss')return toast('This door was missed');if(s=='open')return;const r=(c.rw||[])[d-1];axOpen(c).push(d);if(r&&r.k){try{bpGive(r)}catch(e){}}track('advent',1);snd(d==(+c.days||24)?'rare':'open');save();render();
+ const o=r&&r.k?bpObj(r):null;XMOD('advm',`<div class="advm"><small class="bxk">${esc(c.name)} · Day ${d}</small><div class="advmi">${r&&r.k?bp4Big(r,o):`<span class="bp4bi f">★</span>`}</div><h2 class="f">${esc(r&&r.k?bpLabel(r):'A little surprise')}</h2>${r&&r.d?`<p class="mut">${esc(r.d)}</p>`:''}<button class="btn dev" onclick="XCLOSE('advm')">Nice!</button></div>`,420)}
+let axSel=null;
+function axView(){const L=AXL_().filter(c=>S.dev||axLive(c));if(!L.length)return `<div class="hsw0"><div class="hsbg"><div class="hsi hsdef"></div></div><div class="hsov" style="--ov:.6"></div><div class="hsc"><div class="hsm"><div class="hsmt hsin"><small class="hseb">${esc(nm('Advent calendar'))}</small><h1 class="hsh2">Nothing to open right now</h1>${S.dev?`<p><button class="btn dev" onclick="go('dev');wsub='advent';render()">Make a calendar</button></p>`:''}</div></div></div></div>`;
+ const c=L.find(x=>x.id==axSel)||L.find(axLive)||L[0],N=+c.days||24,bg=axBg(c),T=axToday(c),got=axOpen(c).length;
+ return `<div class="hsw0 hs-adv">${bg?`<div class="hsbg an-drift"><div class="hsi" style="background-image:url(${bg})"></div></div>`:`<div class="hsbg"><div class="hsi hsdef"></div></div>`}<div class="hsov" style="--ov:.55"></div><div class="hstr">${S.dev?`<button class="hsic" onclick="go('dev');wsub='advent';axEd='${c.id}';render()" aria-label="Edit">${ico('pen',14)}</button>`:''}<button class="hsic ${hsHide?'on':''}" onclick="hsHide=hsHide?0:1;render()" aria-label="Show only the picture">${ico('eye',15)}</button></div>
+ <div class="hsc"><div class="advw">${L.length>1?`<nav class="hsevt">${L.map(x=>`<button class="${x===c?'on':''}" onclick="axSel='${x.id}';render()">${esc(x.name)}</button>`).join('')}</nav>`:''}<div class="advh hsin"><div class="hsmeb"><small class="hseb">${esc(nm('Advent calendar'))}</small><span class="hstm">${ico('gift',13)} ${got} / ${N}</span>${T<1?`<span class="hstm">Starts in ${1-T}d</span>`:''}</div><h1 class="hsh2">${esc(c.name)}</h1>${c.desc?`<p class="hsp">${esc(c.desc)}</p>`:''}</div>
+ <div class="advg hsin2" style="--c:${N>12?8:6}">${Array.from({length:N},(_,i)=>{const d=i+1,s=axState(c,d),r=(c.rw||[])[i],o=r&&r.k?bpObj(r):null;return `<button class="advd ${s} ${d==N?'last':''}" onclick="axDoor('${c.id}',${d})" ${s=='lock'||s=='miss'?'aria-disabled="true"':''}><b>${d}</b>${s=='open'&&r&&r.k?`<span class="advr">${bp4Ico(r,o)}</span>`:s=='lock'?`<i>${ico('lockk',11)}</i>`:s=='miss'?'<i>✕</i>':s=='today'||s=='late'?'<em>Open</em>':''}</button>`}).join('')}</div></div></div></div>`}
+{const _hm6=home;home=function(){if(hsub=='adv'&&!(edit&&edit.t))return `<div class="hbw hsx">${hubSide()}<div class="hbm">${axView()}</div></div>`;return _hm6.apply(this,arguments)}}
+{const _hs6=hubSide;hubSide=function(){let h=_hs6.apply(this,arguments);if(!(S.dev||AXL_().some(axLive)))return h;const it=`<button class="hbi hsn ${hsub=='adv'?'on':''}" onclick="hsub='adv';hsHide=0;render()">${ico('gift',16)}<span>${esc(nm('Advent calendar'))}</span>${AXL_().some(c=>axLive(c)&&axState(c,axToday(c))=='today')?'<small class="hbl hsnw">NEW</small>':''}</button>`;return h.replace(/(<button class="hbi hsn[^"]*" onclick="hsub='lotd')/,it+'$1')}}
+try{HZG_.splice(HZG_.findIndex(x=>x[0]=='evh')+1,0,['adv','Advent calendar'])}catch(e){}
+{const _hga=hsGoAct;hsGoAct=function(a){if(a=='adv'){go('home');hsub='adv';sel=null;edit=null;render();return}return _hga.apply(this,arguments)}}
+/* editor */
+let axEd=null;
+function axNew(){const d=new Date();const c={id:'adv'+Date.now().toString(36),name:'Advent calendar',desc:'',start:d.getFullYear()+'-12-01',days:24,late:1,on:1,rw:[]};AXL_().push(c);axEd=c.id;save();render()}
+const axCur=()=>AXL_().find(x=>x.id==axEd);
+function axSet(k,v){const c=axCur();if(!c)return;c[k]=k=='days'?Math.max(1,Math.min(31,Math.floor(+v)||24)):k=='late'||k=='on'?(v?1:0):v;save();render()}
+function axRw(i,k,v){const c=axCur();if(!c)return;c.rw=c.rw||[];const r=c.rw[i]=c.rw[i]||{};if(k=='k'){Object.keys(r).forEach(x=>delete r[x]);if(v){r.k=v;if(['char','skin','item'].includes(v)){const L=v=='char'?S.chars:v=='skin'?S.skins:S.items;r.id=(L[0]||{}).id||''}else if(v=='title')r.t='Title';else r.n=v=='xp'?100:v=='chest'||v=='orb'||v=='frc'||v=='frs'?1:50}else c.rw[i]=null}else r[k]=k=='n'?Math.max(1,Math.floor(+v)||1):v;save();render()}
+function axFill(){const c=axCur();if(!c)return;const k=(document.getElementById('advfk')||{}).value||'ce',n=Math.max(1,+(document.getElementById('advfn')||{}).value||50),N=+c.days||24;c.rw=c.rw||[];for(let i=0;i<N;i++)if(!c.rw[i]||!c.rw[i].k)c.rw[i]={k,n:i==N-1?n*5:n};save();render()}
+function axBgUp(inp){const f=inp.files&&inp.files[0],c=axCur();if(!f||!c)return;nvImg(f,2560).then(d=>{if(!d)return;AXBG_['advbg_'+c.id]=d;mset('advbg_'+c.id,{d});render()})}
+function axDel(){const c=axCur();if(!c)return;cfm('Delete the calendar “'+c.name+'”?',()=>{S.adv=AXL_().filter(x=>x.id!=c.id);delete AXO_()[c.id];axEd=null;save();render()})}
+const axKinds=()=>Object.entries(BPT).filter(([k])=>k!='chroma');
+wsxAdd('advent','Advent calendars','gift','Content',()=>{const L=AXL_(),c=axCur();
+ if(!c)return `<p class="mut" style="margin:0 0 10px">A door to open every day, each with its own reward. Players find it on the Home page while it runs.</p>${L.map(x=>`<div class="bunr"><span class="cpxa">${ico('gift',16)}</span><span class="bunn"><b>${esc(x.name)}</b><small class="mut">${esc(x.start)} · ${x.days} days${axLive(x)?' · running now':''}${x.on===0?' · off':''}</small></span><button class="btn dev" onclick="axEd='${x.id}';render()">Edit</button></div>`).join('')||'<p class="mut">No calendars yet.</p>'}<p><button class="btn dev" onclick="axNew()">New calendar</button></p>`;
+ const N=+c.days||24,bg=axBg(c);
+ return `<p style="margin:0 0 10px"><button class="btn" onclick="axEd=null;render()">✕ ${esc(nm('Advent calendars'))}</button> <button class="btn" onclick="go('home');hsub='adv';axSel='${c.id}';render()">See it</button> <button class="btn red" onclick="axDel()">Delete</button></p>
+ <div class="panel"><h3 style="margin-top:0">${esc(nm('Basics'))}</h3><div class="row"><div><label>Name</label><input value="${esc(c.name)}" onchange="axSet('name',this.value)"></div><div><label>First day</label><input type="date" value="${esc(c.start)}" onchange="axSet('start',this.value)"></div><div><label>Number of days</label><input type="number" min="1" max="31" value="${N}" onchange="axSet('days',this.value)"></div></div><label>Description</label><input value="${esc(c.desc||'')}" onchange="axSet('desc',this.value)"><div class="row"><label class="chk"><input type="checkbox" ${c.late?'checked':''} onchange="axSet('late',this.checked)"> Missed doors can still be opened later</label><label class="chk"><input type="checkbox" ${c.on!==0?'checked':''} onchange="axSet('on',this.checked)"> Shown to players</label></div><label>Background picture</label><input type="file" accept="image/*" data-asp="16:9" onchange="axBgUp(this)">${bg?` <button class="btn red" onclick="AXBG_['advbg_${c.id}']='';mdel('advbg_${c.id}');render()">Remove</button>`:''}</div>
+ <div class="panel"><h3 style="margin-top:0">Doors and rewards</h3><div class="g2add" style="margin:0 0 10px"><span class="mut">Fill empty doors with</span><select id="advfk">${axKinds().filter(([k])=>!['char','skin','item','title'].includes(k)).map(([k,v])=>`<option value="${k}">${esc(v)}</option>`).join('')}</select><input id="advfn" type="number" min="1" value="50" style="max-width:100px"><button class="btn" onclick="axFill()">Fill (last day ×5)</button><button class="btn" onclick="delete AXO_()['${c.id}'];save();toast('Your opened doors were reset');render()">Reset my opened doors (test)</button></div>
+ <div class="adve">${Array.from({length:N},(_,i)=>{const r=(c.rw||[])[i]||{},L=r.k=='char'?S.chars:r.k=='skin'?S.skins:r.k=='item'?S.items:null;return `<div class="advec ${i==N-1?'last':''}"><b>Day ${i+1}</b><select onchange="axRw(${i},'k',this.value)"><option value="">Nothing</option>${axKinds().map(([k,v])=>`<option value="${k}" ${r.k==k?'selected':''}>${esc(v)}</option>`).join('')}</select>${L?`<select onchange="axRw(${i},'id',this.value)">${L.map(o=>`<option value="${o.id}" ${r.id==o.id?'selected':''}>${esc(o.name)}</option>`).join('')}</select>`:r.k=='title'?`<input value="${esc(r.t||'')}" onchange="axRw(${i},'t',this.value)">`:r.k?`<input type="number" min="1" value="${r.n||1}" onchange="axRw(${i},'n',this.value)">`:''}</div>`}).join('')}</div></div>`});
+try{const g=WSR.find(x=>x[0]=='Content');if(g&&!g[1].includes('advent'))g[1].splice(g[1].indexOf('quests')+1,0,'advent')}catch(e){}
+/* ---------- 3. chests: more kinds of rewards and a small chance of extra rewards ---------- */
+LTK.splice(0,LTK.length,['ref','A character, skin or item'],['at','Astralis Tokens (AT)'],['ce','Creators Essence (CE)'],['gt','Gacha Tokens (GT)'],['st','Shim Tokens (ST)'],['se','Sapphire Essence (SE)'],['orb','Orbs'],['chest','Another chest']);
+const CX5_={at:['tokens','AT'],ce:['ce','CE'],gt:['gt','GT'],st:['shim','ST'],se:['se','SE']};
+chestLbl=r=>r.t=='ref'?(refName(r.ref)||'?'):CX5_[r.t]?'+'+r.n+' '+CX5_[r.t][1]:r.t=='chest'?'+'+r.n+' chest'+(r.n==1?'':'s'):'+'+r.n+' orb'+(r.n==1?'':'s');
+const chX=()=>{const t=CHT();return {x2:t.x2??6,x3:t.x3??1}};
+function chGive(r){if(r.t=='ref'){const o=refObj(r.ref);const g=gGrant(o);const c=g.c||o;return {n:c.name,img:c.img||'',t:g.note||'',rar:o.rar??o.rarity??0}}const n=+r.n||1;if(CX5_[r.t]){const k=CX5_[r.t][0];S[k]=(+S[k]||0)+n}else if(r.t=='chest')S.inv.chests=(S.inv.chests||0)+n;else S.inv.orbs=(S.inv.orbs||0)+n;return {n:chestLbl(r),img:'',t:r.t=='chest'?'Bonus chest':r.t=='orb'?'Orb':'Currency',rar:0,k:r.t}}
+let CHLAST=[];
+chestOpen=function(){XCLOSE('chpx');if(!S.inv.chests)return toast('No chests left');if(!chestRoll())return toast('This chest has nothing in it yet');S.inv.chests--;const X=chX(),u=Math.random()*100,cnt=u<X.x3?3:u<X.x3+X.x2?2:1,res=[];for(let i=0;i<cnt;i++){const r=chestRoll();if(r)res.push(chGive(r))}CHLAST=res;const rar=Math.max(...res.map(x=>x.rar||0));
+ track('chest',1);snd(rar>=2||cnt>1?'rare':'open');toast('Chest: '+res.map(x=>x.n).join(', '));save();render();
+ const card=c=>`<div class="chr5c"><span style="${c.img?`background-image:url(${c.img})`:''};--rc:${rc(c.rar||0)}">${c.img?'':c.k&&CX5_[c.k]?cIco(CX5_[c.k][1]).replace(/width="\d+" height="\d+"/,'width="38" height="38"'):c.k=='chest'?ico('chest',34):c.k=='orb'?ico('dia',30):esc((c.n||'?')[0])}</span><b>${esc(c.n)}</b>${c.t?`<small class="mut">${esc(c.t)}</small>`:''}</div>`;
+ XMOD('chres',`<div class="chres" style="--rc:${rc(rar)}"><small class="bxk">${esc(nm('Chest'))}${cnt>1?` · <b class="chxb">${cnt} rewards!</b>`:''}</small>${cnt==1&&res[0]?`<div class="chresa" style="${res[0].img?`background-image:url(${res[0].img})`:''}">${res[0].img?'':`<span class="f">${esc((res[0].n||'?')[0])}</span>`}</div><h2 class="f">${esc(res[0].n)}</h2><p class="mut">${esc(res[0].t||'')}${res[0].rar?' · '+esc(RN[res[0].rar]||''):''}</p>`:`<div class="chr5g">${res.map(card).join('')}</div>`}<div class="sy2"><button class="btn dev" ${S.inv.chests?'':'disabled'} onclick="XCLOSE('chres');chestOpen()">Open another (${S.inv.chests})</button><button class="btn" onclick="XCLOSE('chres')">Done</button></div></div>`,cnt>1?560:420)};
+lootMulti=function(kind,n){if(kind!='chest'){const _t=toast,msgs=[];toast=m=>{msgs.push(String(m));return 0};let done=0;try{for(let i=0;i<n&&S.inv.orbs;i++){orbOpen();done++}}finally{toast=_t}if(!done)return toast('No orbs left');XMOD('chres5',`<div class="chr5"><small class="bxk">${esc(nm('Opened'))} ${done}</small><div class="chr5g">${msgs.filter(m=>/^Orb|^Completed/.test(m)).map(m=>`<div class="chr5c"><span>${ico('dia',26)}</span><b>${esc(m.replace(/^Orb:\s*/,''))}</b></div>`).join('')}</div><div class="sy2"><button class="btn" onclick="XCLOSE('chres5')">Done</button></div></div>`,620);return render()}
+ const all=[],_t=toast;toast=()=>0;let done=0;try{for(let i=0;i<n&&S.inv.chests;i++){chestOpen();XCLOSE('chres');all.push(...CHLAST);done++}}finally{toast=_t}if(!done)return toast('No chests left');
+ XMOD('chres5',`<div class="chr5"><small class="bxk">${esc(nm('Opened'))} ${done} · ${all.length} rewards</small><div class="chr5g">${all.map(c=>`<div class="chr5c"><span style="${c.img?`background-image:url(${c.img})`:''}">${c.img?'':c.k&&CX5_[c.k]?cIco(CX5_[c.k][1]).replace(/width="\d+" height="\d+"/,'width="34" height="34"'):c.k=='chest'?ico('chest',30):c.k=='orb'?ico('dia',26):esc((c.n||'?')[0])}</span><b>${esc(c.n)}</b>${c.t?`<small class="mut">${esc(c.t)}</small>`:''}</div>`).join('')}</div><div class="sy2"><button class="btn dev" ${S.inv.chests?'':'disabled'} onclick="XCLOSE('chres5');lootMulti('chest',5)">${esc(nm('Open 5'))} (${S.inv.chests||0})</button><button class="btn" onclick="XCLOSE('chres5')">Done</button></div></div>`,620);render()};
+{const _lr=lpRows;lpRows=function(kind){const R=_lr.apply(this,arguments);if(kind=='chest'){const X=chX();if(X.x2||X.x3)R.push({n:'Extra rewards',k:`${X.x2}% for 2 rewards · ${X.x3}% for 3`,p:(X.x2+X.x3)/100,img:''})}return R}}
+/* ---------- 4. one page: currency, XP and loot ---------- */
+let ecoT='wallet';
+const ECX_=[['tokens','AT','Astralis Tokens','Earned from quests, levels and the daily reward. Buys characters and chests.'],['ce','CE','Creators Essence','Earned by creating things. The main shop currency.'],['gt','GT','Gacha Tokens','Used on the Gacha.'],['shim','ST','Shim Tokens','Used in the Shimshop.'],['se','SE','Sapphire Essence','Earned from shards. Buys full copies.']];
+function ecoSet(k,v){S[k]=Math.max(0,Math.floor(+v)||0);save();render()}
+function ecoAdd(k,d){S[k]=Math.max(0,(+S[k]||0)+d);save();render()}
+function ecoWallet(){return `<div class="ecog">${ECX_.map(([k,l,n,d])=>`<div class="ecoc"><div class="ecoh"><span class="ecoi">${cIco(l).replace(/width="\d+" height="\d+"/,'width="26" height="26"')}</span><div><b>${esc(n)}</b><small>${esc(l)}</small></div></div><p class="mut">${esc(d)}</p><div class="ecov"><input type="number" min="0" value="${+S[k]||0}" onchange="ecoSet('${k}',this.value)" aria-label="${esc(n)}"><span>${esc(l)}</span></div><div class="ecob">${[-100,-10,10,100,1000].map(x=>`<button class="btn ${x>0?'':'red'}" onclick="ecoAdd('${k}',${x})">${x>0?'+':''}${x}</button>`).join('')}<button class="btn" onclick="ecoSet('${k}',0)">0</button></div></div>`).join('')}</div><p class="mut" style="margin:10px 0 0">${S.dev?'In Developer Mode these change your test wallet only. Normal play keeps its own wallet.':''}</p>`}
+function ecoXp(){const L=lvlOf(S.xp||0),a=xpAt(L),b=xpAt(L+1),p=Math.max(0,Math.min(1,((S.xp||0)-a)/Math.max(1,b-a)));return `<div class="ecoc ecoxp"><div class="ecoh"><span class="ecoi lv">${L}</span><div><b>Level ${L}</b><small>${(S.xp||0)-a} / ${b-a} XP to level ${L+1}</small></div></div><div class="ecobar"><i style="width:${Math.round(p*100)}%"></i></div><div class="ecov"><input type="number" min="0" value="${S.xp||0}" onchange="S.xp=Math.max(0,Math.floor(+this.value)||0);save();render()"><span>XP in total</span></div><div class="ecob">${[100,500,1000].map(x=>`<button class="btn" onclick="gainXp(${x});save();render()">+${x} XP</button>`).join('')}<button class="btn" onclick="S.xp=xpAt(${L+1});save();render()">Next level</button><button class="btn red" onclick="S.xp=0;save();render()">Reset</button></div></div><div class="ecoc"><b>Levels</b><div class="ecolv">${Array.from({length:10},(_,i)=>`<span class="${L==i+1?'on':''}"><b>${i+1}</b><small>${xpAt(i+1)} XP</small></span>`).join('')}</div></div>`}
+function ecoChest(){const R=CHT().rows,T=R.reduce((a,r)=>a+(+r.w||0),0)||1,X=chX(),all=[...S.chars.map(c=>['c:'+c.id,'Character: '+c.name]),...S.skins.map(k=>['k:'+k.id,'Skin: '+k.name]),...S.items.filter(i=>i.cat!='boosters').map(i=>['i:'+i.id,(CCAT[i.cat]||'Item')+': '+i.name])];
+ return `<div class="ecoc"><div class="ecoh"><span class="ecoi">${ico('chest',22)}</span><div><b>What a chest can give</b><small>One roll per reward. Higher weight means more often.</small></div></div>${R.length?`<table class="ssx ecot"><thead><tr><th>Reward</th><th>Amount</th><th>Weight</th><th>Chance</th><th></th></tr></thead><tbody>${R.map(r=>`<tr><td>${r.t=='ref'?ico('star',12):r.t=='chest'?ico('chest',12):r.t=='orb'?ico('dia',12):cIco(CX5_[r.t][1])} ${esc(chestLbl(r))}</td><td>${r.t=='ref'?'—':`<input type="number" min="1" value="${r.n}" onchange="chtSet('${r.id}','n',this.value)">`}</td><td><input type="number" min="0" step="any" value="${r.w}" onchange="chtSet('${r.id}','w',this.value)"></td><td><span class="ecop"><i style="width:${Math.round((+r.w||0)/T*100)}%"></i></span>${gpc((+r.w||0)/T)}</td><td><button class="ic" onclick="chtDel('${r.id}')" aria-label="Remove">${ico('x',12)}</button></td></tr>`).join('')}</tbody></table>`:'<p class="mut">Nothing set yet, so chests give a mix of everything (rarer things less often) plus some AT and orbs.</p>'}
+ <div class="gcdxg"><div><label>Gives</label><select id="cht1" onchange="document.getElementById('cht2').disabled=this.value!='ref'">${LTK.map(k=>`<option value="${k[0]}">${k[1]}</option>`).join('')}</select></div><div><label>Which one</label><select id="cht2">${all.map(x=>`<option value="${x[0]}">${esc(x[1])}</option>`).join('')}</select></div><div><label>Amount</label><input id="cht3" type="number" min="1" value="10"></div><div><label>Weight</label><input id="cht4" type="number" min="0" step="any" value="10"></div></div><p style="margin:8px 0 0"><button class="btn dev" onclick="chtAdd()">Add reward</button></p></div>
+ <div class="ecoc"><div class="ecoh"><span class="ecoi">${ico('gift',20)}</span><div><b>${esc(nm('Extra rewards'))}</b><small>A small chance that one chest gives more than one reward.</small></div></div><div class="row"><div><label>Chance of 2 rewards (%)</label><input type="number" min="0" max="100" step="0.5" value="${X.x2}" onchange="CHT().x2=Math.max(0,Math.min(100,+this.value||0));save();render()"></div><div><label>Chance of 3 rewards (%)</label><input type="number" min="0" max="100" step="0.5" value="${X.x3}" onchange="CHT().x3=Math.max(0,Math.min(100,+this.value||0));save();render()"></div></div></div>
+ <div class="ecoc"><div class="ecoh"><span class="ecoi">${ico('chest',20)}</span><div><b>Players' chests</b><small>Chests and orbs in your ${S.dev?'test ':''}inventory.</small></div></div><div class="row"><div><label>Chests</label><input type="number" min="0" value="${S.inv.chests||0}" onchange="S.inv.chests=Math.max(0,Math.floor(+this.value)||0);save();render()"></div><div><label>Orbs</label><input type="number" min="0" value="${S.inv.orbs||0}" onchange="S.inv.orbs=Math.max(0,Math.floor(+this.value)||0);save();render()"></div></div></div>`}
+function ecoOrb(){const all=[...S.chars.map(c=>['c:'+c.id,'Character',c.name]),...S.skins.map(k=>['k:'+k.id,'Skin',k.name]),...S.items.filter(i=>i.cat!='boosters').map(i=>['i:'+i.id,CCAT[i.cat]||'Item',i.name])],P=ORT().pool;return `<div class="ecoc"><div class="ecoh"><span class="ecoi">${ico('dia',20)}</span><div><b>What an orb can give</b><small>A shard of one ticked thing the player doesn’t own yet. Tick nothing to allow everything. ${P.length} ticked.</small></div></div><div class="ecoo">${all.map(([r,k,n])=>`<label class="chk ${P.includes(r)?'on':''}"><input type="checkbox" ${P.includes(r)?'checked':''} onchange="orbTog('${r}',this.checked);this.parentNode.classList.toggle('on',this.checked)"> <span>${esc(n)}</span><small>${esc(k)}</small></label>`).join('')}</div></div>`}
+function ecoPage(){const T=[['wallet',nm('Wallet'),'dia'],['xp','XP','star'],['chest',nm('Chests'),'chest'],['orb',nm('Orbs'),'dia']];return `<div class="ecotab">${T.map(([k,l,i])=>`<button class="${ecoT==k?'on':''}" onclick="ecoT='${k}';render()">${ico(i,14)} ${esc(l)}</button>`).join('')}</div>${ecoT=='xp'?ecoXp():ecoT=='chest'?ecoChest():ecoT=='orb'?ecoOrb():ecoWallet()}`}
+/* ---------- 5. tags page ---------- */
+const TGX_=()=>{S.tagc=S.tagc||{};return S.tagc};
+const tgUse=t=>(S.items||[]).filter(i=>i.tag==t).length+(S.shop||[]).filter(e=>e.tag==t).length;
+function tgRen(i,v){v=String(v||'').trim();const o=S.tags[i];if(!v||v==o)return;if(S.tags.includes(v))return toast('That tag already exists');S.tags[i]=v;(S.items||[]).forEach(x=>{if(x.tag==o)x.tag=v});(S.shop||[]).forEach(x=>{if(x.tag==o)x.tag=v});if(TGX_()[o]){TGX_()[v]=TGX_()[o];delete TGX_()[o]}save();render()}
+function tgMove(i,d){const j=i+d,L=S.tags;if(j<0||j>=L.length)return;[L[i],L[j]]=[L[j],L[i]];save();render()}
+function tgDel(i){const t=S.tags[i],n=tgUse(t);cfm(n?`Remove the tag “${t}”? ${n} thing${n==1?'':'s'} using it move to Other.`:`Remove the tag “${t}”?`,()=>{S.tags.splice(i,1);(S.items||[]).forEach(x=>{if(x.tag==t)x.tag=''});(S.shop||[]).forEach(x=>{if(x.tag==t)x.tag=''});delete TGX_()[t];save();render()})}
+function tgMerge(i){const t=S.tags[i],to=(document.getElementById('tgm'+i)||{}).value;if(!to||to==t)return;cfm(`Move everything from “${t}” to “${to}” and remove “${t}”?`,()=>{(S.items||[]).forEach(x=>{if(x.tag==t)x.tag=to});(S.shop||[]).forEach(x=>{if(x.tag==t)x.tag=to});S.tags.splice(i,1);delete TGX_()[t];save();render()})}
+function tgAdd(){const e=document.getElementById('tgn'),v=e&&e.value.trim();if(!v)return;if(S.tags.includes(v))return toast('That tag already exists');S.tags.push(v);save();render()}
+function tgPage(){const C=TGX_();return `<div class="ecotab"><button class="${ecoT!='stag'?'on':''}" onclick="ecoT='tags';render()">${ico('list',14)} Tags</button><button class="${ecoT=='stag'?'on':''}" onclick="ecoT='stag';render()">${ico('lock',14)} ${esc(nm('Secret tags'))}</button></div>${ecoT=='stag'?hsTagsPanel().replace('<details class="panel nctg hstags">','<details class="panel nctg hstags" open>'):`
+ <div class="ecoc"><div class="ecoh"><span class="ecoi">${ico('list',20)}</span><div><b>Tags</b><small>They group things in the Inventory and make sections in the shop. Players see them.</small></div></div>
+ <table class="ssx ecot tgt"><thead><tr><th></th><th>Name</th><th>Colour</th><th>Used by</th><th>Shop</th><th>Inventory</th><th></th></tr></thead><tbody>${S.tags.map((t,i)=>{const c=C[t]||{};return `<tr><td class="tgo"><button class="ic" onclick="tgMove(${i},-1)" ${i?'':'disabled'} aria-label="Up">↑</button><button class="ic" onclick="tgMove(${i},1)" ${i<S.tags.length-1?'':'disabled'} aria-label="Down">↓</button></td><td><input value="${esc(t)}" onchange="tgRen(${i},this.value)"></td><td><input type="color" value="${c.col||'#c8aa6e'}" onchange="TGX_()['${esc(t)}']=Object.assign(TGX_()['${esc(t)}']||{},{col:this.value});save()"></td><td>${tgUse(t)}</td><td><label class="chk"><input type="checkbox" ${c.shop!==0?'checked':''} onchange="TGX_()['${esc(t)}']=Object.assign(TGX_()['${esc(t)}']||{},{shop:this.checked?1:0});save()"></label></td><td><label class="chk"><input type="checkbox" ${c.inv!==0?'checked':''} onchange="TGX_()['${esc(t)}']=Object.assign(TGX_()['${esc(t)}']||{},{inv:this.checked?1:0});save()"></label></td><td class="tga"><select id="tgm${i}"><option value="">Merge into…</option>${S.tags.filter(x=>x!=t).map(x=>`<option>${esc(x)}</option>`).join('')}</select><button class="btn" onclick="tgMerge(${i})">Merge</button><button class="btn red" onclick="tgDel(${i})">Remove</button></td></tr>`}).join('')}</tbody></table>
+ <div class="g2add" style="margin-top:10px"><input id="tgn" placeholder="New tag name"><button class="btn dev" onclick="tgAdd()">Add tag</button></div></div>
+ <div class="ecoc"><div class="ecoh"><span class="ecoi">${ico('set',18)||ico('pen',18)}</span><div><b>Settings</b><small>How tags are used across the app.</small></div></div>
+ <label class="chk"><input type="checkbox" ${S.cfg.tgShop!==0?'checked':''} onchange="S.cfg.tgShop=this.checked?1:0;save()"> Split the shop's Loot section by tag</label>
+ <label class="chk"><input type="checkbox" ${S.cfg.tgInv!==0?'checked':''} onchange="S.cfg.tgInv=this.checked?1:0;save()"> Group the Inventory by tag</label>
+ <label class="chk"><input type="checkbox" ${S.cfg.tgCol!==0?'checked':''} onchange="S.cfg.tgCol=this.checked?1:0;save()"> Show tag colours on section titles</label>
+ <label class="chk"><input type="checkbox" ${S.cfg.tgEmpty?'checked':''} onchange="S.cfg.tgEmpty=this.checked?1:0;save()"> Show tags with nothing in them</label></div>`}`}
+/* tag settings in use: hide tags from the shop or inventory while those pages draw */
+let tgOn=0;
+{const _rtg=render;render=function(){const a=arguments,t=this;if(tgOn||edit&&edit.t||!(tab=='store'&&(ssub=='store'||ssub=='inv')))return _rtg.apply(t,a);const C=TGX_(),shop=ssub=='store',keep=S.tags;const off=shop?S.cfg.tgShop===0:S.cfg.tgInv===0;const L=off?[]:keep.filter(x=>(C[x]||{})[shop?'shop':'inv']!==0&&(S.cfg.tgEmpty||tgUse(x)>0||S.dev));if(L.length==keep.length)return _rtg.apply(t,a);tgOn=1;S.tags=L;try{return _rtg.apply(t,a)}finally{S.tags=keep;tgOn=0}}}
+{const _svt=save;save=function(){if(!tgOn)return _svt.apply(this,arguments);return 0}}
+XPOST.push(function tgColPost(){if(S.cfg.tgCol===0||tab!='store')return;const C=TGX_();document.querySelectorAll('#m h2,#m h3').forEach(h=>{const t=h.textContent.trim(),c=C[t]&&C[t].col;if(c&&!h.querySelector('.tgdot'))h.insertAdjacentHTML('afterbegin',`<i class="tgdot" style="background:${c}"></i>`)})});
+/* Workshop: put the new pages where the old ones were */
+{const _dve=dev;dev=function(){let h=_dve.apply(this,arguments);if(edit&&edit.t)return h;try{if(wsub=='gen'&&/<h1 class="f wstt">Currency and XP<\/h1>/.test(h))h=h.replace(/<h1 class="f wstt">Currency and XP<\/h1>[\s\S]*$/,`<h1 class="f wstt">${esc(nm('Currency, XP and loot'))}</h1>${ecoPage()}</div></div>`);else if(wsub=='gen'&&/<h1 class="f wstt">Tags<\/h1>/.test(h))h=h.replace(/<h1 class="f wstt">Tags<\/h1>[\s\S]*$/,`<h1 class="f wstt">Tags</h1>${tgPage()}</div></div>`);h=h.replace(/(<span>)Currency and XP(<\/span>)/,'$1'+esc(nm('Currency, XP and loot'))+'$2')}catch(e){}return h}}
+/* the old loot page now opens the Chests tab */
+{const o=WSX.chestt;if(o){o.f=()=>{setTimeout(()=>{wsub='gen';try{const i=wsPanels(devOld()).findIndex(p=>p.t=='Currency and XP');wgp=i<0?1:i}catch(e){wgp=1}ecoT='chest';render()},0);return '<p class="mut">Opening…</p>'}}}
+try{WSR.forEach(g=>{const i=g[1].indexOf('chestt');if(i>=0)g[1].splice(i,1)})}catch(e){}
+{const _dvz=dev;dev=function(){let h=_dvz.apply(this,arguments);return h.replace(/<button[^>]*onclick="wsub='chestt';edit=null;render\(\)"[^>]*>[\s\S]*?<\/button>/,'')}}
 
 
 render();

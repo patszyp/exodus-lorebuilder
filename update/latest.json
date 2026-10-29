@@ -1,10 +1,11 @@
 {
-  "version": "1.6.6 Beta",
-  "build": 181,
+  "version": "1.7 Beta",
+  "build": 182,
   "html": "update/exodus.html",
   "notes": [
-    "Battlepass slide fits properly on phones",
-    "New versions show up as soon as they are published"
+    "Advent calendars on the Home page",
+    "New quests anyone can do, and quests can give chests, orbs and Sapphire Essence",
+    "Chests can give more kinds of rewards, and sometimes more than one"
   ],
   "win": {
     "version": "1.5.0",
