@@ -1,8 +1,8 @@
 {
- "version": "2.2.1 Beta",
- "build": 189,
+ "version": "2.2.2 Beta",
+ "build": 190,
  "html": "update/exodus.html",
- "notes": "Quest banners, choose what fragments give, and a clearer Wi-Fi pairing screen on PC.",
+ "notes": "Fragments in the inventory open the pick list again.",
  "win": {
   "version": "1.7.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.2/Exodus-Lorebuilder-2.2-Beta-Windows.zip"

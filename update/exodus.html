@@ -7152,8 +7152,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.2.1';
+const WNV='2.2.2';
 const WN=[
+ ['2.2.2','29 Oct 2026',[
+  ['Collection','Fragments open again','Tapping a character or skin fragment in the inventory opens the list to pick from again.',"go('store');ssub='inv';render()"]]],
  ['2.2.1','29 Oct 2026',[
   ['App','Quest banners','Quests can have a banner picture across the top of their card.',"pickSub('prof','quests')"]]],
  ['2.2','29 Oct 2026',[
@@ -8728,7 +8730,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.2.1 Beta',APPB=189;
+const APPV='2.2.2 Beta',APPB=190;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -8991,8 +8993,8 @@ function frRoll(k){S.frr=S.frr||{};const d=frDay();let R=S.frr[k];const P=frPool
 const frName=k=>nm(k=='c'?'Character fragment':'Skin fragment');
 function frPick(k,id){const o=k=='c'?S.chars.find(x=>x.id==id):S.skins.find(x=>x.id==id);if(!o)return;const have=k=='c'?S.inv.frc:S.inv.frs;if(!have)return toast('You have no '+frName(k).toLowerCase()+'s');cfm('Use 1 '+frName(k).toLowerCase()+' to get '+o.name+'?',()=>{if(k=='c'){S.inv.frc--;if(!S.owned.includes(id))S.owned.push(id)}else{S.inv.frs--;getSkin(id)}const R=S.frr&&S.frr[k];if(R)R.l=R.l.filter(x=>x!=id);snd('claim');toast('Got '+o.name+'!');track('frag');save();XCLOSE('frm');render()})}
 function frPanel(k){const L=frRoll(k),n=k=='c'?S.inv.frc:S.inv.frs;return `<div class="frx"><small class="evk">${esc(frName(k))}</small><h2 class="f">${n} ${esc(nm(n==1?'fragment':'fragments'))}</h2><p class="mut" style="margin:0 0 8px">Pick one of these ${k=='c'?'characters':'skins'}. The choice changes every day.</p><div class="frg">${L.map(id=>{const o=k=='c'?S.chars.find(x=>x.id==id):S.skins.find(x=>x.id==id);if(!o)return '';const ch=k=='k'?S.chars.find(c=>c.id==o.cid):null;return `<button class="frt" style="--rc:${rc(o.rar||0)}" ${n?'':'disabled'} onclick="frPick('${k}','${id}')"><span style="${o.img?`background-image:url(${o.img})`:''}">${o.img?'':esc((o.name||'?')[0])}</span><b>${esc(o.name)}</b>${ch?`<small>${esc(ch.name)}</small>`:''}</button>`}).join('')||`<p class="mut">You own every ${k=='c'?'character':'skin'} already.</p>`}</div></div>`}
-function frOpen(k){XMOD('frm',frPanel(k),560)}
-{const _iv=inv;inv=function(){let h=_iv.apply(this,arguments);try{const fr=k=>{const n=k=='c'?S.inv.frc:S.inv.frs;return `<button class="ivt frag ${ivSel=='fr:'+k?'on':''}" onclick="if(innerWidth<860)frOpen('${k}');else{ivSel='fr:${k}';render()}" title="${esc(frName(k))}"><span class="ivi">${ico(k=='c'?'frc':'frs',26)}</span><i class="ivn">${n}</i></button>`};
+function frgOpen(k){XMOD('frm',frPanel(k),560)}
+{const _iv=inv;inv=function(){let h=_iv.apply(this,arguments);try{const fr=k=>{const n=k=='c'?S.inv.frc:S.inv.frs;return `<button class="ivt frag ${ivSel=='fr:'+k?'on':''}" onclick="if(innerWidth<860)frgOpen('${k}');else{ivSel='fr:${k}';render()}" title="${esc(frName(k))}"><span class="ivi">${ico(k=='c'?'frc':'frs',26)}</span><i class="ivn">${n}</i></button>`};
   const secs=[...h.matchAll(/<section class="ivs"><h3 class="f">([^<]*)/g)];const otName=esc(nm('Other'));const m=secs.find(x=>x[1]==otName);if(m){const i=h.indexOf('<div class="ivg">',m.index)+17;h=h.slice(0,i)+fr('c')+fr('k')+h.slice(i)}
   if(ivSel&&String(ivSel).startsWith('fr:')){const k=ivSel.slice(3);const di=h.indexOf('<div class="ivd');if(di>=0){const de=divEnd(h,di);h=h.slice(0,di)+`<div class="ivd fr">${frPanel(k)}</div>`+h.slice(de)}}
   /* shard: craft with Sapphire Essence; copies of items: roll into something new */
@@ -9281,7 +9283,7 @@ function lootMulti(kind,n){const caps=[],msgs=[],_t=toast;toast=function(m){msgs
  const left=kind=='orb'?S.inv.orbs||0:S.inv.chests||0;XMOD('chres5',`<div class="chr5"><small class="bxk">${esc(nm('Opened'))} ${done}</small><div class="chr5g">${R.map(x=>`<div class="chr5c"><span style="${x.img?`background-image:url(${x.img})`:''}">${x.img?'':esc((x.n||'?')[0])}</span><b>${esc(x.n)}</b>${x.t?`<small class="mut">${esc(x.t)}</small>`:''}</div>`).join('')||'<p class="mut">Nothing came out.</p>'}</div><div class="sy2"><button class="btn dev" ${left?'':'disabled'} onclick="XCLOSE('chres5');lootMulti('${kind}',5)">${esc(nm('Open 5'))} (${left})</button><button class="btn" onclick="XCLOSE('chres5')">Done</button></div></div>`,620);render()}
 openInv=function(){matPop('chest')};openOrb=function(){matPop('orb')};
 try{document.addEventListener('contextmenu',e=>{const t=e.target&&e.target.closest&&e.target.closest('.ivt');if(!t)return;const oc=t.getAttribute('onclick')||'';let m,k='';if(/openOrb|orbPop/.test(oc))k='orb';else if(/openInv|chestPop|lpvChest/.test(oc))k='chest';
- if(k){e.preventDefault();e.stopPropagation();matPop(k)}else if((m=/lootOpen\('([^']+)'\)/.exec(oc))){e.preventDefault();e.stopPropagation();lootOpen(m[1])}else if((m=/frOpen\('([^']+)'\)/.exec(oc))){e.preventDefault();e.stopPropagation();frOpen(m[1])}},true)}catch(e){}
+ if(k){e.preventDefault();e.stopPropagation();matPop(k)}else if((m=/lootOpen\('([^']+)'\)/.exec(oc))){e.preventDefault();e.stopPropagation();lootOpen(m[1])}else if((m=/frOpen\('([^']+)'\)/.exec(oc))){e.preventDefault();e.stopPropagation();frgOpen(m[1])}},true)}catch(e){}
 
 /* ---------- 7. gacha background and the chest you see while rolling ---------- */
 const GBX={};
@@ -10309,7 +10311,7 @@ function frxCard(k){const c=FGX()[k],L=k=='c'?S.chars:S.skins,lab=k=='c'?'Charac
  <div><label>New choices</label><select onchange="frxSet('${k}','ref',this.value)"><option value="day" ${c.ref=='day'?'selected':''}>Every day</option><option value="week" ${c.ref=='week'?'selected':''}>Every week</option><option value="fixed" ${c.ref=='fixed'?'selected':''}>Never (always the same)</option></select></div></div>
  ${c.mode=='pick'?`<div class="g2add frxbar"><input placeholder="Search" value="${esc(fgQ[k])}" oninput="fgQ['${k}']=this.value;document.querySelectorAll('.frxg[data-k=${k}] label').forEach(l=>l.style.display=!this.value||l.textContent.toLowerCase().includes(this.value.toLowerCase())?'':'none')"><button class="btn" onclick="frxAll('${k}',1)">Pick all</button><button class="btn" onclick="frxAll('${k}',0)">Clear</button><span class="mut" id="frxn_${k}">${c.ids.length} picked</span></div>
  <div class="frxg" data-k="${k}">${L.map(o=>{const ch=k=='k'?S.chars.find(x=>x.id==o.cid):null;return `<label class="frxi" style="--rc:${rc(o.rar||0)};${q&&!(o.name+' '+(ch?ch.name:'')).toLowerCase().includes(q)?'display:none':''}"><input type="checkbox" ${set.has(o.id)?'checked':''} onchange="frxTog('${k}','${o.id}',this.checked)"><span class="frxp" style="${o.img?`background-image:url(${o.img})`:''}">${o.img?'':esc((o.name||'?')[0])}</span><b>${esc(o.name)}</b>${ch?`<small>${esc(ch.name)}</small>`:''}${o.lo?'<small class="mut">Lore only, never given</small>':''}</label>`}).join('')||`<p class="mut">No ${k=='c'?'characters':'skins'} yet.</p>`}</div>`:''}
- <div class="wsrow"><button class="btn" onclick="if(S.frr)delete S.frr['${k}'];save();toast('New choices made');render()">Make new choices now</button><button class="btn" onclick="S.inv.${k=='c'?'frc':'frs'}=(S.inv.${k=='c'?'frc':'frs'}||0)+5;save();render()">+5 for testing</button><button class="btn" onclick="frOpen('${k}')">Preview</button></div>`)}
+ <div class="wsrow"><button class="btn" onclick="if(S.frr)delete S.frr['${k}'];save();toast('New choices made');render()">Make new choices now</button><button class="btn" onclick="S.inv.${k=='c'?'frc':'frs'}=(S.inv.${k=='c'?'frc':'frs'}||0)+5;save();render()">+5 for testing</button><button class="btn" onclick="frgOpen('${k}')">Preview</button></div>`)}
 wsxAdd('frags','Fragments','frc','Economy',()=>wsHero('frc','Fragments','A fragment lets the player pick one character or skin from a short list. Choose what the lists can show and how often they change.',[(S.inv.frc||0)+' character fragments',(S.inv.frs||0)+' skin fragments'])+`<div class="wsg2">${frxCard('c')}${frxCard('k')}</div>`);
 try{const g=WSR.find(x=>x[0]=='Economy');if(g&&!g[1].includes('frags'))g[1].splice(Math.max(0,g[1].indexOf('gacha')+1),0,'frags')}catch(e){}
 /* right-click / inventory detail: a shortcut for the creator */
