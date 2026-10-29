@@ -2142,6 +2142,52 @@ aside.cls>select[data-skf]{width:100%}
 @media(max-width:720px){.advh{padding:16px 18px 6px}.advg{--c:5!important;padding:6px 14px 0;gap:6px}.advd b{font-size:16px}.advd.last{grid-column:span 1;aspect-ratio:1}}
 #qxpv button{display:none}
 .qxcov{display:flex;flex-wrap:wrap;align-items:center;gap:6px}.qxcov>label{width:100%}.qxcov input[type=file]{flex:1;min-width:200px;margin:0}.qxcb{display:flex;gap:6px}
+/* ===== 1.8 ===== */
+/* tags table on phones becomes cards */
+@media(max-width:720px){
+ .tgt thead{display:none}.tgt,.tgt tbody,.tgt tr,.tgt td{display:block;width:100%}
+ .tgt tr{display:grid;grid-template-columns:auto 1fr auto;gap:6px 8px;align-items:center;border:1px solid var(--line);padding:8px;margin-bottom:8px}
+ .tgt td{padding:0!important;border:0!important}
+ .tgt td.tgo{grid-row:1}.tgt td:nth-child(2){grid-row:1}.tgt td:nth-child(2) input{max-width:none!important;width:100%}
+ .tgt td:nth-child(3){grid-row:1}
+ .tgt td:nth-child(4)::before{content:'Used by';color:var(--mut);margin-right:6px}
+ .tgt td:nth-child(5)::before{content:'Shop';color:var(--mut);margin-right:4px}.tgt td:nth-child(6)::before{content:'Inventory';color:var(--mut);margin-right:4px}
+ .tgt td:nth-child(4),.tgt td:nth-child(5),.tgt td:nth-child(6){grid-column:auto;display:flex;align-items:center;font-size:13px}
+ .tgt td:nth-child(5) label,.tgt td:nth-child(6) label{margin:0}
+ .tgt td.tga{grid-column:1/-1;display:grid;grid-template-columns:1fr auto auto;gap:6px}.tga select{max-width:none!important}
+}
+/* orb types */
+.obl{display:flex;flex-wrap:wrap;gap:8px}
+.obc{display:flex;flex-direction:column;align-items:center;gap:4px;width:110px;padding:10px 6px;border:1px solid var(--line);background:rgba(1,10,19,.5);color:inherit;cursor:pointer}.obc.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.obc>span{width:54px;height:54px;display:grid;place-items:center;background:center/contain no-repeat;color:var(--gold);font-size:28px}.obc b{font-size:12px;text-align:center}.obc small{color:var(--mut);font-size:11px}.obc.add{border-style:dashed;color:#0ac8b9}
+/* side list order and separators */
+.hssep2{position:relative;display:flex;align-items:center;gap:8px;margin:8px 16px;min-height:12px}
+.hssep2::before{content:'';flex:1;height:1px;background:var(--line)}
+.hssep2 small{order:-1;font:700 10px Cinzel,Georgia,serif;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.hssep2 small+.hssx,.hssx{width:20px;height:20px;padding:0;opacity:.5}.hssep2:hover .hssx{opacity:1}
+.hsdnd [draggable="true"]{cursor:grab}
+.hsdw{position:relative}.hsdw>.hbi{width:100%}
+.dragging{opacity:.4}.dndover{box-shadow:inset 0 2px 0 #0ac8b9}
+.hsadd2{display:flex;flex-direction:column}
+@media(max-width:860px){.hssep2{margin:0 6px;min-height:0;width:1px;align-self:stretch}.hssep2::before{width:1px;height:auto;align-self:stretch}.hssep2 small{display:none}.hsadd2{flex-direction:row}}
+/* quests: drag and pause */
+.qdnd{position:relative;padding-left:30px!important;cursor:grab}.qgrip{position:absolute;left:9px;top:14px;color:var(--mut);letter-spacing:-2px;font-size:14px;user-select:none}
+.qoff{opacity:.55}.qofft{background:#555!important;color:#fff!important}
+/* workshop overview and polish */
+.wsog{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.wsoc{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:0 10px;align-items:center;text-align:left;padding:12px;border:1px solid #785a2855;background:linear-gradient(180deg,rgba(13,27,46,.6),rgba(7,17,32,.6));color:inherit;cursor:pointer}
+.wsoc .ecoi{grid-row:1/3;width:38px;height:38px}.wsoc b{font:800 22px/1 Cinzel,Georgia,serif;color:#f0e6d2}.wsoc small{color:var(--mut);font-size:12px}.wsoc:hover{border-color:var(--gold)}
+.wsoq{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.wsoa{display:inline-flex;align-items:center;gap:6px}
+.wsos{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:8px;font-size:13px;color:#cdbe91}.wsos span{display:inline-flex;align-items:center;gap:6px}.wsos .warn{color:#ff9a5a}
+.wsq{display:flex;align-items:center;gap:6px;margin:6px 10px 8px;padding:0 8px;border:1px solid var(--line);background:rgba(1,10,19,.5)}.wsq input{border:0;background:none;margin:0;padding:6px 0;font-size:13px}
+.wsm>.panel,.wsm .panel{border:1px solid #785a2855;background:linear-gradient(180deg,rgba(13,27,46,.55),rgba(7,17,32,.55))}
+.wsm .panel>h3:first-child,.wsm .panel>h2:first-child{font:700 14px Cinzel,Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--gold2);padding-bottom:8px;border-bottom:1px solid #785a2844;margin-bottom:10px}
+.wsm h2.hl{font-size:15px;letter-spacing:.06em;text-transform:uppercase;border-left:3px solid var(--gold);padding-left:10px}
+.wsm .btn{min-height:32px}
+.wsm table.ssx th{font:700 11px Cinzel,Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);text-align:left}
+.wsm table.ssx td,.wsm table.ssx th{padding:6px 8px;border-bottom:1px solid #785a2833}
+@media(max-width:860px){.wsq{display:none}}
+.hssep2{cursor:grab}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -6875,8 +6921,11 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='1.7';
+const WNV='1.8';
 const WN=[
+ ['1.8','29 Oct 2026',[
+  ['Collection','Orb types','There can now be different kinds of orbs, each with its own picture and its own rewards.',"go('store');ssub='inv';render()"],
+  ['App','Home side list in your order','The Home page list can be sorted and split with separators.',"go('home');render()"]]],
  ['1.7','29 Oct 2026',[
   ['App','Advent calendars','A door to open every day, each with its own reward. Find it on the Home page while it runs.',"go('home');hsub='adv';render()"],
   ['App','New quests anyone can do','Roll on the Gacha, open orbs, log in, claim daily and Battlepass rewards, read lore, spend CE and more. Quests can also give chests, orbs and Sapphire Essence.',"pickSub('prof','quests')"],
@@ -8439,7 +8488,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='1.7 Beta',APPB=182;
+const APPV='1.8 Beta',APPB=183;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -9540,6 +9589,88 @@ XPOST.push(function tgColPost(){if(S.cfg.tgCol===0||tab!='store')return;const C=
 {const o=WSX.chestt;if(o){o.f=()=>{setTimeout(()=>{wsub='gen';try{const i=wsPanels(devOld()).findIndex(p=>p.t=='Currency and XP');wgp=i<0?1:i}catch(e){wgp=1}ecoT='chest';render()},0);return '<p class="mut">Opening…</p>'}}}
 try{WSR.forEach(g=>{const i=g[1].indexOf('chestt');if(i>=0)g[1].splice(i,1)})}catch(e){}
 {const _dvz=dev;dev=function(){let h=_dvz.apply(this,arguments);return h.replace(/<button[^>]*onclick="wsub='chestt';edit=null;render\(\)"[^>]*>[\s\S]*?<\/button>/,'')}}
+
+/* ===== 1.8: orb types, Home side list order and separators, quest order and pause, Workshop overview and boosts ===== */
+Object.assign(PL,{"Separator":"Separator","Overview":"Przegląd","Boosts":"Bonusy","Orb types":"Rodzaje kul","Paused":"Wstrzymane","Pause":"Wstrzymaj","Resume":"Wznów"});
+/* ---------- 1. orb types ---------- */
+const OBX=()=>{S.orbx=S.orbx||[];return S.orbx};
+const obN=id=>{S.inv.orbx=S.inv.orbx||{};return +S.inv.orbx[id]||0};
+const obSetN=(id,n)=>{S.inv.orbx=S.inv.orbx||{};S.inv.orbx[id]=Math.max(0,n)};
+const obGet=id=>OBX().find(x=>x.id==id);
+function obWith(id,f){const o=obGet(id);if(!o)return f();const P=ORT(),kp=P.pool,kn=S.inv.orbs,g=(S.gbs?S.gbs[0]:S.gc)||{},ki=g.orbImg;P.pool=o.pool||[];S.inv.orbs=obN(id);g.orbImg=o.img||ki;try{return f()}finally{obSetN(id,S.inv.orbs);P.pool=kp;S.inv.orbs=kn;g.orbImg=ki}}
+function orbOpenX(id){obWith(id,()=>orbOpen());save();render()}
+function obMulti(id,n){obWith(id,()=>lootMulti('orb',n));save();render()}
+function obPop(id){const o=obGet(id);if(!o)return;lpClose();const n=obN(id),d=document.createElement('div');d.id='lpop';d.className='ovl';d.onclick=ev=>{if(ev.target==d)lpClose()};
+ d.innerHTML=`<div class="panel pmod" style="width:min(420px,100%);text-align:center"><div class="lpa mat"><span class="mtpa" style="${o.img?`background-image:url(${o.img})`:''}">${o.img?'':ico('dia',64)}</span></div><h2 style="margin:10px 0 2px">${esc(o.name)}</h2><p class="mut" style="margin:0">You have ${n}</p><div class="lpb"><button class="btn dev" ${n?'':'disabled'} onclick="lpClose();orbOpenX('${id}')">${esc(nm('Open'))}</button><button class="btn dev" ${n>1?'':'disabled'} onclick="lpClose();obMulti('${id}',5)">${esc(nm('Open 5'))}</button><button class="btn" onclick="lpClose();obWith('${id}',()=>lpPop('orb'))">${esc(nm("What's inside"))}</button><button class="btn" onclick="lpClose()">Close</button></div></div>`;document.body.appendChild(d)}
+XPOST.push(function obInvPost(){if(!(tab=='store'&&ssub=='inv'))return;const g=document.querySelector('#m .ivg');if(!g||g.querySelector('[data-obx]'))return;const ref=[...g.querySelectorAll('.ivt.mat')].find(b=>/openOrb/.test(b.getAttribute('onclick')||''))||g.querySelector('.ivt.mat');
+ const h=OBX().filter(o=>S.dev||obN(o.id)>0).map(o=>`<button class="ivt mat" data-obx="${o.id}" onclick="obPop('${o.id}')" oncontextmenu="event.preventDefault();obPop('${o.id}')" title="${esc(o.name)} (click to use)"><span class="ivi" style="${o.img?`background:center/contain no-repeat url(${o.img})`:''}">${o.img?'':ico('dia',26)}</span><i class="ivn">${obN(o.id)}</i></button>`).join('');if(!h)return;if(ref)ref.insertAdjacentHTML('afterend',h);else g.insertAdjacentHTML('afterbegin',h)});
+/* chest rows and quest rewards can give a chosen orb type */
+{const _cl=chestLbl;chestLbl=r=>r.t=='orb'&&r.o&&obGet(r.o)?'+'+r.n+' '+obGet(r.o).name:_cl(r)}
+{const _cg=chGive;chGive=function(r){if(r.t=='orb'&&r.o&&obGet(r.o)){const n=+r.n||1;obSetN(r.o,obN(r.o)+n);const o=obGet(r.o);return {n:chestLbl(r),img:o.img||'',t:'Orb',rar:0,k:'orb'}}return _cg.apply(this,arguments)}}
+{const _ca=chtAdd;chtAdd=function(){const t=(document.getElementById('cht1')||{}).value,o=(document.getElementById('cht5')||{}).value,before=CHT().rows.length;const r=_ca.apply(this,arguments);if(t=='orb'&&o&&CHT().rows.length>before){CHT().rows[CHT().rows.length-1].o=o;save();render()}return r}}
+{const _ec=ecoChest;ecoChest=function(){let h=_ec.apply(this,arguments);if(!OBX().length)return h;return h.replace('<div><label>Amount</label><input id="cht3"',`<div><label>Orb type (for orbs)</label><select id="cht5"><option value="">Normal orb</option>${OBX().map(o=>`<option value="${o.id}">${esc(o.name)}</option>`).join('')}</select></div><div><label>Amount</label><input id="cht3"`)}}
+{const _cl8=claim;claim=function(id){const q=S.quests.find(x=>x.id==id),ok=q&&q.done&&!q.claimed;let n=0;if(ok&&q.roo&&obGet(q.roo)&&q.ror){n=+q.ror||0;q._ror=q.ror;q.ror=0}const r=_cl8.apply(this,arguments);if(q&&q._ror!=null){q.ror=q._ror;delete q._ror;if(n&&q.claimed){obSetN(q.roo,obN(q.roo)+n);save()}}return r}}
+{const _sq8=saveQ;saveQ=function(){const v=(document.getElementById('qx5')||{}).value,id=edit&&edit.id,before=new Set(S.quests.map(x=>x.id));const r=_sq8.apply(this,arguments);const q=S.quests.find(x=>x.id==id)||S.quests.find(x=>!before.has(x.id));if(q&&v!=null){q.roo=v||'';save()}return r}}
+XPOST.push(function qxOrbPost(){if(!edit||edit.t!='q'||!OBX().length)return;const e=document.getElementById('qx3');if(!e||document.getElementById('qx5'))return;const q=S.quests.find(x=>x.id==edit.id)||{};e.closest('.qxf').insertAdjacentHTML('afterend',`<div class="qxf qxrc"><label>Orb type</label><select id="qx5"><option value="">Normal orb</option>${OBX().map(o=>`<option value="${o.id}" ${q.roo==o.id?'selected':''}>${esc(o.name)}</option>`).join('')}</select></div>`)});
+/* Economy › Orbs: manage orb types */
+let obEd='';
+function obNew(){const o={id:'ob'+Date.now().toString(36),name:'New orb',img:'',pool:[]};OBX().push(o);obEd=o.id;save();render()}
+function obSet(k,v){const o=obGet(obEd);if(!o)return;o[k]=v;save();render()}
+function obImg(inp){const f=inp.files&&inp.files[0],o=obGet(obEd);if(!f||!o)return;nvImg(f,600).then(d=>{if(!d)return;o.img=d;save();render()})}
+function obDel(){const o=obGet(obEd);if(!o)return;cfm('Delete the orb type “'+o.name+'”? Players lose the ones they have.',()=>{S.orbx=OBX().filter(x=>x.id!=o.id);if(S.inv.orbx)delete S.inv.orbx[o.id];CHT().rows.forEach(r=>{if(r.o==o.id)delete r.o});obEd='';save();render()})}
+function obTog(r,on){const o=obGet(obEd);if(!o)return;o.pool=o.pool||[];const i=o.pool.indexOf(r);if(on&&i<0)o.pool.push(r);if(!on&&i>=0)o.pool.splice(i,1);save()}
+{const _eo=ecoOrb;ecoOrb=function(){const L=OBX(),o=obGet(obEd);const bar=`<div class="ecoc"><div class="ecoh"><span class="ecoi">${ico('dia',20)}</span><div><b>${esc(nm('Orb types'))}</b><small>Each type has its own picture and its own list of things it can give.</small></div></div><div class="obl"><button class="obc ${!o?'on':''}" onclick="obEd='';render()"><span style="${((S.gbs?S.gbs[0]:S.gc)||{}).orbImg?`background-image:url(${((S.gbs?S.gbs[0]:S.gc)||{}).orbImg})`:''}">${((S.gbs?S.gbs[0]:S.gc)||{}).orbImg?'':ico('dia',22)}</span><b>Normal orb</b><small>${S.inv.orbs||0} owned</small></button>${L.map(x=>`<button class="obc ${o&&o.id==x.id?'on':''}" onclick="obEd='${x.id}';render()"><span style="${x.img?`background-image:url(${x.img})`:''}">${x.img?'':ico('dia',22)}</span><b>${esc(x.name)}</b><small>${obN(x.id)} owned</small></button>`).join('')}<button class="obc add" onclick="obNew()"><span>+</span><b>New orb type</b></button></div></div>`;
+ if(!o)return bar+_eo.apply(this,arguments);const all=[...S.chars.map(c=>['c:'+c.id,'Character',c.name]),...S.skins.map(k=>['k:'+k.id,'Skin',k.name]),...S.items.filter(i=>i.cat!='boosters').map(i=>['i:'+i.id,CCAT[i.cat]||'Item',i.name])],P=o.pool||[];
+ return bar+`<div class="ecoc"><div class="ecoh"><span class="ecoi" style="${o.img?`background:center/cover url(${o.img})`:''}">${o.img?'':ico('dia',20)}</span><div><b>${esc(o.name)}</b><small>${P.length?P.length+' things ticked':'Nothing ticked, so it can give anything'}</small></div></div><div class="row"><div><label>Name</label><input value="${esc(o.name)}" onchange="obSet('name',this.value)"></div><div><label>Picture</label><input type="file" accept="image/*" data-asp="1:1" onchange="obImg(this)"></div><div><label>In your ${S.dev?'test ':''}inventory</label><input type="number" min="0" value="${obN(o.id)}" onchange="obSetN('${o.id}',Math.floor(+this.value)||0);save();render()"></div></div><p style="margin:6px 0 0"><button class="btn red" onclick="obDel()">Delete orb type</button></p></div>
+ <div class="ecoc"><b>What this orb can give</b><div class="ecoo">${all.map(([r,k,n])=>`<label class="chk ${P.includes(r)?'on':''}"><input type="checkbox" ${P.includes(r)?'checked':''} onchange="obTog('${r}',this.checked);this.parentNode.classList.toggle('on',this.checked)"> <span>${esc(n)}</span><small>${esc(k)}</small></label>`).join('')}</div></div>`}}
+/* ---------- 2. Home side list: drag to reorder, separators ---------- */
+const HSEP=()=>{if(!Array.isArray(S.hsep))S.hsep=[{id:'sep0',t:''}];return S.hsep};
+function hsEntBtn(e){const on=hsub==e.k,s0=e.k.startsWith('sc:')?(hsub==e.k&&hsCurSlide()?hsCurSlide():e.L[0]):e.s,m=hsBg(s0),nm2=e.sec?e.sec.nav:(e.s.nav||e.s.title||'Slide'),ic=e.sec?(e.sec.ic||'grid4'):(e.s.ic||'star'),nw=e.L.some(x=>x.nw),hid=e.L.every(x=>x.on===0);
+ return `<button class="hbi hsn ${on?'on':''}" onclick="hsub='${e.k}';hsItem=0;hsHide=0;hsSecT=Date.now();edit=null;render()">${on&&m.u&&!m.v?`<span class="hsnb" style="background-image:url(${m.u})"></span>`:''}${ico(ic,16)}<span>${esc(nm2)}</span>${nw?'<small class="hbl hsnw">NEW</small>':''}${hid?'<small class="hbl" style="background:#555">HIDDEN</small>':''}${e.sec&&e.L.length>1?`<small class="hsnc">${e.L.length}</small>`:''}</button>`}
+function hsSideList(){const it=(k,on,fn,ic,l,x)=>({k,h:`<button class="hbi hsn ${on?'on':''}" onclick="${fn}">${ico(ic,16)}<span>${esc(l)}</span>${x||''}</button>`});const L=[];
+ hsEntries().forEach(e=>L.push({k:e.k,h:hsEntBtn(e)}));
+ HSEP().forEach(s=>L.push({k:'sep:'+s.id,sep:s}));
+ L.push(it('evh',hsub=='evh',"hsub='evh';evhE=null;hsHide=0;render()",'star',nm('Events hub'),S.evh.some(evhLive)?'<small class="hbl">LIVE</small>':''));
+ if(S.dev||AXL_().some(axLive))L.push(it('adv',hsub=='adv',"hsub='adv';hsHide=0;render()",'gift',nm('Advent calendar'),AXL_().some(c=>axLive(c)&&axState(c,axToday(c))=='today')?'<small class="hbl hsnw">NEW</small>':''));
+ L.push(it('lotd',hsub=='lotd',"hsub='lotd';hsHide=0;render()",'lore',nm('Lore of the day')));
+ const O=S.hsOrd||[],def=k=>k.startsWith('sl:')||k.startsWith('sc:')?0:k=='sep:sep0'?1:k.startsWith('sep:')?1.5:2;const idx=x=>{const i=O.indexOf(x.k);return i<0?1000+def(x.k)*100+L.indexOf(x):i};
+ return L.sort((a,b)=>idx(a)-idx(b))}
+hubSide=function(){const L=hsSideList(),dv=S.dev,pn=`<button class="hbi hsn ${hsub=='patch'?'on':''}" onclick="hsub='patch';render()">${ico('pnote',16)}<span>${esc(nm('Patch notes'))}</span></button>`;
+ return `<aside class="hbsd ${dv?'hsdnd':''}">${L.map(x=>{const a=dv?` draggable="true" data-hk="${x.k}"`:'';if(x.sep)return `<div class="hssep2"${a}>${x.sep.t?`<small>${esc(x.sep.t)}</small>`:''}${dv?`<button class="ic hssx" onclick="event.stopPropagation();hsSepEdit('${x.sep.id}')" aria-label="Edit separator">${ico('pen',10)}</button>`:''}</div>`;return dv?`<div class="hsdw"${a}>${x.h}</div>`:x.h}).join('')}${dv?`<div class="hsadd2"><button class="hbi hsadd" onclick="hsNew()">${ico('plus',14)||'+'}<span>${esc(nm('New slide'))}</span></button><button class="hbi hsadd" onclick="hsSepAdd()">${ico('plus',14)||'+'}<span>${esc(nm('Separator'))}</span></button></div>`:''}<span style="flex:1"></span>${pn}</aside>`};
+function hsSepAdd(){const s={id:'sep'+Date.now().toString(36),t:''};HSEP().push(s);const O=hsSideList().map(x=>x.k);S.hsOrd=O;save();render()}
+function hsSepEdit(id){const s=HSEP().find(x=>x.id==id);if(!s)return;XMOD('hssepm',`<h3 style="margin-top:0">${esc(nm('Separator'))}</h3><label>Small label (optional)</label><input id="hssl" value="${esc(s.t||'')}" placeholder="e.g. Events"><div class="sy2" style="margin-top:12px"><button class="btn dev" onclick="const s=HSEP().find(x=>x.id=='${id}');s.t=document.getElementById('hssl').value.trim();XCLOSE('hssepm');save();render()">Save</button><button class="btn red" onclick="S.hsep=HSEP().filter(x=>x.id!='${id}');XCLOSE('hssepm');save();render()">Delete</button></div>`,380)}
+/* drag and drop: side list and quests (Developer Mode) */
+let dndK=null;
+function dndList(sel,key,get,set){document.querySelectorAll(sel).forEach(el=>{if(el.dataset.dnd)return;el.dataset.dnd=1;el.addEventListener('dragstart',e=>{dndK=el.dataset[key];el.classList.add('dragging');try{e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',dndK)}catch(_){}});el.addEventListener('dragend',()=>{el.classList.remove('dragging');document.querySelectorAll('.dndover').forEach(x=>x.classList.remove('dndover'));dndK=null});el.addEventListener('dragover',e=>{if(dndK==null)return;e.preventDefault();el.classList.add('dndover')});el.addEventListener('dragleave',()=>el.classList.remove('dndover'));el.addEventListener('drop',e=>{e.preventDefault();const to=el.dataset[key],from=dndK;el.classList.remove('dndover');if(!from||from==to)return;const L=get().slice(),i=L.indexOf(from),j=L.indexOf(to);if(i<0||j<0)return;L.splice(i,1);L.splice(j,0,from);set(L);save();render()})})}
+XPOST.push(function hsDndPost(){if(!S.dev||tab!='home')return;dndList('.hsdnd [data-hk]','hk',()=>hsSideList().map(x=>x.k),L=>{S.hsOrd=L})});
+/* quests in the Workshop: drag to reorder, pause and resume */
+XPOST.push(function qDndPost(){if(!(S.dev&&tab=='dev'&&wsub=='quests'&&!(edit&&edit.t)))return;document.querySelectorAll('.wsm .panel').forEach(p=>{if(p.dataset.qid)return;const b=p.querySelector('button[onclick^="edit={t:\'q\',id:"]');if(!b)return;const m=/id:'([^']+)'/.exec(b.getAttribute('onclick'));if(!m)return;const q=S.quests.find(x=>x.id==m[1]);if(!q)return;p.dataset.qid=q.id;p.draggable=true;p.classList.add('qdnd');if(q.off)p.classList.add('qoff');p.insertAdjacentHTML('afterbegin',`<span class="qgrip" title="Drag to reorder" aria-hidden="true">⋮⋮</span>`);b.insertAdjacentHTML('afterend',` <button class="btn" onclick="qPause('${q.id}')">${esc(nm(q.off?'Resume':'Pause'))}</button>`);if(q.off){const h=p.querySelector('h3');if(h)h.insertAdjacentHTML('beforeend',` <span class="tag qofft">${esc(nm('Paused'))}</span>`)}});dndList('.wsm .panel[data-qid]','qid',()=>S.quests.map(q=>q.id),L=>{S.quests.sort((a,b)=>L.indexOf(a.id)-L.indexOf(b.id))})});
+function qPause(id){const q=S.quests.find(x=>x.id==id);if(!q)return;q.off=q.off?0:1;save();toast(q.off?'Quest paused: players don’t see it':'Quest running again');render()}
+{const _trp=track;track=function(){if(!S.quests.some(q=>q.off))return _trp.apply(this,arguments);const keep=S.quests;S.quests=keep.filter(q=>!q.off);try{return _trp.apply(this,arguments)}finally{S.quests=keep}}}
+{const _qlp=questsList;questsList=function(){if(S.dev||!S.quests.some(q=>q.off))return _qlp.apply(this,arguments);const keep=S.quests;S.quests=keep.filter(q=>!q.off);try{return _qlp.apply(this,arguments)}finally{S.quests=keep}}}
+/* ---------- 3. Workshop: overview page, search, boosts ---------- */
+const BOO=()=>{S.cfg.boo=S.cfg.boo||{xp:1,cur:1,q:1,wk:0,wkx:2};return S.cfg.boo};
+const booWk=()=>{const b=BOO(),d=new Date().getDay();return b.wk&&(d==0||d==6)?(+b.wkx||2):1};
+const booM=k=>(+BOO()[k]||1)*booWk();
+{const _gx=gainXp;gainXp=function(n){return _gx.call(this,Math.round((+n||0)*booM('xp')))}}
+{const _er2=earn;earn=function(n,why){return _er2.call(this,Math.round((+n||0)*booM('cur')),why)}}
+{const _cl9=claim;claim=function(id){const q=S.quests.find(x=>x.id==id),m=booM('q');if(!q||m==1||!q.done||q.claimed)return _cl9.apply(this,arguments);const K=['rat','rst','rce','rgt','rse'],bk={};K.forEach(k=>{bk[k]=q[k];if(q[k])q[k]=Math.round(q[k]*m)});try{return _cl9.apply(this,arguments)}finally{K.forEach(k=>q[k]=bk[k])}}}
+function ecoBoost(){const b=BOO(),f=(k,l,d)=>`<div class="ecoc"><b>${esc(l)}</b><p class="mut">${esc(d)}</p><div class="ecov"><input type="number" min="0" step="0.1" value="${+b[k]||1}" onchange="BOO()['${k}']=Math.max(0,+this.value||1);save();render()"><span>× normal</span></div></div>`;
+ return `<div class="ecog">${f('xp','XP','Every bit of XP players get.')}${f('cur','Astralis Tokens for creating','What players earn for making new things.')}${f('q','Quest currency','Currencies given by quest rewards.')}</div><div class="ecoc" style="margin-top:12px"><label class="chk"><input type="checkbox" ${b.wk?'checked':''} onchange="BOO().wk=this.checked?1:0;save();render()"> Weekend boost: everything above is multiplied on Saturdays and Sundays</label><div class="ecov" style="max-width:240px;margin-top:6px"><input type="number" min="1" step="0.5" value="${+b.wkx||2}" onchange="BOO().wkx=Math.max(1,+this.value||2);save()"><span>× on weekends</span></div><p class="mut" style="margin:8px 0 0">${booWk()>1?'The weekend boost is on right now.':'Right now: XP ×'+booM('xp')+', creating ×'+booM('cur')+', quests ×'+booM('q')+'.'}</p></div>`}
+{const _ep=ecoPage;ecoPage=function(){const bt=`<button class="${ecoT=='boost'?'on':''}" onclick="ecoT='boost';render()">${ico('star',14)} ${esc(nm('Boosts'))}</button>`;if(ecoT!='boost')return String(_ep.apply(this,arguments)).replace(/(<div class="ecotab">[\s\S]*?)(<\/div>)/,(m,x,y)=>x+bt+y);const k=ecoT;ecoT='wallet';let h;try{h=String(_ep.apply(this,arguments))}finally{ecoT=k}const i=h.indexOf('</div>',h.indexOf('<div class="ecotab">'));return h.slice(0,i).replace(/ class="on"/g,' class=""')+bt+'</div>'+ecoBoost()}}
+/* overview */
+function wsOv(){const c=(n,l,ic,fn)=>`<button class="wsoc" onclick="${fn}"><span class="ecoi">${ico(ic,18)}</span><b>${n}</b><small>${esc(l)}</small></button>`,act=(l,ic,fn)=>`<button class="btn wsoa" onclick="${fn}">${ico(ic,13)} ${esc(l)}</button>`,mon=S.items.filter(i=>i.cat=='monsters').length,aq=S.quests.filter(q=>!q.claimed&&!q.off&&!qEnded(q)).length,last=S.cfg.lastExp?Math.floor((Date.now()-S.cfg.lastExp)/864e5):null,dr=(typeof drList=='function'?drList().length:0);
+ return `<div class="wsog">${c(S.chars.length,'Characters','prof',"go('store');ssub='col';ccat='chars'")}${c(S.skins.length,'Skins','star',"go('store');ssub='col';ccat='skins'")}${c(mon,'Monsters','elFire',"go('store');ssub='col';ccat='monsters'")}${c(S.items.length-mon,'Other items','grid4',"go('store');ssub='col';ccat='weapons'")}${c(S.lore.length,'Lore entries','lore',"go('lore')")}${c(aq,'Active quests','qst',"wsub='quests';render()")}${c(HZS().length,'Home slides','grid4',"wsub='slides';render()")}${c(AXL_().length,'Advent calendars','gift',"wsub='advent';render()")}${c((S.bundles||[]).length,'Bundles','store',"go('store');ssub='store';tsub='main'")}${c(dr,'Drafts','pen',"wsub='drafts';render()")}</div>
+ <div class="ecoc"><b>Quick actions</b><div class="wsoq">${act('New character','plus',"go('store');ssub='col';ccat='chars';edit={t:'c',id:null};tmpImg=null;render()")}${act('New skin','plus',"go('store');ssub='col';ccat='skins';edit={t:'k',id:null};tmpImg=null;render()")}${act('New quest','plus',"wsub='quests';edit={t:'q',id:null};render()")}${act('New slide','plus',"go('home');hsNew()")}${act('New advent calendar','plus',"wsub='advent';axNew()")}${act('New lore entry','plus',"go('lore');edit={t:'l',id:null};render()")}</div></div>
+ <div class="ecoc"><b>Status</b><div class="wsos"><span class="${last==null||last>7?'warn':''}">${ico('dl',13)} Backup: ${last==null?'never made':last==0?'today':last+' day'+(last==1?'':'s')+' ago'}</span><span>${ico('star',13)} Boosts: XP ×${booM('xp')}, quests ×${booM('q')}</span><span>${ico('dl',13)} Version ${esc(APPV)} (build ${APPB})</span>${typeof ghRepo=='function'&&ghRepo()?`<span>${ico('dl',13)} Updates from ${esc(ghRepo())}</span>`:''}</div></div>`}
+wsxAdd('wsov',nm('Overview'),'grid4','App',()=>wsOv());
+try{WSR.unshift(['Workshop',['wsov']])}catch(e){}
+/* open the overview the first time the Workshop opens */
+{let first=1;const _g3=go;go=function(t){if(t=='dev'&&first){first=0;wsub='wsov';edit=null}return _g3.apply(this,arguments)}}
+/* search in the Workshop side list */
+let wsQ='';
+XPOST.push(function wsSearchPost(){const a=document.querySelector('.wsn');if(!a||a.querySelector('.wsq'))return;const hd=a.querySelector('.wshd');const h=`<label class="wsq">${ico('srch',13)}<input placeholder="Find a setting" value="${esc(wsQ)}" oninput="wsQ=this.value;wsFilt()"></label>`;if(hd)hd.insertAdjacentHTML('afterend',h);else a.insertAdjacentHTML('afterbegin',h);wsFilt()});
+function wsFilt(){const a=document.querySelector('.wsn');if(!a)return;const q=wsQ.trim().toLowerCase();let lastG=null,any=0;[...a.children].forEach(e=>{if(e.classList.contains('wsgl')){if(lastG)lastG.style.display=any||!q?'':'none';lastG=e;any=0;return}if(e.tagName!='BUTTON')return;const ok=!q||e.textContent.toLowerCase().includes(q);e.style.display=ok?'':'none';if(ok)any=1});if(lastG)lastG.style.display=any||!q?'':'none'}
 
 
 render();

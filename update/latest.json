@@ -1,11 +1,11 @@
 {
-  "version": "1.7 Beta",
-  "build": 182,
+  "version": "1.8 Beta",
+  "build": 183,
   "html": "update/exodus.html",
   "notes": [
-    "Advent calendars on the Home page",
-    "New quests anyone can do, and quests can give chests, orbs and Sapphire Essence",
-    "Chests can give more kinds of rewards, and sometimes more than one"
+    "Orb types with their own pictures and rewards",
+    "Home side list: drag to reorder and add separators",
+    "Workshop overview, search and boosts"
   ],
   "win": {
     "version": "1.5.0",
