@@ -2390,6 +2390,18 @@ body.chcopen #toast{z-index:120}
 .pzask{display:flex;gap:10px;align-items:center;padding:10px;border:1px solid #c8aa6e66;background:#c8aa6e11}.pzask b{display:block;color:#f0e6d2}.pzask small{color:#8a8577}
 .pzcard{margin:10px 0}.pzcard>header{flex-wrap:wrap}.pzcard>header>div{flex:1;min-width:200px}
 @media(max-width:520px){.pzc2{grid-template-columns:1fr}.pzcode{font-size:36px}}
+/* 2.2 Wi-Fi pairing */
+.wfdot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#5b5a56;box-shadow:0 0 0 2px #0a1428;flex:none}
+.wfdot.on{background:#0ac8b9;box-shadow:0 0 0 2px #0a1428,0 0 8px #0ac8b9}
+.wfpr{display:flex;gap:10px;align-items:center;padding:9px 10px;border:1px solid #785a2833;background:rgba(1,10,19,.45);margin:0 0 6px;flex-wrap:wrap}
+.wfpr>div:not(.wsrow){flex:1;min-width:140px}.wfpr b{display:block;color:#f0e6d2}.wfpr small{color:#8a8577;font-size:12px}
+.wfpr .wsrow{margin:0}.wfme{border-color:#0ac8b955}
+.wfh{font-size:11px;color:#c8aa6e;text-transform:uppercase;letter-spacing:.07em;margin:12px 0 6px}
+.wfpin{border:1px solid #0ac8b955;background:#0ac8b90d;padding:10px;margin-bottom:8px}
+.wfaddr{text-align:center;margin:4px 0 0;color:#a09b8c;font-size:13px}.wfaddr b{font-family:ui-monospace,Consolas,monospace;color:#f0e6d2;font-size:15px}
+.wfnote{font-size:11px;margin:10px 0 0}
+.wfpv{margin:0 0 10px;text-align:center}.wfpv img{max-width:100%;max-height:240px;border:1px solid #785a2855}
+#wfmark{position:relative}#wfmark .wfdot{position:absolute;right:3px;bottom:3px;width:7px;height:7px}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -7123,10 +7135,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.1';
+const WNV='2.2';
 const WN=[
- ['2.1','29 Oct 2026',[
-  ['App','Move to another device','Send your whole universe from PC to phone or back with a 6-digit code. No account needed. Settings › Sync.',"openSet();stSec='sync';render()"]]],
+ ['2.2','29 Oct 2026',[
+  ['App','Wi-Fi pairing','Pair your phone with the Windows app on the same Wi-Fi. A mark in the top bar shows when they are connected, and you can send your universe and files both ways. Settings › Sync.',"openSet();stSec='sync';render()"]]],
  ['2.0.1','29 Oct 2026',[
   ['App','Storage & data scrolls again','The Storage & data page in Settings scrolls down again and shows all its sections.',"openSet();stSec='sto';render()"]]],
  ['1.9','29 Oct 2026',[
@@ -8697,7 +8709,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.1 Beta',APPB=187;
+const APPV='2.2 Beta',APPB=188;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -10174,70 +10186,81 @@ async function chcMaskFrom(u){const m=new Uint8Array(CCE.n);if(!u)return m;try{c
  return h.replace(/(<div class="panel chrxc">[\s\S]*?)(<button class="btn red" onclick="chrDel\('([^']+)'\)">)/g,(m0,a,b,id)=>a+`<button class="btn" onclick="chcOpen('${k.id}','${id}')">${ico('brsh',12)} Edit in creator</button>`+b)}}
 try{WSX.chroma.f=()=>chrView()}catch(e){}
 
-/* ===== 2.1: move your universe between devices with a 6-digit code (WebRTC, no account) ===== */
-const PZ={sig:'wss://0.peerjs.com:443/peerjs',key:'peerjs',pfx:'exodus-lb-',ice:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun.cloudflare.com:3478'},{urls:['turn:eu-0.turn.peerjs.com:3478','turn:us-0.turn.peerjs.com:3478'],username:'peerjs',credential:'peerjsp'}],chunk:65536};
-let PZS=null;
-const pzDev=()=>window.exodus?'Windows app':/Android/i.test(navigator.userAgent||'')?'Android phone':/iPhone|iPad/i.test(navigator.userAgent||'')?'iPhone':'Browser';
-const pzMB=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
-function pzSig(id,on){const t=Math.random().toString(36).slice(2);const ws=new WebSocket(`${PZ.sig}?key=${PZ.key}&id=${encodeURIComponent(id)}&token=${t}&version=1.5.4`);const hb=setInterval(()=>{try{ws.readyState==1&&ws.send(JSON.stringify({type:'HEARTBEAT'}))}catch(e){}},5000);
- ws.onmessage=e=>{let m;try{m=JSON.parse(e.data)}catch(x){return}on(m)};ws.onerror=()=>on({type:'WSERR'});ws.onclose=()=>{clearInterval(hb);on({type:'CLOSED'})};
- return {ws,send:(type,dst,payload)=>{try{ws.send(JSON.stringify({type,dst,payload}))}catch(e){}},close:()=>{clearInterval(hb);try{ws.close()}catch(e){}}}}
-function pzStop(){const s=PZS;PZS=null;if(!s)return;try{s.sig&&s.sig.close()}catch(e){}try{s.dc&&s.dc.close()}catch(e){}try{s.pc&&s.pc.close()}catch(e){}clearTimeout(s.tm)}
-function pzUI(html){const d=document.getElementById('pzm');if(d){const p=d.querySelector('.pzb');if(p){p.innerHTML=html;return}}XMOD('pzm',`<div class="pzh"><span class="qxi">${ico('swap',15)}</span><div><b>${esc(nm('Move to another device'))}</b><small>PC ↔ phone, no account needed</small></div></div><div class="pzb">${html}</div>`,460);const o=document.getElementById('pzm');if(o){const x=o.querySelector('.xmcx');if(x)x.setAttribute('onclick',"pzStop();XCLOSE('pzm')")}}
-function pzClose(){pzStop();XCLOSE('pzm')}
-function pzOpen(){pzStop();if(typeof RTCPeerConnection=='undefined'||typeof WebSocket=='undefined')return pzUI(`<p class="bxe">This device can't send directly. Use Settings › Storage & data › Full backup and move the file instead.</p>`);
- pzUI(`<p class="mut" style="margin:0 0 12px">Open this on both devices. The one that has your universe sends it, the other one receives it. Both need the internet.</p><div class="pzc2"><button class="pzbig" onclick="pzSend()">${ico('dl',22)}<b>Send from this device</b><small>Shows a code to type on the other device.</small></button><button class="pzbig" onclick="pzAsk()">${ico('save',22)}<b>Receive on this device</b><small>Type the code shown on the other device.</small></button></div>`)}
-function pzAsk(){pzUI(`<label>Code from the other device</label><input id="pzcode" inputmode="numeric" maxlength="7" placeholder="123 456" class="pzin" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/^(\\d{3})(\\d)/,'$1 $2');if(this.value.replace(/ /g,'').length==6)pzRecv(this.value)" onkeydown="if(event.key=='Enter')pzRecv(this.value)"><div class="wsrow"><button class="btn dev" onclick="pzRecv(document.getElementById('pzcode').value)">Connect</button><button class="btn" onclick="pzOpen()">Back</button></div>`);setTimeout(()=>{const e=document.getElementById('pzcode');e&&e.focus()},50)}
-/* ---------- the sending device ---------- */
-async function pzPack(){const keys=await fbKeys(),parts=['{"exodusFull":1,"app":',JSON.stringify(APPV),',"at":',String(Date.now()),',"S":',JSON.stringify(S),',"media":{'];let n=0;for(const k of keys){const v=await mget(k);if(v==null)continue;parts.push((n?',':'')+JSON.stringify(String(k))+':'+JSON.stringify(await fbEnc(v)));n++}parts.push('}}');return {buf:new TextEncoder().encode(parts.join('')),media:n}}
-function pzSend(){pzStop();const code=String(100000+Math.floor(Math.random()*900000)),id=PZ.pfx+code;const s=PZS={role:'send',code,cand:[]};
- pzUI(`<p class="mut" style="margin:0">Connecting…</p>`);
- s.sig=pzSig(id,m=>{if(PZS!==s)return;if(m.type=='OPEN'){pzUI(`<p class="mut" style="margin:0 0 6px">On the other device, choose <b>Receive on this device</b> and type:</p><div class="pzcode">${code.slice(0,3)} ${code.slice(3)}</div><p class="mut pzwait">${ico('clock',12)} Waiting for the other device… The code works for 10 minutes.</p><div class="wsrow"><button class="btn" onclick="pzSend()">New code</button><button class="btn" onclick="pzClose()">Cancel</button></div>`)}
-  else if(m.type=='ID-TAKEN'){pzSend()}
-  else if(m.type=='OFFER'&&!s.offer){s.offer=m.payload;s.peer=m.src;const p=m.payload||{};pzUI(`<div class="pzask"><span class="qxi">${ico('prof',15)}</span><div><b>${esc(p.dev||'A device')} wants your universe</b><small>Only send if this is your own device.</small></div></div><div class="wsrow"><button class="btn dev" onclick="pzAccept()">Send</button><button class="btn red" onclick="pzDecline()">Don't send</button></div>`)}
-  else if(m.type=='CANDIDATE'){if(s.pc)s.pc.addIceCandidate(m.payload.c).catch(()=>{});else s.cand.push(m.payload.c)}
-  else if((m.type=='WSERR'||m.type=='ERROR')&&!s.done)pzFail('Could not reach the matching service. Check the internet connection and try again.')});
- s.tm=setTimeout(()=>{if(PZS===s&&!s.pc){pzStop();pzUI(`<p class="mut">The code ran out. Make a new one when both devices are ready.</p><div class="wsrow"><button class="btn dev" onclick="pzSend()">New code</button></div>`)}},600000)}
-function pzDecline(){const s=PZS;if(s&&s.peer)s.sig.send('LEAVE',s.peer,{no:1});pzStop();pzUI(`<p class="mut">Not sent.</p><div class="wsrow"><button class="btn" onclick="pzClose()">Close</button></div>`)}
-async function pzAccept(){const s=PZS;if(!s||!s.offer)return;pzUI(`<p class="mut">Getting your universe ready…</p>`);let pk;try{pk=await pzPack()}catch(e){return pzFail('Could not read everything on this device.')}if(PZS!==s)return;
- const pc=s.pc=new RTCPeerConnection({iceServers:PZ.ice});pc.onicecandidate=e=>{if(e.candidate)s.sig.send('CANDIDATE',s.peer,{c:e.candidate.toJSON?e.candidate.toJSON():e.candidate})};
- pc.onconnectionstatechange=()=>{if(['failed'].includes(pc.connectionState)&&!s.done)pzFail('The devices could not connect to each other. Try again, or put both on the same Wi-Fi.')};
- pc.ondatachannel=e=>{const dc=s.dc=e.channel;dc.binaryType='arraybuffer';dc.onopen=()=>pzStream(s,dc,pk);dc.onmessage=ev=>{try{const m=JSON.parse(ev.data);if(m.t=='ok'){s.done=1;pzUI(`<div class="pzok">${ico('chk',22)}<b>Sent</b><small>${pzMB(pk.buf.length)} · ${pk.media} pictures and media files</small></div><div class="wsrow"><button class="btn" onclick="pzClose()">Close</button></div>`);setTimeout(pzStop,1500)}}catch(x){}}};
- try{await pc.setRemoteDescription(s.offer.sdp);s.cand.forEach(c=>pc.addIceCandidate(c).catch(()=>{}));s.cand=[];const a=await pc.createAnswer();await pc.setLocalDescription(a);s.sig.send('ANSWER',s.peer,{sdp:pc.localDescription})}catch(e){pzFail('The devices could not connect to each other.')}
- pzUI(`<p class="mut">Connecting to the other device…</p>`)}
-function pzStream(s,dc,pk){const b=pk.buf,N=b.length,C=PZ.chunk;let off=0;const info={t:'meta',size:N,media:pk.media,app:APPV,dev:pzDev(),at:Date.now(),lore:(S.lore||[]).length,chars:(S.chars||[]).length,skins:(S.skins||[]).length,items:(S.items||[]).length,story:(S.story||[]).length};dc.send(JSON.stringify(info));
- dc.bufferedAmountLowThreshold=1<<20;const bar=()=>{const p=Math.round(off/N*100);pzUI(`<p class="mut" style="margin:0 0 8px">Sending… ${pzMB(off)} of ${pzMB(N)}</p><div class="pzbar"><i style="width:${p}%"></i></div><p class="mut pzwait">Keep both devices open.</p>`)};let lt=0;
- const pump=()=>{if(PZS!==s)return;while(off<N&&dc.bufferedAmount<4<<20){dc.send(b.slice(off,off+C));off+=C}if(Date.now()-lt>250||off>=N){lt=Date.now();bar()}if(off<N){dc.onbufferedamountlow=pump}else{dc.onbufferedamountlow=null;dc.send(JSON.stringify({t:'end'}))}};pump()}
-function pzFail(t){pzStop();pzUI(`<p class="bxe" style="margin:0 0 10px">${esc(t)}</p><p class="mut" style="font-size:12px">You can also use Settings › Storage & data › Full backup and move the file instead.</p><div class="wsrow"><button class="btn" onclick="pzOpen()">Try again</button><button class="btn" onclick="pzClose()">Close</button></div>`)}
-/* ---------- the receiving device ---------- */
-function pzRecv(v){const code=String(v||'').replace(/\D/g,'');if(code.length!=6)return toast('The code has 6 digits');pzStop();const me=PZ.pfx+'r'+Math.random().toString(36).slice(2,10),dst=PZ.pfx+code;const s=PZS={role:'recv',code,cand:[],parts:[],got:0};
- pzUI(`<p class="mut">Looking for the other device…</p>`);
- s.sig=pzSig(me,async m=>{if(PZS!==s)return;
-  if(m.type=='OPEN'){const pc=s.pc=new RTCPeerConnection({iceServers:PZ.ice});pc.onicecandidate=e=>{if(e.candidate)s.sig.send('CANDIDATE',dst,{c:e.candidate.toJSON?e.candidate.toJSON():e.candidate})};
-   pc.onconnectionstatechange=()=>{if(pc.connectionState=='failed'&&!s.done)pzFail('The devices could not connect to each other. Try again, or put both on the same Wi-Fi.')};
-   const dc=s.dc=pc.createDataChannel('exodus',{ordered:true});dc.binaryType='arraybuffer';dc.onmessage=ev=>pzGot(s,ev.data);
-   try{await pc.setLocalDescription(await pc.createOffer());s.sig.send('OFFER',dst,{sdp:pc.localDescription,dev:pzDev(),app:APPV})}catch(e){return pzFail('This device could not start the connection.')}
-   pzUI(`<p class="mut pzwait">${ico('clock',12)} Waiting for the other device to press <b>Send</b>…</p><div class="wsrow"><button class="btn" onclick="pzClose()">Cancel</button></div>`);
-   s.tm=setTimeout(()=>{if(PZS===s&&!s.meta)pzFail('No answer. Check the code, and that the other device is showing it.')},120000)}
-  else if(m.type=='ANSWER'){try{await s.pc.setRemoteDescription(m.payload.sdp);s.cand.forEach(c=>s.pc.addIceCandidate(c).catch(()=>{}));s.cand=[];s.ans=1}catch(e){pzFail('The devices could not connect to each other.')}}
-  else if(m.type=='CANDIDATE'){if(s.ans)s.pc.addIceCandidate(m.payload.c).catch(()=>{});else s.cand.push(m.payload.c)}
-  else if(m.type=='EXPIRE'){if(!s.meta)pzFail('No device is showing that code. Check the number and try again.')}
-  else if(m.type=='LEAVE'){if(!s.done)pzFail(m.payload&&m.payload.no?'The other device chose not to send.':'The other device left.')}
-  else if((m.type=='WSERR'||m.type=='ERROR')&&!s.done&&!s.meta)pzFail('Could not reach the matching service. Check the internet connection and try again.')})}
-function pzGot(s,d){if(PZS!==s)return;if(typeof d=='string'){let m;try{m=JSON.parse(d)}catch(e){return}
-  if(m.t=='meta'){s.meta=m;clearTimeout(s.tm);try{s.sig.close()}catch(e){}}
-  else if(m.t=='end'){s.done=1;try{s.dc.send(JSON.stringify({t:'ok'}))}catch(e){}const blob=new Blob(s.parts,{type:'application/json'});s.parts=[];s.blob=blob;pzReady(s)}return}
- s.parts.push(d);s.got+=d.byteLength;const N=(s.meta||{}).size||1;if(!s.lt||Date.now()-s.lt>250){s.lt=Date.now();pzUI(`<p class="mut" style="margin:0 0 8px">Receiving… ${pzMB(s.got)} of ${pzMB(N)}</p><div class="pzbar"><i style="width:${Math.round(s.got/N*100)}%"></i></div><p class="mut pzwait">Keep both devices open.</p>`)}}
-function pzReady(s){const m=s.meta||{},when=m.at?new Date(m.at).toLocaleString():'';if(s.blob.size!=m.size)return pzFail('Part of the data got lost on the way. Please try again.');
- pzUI(`<div class="pzok">${ico('chk',22)}<b>Received from ${esc(m.dev||'the other device')}</b><small>${pzMB(m.size)} · version ${esc(m.app||'?')} · ${esc(when)}</small></div><div class="pzst">${[['Lore',m.lore],['Characters',m.chars],['Skins',m.skins],['Items',m.items],['Chapters',m.story],['Pictures and media',m.media]].map(([l,v])=>`<span><b>${v||0}</b>${l}</span>`).join('')}</div><p class="mut" style="font-size:12px">This replaces everything on this device. A safety copy of what's here now is kept, so you can go back in Settings › Storage & data.</p><div class="wsrow"><button class="btn dev" onclick="pzApply()">Replace this device's universe</button><button class="btn" onclick="pzKeep()">Save as a file instead</button></div>`)}
-async function pzApply(){const s=PZS;if(!s||!s.blob)return;let d;try{d=JSON.parse(await s.blob.text())}catch(e){return pzFail('The data could not be read. Please try again.')}if(!d||!d.exodusFull||!d.S)return pzFail('The data could not be read. Please try again.');
- try{localStorage.setItem(K+'.prev',JSON.stringify(S))}catch(e){}pzUI(`<p class="mut" style="margin:0 0 8px">Putting your universe in place…</p><div class="pzbar"><i style="width:100%"></i></div>`);
- try{const M=d.media||{};for(const k of Object.keys(M))await mset(k,fbDec(M[k]));S=d.S;save();pzStop();pzUI(`<div class="pzok">${ico('chk',22)}<b>Done</b><small>Reloading…</small></div>`);setTimeout(()=>location.reload(),900)}catch(e){pzFail('Could not put everything in place. Your old universe is in Settings › Storage & data › safety copy.')}}
-function pzKeep(){const s=PZS;if(!s||!s.blob)return;s.blob.text().then(t=>saveFile('exodus-full-backup-'+new Date().toISOString().slice(0,10)+'.json',t,'application/json'))}
-/* ---------- where to find it ---------- */
-XPOST.push(function pzPost(){if(typeof stOpen=='undefined'||!stOpen)return;if(stSec!='sync'&&stSec!='sto')return;const sr=document.querySelector('.sr');if(!sr||sr.querySelector('.pzcard'))return;
- const h=`<section class="wsc pzcard"><header><span class="qxi">${ico('swap',15)}</span><div><b>${esc(nm('Move to another device'))}</b><small>Send your whole universe from PC to phone or back, with a 6-digit code. No account needed; both devices must be open.</small></div><button class="btn dev" onclick="pzOpen()">Start</button></header></section>`;
- if(stSec=='sync'){const h2=sr.querySelector('h2');if(h2)h2.insertAdjacentHTML('afterend',h);else sr.insertAdjacentHTML('afterbegin',h)}else{const w=sr.querySelector('.bkw .wsg2');if(w)w.insertAdjacentHTML('beforebegin',h)}});
+/* ===== 2.2: Wi-Fi pairing — the Windows app is the hub, phones pair with a PIN and send files both ways ===== */
+const WFP=47821;
+const wfIsPC=()=>!!(window.exodus&&window.exodus.wfStart);
+const wfMB=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
+const wfDev=()=>/Android/i.test(navigator.userAgent||'')?'Android phone':/iPhone|iPad/i.test(navigator.userAgent||'')?'iPhone':'Browser';
+/* this device's pairing lives outside the universe, so sending a universe never moves it */
+const WFK=()=>K+'.wifi';
+function wfGet(){try{return JSON.parse(localStorage.getItem(WFK())||'null')}catch(e){return null}}
+function wfPut(o){try{o?localStorage.setItem(WFK(),JSON.stringify(o)):localStorage.removeItem(WFK())}catch(e){}}
+let WFST={on:0,last:0,pc:null,busy:0,seen:{}};
+/* ---------- packing a universe ---------- */
+async function wfPack(){const keys=await fbKeys(),parts=['{"exodusFull":1,"app":',JSON.stringify(APPV),',"at":',String(Date.now()),',"from":',JSON.stringify(wfIsPC()?'PC':wfDev()),',"S":',JSON.stringify(S),',"media":{'];let n=0;for(const k of keys){const v=await mget(k);if(v==null)continue;parts.push((n?',':'')+JSON.stringify(String(k))+':'+JSON.stringify(await fbEnc(v)));n++}parts.push('}}');return new TextEncoder().encode(parts.join(''))}
+/* ---------- the phone side: talking to the PC ---------- */
+function wfReq(method,path,o){const p=wfGet(),h=(o&&o.host)||(p&&p.host);return new Promise((ok,no)=>{const x=new XMLHttpRequest();x.open(method,`http://${h}:${(o&&o.port)||(p&&p.port)||WFP}${path}`);x.timeout=(o&&o.timeout)||8000;if(o&&o.bin)x.responseType='arraybuffer';if(p&&p.token&&!(o&&o.noTok))x.setRequestHeader('x-token',p.token);Object.entries((o&&o.h)||{}).forEach(([k,v])=>x.setRequestHeader(k,v));
+ if(o&&o.prog&&x.upload)x.upload.onprogress=e=>o.prog(e.loaded,e.total);x.onload=()=>{if(x.status>=200&&x.status<300)ok(o&&o.bin?{buf:x.response,hd:k=>x.getResponseHeader(k)}:(()=>{try{return JSON.parse(x.responseText)}catch(e){return {}}})());else no({st:x.status})};x.onerror=()=>no({st:0});x.ontimeout=()=>no({st:-1});x.send(o&&o.body!=null?o.body:null)})}
+async function wfScan(){const out=[],bases=['192.168.1','192.168.0','192.168.2','192.168.8','192.168.100','10.0.0','10.0.1','192.168.31','192.168.88','172.16.0'];WFST.scan=1;wfView();
+ for(const b of bases){if(!WFST.scan)break;WFST.scanAt=b;const sp=document.getElementById('wfscan');if(sp)sp.textContent='Looking on '+b+'.x …';const jobs=[];for(let i=1;i<255;i++)jobs.push(wfReq('GET','/hello',{host:b+'.'+i,timeout:1500,noTok:1}).then(r=>{if(r&&r.app=='exodus')out.push({host:b+'.'+i,name:r.name,pairing:r.pairing})}).catch(()=>{}));await Promise.all(jobs);if(out.length)break}
+ WFST.scan=0;WFST.found=out;wfView()}
+async function wfPair(host,pin){host=String(host||'').trim().replace(/^https?:\/\//,'').replace(/\/.*$/,'');let port=WFP;const m=/^(.+):(\d+)$/.exec(host);if(m){host=m[1];port=+m[2]}pin=String(pin||'').replace(/\D/g,'');if(!host)return toast('Type the address shown on the PC');if(pin.length!=4)return toast('The PIN has 4 digits');
+ try{const r=await wfReq('POST','/pair',{host,port,noTok:1,body:JSON.stringify({pin,name:wfDev()}),h:{'content-type':'application/json'}});wfPut({host,port,token:r.token,pc:r.name,at:Date.now()});WFST.on=1;WFST.last=Date.now();toast('Paired with '+r.name);wfMark();wfView()}
+ catch(e){toast(e.st==403?'Wrong PIN, or the PC is not showing a PIN right now':'Could not reach the PC. Check that both are on the same Wi-Fi.')}}
+async function wfUnpairMe(){const p=wfGet();if(!p)return;cfm('Unpair from '+p.pc+'?',async()=>{try{await wfReq('POST','/unpair',{timeout:3000})}catch(e){}wfPut(null);WFST.on=0;wfMark();wfView()})}
+async function wfPoll(){const p=wfGet();if(!p||wfIsPC()||WFST.busy||document.hidden)return;try{const r=await wfReq('GET','/ping',{timeout:4000});const was=WFST.on;WFST.on=1;WFST.last=Date.now();WFST.pc=r.name;if(!was){wfMark();wfView()}
+  for(const it of r.q||[]){if(WFST.seen[it.id])continue;WFST.seen[it.id]=1;WFST.busy=1;try{toast('Receiving '+it.name+' ('+wfMB(it.size)+')…');const g=await wfReq('GET','/get?id='+encodeURIComponent(it.id),{bin:1,timeout:600000});await wfIncoming({kind:it.kind,name:it.name,blob:new Blob([g.buf]),from:p.pc})}catch(e){}finally{WFST.busy=0}}}
+ catch(e){if(e.st==401){wfPut(null);toast('The PC unpaired this phone');WFST.on=0;wfMark();wfView();return}if(WFST.on&&Date.now()-WFST.last>12000){WFST.on=0;wfMark();wfView()}}}
+setInterval(wfPoll,4000);setTimeout(wfPoll,1500);
+async function wfSendFromPhone(kind,blob,name){const p=wfGet();if(!p)return;const show=(a,b)=>wfProg(`Sending ${esc(name)}…`,a,b||blob.size);show(0);
+ try{await wfReq('POST','/send',{body:blob,timeout:900000,h:{'x-kind':kind,'x-file':encodeURIComponent(name),'content-type':blob.type||'application/octet-stream'},prog:show});wfView();toast(kind=='universe'?'Universe sent to '+p.pc:'Sent to '+p.pc+': '+name)}catch(e){wfView();toast(e.st==413?'That file is too big':'Could not send it. Is the PC app open on the same Wi-Fi?')}}
+/* ---------- the PC side ---------- */
+let WFPC=null;
+async function wfPCStat(){if(!wfIsPC())return null;try{WFPC=await window.exodus.wfStatus()}catch(e){}return WFPC}
+async function wfPCStart(){try{WFPC=await window.exodus.wfStart()}catch(e){}return WFPC}
+if(wfIsPC()){(async()=>{const s=await wfPCStat();if(s&&s.peers&&s.peers.length)await wfPCStart();wfMark()})();
+ try{window.exodus.onWf(async m=>{if(m.type=='paired'){toast('Paired with '+m.name);await wfPCStat();wfMark();wfView()}else if(m.type=='peer'||m.type=='unpaired'){await wfPCStat();wfMark();wfView();if(m.type=='unpaired')toast(m.name+' unpaired')}else if(m.type=='delivered'){toast('Delivered to '+m.to+': '+m.name);wfPCStat().then(wfView)}
+  else if(m.type=='universe'||m.type=='file'){const b=await window.exodus.wfRead(m.path);if(!b)return;await wfIncoming({kind:m.type,name:m.name||'universe.json',blob:new Blob([b],{type:m.mime||''}),from:m.from,path:m.path})}})}catch(e){}
+ setInterval(()=>{wfPCStat().then(()=>wfMark())},5000)}
+const wfOnline=p=>Date.now()-(p.last||0)<15000;
+async function wfSendFromPC(id,kind,blob,name){const p=(WFPC&&WFPC.peers||[]).find(x=>x.id==id);const buf=new Uint8Array(await blob.arrayBuffer());const ok=await window.exodus.wfQueue(id,name,kind,buf);if(!ok)return toast('That phone is not paired any more');toast(wfOnline(p||{})?'Sending to '+(p?p.name:'the phone')+'…':'Waiting for '+(p?p.name:'the phone')+'. It will get it when the app is open on the same Wi-Fi.');wfPCStat().then(wfView)}
+/* ---------- sending (both sides) ---------- */
+async function wfSendUniverse(id){toast('Getting your universe ready…');let b;try{b=new Blob([await wfPack()],{type:'application/json'})}catch(e){return toast('Could not read everything on this device')}const n='universe-'+new Date().toISOString().slice(0,10)+'.json';if(wfIsPC())return wfSendFromPC(id,'universe',b,n);return wfSendFromPhone('universe',b,n)}
+function wfPickFiles(id){const i=document.createElement('input');i.type='file';i.multiple=true;i.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';document.body.appendChild(i);i.addEventListener('change',async()=>{const F=[...(i.files||[])];i.remove();for(const f of F){if(wfIsPC())await wfSendFromPC(id,'file',f,f.name);else await wfSendFromPhone('file',f,f.name)}});i.click()}
+/* ---------- receiving (both sides) ---------- */
+async function wfIncoming(x){if(x.kind=='universe'){let d;try{d=JSON.parse(await x.blob.text())}catch(e){return toast('The universe that arrived could not be read')}if(!d||!d.exodusFull||!d.S)return;WFST.uni={d,size:x.blob.size,from:x.from};const s=d.S,M=d.media||{};
+  XMOD('wfin',`<div class="pzh"><span class="qxi">${ico('wifi',15)}</span><div><b>Universe from ${esc(x.from||'your other device')}</b><small>${wfMB(x.blob.size)} · version ${esc(d.app||'?')} · ${esc(new Date(d.at||Date.now()).toLocaleString())}</small></div></div><div class="pzst">${[['Lore',(s.lore||[]).length],['Characters',(s.chars||[]).length],['Skins',(s.skins||[]).length],['Items',(s.items||[]).length],['Chapters',(s.story||[]).length],['Pictures and media',Object.keys(M).length]].map(([l,v])=>`<span><b>${v}</b>${l}</span>`).join('')}</div><p class="mut" style="font-size:12px">Replacing keeps a safety copy of what is on this device now, in Settings › Storage & data.</p><div class="wsrow"><button class="btn dev" onclick="wfApplyUni()">Replace this device's universe</button><button class="btn" onclick="XCLOSE('wfin');WFST.uni=null">Not now</button></div>`,460);return}
+ const img=/^image\//.test(x.blob.type)||/\.(png|jpe?g|webp|gif|bmp)$/i.test(x.name||'');WFST.file=x;
+ XMOD('wfin',`<div class="pzh"><span class="qxi">${ico('wifi',15)}</span><div><b>File from ${esc(x.from||'your other device')}</b><small>${esc(x.name)} · ${wfMB(x.blob.size)}</small></div></div>${img?`<div class="wfpv"><img src="${URL.createObjectURL(x.blob)}" alt=""></div>`:''}${x.path?`<p class="mut" style="font-size:12px">Saved in Downloads › Exodus Lorebuilder.</p>`:''}<div class="wsrow">${img?`<button class="btn dev" onclick="wfToLib()">Add to the image library</button>`:''}${x.path?`<button class="btn" onclick="window.exodus.wfOpenDir(WFST.file.path)">Show in folder</button>`:`<button class="btn" onclick="wfSaveIn()">Save to this phone</button>`}<button class="btn" onclick="XCLOSE('wfin')">Close</button></div>`,440)}
+async function wfApplyUni(){const u=WFST.uni;if(!u)return;try{localStorage.setItem(K+'.prev',JSON.stringify(S))}catch(e){}XCLOSE('wfin');toast('Putting the universe in place…');try{const M=u.d.media||{};for(const k of Object.keys(M))await mset(k,fbDec(M[k]));S=u.d.S;save();toast('Done. Reloading…');setTimeout(()=>location.reload(),900)}catch(e){toast('Could not put everything in place')}}
+async function wfToLib(){const x=WFST.file;if(!x)return;const f=new File([x.blob],x.name||'picture.png',{type:x.blob.type||'image/png'});const d=await nvImg(f,1800);if(!d)return toast('That picture could not be read');const id='ilu'+Date.now().toString(36);await mset('ilu_'+id,{d,n:String(x.name||'Picture').replace(/\.[^.]+$/,''),t:Date.now()});S.ilu=S.ilu||[];S.ilu.push(id);try{ILU[id]={d,n:x.name}}catch(e){}save();XCLOSE('wfin');toast('Added to the image library')}
+async function wfSaveIn(){const x=WFST.file;if(!x)return;if(window.ExodusAndroid){const b=new Uint8Array(await x.blob.arrayBuffer());let s='';for(let i=0;i<b.length;i+=32768)s+=String.fromCharCode.apply(null,b.subarray(i,i+32768));try{ExodusAndroid.save(x.name||'file','b64:'+btoa(s))}catch(e){toast('Could not save it')}return}const a=document.createElement('a');a.href=URL.createObjectURL(x.blob);a.download=x.name||'file';document.body.appendChild(a);a.click();setTimeout(()=>a.remove(),500)}
+/* ---------- the window ---------- */
+function wfProg(t,a,b){const d=document.querySelector('#wfm .pzb');if(!d)return;const p=b?Math.round(a/b*100):0;d.innerHTML=`<p class="mut" style="margin:0 0 8px">${t} ${wfMB(a)} of ${wfMB(b)}</p><div class="pzbar"><i style="width:${p}%"></i></div><p class="mut pzwait">Keep both devices open.</p>`}
+function wfOpen(){XMOD('wfm',`<div class="pzh"><span class="qxi">${ico('wifi',15)}</span><div><b>${esc(nm('Wi-Fi pairing'))}</b><small>PC and phone on the same Wi-Fi</small></div></div><div class="pzb"></div>`,480);wfView();if(wfIsPC())wfPCStat().then(wfView)}
+const wfDot=on=>`<i class="wfdot ${on?'on':''}"></i>`;
+function wfView(){const d=document.querySelector('#wfm .pzb');if(!d)return;
+ if(wfIsPC()){const s=WFPC||{};const L=s.peers||[];const addr=(s.ips||[]).map(i=>i.ip+(s.port&&s.port!=WFP?':'+s.port:''));
+  d.innerHTML=(s.pin?`<div class="wfpin"><p class="mut" style="margin:0 0 6px">On the phone: open <b>Settings › Sync › Wi-Fi pairing</b>, press <b>Find my PC</b> (or type the address), then type this PIN:</p><div class="pzcode">${s.pin}</div><p class="wfaddr">${addr.length?addr.map(a=>`<b>${a}</b>`).join(' or '):'<span class="bxe">This PC is not on a network</span>'}</p><div class="wsrow"><button class="btn" onclick="window.exodus.wfPairing(0).then(x=>{WFPC=x;wfView()})">Cancel</button></div></div>`:'')+
+  (s.err?`<p class="bxe">The pairing service could not start (${esc(s.err)}).</p>`:'')+
+  `<h4 class="wfh">Paired phones</h4>${L.length?L.map(p=>`<div class="wfpr">${wfDot(wfOnline(p))}<div><b>${esc(p.name)}</b><small>${wfOnline(p)?'Connected':'Not connected right now'}${p.q?' · '+p.q+' waiting to be picked up':''}</small></div><div class="wsrow"><button class="btn dev" onclick="wfSendUniverse('${p.id}')">Send universe</button><button class="btn" onclick="wfPickFiles('${p.id}')">Send files</button><button class="ic" onclick="cfm('Unpair ${esc(p.name)}?',()=>window.exodus.wfUnpair('${p.id}').then(x=>{WFPC=x;wfMark();wfView()}))" aria-label="Unpair" title="Unpair">${ico('x',12)}</button></div></div>`).join(''):'<p class="mut">No phone paired yet.</p>'}
+  ${s.pin?'':`<div class="wsrow"><button class="btn dev" onclick="wfPCStart().then(()=>window.exodus.wfPairing(1)).then(x=>{WFPC=x;wfView()})">${ico('plus',12)} Pair a phone</button><button class="btn" onclick="window.exodus.wfOpenDir()">Received files</button></div>`}
+  <p class="mut wfnote">The first time, Windows may ask whether Exodus Lorebuilder can use the network. Allow it on <b>private networks</b>.</p>`;return}
+ const p=wfGet();
+ if(p){d.innerHTML=`<div class="wfpr wfme">${wfDot(WFST.on)}<div><b>${esc(p.pc)}</b><small>${WFST.on?'Paired and connected':'Paired · not connected right now (open the PC app on the same Wi-Fi)'}</small></div></div><div class="wsrow"><button class="btn dev" onclick="wfSendUniverse()" ${WFST.on?'':'disabled'}>Send universe to PC</button><button class="btn" onclick="wfPickFiles()" ${WFST.on?'':'disabled'}>Send files</button><button class="btn red" onclick="wfUnpairMe()">Unpair</button></div><p class="mut wfnote">Files and universes the PC sends arrive here by themselves while the app is open.</p>`;return}
+ const F=WFST.found||[];
+ d.innerHTML=`<p class="mut" style="margin:0 0 10px">On the PC (Windows app), open <b>Settings › Sync › Wi-Fi pairing</b> and press <b>Pair a phone</b>. Then find it here.</p>
+ <div class="wsrow" style="margin:0 0 10px"><button class="btn dev" onclick="wfScan()" ${WFST.scan?'disabled':''}>${WFST.scan?'Searching…':'Find my PC'}</button>${WFST.scan?`<span class="mut" id="wfscan" style="font-size:12px">Looking…</span><button class="btn" onclick="WFST.scan=0">Stop</button>`:''}</div>
+ ${F.length?F.map(f=>`<div class="wfpr">${wfDot(f.pairing)}<div><b>${esc(f.name)}</b><small>${esc(f.host)}${f.pairing?' · showing a PIN':' · press Pair a phone on it first'}</small></div><button class="btn" onclick="document.getElementById('wfh').value='${f.host}';document.getElementById('wfpin').focus()">Use</button></div>`).join(''):WFST.found?'<p class="mut">No PC found. Type the address shown on the PC instead.</p>':''}
+ <div class="row"><div><label>PC address</label><input id="wfh" placeholder="192.168.1.23" value="${esc(F[0]&&F[0].pairing?F[0].host:'')}"></div><div><label>PIN</label><input id="wfpin" inputmode="numeric" maxlength="4" placeholder="1234" onkeydown="if(event.key=='Enter')wfPair(document.getElementById('wfh').value,this.value)"></div></div><div class="wsrow"><button class="btn dev" onclick="wfPair(document.getElementById('wfh').value,document.getElementById('wfpin').value)">Pair</button></div>`}
+/* ---------- the paired mark in the top bar ---------- */
+function wfState(){if(wfIsPC()){const L=(WFPC&&WFPC.peers)||[];if(!L.length)return null;return {on:L.some(wfOnline),t:L.some(wfOnline)?'Paired: '+L.filter(wfOnline).map(p=>p.name).join(', ')+' connected':'Paired phone not connected'}}const p=wfGet();if(!p)return null;return {on:WFST.on,t:WFST.on?'Paired with '+p.pc+' · connected':'Paired with '+p.pc+' · not connected'}}
+function wfMark(){const t=document.querySelector('#mtb .tools');if(!t)return;let d=document.getElementById('wfmark');const s=wfState();if(!s){if(d)d.remove();wfCard(1);return}if(!d){d=document.createElement('button');d.id='wfmark';d.className='ic';d.onclick=wfOpen;t.insertBefore(d,t.firstChild)}d.title=s.t;d.setAttribute('aria-label',s.t);d.innerHTML=`${ico('wifi',15)}<i class="wfdot ${s.on?'on':''}"></i>`;d.classList.toggle('on',!!s.on);wfCard(1)}
+function wfCard(force){if(typeof stOpen=='undefined'||!stOpen)return;if(stSec!='sync'&&stSec!='sto')return;const sr=document.querySelector('.sr');if(!sr)return;const old=sr.querySelector('.pzcard');if(old&&!force)return;const s=wfState();
+ const h=`<section class="wsc pzcard"><header><span class="qxi">${ico('wifi',15)}</span><div><b>${esc(nm('Wi-Fi pairing'))} ${s?`<span class="qxbd ${s.on?'':'dev'}">${s.on?'Connected':'Paired'}</span>`:''}</b><small>${s?esc(s.t):'Pair your phone with the Windows app on the same Wi-Fi, then send your universe and files both ways.'}</small></div><button class="btn dev" onclick="wfOpen()">${s?'Open':'Set up'}</button></header></section>`;
+ if(old){old.outerHTML=h;return}if(stSec=='sync'){const h2=sr.querySelector('h2');if(h2)h2.insertAdjacentHTML('afterend',h);else sr.insertAdjacentHTML('afterbegin',h)}else{const w=sr.querySelector('.bkw .wsg2');if(w)w.insertAdjacentHTML('beforebegin',h)}}
+XPOST.push(function wfPost(){wfMark();wfCard()});
+Object.assign(ICOP,{wifi:'M1.5 6a9.5 9.5 0 0 1 13 0M3.8 8.6a6.2 6.2 0 0 1 8.4 0M6.1 11.1a3 3 0 0 1 3.8 0M8 13.5h.01'});
 
 
 render();

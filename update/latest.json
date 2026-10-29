@@ -1,14 +1,14 @@
 {
- "version": "2.1 Beta",
- "build": 187,
+ "version": "2.2 Beta",
+ "build": 188,
  "html": "update/exodus.html",
- "notes": "Move your universe between PC and phone with a 6-digit code (Settings \u203a Sync).",
+ "notes": "Wi-Fi pairing between PC and phone: a connected mark in the top bar, and sending your universe and files both ways. Needs the new Windows and Android apps (1.7.0).",
  "win": {
-  "version": "1.5.0",
-  "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/1.6/Exodus-Lorebuilder-1.6-Beta-Windows.zip"
+  "version": "1.7.0",
+  "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.2/Exodus-Lorebuilder-2.2-Beta-Windows.zip"
  },
  "apk": {
-  "version": "1.5.0",
-  "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/1.6/Exodus-Lorebuilder-1.6-Beta.apk"
+  "version": "1.7.0",
+  "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.2/Exodus-Lorebuilder-2.2-Beta.apk"
  }
 }
