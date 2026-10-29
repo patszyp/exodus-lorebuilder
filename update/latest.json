@@ -1,9 +1,10 @@
 {
-  "version": "1.6.5 Beta",
-  "build": 180,
+  "version": "1.6.6 Beta",
+  "build": 181,
   "html": "update/exodus.html",
   "notes": [
-    "Battlepass slide fits properly on phones"
+    "Battlepass slide fits properly on phones",
+    "New versions show up as soon as they are published"
   ],
   "win": {
     "version": "1.5.0",

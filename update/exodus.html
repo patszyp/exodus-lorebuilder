@@ -6812,8 +6812,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='1.6.5';
+const WNV='1.6.6';
 const WN=[
+ ['1.6.6','29 Oct 2026',[
+  ['App','Updates show up right away','Check for updates now sees a new version as soon as it is published, instead of a few minutes later.',"openSet();stSec='abt';render()"]]],
  ['1.6.5','29 Oct 2026',[
   ['Battlepass','Battlepass slide on phones','The level ring, buttons and rewards on the Battlepass slide fit properly on phones.',"go('home');render()"]]],
  ['1.6.4','29 Oct 2026',[
@@ -8370,7 +8372,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='1.6.5 Beta',APPB=180;
+const APPV='1.6.6 Beta',APPB=181;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -9274,11 +9276,11 @@ const ghRaw=(r,p)=>`https://raw.githubusercontent.com/${r}/${S.cfg.ghBr||'main'}
 const ghPlat=()=>window.exodus?'win':window.ExodusAndroid?'apk':'web';
 const ghShell=()=>{try{return ghPlat()=='win'?String(window.exodus.version||''):ghPlat()=='apk'?String(ExodusAndroid.version()):''}catch(e){return ''}};
 const vcmp=(a,b)=>{const A=String(a||'').match(/\d+/g)||[],B=String(b||'').match(/\d+/g)||[];for(let i=0;i<Math.max(A.length,B.length);i++){const d=(+A[i]||0)-(+B[i]||0);if(d)return d>0?1:-1}return 0};
-let ghSt={busy:0,msg:'',j:null};
+let ghSt={busy:0,msg:'',j:null},ghSha='';
 function ghDraw(){document.querySelectorAll('.ghs').forEach(e=>e.textContent=ghSt.msg||(S.cfg.ghLast?'Last checked '+new Date(S.cfg.ghLast).toLocaleString([],{dateStyle:'medium',timeStyle:'short'})+'.':''));document.querySelectorAll('.ghb').forEach(b=>{b.disabled=!!ghSt.busy})}
 async function ghCheck(manual){const r=ghRepo();if(!r){if(manual)toast(S.dev?'Add your GitHub repository in Workshop › Updates first':'Updates are not set up yet');return}
  ghSt.busy=1;ghSt.msg='Checking…';ghDraw();
- try{const res=await fetch(ghRaw(r,'update/latest.json')+'?t='+Date.now(),{cache:'no-store'});if(!res.ok)throw new Error('http '+res.status);const j=await res.json();S.cfg.ghLast=Date.now();ghSt.j=j;
+ try{let j,res;try{const a=await fetch(`https://api.github.com/repos/${r}/commits/${S.cfg.ghBr||'main'}`,{cache:'no-store',headers:{Accept:'application/vnd.github+json'}});if(a.ok){const c=await a.json();ghSha=c.sha||''}}catch(e){ghSha=''}res=await fetch((ghSha?`https://raw.githubusercontent.com/${r}/${ghSha}/update/latest.json`:ghRaw(r,'update/latest.json'))+'?t='+Date.now(),{cache:'no-store'});if(!res.ok)throw new Error('http '+res.status);j=await res.json();S.cfg.ghLast=Date.now();ghSt.j=j;
   const nb=+j.build||0,sh=ghPlat()=='win'?j.win:ghPlat()=='apk'?j.apk:null,shNew=!!(sh&&sh.version&&sh.url&&vcmp(sh.version,ghShell())>0),web=ghPlat()=='web';
   ghSt.msg=web?(nb>APPB?'A newer version is out. Reload the page to get it.':'You have the newest version.'):nb>APPB?`Version ${j.version||nb} is ready.`:shNew?'A new app version is ready.':'You have the newest version.';save();ghDraw();
   if(!web&&(nb>APPB||shNew))ghPop(j,nb>APPB,shNew,sh);else if(manual)toast(ghSt.msg)}
@@ -9290,7 +9292,7 @@ function ghPop(j,html,shNew,sh){const notes=Array.isArray(j.notes)?j.notes:Strin
  <div class="sy2" style="margin-top:12px">${html?`<button class="btn dev ghb" onclick="ghInstall()">${esc(nm('Install now'))}</button>`:''}<button class="btn" onclick="XCLOSE('ghm')">${esc(nm('Later'))}</button></div></div>`,520)}
 function ghOpen(u){try{if(window.exodus&&window.exodus.openExternal)return window.exodus.openExternal(u);if(window.ExodusAndroid&&ExodusAndroid.openUrl)return ExodusAndroid.openUrl(u)}catch(e){}window.open(u,'_blank','noopener')}
 async function ghInstall(){const j=ghSt.j,r=ghRepo();if(!j||!r)return;ghSt.busy=1;ghSt.msg='Downloading the update…';ghDraw();toast('Downloading the update…');
- try{const res=await fetch(ghRaw(r,j.html||'update/exodus.html')+'?t='+Date.now(),{cache:'no-store'});if(!res.ok)throw 0;const h=await res.text();const b=+((/APPB=(\d+)/.exec(h)||[])[1]||0);if(h.length<100000||!/Exodus/.test(h)||!b)throw 0;if(b<=APPB){ghSt.msg='You have the newest version.';toast(ghSt.msg);return}
+ try{const hp=j.html||'update/exodus.html';const res=await fetch((ghSha?`https://raw.githubusercontent.com/${r}/${ghSha}/${hp}`:ghRaw(r,hp))+'?t='+Date.now(),{cache:'no-store'});if(!res.ok)throw 0;const h=await res.text();const b=+((/APPB=(\d+)/.exec(h)||[])[1]||0);if(h.length<100000||!/Exodus/.test(h)||!b)throw 0;if(b<=APPB){ghSt.msg='You have the newest version.';toast(ghSt.msg);return}
   if(window.exodus&&window.exodus.installUpdateData){const x=await window.exodus.installUpdateData(h);if(x&&x.ok){XCLOSE('ghm');toast('Update installed. Restarting…')}else toast((x&&x.msg)||'Could not install the update');return}
   if(window.ExodusAndroid&&ExodusAndroid.writeUpdate){if(ExodusAndroid.writeUpdate(h)){XCLOSE('ghm');exoUpdCheck();return}throw 0}
   await saveFile('Exodus-Lorebuilder-update-'+b+'.html',h,'text/html');toast('This app is too old to install it by itself. Use Install update file with the downloaded file.')}
