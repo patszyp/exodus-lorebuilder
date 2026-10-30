@@ -32,6 +32,7 @@ contextBridge.exposeInMainWorld('exodus', {
   shellFiles: f => call('shellFiles', f && typeof f === 'object' ? { main: String(f.main || ''), preload: String(f.preload || ''), package: String(f.package || '') } : {}),
   shellUpdate: u => call('shellUpdate', String(u || '')),
   onShellProg: cb => ipcRenderer.on('shellprog', (_e, m) => { try { cb(m) } catch (e) {} }),
+  syncPut: (state, rev, media) => call('syncPut', String(state || ''), +rev || 0, media && typeof media === 'object' ? media : {}),
   onWf: cb => ipcRenderer.on('wf', (_e, m) => { try { cb(m) } catch (e) {} }),
   onQuickNote: cb => ipcRenderer.on('quicknote', (_e, t) => { try { cb(t) } catch (e) {} }),
   onTrayAction: cb => ipcRenderer.on('trayaction', (_e, a) => { try { cb(a) } catch (e) {} })

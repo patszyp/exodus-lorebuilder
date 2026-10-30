@@ -2719,6 +2719,16 @@ html[data-wtd=night]::after{background:rgba(40,60,160,.22)}
 .wdend{text-align:center;padding:14px 18px;border:1px solid #785a2866;background:rgba(1,10,19,.6);min-width:280px}.wdend b.f{font-size:22px;color:#0ac8b9}.wdend.lose b.f{color:#a09b8c}.wdend h2{margin:4px 0;letter-spacing:.2em;color:#f0e6d2}
 .wdst{display:flex;gap:14px;justify-content:center;margin:12px 0}.wdst span{display:flex;flex-direction:column;font-size:11px;color:#8a8577}.wdst b{font-size:22px;color:#f0e6d2}
 @media(max-width:520px){.wdrow{grid-template-columns:repeat(var(--L),minmax(30px,46px))}.wdc{height:46px;font-size:22px}.wdk{height:46px;font-size:13px}}
+/* live sync */
+.lsbox{border:1px solid #0ac8b955;background:#0ac8b90d;padding:8px 10px;margin:0 0 10px}.lsbox .wxt{margin:0!important}.lsst{display:block;font-size:12px;margin-top:4px}
+#wfmark.lson .wfdot.on{box-shadow:0 0 0 2px #0a1428,0 0 10px #0ac8b9}
+#wfmark.lspend .wfdot{background:#f2c84b!important}
+#wfmark.lsf{animation:lsF .9s}@keyframes lsF{30%{transform:scale(1.25);color:#0ac8b9}}
+/* notifications + widget */
+.ntp{margin:10px 0}.ntl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
+.wgpv{margin-top:8px;max-width:300px;padding:12px;border-radius:14px;border:1px solid #c8aa6e;background:linear-gradient(180deg,#102038,#010a13);display:flex;flex-direction:column;gap:2px}
+.wgpv small{color:#c8aa6e;font-size:10px;font-weight:700;letter-spacing:.12em}.wgpv b{color:#f0e6d2;font-size:16px}.wgpv span{color:#cdbe91;font-size:12px}.wgpv em{font-style:normal;color:#0ac8b9;font-size:11px;font-weight:700}
+@media(max-width:760px){.ntl{grid-template-columns:1fr}}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -7452,8 +7462,11 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.5';
+const WNV='2.6';
 const WN=[
+ ['2.6','30 Oct 2026',[
+  ['App','Live sync over Wi-Fi','Paired devices now stay in sync by themselves: a change on one shows up on the other a few seconds later, pictures included. Settings › Sync › Wi-Fi pairing.',"openSet();stSec='sync';render()"],
+  ['App','Notifications and a home screen widget','Pick which reminders you want (daily reward, expeditions, events, news, diaries and more). On Android they arrive even when the app is closed, and there is a home screen widget. Settings › Notifications.',"openSet();stSec='ntf';render()"]]],
  ['2.5','30 Oct 2026',[
   ['Lore','The world as a globe','The map can be turned into a globe you spin and zoom, out into space where the sun and the moon are. Regions show their own time, and you can say where you are.',"go('lore');lsub='map';render()"],
   ['App','Event tokens, fishing and expeditions','Events can have their own token with milestone rewards and a shop, plus fishing and expeditions while they run.',"go('home');hsub='evh';render()"],
@@ -9042,7 +9055,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.5 Beta',APPB=195;
+const APPV='2.6 Beta',APPB=196;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -10294,8 +10307,8 @@ WSX.tpl.f=()=>{const L=TPL(),ks=Object.keys(TPK);return wsHero('tplx','Templates
 /* a default template fills new forms by itself */
 XPOST.push(function tplDefPost(){if(!edit||edit.id||!edit.t)return;const t=TPL().find(x=>x.k==edit.t&&x.def);if(!t||edit._tpl)return;edit._tpl=1;Object.entries(t.v||{}).forEach(([id,v])=>{const e=document.getElementById(id);if(e&&!e.value&&typeof v=='string')e.value=v})});
 /* ---------- 8. Classes and professions ---------- */
-const CLD=()=>{S.cfg.clsd=S.cfg.clsd||{};return S.cfg.clsd};
-function clsSet(n,k,v){const d=CLD();d[n]=Object.assign({},d[n]||{},{[k]:v});save();render()}
+const CLD=()=>S.cfg.clsd||{};
+function clsSet(n,k,v){S.cfg.clsd=S.cfg.clsd||{};const d=S.cfg.clsd;d[n]=Object.assign({},d[n]||{},{[k]:v});save();render()}
 function clsAddX(){const e=document.getElementById('clsn'),v=e&&e.value.trim();if(!v)return;if(CLS.concat(CLSX()).includes(v))return toast('That class already exists');S.cfg.clsx=CLSX().concat([v]);save();render()}
 function prfAddX(){const e=document.getElementById('prfn'),v=e&&e.value.trim();if(!v)return;S.cfg.profx=PROFX().concat([v]);save();render()}
 WSX.classes.f=()=>{const all=CLS.concat(CLSX()),cnt=c=>S.chars.filter(x=>x.cls==c).length,D=CLD();
@@ -10945,7 +10958,7 @@ try{const g=WSR.find(x=>x[0]=='Economy');if(g&&!g[1].includes('events'))g[1].uns
 /* ===== 2.7: card finishes — foil, holo and more, won from quests, the Gacha, the Battlepass and events ===== */
 const FINS=[['foil','Foil','A metallic shine that follows the light'],['holo','Holo','Moving rainbow colours'],['gold','Gold','Solid gold leaf and a warm glow'],['prism','Prism','Diagonal rainbow stripes'],['void','Void','Dark matter with drifting stars'],['frost','Frost','Icy edges and a cold shimmer'],['ember','Ember','Glowing cinders along the frame']];
 const FINC=()=>{S.cfg.finx=S.cfg.finx||{};const c=S.cfg.finx;c.on=c.on||{};c.gch=c.gch==null?5:c.gch;c.gfin=c.gfin||'holo';c.bp=c.bp||[];return c};
-const finOn=k=>FINC().on[k]!==0;
+const finOn=k=>((S.cfg.finx||{}).on||{})[k]!==0;
 const FIN=()=>{S.fin=S.fin||{};return S.fin};const FINE=()=>{S.finEq=S.finEq||{};return S.finEq};
 const finName=k=>(FINS.find(f=>f[0]==k)||[0,k])[1];
 function fnGive(ref,fin,silent){if(!ref||!fin)return;const L=FIN()[ref]=FIN()[ref]||[];if(!L.includes(fin)){L.push(fin);if(!FINE()[ref])FINE()[ref]=fin;save();if(!silent){const o=refInfo(ref);finReveal(ref,fin)}return 1}return 0}
@@ -11077,6 +11090,88 @@ try{document.addEventListener('keydown',e=>{if(!(tab=='games'&&gsub=='wd')||!WD|
 {const _go10=gmOpts;gmOpts=function(g){const r=_go10.apply(this,arguments);if(g.id=='arena'){const n=wdPool().length;r.push([nm('Lore Wordle · word of the day'),n>=3?'Guess a word from your world in 6 tries':'Needs a few one-word names','wdStart(1)'],[nm('Lore Wordle · free play'),n+' words to guess','wdStart(0)'])}return r}}
 {const _gv10=gamesV;gamesV=function(){if(gsub=='wd')return wdView();return _gv10.apply(this,arguments)}}
 try{QT.wordle='Solve a Lore Wordle';ACH.push(['wd1','Wordsmith II','Solve a Lore Wordle',()=>(S.wds||{}).w||0,1,10,'book'],['wd25','Word wizard','Solve 25 Lore Wordles',()=>(S.wds||{}).w||0,25,40,'trophy'])}catch(e){}
+
+/* ===== 2.6: live sync between paired devices over Wi-Fi ===== */
+const LSK=()=>K+'.lsync';
+const LS={on:1,srv:0,dirty:0,t:0,last:'',applying:0,pend:null,media:new Set(),busy:0,at:0,from:''};
+try{const v=JSON.parse(localStorage.getItem(LSK())||'{}');LS.on=v.on==null?1:v.on;LS.srv=v.srv||0}catch(e){}
+const lsSave=()=>{try{localStorage.setItem(LSK(),JSON.stringify({on:LS.on,srv:LS.srv}))}catch(e){}};
+const lsPaired=()=>{try{if(wfIsPC())return !!(((WFPC&&WFPC.peers)||[]).length&&window.exodus.syncPut);const p=wfGet();return !!(p&&p.token&&p.host)}catch(e){return false}};
+const lsActive=()=>LS.on&&lsPaired();
+/* what changed */
+{const _sv=save;save=function(){const r=_sv.apply(this,arguments);if(!LS.applying&&lsActive()){LS.dirty=1;clearTimeout(LS.t);LS.t=setTimeout(lsPush,1500)}return r}}
+{const _ms=mset;mset=async function(k,v){const r=await _ms.apply(this,arguments);if(!LS.applying&&lsActive()){LS.media.add(k);LS.dirty=1;clearTimeout(LS.t);LS.t=setTimeout(lsPush,1500)}return r}}
+{const _md=mdel;mdel=async function(k){const r=await _md.apply(this,arguments);if(!LS.applying&&lsActive()){LS.media.add(k);LS.dirty=1;clearTimeout(LS.t);LS.t=setTimeout(lsPush,1500)}return r}}
+async function lsMedia(){const out={};for(const k of LS.media){const v=await mget(k);out[k]=v==null?null:await fbEnc(v)}LS.media.clear();return out}
+async function lsPush(){if(!lsActive()||LS.busy)return;if(lsEditing()){clearTimeout(LS.t);LS.t=setTimeout(lsPush,2500);return}LS.busy=1;try{const st=JSON.stringify(S);const media=await lsMedia();if(st===LS.last&&!Object.keys(media).length){LS.dirty=0;return}
+ if(wfIsPC()){const rev=await window.exodus.syncPut(st,Date.now(),media);LS.srv=rev;LS.last=st;LS.dirty=0;LS.at=Date.now();LS.from='PC';lsSave()}
+ else{if(!WFST.on){LS.busy=0;return}const body='{"rev":'+Date.now()+',"media":'+JSON.stringify(media)+',"state":'+st+'}';const r=await wfReq('POST','/sync',{body,timeout:300000,h:{'content-type':'application/json'}});LS.srv=r.rev||LS.srv;LS.last=st;LS.dirty=0;LS.at=Date.now();LS.from=wfDev();lsSave()}
+ lsMark()}catch(e){LS.dirty=1}finally{LS.busy=0}}
+/* applying what came from the other device */
+function lsEditing(){const a=document.activeElement;return !!(a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)&&a.type!='checkbox'&&a.type!='range'||document.getElementById('chce')||(typeof FST!='undefined'&&FST&&FST.st!='idle'))}
+async function lsApply(o){if(!o||!o.state)return;if(LS.dirty){lsPush();return}if(lsEditing()){LS.pend=o;lsMark();return}LS.applying=1;try{const st=typeof o.state=='string'?JSON.parse(o.state):o.state;for(const [k,v] of Object.entries(o.media||{})){if(v==null)await mdel(k);else await mset(k,fbDec(v))}
+ Object.keys(S).forEach(k=>delete S[k]);Object.assign(S,st);try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}LS.last=JSON.stringify(S);LS.srv=Math.max(LS.srv,+o.rev||0);LS.at=Date.now();LS.from=o.from||'';LS.pend=null;lsSave();try{if(typeof HZM_!='undefined')Object.keys(HZM_).forEach(k=>delete HZM_[k]);if(typeof CHRI!='undefined')Object.keys(CHRI).forEach(k=>delete CHRI[k])}catch(e){}render();lsFlash()}finally{LS.applying=0}}
+setInterval(()=>{if(LS.pend&&!lsEditing())lsApply(LS.pend)},2000);
+function lsFlash(){const m=document.getElementById('wfmark');if(m){m.classList.remove('lsf');void m.offsetWidth;m.classList.add('lsf')}}
+/* the phone asks the PC for news on every ping */
+async function lsTick(){if(wfIsPC()||!lsActive()||!WFST.on||LS.busy||document.hidden)return;try{const r=await wfReq('GET','/ping',{timeout:4000});if(!LS.srv){if(+r.srev>0)lsFirst(r);else lsPush();return}if(+r.srev>LS.srv&&!LS.dirty){LS.busy=1;try{const o=await wfReq('GET','/sync?since='+LS.srv,{timeout:300000});if(o&&o.state)await lsApply(o);else LS.srv=+o.rev||LS.srv;lsSave()}finally{LS.busy=0}}else if(!LS.srv||LS.dirty){lsPush()}}catch(e){}}
+setInterval(lsTick,2500);
+let lsAsk=0;
+function lsFirst(r){if(lsAsk||document.getElementById('lsfm'))return;lsAsk=1;const p=wfGet()||{};
+ XMOD('lsfm',`<div class="pzh"><span class="qxi">${ico('wifi',15)}</span><div><b>Start live sync</b><small>${esc(p.pc||'The PC')} already has a universe.</small></div></div><p class="mut" style="margin:0 0 10px">From now on both devices will show the same universe. Which one should they start from?</p><div class="pzc2"><button class="pzbig" onclick="lsStart('pc')">${ico('dl',22)}<b>Use the PC’s universe</b><small>This phone’s universe is replaced. A safety copy is kept.</small></button><button class="pzbig" onclick="lsStart('me')">${ico('save',22)}<b>Use this phone’s universe</b><small>The PC’s universe is replaced.</small></button></div><div class="wsrow"><button class="btn" onclick="LS.on=0;lsSave();lsAsk=0;XCLOSE('lsfm');lsMark()">Not now, turn live sync off</button></div>`,500);const x=document.querySelector('#lsfm .xmcx');if(x)x.setAttribute('onclick',"LS.on=0;lsSave();lsAsk=0;XCLOSE('lsfm');lsMark()")}
+async function lsStart(w){XCLOSE('lsfm');lsAsk=0;if(w=='me'){LS.last='';LS.srv=1;lsSave();await lsPush();toast('Sending this universe to the PC…');return}try{localStorage.setItem(K+'.prev',JSON.stringify(S))}catch(e){}LS.busy=1;try{const o=await wfReq('GET','/sync?since=0',{timeout:300000});if(o&&o.state){LS.dirty=0;await lsApply(o);toast('Now in sync with the PC')}}catch(e){toast('Could not get the PC’s universe')}finally{LS.busy=0}}
+/* the PC gets the phone's changes as they arrive, and sends its own state when it starts */
+if(wfIsPC()){try{window.exodus.onWf(m=>{if(m&&m.type=='sync'&&lsActive())lsApply(m)})}catch(e){}setTimeout(()=>{if(lsActive()){LS.last='';lsPush()}},4000)}
+/* the mark and the switch */
+function lsMark(){const m=document.getElementById('wfmark');if(!m)return;m.classList.toggle('lson',!!lsActive());m.classList.toggle('lspend',!!LS.pend||!!LS.dirty);const s=wfState();if(s)m.title=s.t+(lsActive()?' · live sync on'+(LS.at?' · last change '+new Date(LS.at).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):''):'')}
+XPOST.push(function lsPost(){lsMark();if(wfIsPC()&&lsActive()&&!LS.srv&&!LS.busy){LS.last='';lsPush()}});
+{const _wv3=wfView;wfView=function(){_wv3.apply(this,arguments);const d=document.querySelector('#wfm .pzb');if(!d||!lsPaired()||d.querySelector('.lsbox'))return;if(wfIsPC()&&!window.exodus.syncPut)return;
+ d.insertAdjacentHTML('afterbegin',`<div class="lsbox"><label class="wxt"><span class="wxts"><input type="checkbox" ${LS.on?'checked':''} onchange="LS.on=this.checked?1:0;lsSave();if(LS.on){LS.last='';lsPush()}wfView();lsMark()"><i></i></span><span><b>Live sync</b><small>Every change shows up on the other device a few seconds later, pictures included. If both change something at the same moment, the newest change wins.</small></span></label>${LS.on?`<small class="mut lsst">${LS.pend?'Changes from the other device are waiting until you finish typing.':LS.at?'Last synced '+new Date(LS.at).toLocaleTimeString()+(LS.from?' · from '+esc(LS.from):''):'Waiting for the first sync…'}</small><div class="wsrow" style="margin:6px 0 0"><button class="btn" onclick="LS.last='';lsPush();toast('Sending everything now')">Sync now</button></div>`:''}</div>`)}}
+
+/* ===== 2.6: phone notifications, the home screen widget, and desktop notifications ===== */
+const NTK=()=>K+'.notes';
+const NTT=[['daily','Daily reward is ready','Every morning, when a new reward is waiting'],['exp','Expedition is back','When a character comes home from an expedition'],['evend','Event ends soon','One day before an event ends'],['evnew','New event starts','When an event begins'],['news','New world news','When a newspaper issue comes out'],['diary','New diary page','When a diary page opens'],['fish','Fishing casts are back','When your daily casts refill'],['adv','Advent door ready','When a new advent calendar door opens']];
+const NTC=()=>{let v={};try{v=JSON.parse(localStorage.getItem(NTK())||'{}')}catch(e){}v.on=v.on||{};if(v.hr==null)v.hr=10;if(v.w==null)v.w='lotd';return v};
+const ntSave=v=>{try{localStorage.setItem(NTK(),JSON.stringify(v))}catch(e){}};
+const ntOn=k=>NTC().on[k]!==0&&NTC().master!==0;
+const ntAnd=()=>!!(window.ExodusAndroid&&ExodusAndroid.schedule);
+/* everything that should ring later, worked out from the universe */
+function ntPlan(){const out=[],now=Date.now(),c=NTC(),add=(k,id,at,t,x)=>{if(ntOn(k)&&at>now+30000&&at<now+40*864e5)out.push({k,id,at,t,x})};
+ const tm=new Date();tm.setDate(tm.getDate()+1);tm.setHours(+c.hr||10,0,0,0);add('daily',101,tm.getTime(),'Your daily reward is ready','Open Exodus Lorebuilder to claim today’s reward.');
+ const mid=new Date();mid.setDate(mid.getDate()+1);mid.setHours(0,1,0,0);
+ (S.evh||[]).forEach((e,i)=>{const nm2=e.name||'An event';if(e.start&&e.start>now)add('evnew',300+i,e.start,nm2+' has started','Take a look in the Events hub.');if(e.end)add('evend',400+i,e.end-864e5,nm2+' ends tomorrow','Last chance to collect your rewards.');
+  try{const p=(S.evp||{})[e.id];if(p&&p.ex)p.ex.forEach((x,j)=>{if(x&&x.end){const ch=S.chars.find(y=>y.id==x.ch)||{};add('exp',500+i*10+j,x.end,(ch.name||'Your character')+' is back','Collect what they found on the expedition.')}});if(e.fish&&e.fish.on&&evhLive(e))add('fish',600+i,mid.getTime(),'Your fishing casts are back','The fish are biting in '+nm2+'.')}catch(err){}});
+ (S.paper||[]).forEach((p,i)=>{if(p.on!==0&&p.pub)add('news',700+i,p.pub,(p.name||'The Herald')+': '+(p.h||'a new issue'),'Read it in World news.')});
+ (S.diary||[]).forEach((d,i)=>{try{const nx=diaNext(d);if(nx){const ch=S.chars.find(y=>y.id==d.ch)||{};add('diary',800+i,nx,'A new page in '+(d.title||((ch.name||'')+'’s diary')),'Open Diaries to read it.')}(d.E||[]).forEach((e,j)=>{if(e.pub)add('diary',820+i*20+j,e.pub,'A new diary page','Open Diaries to read it.')})}catch(err){}});
+ try{if(typeof AXL_=='function')AXL_().forEach((a,i)=>{if(a.on!==0)add('adv',900+i,mid.getTime(),'A new advent door is ready',(a.name||'The advent calendar')+' has a door for today.')})}catch(e){}
+ return out}
+let NTIDS=[];
+function ntSchedule(){const P=ntPlan();if(ntAnd()){try{const old=JSON.parse(localStorage.getItem(NTK()+'.ids')||'[]');old.forEach(id=>{try{ExodusAndroid.cancelNote(id)}catch(e){}});P.forEach(p=>{try{ExodusAndroid.schedule(p.id,p.at,p.t,p.x)}catch(e){}});localStorage.setItem(NTK()+'.ids',JSON.stringify(P.map(p=>p.id)))}catch(e){}return}
+ /* on PC: only while the app is open */
+ NTIDS.forEach(clearTimeout);NTIDS=[];if(!('Notification' in window)||Notification.permission!='granted')return;P.forEach(p=>{const d=p.at-Date.now();if(d<0||d>2147483000)return;NTIDS.push(setTimeout(()=>{try{new Notification(p.t,{body:p.x,silent:false})}catch(e){}},d))})}
+function ntTest(){const t='Exodus Lorebuilder',x='Notifications are working.';if(ntAnd()){ExodusAndroid.notify(99,t,x);return}if(!('Notification' in window))return toast('This device can’t show notifications');if(Notification.permission=='granted')new Notification(t,{body:x});else Notification.requestPermission().then(r=>{if(r=='granted')new Notification(t,{body:x});render()})}
+function ntAsk(){if(ntAnd()){try{ExodusAndroid.askNotify()}catch(e){}setTimeout(render,1500);return}if('Notification' in window)Notification.requestPermission().then(()=>render())}
+const ntAllowed=()=>ntAnd()?(()=>{try{return ExodusAndroid.canNotify()}catch(e){return false}})():('Notification' in window&&Notification.permission=='granted');
+let ntT=0;{const _svn=save;save=function(){const r=_svn.apply(this,arguments);clearTimeout(ntT);ntT=setTimeout(()=>{ntSchedule();wgUpdate()},3000);return r}}
+setTimeout(()=>{ntSchedule();wgUpdate()},5000);try{document.addEventListener('visibilitychange',()=>{if(document.hidden){ntSchedule();wgUpdate()}})}catch(e){}
+/* ---------- the home screen widget ---------- */
+const WGT=[['lotd','Lore of the day'],['daily','Daily reward'],['event','Current event'],['quote','A random quote'],['clock','My region’s time']];
+function wgData(){const c=NTC(),k=c.w||'lotd';try{if(k=='daily'){let ok=false;try{const st=calSt();ok=!st.today}catch(e){}return ['DAILY REWARD',ok?'Ready to claim':'Claimed today',ok?'Open the app to claim it.':'Come back tomorrow for the next one.','']}
+ if(k=='event'){const e=(S.evh||[]).find(evhLive)||(S.evh||[]).filter(x=>x.start>Date.now()).sort((a,b)=>a.start-b.start)[0];if(!e)return ['EVENTS','No event right now','Check back soon.',''];const live=evhLive(e),p=(S.evp||{})[e.id];return [live?'EVENT · LIVE':'EVENT · SOON',e.name||'Event',String(e.desc||'').slice(0,90),live&&e.end?'Ends '+new Date(e.end).toLocaleDateString():e.start?'Starts '+new Date(e.start).toLocaleDateString():'']}
+ if(k=='clock'){const r=myReg();if(!r)return ['WORLD TIME','Pick your region','Lore › Map › I am here',''];const t=regTime(r),d=regDate(r);return ['TIME IN '+String(r.n).toUpperCase(),t.txt+(t.day?' · day':' · night'),wDateTxt(d),'Updates when you open the app']}
+ if(k=='quote'){const L=HZS().filter(s=>s.t=='quote'&&s.text);const q=L[Math.random()*L.length|0];if(q)return ['QUOTE','“'+String(q.text).slice(0,110)+'”','— '+(q.who||((hsRef(q.ch)||{}).name)||''),''];}
+ if(!S.lore.length)return ['LORE OF THE DAY','No lore yet','Write your first entry.',''];const d=new Date(),n=d.getFullYear()*372+d.getMonth()*31+d.getDate(),e=S.lore[n%S.lore.length];return ['LORE OF THE DAY',e.title||'Lore',String(e.text||'').replace(/[#*_>`\[\]]/g,'').slice(0,140),e.cat||'']}catch(err){return ['EXODUS','Lorebuilder','','']}}
+function wgUpdate(){if(!(window.ExodusAndroid&&ExodusAndroid.setWidget))return;try{const d=wgData();ExodusAndroid.setWidget(d[0],d[1],d[2],d[3])}catch(e){}}
+/* ---------- Settings › Notifications ---------- */
+function ntPanel(){const c=NTC(),allowed=ntAllowed(),P=ntPlan().sort((a,b)=>a.at-b.at).slice(0,6),apk=ntAnd();
+ return `<section class="wsc ntp"><header><span class="qxi">${ico('bell',15)||ico('clock',15)}</span><div><b>${apk?'Phone notifications':'Notifications'}</b><small>${apk?'They arrive even when the app is closed.':window.exodus?'On Windows they arrive while the app is open (also in the tray).':'They arrive while this page is open.'}</small></div></header><div class="wscb">
+ ${allowed?'':`<div class="pzask" style="margin-bottom:10px"><span class="qxi">${ico('lock',14)}</span><div><b>Notifications are not allowed yet</b><small>Allow them once, then pick which ones you want.</small></div><button class="btn dev" onclick="ntAsk()">Allow</button></div>`}
+ ${wsTog(c.master!==0,"const v=NTC();v.master=this.checked?1:0;ntSave(v);ntSchedule();render()",'Send notifications')}
+ ${c.master!==0?`<div class="ntl">${NTT.map(([k,l,d])=>wsTog(c.on[k]!==0,`const v=NTC();v.on['${k}']=this.checked?1:0;ntSave(v);ntSchedule()`,l,d)).join('')}</div><div class="row"><div><label>Daily reward reminder at</label><select onchange="const v=NTC();v.hr=+this.value;ntSave(v);ntSchedule();render()">${[7,8,9,10,12,15,18,20].map(h=>`<option value="${h}" ${+c.hr==h?'selected':''}>${String(h).padStart(2,'0')}:00</option>`).join('')}</select></div><div><label>&nbsp;</label><button class="btn" onclick="ntTest()">Send a test</button></div></div>
+ ${P.length?`<label>Coming up</label><div class="wsl">${P.map(p=>`<div class="wsli"><span><b>${esc(p.t)}</b><small class="mut" style="display:block">${new Date(p.at).toLocaleString([],{weekday:'short',hour:'2-digit',minute:'2-digit'})}</small></span></div>`).join('')}</div>`:''}`:''}</div></section>
+ ${apk?`<section class="wsc ntp"><header><span class="qxi">${ico('grid4',15)}</span><div><b>Home screen widget</b><small>Long-press your phone’s home screen, choose Widgets, then Exodus Lorebuilder.</small></div></header><div class="wscb"><label>The widget shows</label><select onchange="const v=NTC();v.w=this.value;ntSave(v);wgUpdate();render()">${WGT.map(([k,l])=>`<option value="${k}" ${(c.w||'lotd')==k?'selected':''}>${esc(l)}</option>`).join('')}</select>${(()=>{const d=wgData();return `<div class="wgpv"><small>${esc(d[0])}</small><b>${esc(d[1])}</b><span>${esc(d[2])}</span><em>${esc(d[3])}</em></div>`})()}<p class="mut" style="font-size:12px;margin:6px 0 0">It refreshes whenever you open or leave the app.</p></div></section>`:''}`}
+XPOST.push(function ntPost(){if(typeof stOpen=='undefined'||!stOpen||stSec!='ntf')return;const sr=document.querySelector('.sr');if(!sr||sr.querySelector('.ntp'))return;const h2=sr.querySelector('h2');const h=ntPanel();if(h2)h2.insertAdjacentHTML('afterend',h);else sr.insertAdjacentHTML('afterbegin',h)});
+if(!ICOP.bell)ICOP.bell='M4 11V7a4 4 0 0 1 8 0v4l1.5 2h-11zM6.5 13.5a1.5 1.5 0 0 0 3 0';
 
 
 render();

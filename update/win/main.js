@@ -261,7 +261,9 @@ function wfHandle(req, res) {
   const t = String(req.headers['x-token'] || ''), P = WF.peers[t];
   if (!P) return json(401, { err: 'token' });
   const was = P.last || 0; P.last = Date.now(); if (Date.now() - was > 20000) wfTell({ type: 'peer', name: P.name, on: 1 });
-  if (u.pathname === '/ping') return json(200, { ok: 1, name: os.hostname(), q: (WF.inbox[t] || []).map(x => ({ id: x.id, name: x.name, kind: x.kind, size: x.data.length })) });
+  if (u.pathname === '/sync' && req.method === 'GET') { const since = +u.searchParams.get('since') || 0; if (!SYNC.state || SYNC.rev <= since) return json(200, { rev: SYNC.rev }); const med = {}; for (const [k, v] of SYNC.media) if (v.rev > since) med[k] = v.d; res.writeHead(200, { 'content-type': 'application/json' }); res.end('{"rev":' + SYNC.rev + ',"from":' + JSON.stringify(SYNC.from) + ',"media":' + JSON.stringify(med) + ',"state":' + SYNC.state + '}'); return; }
+  if (u.pathname === '/sync' && req.method === 'POST') return body(400 * 1024 * 1024).then(b => { let o; try { o = JSON.parse(b.toString()); } catch (e) { return json(400, {}); } if (!o || !o.state) return json(400, {}); syncStore(o.state, +o.rev || Date.now(), P.name, o.media || {}); wfTell({ type: 'sync', rev: SYNC.rev, from: P.name, state: o.state, media: o.media || {} }); json(200, { ok: 1, rev: SYNC.rev }); }).catch(() => json(413, {}));
+  if (u.pathname === '/ping') return json(200, { ok: 1, srev: SYNC.rev, sfrom: SYNC.from, name: os.hostname(), q: (WF.inbox[t] || []).map(x => ({ id: x.id, name: x.name, kind: x.kind, size: x.data.length })) });
   if (u.pathname === '/unpair' && req.method === 'POST') { delete WF.peers[t]; delete WF.inbox[t]; wfSave(); wfTell({ type: 'unpaired', name: P.name }); return json(200, { ok: 1 }); }
   if (u.pathname === '/get') { const L = WF.inbox[t] || [], i = L.findIndex(x => x.id === u.searchParams.get('id')); if (i < 0) return json(404, {}); const x = L[i]; L.splice(i, 1); res.writeHead(200, { 'content-type': 'application/octet-stream', 'x-name': encodeURIComponent(x.name), 'x-kind': x.kind, 'x-from': encodeURIComponent(os.hostname()) }); res.end(x.data); wfTell({ type: 'delivered', name: x.name, to: P.name }); return; }
   if (u.pathname === '/send' && req.method === 'POST') return body(600 * 1024 * 1024).then(b => {
@@ -272,6 +274,9 @@ function wfHandle(req, res) {
   }).catch(() => json(413, { err: 'size' }));
   json(404, {});
 }
+const SYNC = { rev: 0, from: '', state: null, media: new Map() };
+function syncStore(state, rev, from, media) { SYNC.state = typeof state === 'string' ? state : JSON.stringify(state); SYNC.rev = Math.max(SYNC.rev + 1, rev); SYNC.from = from || ''; for (const [k, v] of Object.entries(media || {})) SYNC.media.set(k, { rev: SYNC.rev, d: v }); if (SYNC.media.size > 4000) { const ks = [...SYNC.media.keys()].slice(0, SYNC.media.size - 4000); ks.forEach(k => SYNC.media.delete(k)); } }
+ipcMain.handle('syncPut', (_e, state, rev, media) => { syncStore(String(state || ''), +rev || Date.now(), 'PC', media || {}); return SYNC.rev; });
 ipcMain.handle('wfStart', () => wfStart());
 ipcMain.handle('wfStatus', () => wfStatus());
 ipcMain.handle('wfPairing', (_e, on) => { WF.pairing = on ? Date.now() : 0; WF.pin = on ? String(1000 + crypto.randomInt(9000)) : ''; return wfStatus(); });
