@@ -1,8 +1,8 @@
 {
- "version": "2.6 Beta",
- "build": 196,
+ "version": "2.6.1 Beta",
+ "build": 197,
  "html": "update/exodus.html",
- "notes": "Live sync over Wi-Fi, notifications with on/off for each kind, and an Android home screen widget. Needs the 1.9.0 apps: from 1.8.0 they update themselves.",
+ "notes": "Simpler regions with a top bar clock, weather back in the top bar, World news and Diaries in Story, one Lore Wordle entry, card finishes in Gacha rewards and tiers, live sync fixes.",
  "win": {
   "version": "1.9.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",

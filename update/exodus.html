@@ -2729,6 +2729,21 @@ html[data-wtd=night]::after{background:rgba(40,60,160,.22)}
 .wgpv{margin-top:8px;max-width:300px;padding:12px;border-radius:14px;border:1px solid #c8aa6e;background:linear-gradient(180deg,#102038,#010a13);display:flex;flex-direction:column;gap:2px}
 .wgpv small{color:#c8aa6e;font-size:10px;font-weight:700;letter-spacing:.12em}.wgpv b{color:#f0e6d2;font-size:16px}.wgpv span{color:#cdbe91;font-size:12px}.wgpv em{font-style:normal;color:#0ac8b9;font-size:11px;font-weight:700}
 @media(max-width:760px){.ntl{grid-template-columns:1fr}}
+/* 2.6.1 */
+.wrbar{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin-top:10px}
+.wrsel{display:flex;flex-direction:column;gap:4px;margin:0;flex:1;min-width:180px}.wrsel span{font-size:12px;color:#a09b8c}
+.wrpk{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.wrad{margin-top:10px}.wrad summary{cursor:pointer;color:#a09b8c;font-size:13px}
+.wrset summary{cursor:pointer}
+.ptbi{position:relative}.ptnw{position:absolute;top:3px;right:3px;width:7px;height:7px;border-radius:50%;background:#e84057}
+.stpg{padding:14px 0}
+.gmsubs{display:flex;flex-direction:column;gap:2px;margin:8px 0 2px}
+.gmsub{display:flex;align-items:flex-start;gap:9px;padding:6px 8px;cursor:pointer;border-left:2px solid #785a2855;color:#a09b8c}
+.gmsub i{flex:none;width:7px!important;height:7px!important;margin-top:4px!important;border-width:1.5px!important}
+.gmsub b{font:600 12px Cinzel,Georgia,serif!important;letter-spacing:.05em}.gmsub em{display:block;font-style:normal;font-size:11px;color:#7b7a72}
+.gmsub.on{border-left-color:#c8aa6e;background:#c8aa6e14;color:#f0e6d2}.gmsub.on i{background:#f0e6d2}
+.g2fin{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 8px;font-size:12px;color:#a09b8c}
+.g2fin label{margin:0;display:flex;gap:5px;align-items:center}.g2fin select{width:auto;min-width:110px}.g2fp input{width:70px}
+@media(max-width:760px){.wclk{padding:2px 5px;margin-right:2px;gap:3px}.wclk b{font-size:11px}}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -7462,8 +7477,13 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.6';
+const WNV='2.6.1';
 const WN=[
+ ['2.6.1','30 Oct 2026',[
+  ['Lore','Simpler regions and a top bar clock','Add a region with one form and pick where it is on the map or globe. The top bar shows the weather and the time of the region you choose. Lore › Map.',"go('lore');lsub='map';render()"],
+  ['Story','World news and Diaries in Story','Both now open from the icons at the top of the Story page.',"pickSub('story','paper')"],
+  ['Games','Lore Wordle in one place','Tap Lore Wordle in Mini-games to choose Word of the day or Free play.',"go('games');pwSel='arena';gmOpt=0;render()"],
+  ['App','Live sync fixes','Turning dev mode on one device no longer changes the other one, and the newest change always wins.',"openSet();stSec='sync';render()"]]],
  ['2.6','30 Oct 2026',[
   ['App','Live sync over Wi-Fi','Paired devices now stay in sync by themselves: a change on one shows up on the other a few seconds later, pictures included. Settings › Sync › Wi-Fi pairing.',"openSet();stSec='sync';render()"],
   ['App','Notifications and a home screen widget','Pick which reminders you want (daily reward, expeditions, events, news, diaries and more). On Android they arrive even when the app is closed, and there is a home screen widget. Settings › Notifications.',"openSet();stSec='ntf';render()"]]],
@@ -7769,7 +7789,7 @@ function wxOpen(){const L=[0,1,2,3,4,5,6].map(wxDay),T=L[0];const ic=w=>ico(wxIc
  XMOD('wxm',`<div class="wxxm"><small class="evk">${esc(nm('Forecast'))} · ${T.t.d} ${esc(T.mn)}, year ${T.t.y}</small><div class="wxxt">${ic(T.w)}<b class="f">${wxT(T.temp)}</b><span>${esc(nm(wxName[T.w]))}</span></div>${T.seasons.length?`<p class="tag">${esc(T.seasons.join(' · '))}</p>`:''}
  <div class="styxs wxxs"><div><b>${T.cl}%</b><small>${esc(nm('Clouds'))}</small></div><div><b>${T.hu}%</b><small>${esc(nm('Humidity'))}</small></div><div><b>${T.wi} km/h</b><small>${esc(nm('Wind'))}</small></div><div><b>${T.pr}</b><small>${esc(nm('Pressure'))} hPa</small></div><div><b>${esc(T.rise)}</b><small>${esc(nm('Sunrise'))}</small></div><div><b>${esc(T.set)}</b><small>${esc(nm('Sunset'))}</small></div></div>
  <div class="wxxf">${L.slice(1).map(x=>`<div><small>${x.t.d} ${esc((x.mn||'').slice(0,3))}</small>${ico(wxIco[x.w]||'cloudx',16)}<b>${wxT(x.temp)}</b><small>${esc(nm(wxName[x.w]))}</small></div>`).join('')}</div>${S.dev?`<p style="margin:10px 0 0"><button class="btn" onclick="XCLOSE('wxm');lcat='Worlds';pickSub('lore','time');tlv='cal';render()">Edit weather</button></p>`:''}</div>`,560)}
-XPOST.push(function wxbPost(){const tl=document.querySelector('#mtb .tools');if(!tl)return;let b=document.getElementById('wxb');if(!wxOk()){if(b)b.remove();return}const W=wxDay(0),h=`${ico(wxIco[W.w]||'cloudx',14)}<span>${wxT(W.temp)}</span>`;if(!b){tl.insertAdjacentHTML('afterbegin',`<button class="ic wxxb" id="wxb" onclick="wxOpen()" title="Weather in your world today" aria-label="Weather">${h}</button>`);return}if(b.innerHTML!=h)b.innerHTML=h});
+XPOST.push(function wxbPost(){const tl=document.querySelector('#mtb .tools');if(!tl)return;let b=document.getElementById('wxb');if(!CF('wxon',1)){if(b)b.remove();return}const W=wxDay(0),h=`${ico(wxIco[W.w]||'cloudx',14)}<span>${wxT(W.temp)}</span>`;if(!b){tl.insertAdjacentHTML('afterbegin',`<button class="ic wxxb" id="wxb" onclick="wxOpen()" title="Weather in your world today" aria-label="Weather">${h}</button>`);return}if(b.innerHTML!=h)b.innerHTML=h});
 function wxSetM(i,k,v){const c=WC(),m=c.months[i];if(!m)return;m.wxd=m.wxd||{};if(v===''||v==null)delete m.wxd[k];else m.wxd[k]=(k=='rise'||k=='set')?v:+v;save();const d=document.getElementById('wxx');if(d)d.remove()}
 function wxSeasonAdd(){const g=i=>(document.getElementById(i)||{}).value||'';const n=g('wsn').trim();if(!n)return toast('Name the season');const ms=[...document.querySelectorAll('.wxxsm input:checked')].map(e=>+e.value);if(!ms.length)return toast('Tick at least one month');WXS().seasons.push({id:uid('ws'),n,t:g('wst')||'storm',k:+g('wsk')||2,m:ms});save();render()}
 function wxSeasonDel(id){const s=WXS();s.seasons=s.seasons.filter(x=>x.id!=id);save();render()}
@@ -9055,7 +9075,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.6 Beta',APPB=196;
+const APPV='2.6.1 Beta',APPB=197;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -10830,7 +10850,7 @@ function glbClick(e){const c=document.getElementById('glbc'),r=c.getBoundingClie
  const h=GLB.hit.slice().reverse().find(t=>Math.abs(mx-t.x)<Math.max(14,t.w/2)&&my>t.top-4&&my<t.y+6);
  if(!mapAdd&&!wrAdd&&h){if(h.p.k=='pin')return goRef(h.p.ref);return wrOpen(h.p.r.id)}
  const k=c.width/c.clientWidth,g=glbUnproj(mx*k,my*k,c);if(!g)return;
- if(wrAdd){wrAdd=0;const n=prompt('Name of the region','New region');if(!n)return render();WREG().push({id:'rg'+Date.now().toString(36),n:n.trim(),lon:Math.round(g.lon*10)/10,lat:Math.round(g.lat*10)/10,auto:1});save();render();return}
+ if(wrAdd){wrAdd=0;wrPicked(g.lon,g.lat);return}
  if(mapAdd){const ref=(document.getElementById('mp1')||{}).value;if(!ref)return toast('Choose what the pin links to');const xy=ll2xy(g.lon,g.lat);S.mapPins=S.mapPins||[];const p={id:'m'+(S.nid++),x:Math.round(xy.x*10)/10,y:Math.round(xy.y*10)/10,ref};if(typeof mapE!='undefined'&&mapE)p.era=mapE;S.mapPins.push(p);mapAdd=false;save();render();return}
  toast(`${Math.abs(g.lat).toFixed(1)}°${g.lat>=0?'N':'S'}, ${Math.abs(g.lon).toFixed(1)}°${g.lon>=0?'E':'W'}`)}
 let wrAdd=0;
@@ -10849,7 +10869,7 @@ XPOST.push(function glbPost(){if(!(tab=='lore'&&lsub=='map'))return;if(mapMode==
  let n='';if(GLB.night){const s=wSun();const pts=[];for(let lo=-180;lo<=180;lo+=4){const L=(lo-s.lon)*Math.PI/180,d=s.lat*Math.PI/180;const la=Math.abs(d)<1e-3?(Math.cos(L)>0?-90:90):Math.atan(-Math.cos(L)/Math.tan(d))*180/Math.PI;pts.push([(lo+180)/3.6,(90-la)/1.8])}const edge=s.lat>=0?100:0;n=`<polygon class="mpnt" points="${pts.map(p=>p.join(',')).join(' ')} 100,${edge} 0,${edge}"/>`}
  box.insertAdjacentHTML('beforeend',`<svg class="mpgr" viewBox="0 0 100 100" preserveAspectRatio="none">${n}${g}</svg>`);
  if(GLB.lab)WREG().forEach(r=>{const p=ll2xy(+r.lon||0,+r.lat||0),t=regTime(r);box.insertAdjacentHTML('beforeend',`<button class="mprg ${t.day?'dy':'nt'} ${r.id==S.cfg.wloc?'me':''}" style="left:${p.x}%;top:${p.y}%" onclick="wrOpen('${r.id}')">${ico(t.day?'sunx':'moonx',11)} ${esc(r.n)} <b data-rgt="${r.id}">${t.txt}</b></button>`)});
- if(wrAdd){img.style.cursor='crosshair';img.addEventListener('click',e=>{if(!wrAdd)return;e.stopPropagation();const r=img.getBoundingClientRect(),g2=xy2ll((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100);wrAdd=0;const nn=prompt('Name of the region','New region');if(!nn)return render();WREG().push({id:'rg'+Date.now().toString(36),n:nn.trim(),lon:Math.round(g2.lon*10)/10,lat:Math.round(g2.lat*10)/10,auto:1});save();render()},{capture:true,once:true})}});
+ if(wrAdd){img.style.cursor='crosshair';img.addEventListener('click',e=>{if(!wrAdd)return;e.stopPropagation();const r=img.getBoundingClientRect(),g2=xy2ll((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100);wrAdd=0;wrPicked(g2.lon,g2.lat)},{capture:true,once:true})}});
 /* ---------- regions and their clocks ---------- */
 function wregPanel(){const L=WREG(),me=myReg(),c=WCK();const rows=L.map(r=>{const t=regTime(r),d=regDate(r);return `<div class="wrr ${r.id==S.cfg.wloc?'me':''}"><span class="wrt ${t.day?'dy':'nt'}">${ico(t.day?'sunx':'moonx',14)}<b data-rgt="${r.id}">${t.txt}</b></span><div><b>${esc(r.n)}</b><small>${esc(d.d+' '+((WC().months[d.m]||{}).n||''))} · UTC${regOff(r)>=0?'+':''}${regOff(r)}</small></div><div class="wsrow">${r.id==S.cfg.wloc?`<span class="qxbd">${esc(nm('You are here'))}</span>`:`<button class="btn" onclick="S.cfg.wloc='${r.id}';save();render()">${esc(nm('I am here'))}</button>`}${S.dev?`<button class="btn" onclick="wrOpen('${r.id}')">Edit</button>`:''}</div></div>`}).join('');
  return `<div class="panel wrp"><h3 style="margin-top:0">${ico('clock',14)} ${esc(nm('Regions and their time'))}</h3>${L.length?rows:`<p class="mut">${S.dev?'No regions yet. Add one, then tap the map or globe where it is. Its time comes from where it is, like real time zones, or you set it yourself.':'No regions yet.'}</p>`}
@@ -11099,7 +11119,7 @@ const lsSave=()=>{try{localStorage.setItem(LSK(),JSON.stringify({on:LS.on,srv:LS
 const lsPaired=()=>{try{if(wfIsPC())return !!(((WFPC&&WFPC.peers)||[]).length&&window.exodus.syncPut);const p=wfGet();return !!(p&&p.token&&p.host)}catch(e){return false}};
 const lsActive=()=>LS.on&&lsPaired();
 /* what changed */
-{const _sv=save;save=function(){const r=_sv.apply(this,arguments);if(!LS.applying&&lsActive()){LS.dirty=1;clearTimeout(LS.t);LS.t=setTimeout(lsPush,1500)}return r}}
+{const _sv=save;save=function(){const r=_sv.apply(this,arguments);if(!LS.applying&&lsActive()){LS.dirty=1;LS.dAt=Date.now();clearTimeout(LS.t);LS.t=setTimeout(lsPush,1500)}return r}}
 {const _ms=mset;mset=async function(k,v){const r=await _ms.apply(this,arguments);if(!LS.applying&&lsActive()){LS.media.add(k);LS.dirty=1;clearTimeout(LS.t);LS.t=setTimeout(lsPush,1500)}return r}}
 {const _md=mdel;mdel=async function(k){const r=await _md.apply(this,arguments);if(!LS.applying&&lsActive()){LS.media.add(k);LS.dirty=1;clearTimeout(LS.t);LS.t=setTimeout(lsPush,1500)}return r}}
 async function lsMedia(){const out={};for(const k of LS.media){const v=await mget(k);out[k]=v==null?null:await fbEnc(v)}LS.media.clear();return out}
@@ -11109,8 +11129,8 @@ async function lsPush(){if(!lsActive()||LS.busy)return;if(lsEditing()){clearTime
  lsMark()}catch(e){LS.dirty=1}finally{LS.busy=0}}
 /* applying what came from the other device */
 function lsEditing(){const a=document.activeElement;return !!(a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)&&a.type!='checkbox'&&a.type!='range'||document.getElementById('chce')||(typeof FST!='undefined'&&FST&&FST.st!='idle'))}
-async function lsApply(o){if(!o||!o.state)return;if(LS.dirty){lsPush();return}if(lsEditing()){LS.pend=o;lsMark();return}LS.applying=1;try{const st=typeof o.state=='string'?JSON.parse(o.state):o.state;for(const [k,v] of Object.entries(o.media||{})){if(v==null)await mdel(k);else await mset(k,fbDec(v))}
- Object.keys(S).forEach(k=>delete S[k]);Object.assign(S,st);try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}LS.last=JSON.stringify(S);LS.srv=Math.max(LS.srv,+o.rev||0);LS.at=Date.now();LS.from=o.from||'';LS.pend=null;lsSave();try{if(typeof HZM_!='undefined')Object.keys(HZM_).forEach(k=>delete HZM_[k]);if(typeof CHRI!='undefined')Object.keys(CHRI).forEach(k=>delete CHRI[k])}catch(e){}render();lsFlash()}finally{LS.applying=0}}
+async function lsApply(o){if(!o||!o.state)return;if(LS.dirty&&(LS.dAt||0)>(+o.rev||0)){lsPush();return}LS.dirty=0;clearTimeout(LS.t);if(lsEditing()){LS.pend=o;lsMark();return}LS.applying=1;try{const st=typeof o.state=='string'?JSON.parse(o.state):o.state;for(const [k,v] of Object.entries(o.media||{})){if(v==null)await mdel(k);else await mset(k,fbDec(v))}
+ const keep={dev:S.dev,cm:(S.cfg||{}).cm};Object.keys(S).forEach(k=>delete S[k]);Object.assign(S,st);S.dev=keep.dev;S.cfg=S.cfg||{};if(keep.cm!=null)S.cfg.cm=keep.cm;else delete S.cfg.cm;try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}LS.last=JSON.stringify(S);LS.srv=Math.max(LS.srv,+o.rev||0);LS.at=Date.now();LS.from=o.from||'';LS.pend=null;lsSave();try{if(typeof HZM_!='undefined')Object.keys(HZM_).forEach(k=>delete HZM_[k]);if(typeof CHRI!='undefined')Object.keys(CHRI).forEach(k=>delete CHRI[k])}catch(e){}render();lsFlash()}finally{LS.applying=0}}
 setInterval(()=>{if(LS.pend&&!lsEditing())lsApply(LS.pend)},2000);
 function lsFlash(){const m=document.getElementById('wfmark');if(m){m.classList.remove('lsf');void m.offsetWidth;m.classList.add('lsf')}}
 /* the phone asks the PC for news on every ping */
@@ -11172,6 +11192,65 @@ function ntPanel(){const c=NTC(),allowed=ntAllowed(),P=ntPlan().sort((a,b)=>a.at
  ${apk?`<section class="wsc ntp"><header><span class="qxi">${ico('grid4',15)}</span><div><b>Home screen widget</b><small>Long-press your phone’s home screen, choose Widgets, then Exodus Lorebuilder.</small></div></header><div class="wscb"><label>The widget shows</label><select onchange="const v=NTC();v.w=this.value;ntSave(v);wgUpdate();render()">${WGT.map(([k,l])=>`<option value="${k}" ${(c.w||'lotd')==k?'selected':''}>${esc(l)}</option>`).join('')}</select>${(()=>{const d=wgData();return `<div class="wgpv"><small>${esc(d[0])}</small><b>${esc(d[1])}</b><span>${esc(d[2])}</span><em>${esc(d[3])}</em></div>`})()}<p class="mut" style="font-size:12px;margin:6px 0 0">It refreshes whenever you open or leave the app.</p></div></section>`:''}`}
 XPOST.push(function ntPost(){if(typeof stOpen=='undefined'||!stOpen||stSec!='ntf')return;const sr=document.querySelector('.sr');if(!sr||sr.querySelector('.ntp'))return;const h2=sr.querySelector('h2');const h=ntPanel();if(h2)h2.insertAdjacentHTML('afterend',h);else sr.insertAdjacentHTML('afterbegin',h)});
 if(!ICOP.bell)ICOP.bell='M4 11V7a4 4 0 0 1 8 0v4l1.5 2h-11zM6.5 13.5a1.5 1.5 0 0 0 3 0';
+
+/* ===== 2.6.1: simpler world clock, top bar clock and weather, Story icons, Wordle entry, gacha finishes ===== */
+/* ---------- regions: add one with a form, pick the spot on the map if you like ---------- */
+let wrDraft=null;
+const wrWorld={id:'',n:'World time',lon:0,lat:0,auto:0,off:0};
+function wrForm(){const g=i=>(document.getElementById(i)||{}).value;return {n:(g('wr1')||'').trim(),lon:Math.max(-180,Math.min(180,+g('wr2')||0)),lat:Math.max(-90,Math.min(90,+g('wr3')||0)),auto:g('wr4')=='1'?1:0,off:+g('wr5')||0,lr:g('wr6')||''}}
+wrOpen=function(id,draft){const ex=id?WREG().find(x=>x.id==id):null;if(id&&!ex)return;if(ex&&!S.dev){S.cfg.wloc=id;save();render();toast('You are in '+ex.n);return}if(!S.dev)return;
+ const r=Object.assign({n:'',lon:0,lat:0,auto:1,off:'',lr:''},ex||{},draft||{}),t=regTime(r),q=id?`'${id}'`:"''";
+ XMOD('wrm',`<h3 style="margin-top:0">${ico('clock',15)} ${ex?esc(ex.n):esc(nm('New region'))}</h3>
+ <label>Name</label><input id="wr1" value="${esc(r.n)}" placeholder="For example: The Capital">
+ <label>Its time</label><select id="wr4" onchange="document.getElementById('wr5').closest('.wrhr').hidden=this.value=='1'"><option value="1" ${r.auto!==0?'selected':''}>From where it is on the map</option><option value="0" ${r.auto===0?'selected':''}>I type the hours myself</option></select>
+ <div class="wrhr" ${r.auto!==0?'hidden':''}><label>Hours ahead of world time (can be negative)</label><input id="wr5" type="number" step="0.5" value="${r.auto===0?+r.off||0:regOff(r)}"></div>
+ <label>Where it is</label><div class="wrpk"><button class="btn" onclick="wrPickGo(${q})">${ico('mapi',13)||ico('globe',13)} Pick on the map</button><small class="mut">${(+r.lon||+r.lat)?`${Math.abs(+r.lon).toFixed(1)}°${+r.lon<0?'W':'E'}, ${Math.abs(+r.lat).toFixed(1)}°${+r.lat<0?'S':'N'}`:'Not picked yet'}</small></div>
+ <details class="wrad"><summary>Exact position and link</summary><div class="row"><div><label>Longitude (−180 to 180)</label><input id="wr2" type="number" step="0.1" value="${+r.lon||0}"></div><div><label>Latitude (−90 to 90)</label><input id="wr3" type="number" step="0.1" value="${+r.lat||0}"></div></div><label>Linked lore entry</label><select id="wr6"><option value="">None</option>${S.lore.map(l=>`<option value="${l.id}" ${r.lr==l.id?'selected':''}>${esc(l.title)}</option>`).join('')}</select></details>
+ <p class="mut" style="margin:8px 0 0">Right now it is <b>${t.txt}</b> there.</p>
+ <div class="wsrow" style="margin-top:12px"><button class="btn dev" onclick="wrSave(${q})">${ex?'Save':'Add region'}</button>${ex?`<button class="btn" onclick="S.cfg.wloc='${id}';save();XCLOSE('wrm');render()">I am here</button><button class="btn red" onclick="cfm('Delete this region?',()=>{S.wreg=WREG().filter(x=>x.id!='${id}');if(S.cfg.wloc=='${id}')S.cfg.wloc='';if(S.cfg.wclkReg=='${id}')S.cfg.wclkReg='';save();XCLOSE('wrm');render()})">Delete</button>`:''}</div>`,460);
+ const x=document.querySelector('#wrm .xmcx');if(x){const o=x.onclick;x.onclick=function(){wrDraft=null;wrAdd=0;if(o)return o.apply(this,arguments)}}}
+wrSave=function(id){const f=wrForm();if(!id){if(!f.n)return toast('Give the region a name');const r={id:'rg'+Date.now().toString(36),n:f.n,lon:f.lon,lat:f.lat,auto:f.auto,off:f.auto?'':f.off,lr:f.lr};WREG().push(r);if(!S.cfg.wclkReg&&!myReg())S.cfg.wclkReg=r.id}
+ else{const r=WREG().find(x=>x.id==id);if(!r)return;r.n=f.n||r.n;r.lon=f.lon;r.lat=f.lat;r.auto=f.auto;r.off=f.auto?'':f.off;r.lr=f.lr}wrDraft=null;save();XCLOSE('wrm');render();toast(id?'Region saved':'Region added')}
+function wrPickGo(id){wrDraft=Object.assign(wrForm(),{id:id||''});wrAdd=1;mapAdd=false;XCLOSE('wrm');if(!(tab=='lore'&&lsub=='map')){go('lore');lsub='map'}const src=(typeof mapE!='undefined'&&mapE&&typeof MAPS!='undefined'&&MAPS[mapE])||(typeof mapImg!='undefined'&&mapImg)||'';if(!src&&mapMode!='globe'){mapMode='globe';try{localStorage.setItem('exodus.mapmode','globe')}catch(e){}}render();setTimeout(()=>{const c=document.getElementById('glbc')||document.querySelector('#m img[onclick^="mapClick"]');if(c&&c.scrollIntoView)c.scrollIntoView({block:'center'})},60);toast(mapMode=='globe'?'Tap the globe where it is':'Tap the map where it is')}
+function wrPicked(lon,lat){const d=wrDraft||{n:'',auto:1,id:''};wrDraft=null;d.lon=Math.round(lon*10)/10;d.lat=Math.round(lat*10)/10;render();wrOpen(d.id||'',d)}
+/* which clock the top bar shows */
+function wclkWhich(){const k=S.cfg.wclkReg||'';if(k=='w')return wrWorld;if(k&&k!='me'){const r=WREG().find(x=>x.id==k);if(r)return r}return myReg()||WREG()[0]||wrWorld}
+const wclkOpts=()=>`<option value="me" ${!S.cfg.wclkReg||S.cfg.wclkReg=='me'?'selected':''}>Where I am${myReg()?' ('+esc(myReg().n)+')':''}</option><option value="w" ${S.cfg.wclkReg=='w'?'selected':''}>World time</option>${WREG().map(r=>`<option value="${r.id}" ${S.cfg.wclkReg==r.id?'selected':''}>${esc(r.n)}</option>`).join('')}<option value="off" ${S.cfg.wclkBar===0?'selected':''}>Don’t show a clock</option>`;
+function wclkSet(v){if(v=='off'){S.cfg.wclkBar=0}else{S.cfg.wclkBar=1;S.cfg.wclkReg=v}save();render()}
+wregPanel=function(){const L=WREG(),me=myReg(),c=WCK();const rows=L.map(r=>{const t=regTime(r),d=regDate(r);return `<div class="wrr ${r.id==S.cfg.wloc?'me':''}"><span class="wrt ${t.day?'dy':'nt'}">${ico(t.day?'sunx':'moonx',14)}<b data-rgt="${r.id}">${t.txt}</b></span><div><b>${esc(r.n)}</b><small>${esc(d.d+' '+((WC().months[d.m]||{}).n||''))} · UTC${regOff(r)>=0?'+':''}${regOff(r)}</small></div><div class="wsrow">${r.id==S.cfg.wloc?`<span class="qxbd">${esc(nm('You are here'))}</span>`:`<button class="btn" onclick="S.cfg.wloc='${r.id}';save();render()">${esc(nm('I am here'))}</button>`}${S.dev?`<button class="btn" onclick="wrOpen('${r.id}')">Edit</button>`:''}</div></div>`}).join('');
+ return `<div class="panel wrp"><h3 style="margin-top:0">${ico('clock',14)} ${esc(nm('Regions and their time'))}</h3>${L.length?rows:`<p class="mut">${S.dev?'No regions yet. Add one: give it a name, then pick where it is on the map.':'No regions yet.'}</p>`}
+ <div class="wrbar">${S.dev?`<button class="btn dev" onclick="wrOpen('')">${ico('plus',12)} Add a region</button>`:''}<label class="wrsel"><span>${esc(nm('Top bar clock'))}</span><select onchange="wclkSet(this.value)">${wclkOpts()}</select></label></div>
+ ${S.dev?`<details class="wrset"><summary>${ico('gear',13)} Advanced</summary><div class="row"><div><label>Shift the world clock (hours)</label><input type="number" step="0.5" value="${+c.shift||0}" onchange="WCK().shift=+this.value||0;save();render()"></div><div><label>World days per real day</label><input type="number" min="0.1" step="0.1" value="${+c.speed||1}" onchange="const w=WCK(),now=wNowMs();w.speed=Math.max(.1,+this.value||1);w.set=Date.now();w.shift=(now-(w.set-WC().ep))/36e5;save();render()"></div></div><div class="row"><div><label>Seasons (axis tilt, 0 = none)</label><input type="number" min="0" max="60" step="0.5" value="${+c.tilt}" onchange="WCK().tilt=Math.max(0,Math.min(60,+this.value||0));save();render()"></div><div><label>App colours follow the time of day</label><select onchange="S.cfg.wtint=+this.value;save();render()"><option value="0" ${!S.cfg.wtint?'selected':''}>No</option><option value="1" ${S.cfg.wtint?'selected':''}>Yes</option></select></div></div><p class="mut" style="margin:6px 0 0">Days and months come from Lore › Timeline › World calendar.</p></details>`:''}</div>`};
+wclkMark0=function(){const t=document.querySelector('#mtb .tools');if(!t)return;let d=document.getElementById('wclk');if(S.cfg.wclkBar===0){if(d)d.remove();document.documentElement.removeAttribute('data-wtd');return}const r=wclkWhich(),tm=regTime(r);
+ if(!d){d=document.createElement('button');d.id='wclk';d.className='wclk';d.onclick=()=>{go('lore');lsub='map';render()}}
+ const wx=document.getElementById('wxb');if(wx){if(wx.nextSibling!==d)wx.after(d)}else if(t.firstChild!==d)t.insertBefore(d,t.firstChild);
+ d.title=(r===wrWorld?nm('World time'):r.n)+' · '+tm.txt;const h=`${ico(tm.day?'sunx':'moonx',13)}<b>${tm.txt}</b>`;if(d.innerHTML!=h)d.innerHTML=h;d.classList.toggle('nt',!tm.day);
+ const ph=tm.f<.21||tm.f>.88?'night':tm.f<.3?'dawn':tm.f<.72?'day':tm.f<.8?'dusk':'night';if(S.cfg.wtint)document.documentElement.setAttribute('data-wtd',ph);else document.documentElement.removeAttribute('data-wtd')};
+/* ---------- Story: World news and Diaries as icons ---------- */
+{const _sy4=story;story=function(){if((ssec=='paper'||ssec=='diary')&&!(edit&&edit.t))return ptBar('story')+`<div class="hbpg stpg">${ssec=='paper'?papView():diaView()}</div>`;return _sy4.apply(this,arguments)}}
+{const _pb4=ptBar;ptBar=function(k){const h=_pb4.apply(this,arguments);if(k!='story')return h;const nw=papVis().some(p=>p.t&&Date.now()-p.t<3*864e5);const b=(id,ic,l,x)=>`<button class="ic ptbi ${ssec==id?'on':''}" title="${esc(nm(l))}" aria-label="${esc(nm(l))}" onclick="pickSub('story','${id}')">${ico(ic,16)}${x||''}</button>`;return h.replace('<span class="ptbx">','<span class="ptbx">'+b('paper','news','World news',nw?'<i class="ptnw"></i>':'')+b('diary','diaryx','Diaries'))}}
+hubSide=(f=>function(){const h=f.apply(this,arguments);return h.replace(/<button class="hbi hsn[^"]*" onclick="hsub='(paper|diary)'[\s\S]*?<\/button>/g,'')})(hubSide);
+if(typeof hsub!='undefined'&&(hsub=='paper'||hsub=='diary'))hsub='home';
+/* ---------- Games: one Lore Wordle entry that opens into its two modes ---------- */
+let wdMode=1;
+{const _go11=gmOpts;gmOpts=function(g){const r=_go11.apply(this,arguments);if(g.id!='arena')return r;const i=r.findIndex(o=>/wdStart/.test(o[2]));if(i<0)return r;const n=wdPool().length,out=r.filter(o=>!/wdStart/.test(o[2]));
+ const sub=[[1,'Word of the day',n>=3?'The same word for everyone today':'Needs a few one-word names'],[0,'Free play',n+' words to guess']].map(([m,l,d])=>`<span class="gmsub ${wdMode==m?'on':''}" role="button" tabindex="0" onclick="event.stopPropagation();wdMode=${m};render()" ondblclick="event.stopPropagation();wdMode=${m};wdStart(${m})"><i></i><span><b>${esc(nm(l))}</b><em>${esc(d)}</em></span></span>`).join('');
+ out.splice(i,0,[nm('Lore Wordle'),`Guess a word from your world in 6 tries<span class="gmsubs">${sub}</span>`,'wdStart(wdMode)']);return out}}
+/* ---------- the Gacha: a card finish as a reward, and a finish chance for each tier ---------- */
+if(!G2K.some(x=>x[0]=='fin'))G2K.push(['fin','Card finish']);
+{const _pt=g2PartTxt;g2PartTxt=function(p){if(p&&p.k=='fin'){const o=refObj(p.ref);return finName(p.fin)+' '+(o?o.name:'(missing)')}return _pt.apply(this,arguments)}}
+let G2LT=null;
+{const _pk=g2Pick;g2Pick=function(){const r=_pk.apply(this,arguments);G2LT=r&&r.t||null;return r}}
+{const _gv2=g2Give;g2Give=function(p){if(p&&p.k=='fin'){const o=refObj(p.ref);if(!o||!p.fin)return null;const nw=fnGive(p.ref,p.fin,1);return {name:finName(p.fin)+' '+o.name,img:o.img||'',note:nw?'New card finish':'Finish already owned',rar:2}}
+ const r=_gv2.apply(this,arguments);try{const t=G2LT;if(r&&t&&t.fin&&p&&p.k=='ref'&&p.ref&&!String(p.ref).startsWith('h:')&&finOn(t.fin)&&Math.random()*100<(t.finp==null?10:+t.finp)){if(fnGive(p.ref,t.fin,1)){r.name=finName(t.fin)+' '+r.name;r.note=(r.note?r.note+' · ':'')+finName(t.fin)+' finish';r.rar=Math.max(r.rar||0,2)}}}catch(e){}return r}}
+{const _ea=g2EdAdd;g2EdAdd=function(){const k=(document.getElementById('g2k')||{}).value;if(k!='fin')return _ea.apply(this,arguments);const ref=(document.getElementById('g2r')||{}).value,fin=(document.getElementById('g2fn')||{}).value;if(!ref||ref.startsWith('h:'))return toast('Pick a character, skin or item');g2Ed.parts.push({k:'fin',ref,fin:fin||'holo'});g2EdK='fin';render()}}
+let g2EdK='';
+{const _eh=g2EdHtml;g2EdHtml=function(){let h=_eh.apply(this,arguments);if(!h)return h;
+ h=h.replace("(this.value=='ref'||this.value=='cur')","(this.value=='ref'||this.value=='cur'||this.value=='fin')").replace('class="g2f k-ref"','class="g2f k-ref k-fin"').replace('<button class="btn" onclick="g2EdAdd()">',`<select id="g2fn" class="g2f k-fin" hidden>${FINS.filter(f=>finOn(f[0])).map(f=>`<option value="${f[0]}">${esc(f[1])}</option>`).join('')}</select><button class="btn" onclick="g2EdAdd()">`);return h}}
+XPOST.push(function g2EdKPost(){if(!g2EdK)return;const s=document.getElementById('g2k');if(s){s.value=g2EdK;s.dispatchEvent(new Event('change'))}g2EdK=''});
+function g2TierFin(ti,f,v){const t=g2T(ti);if(!t)return;if(f=='fin')t.fin=v;else t.finp=Math.max(0,Math.min(100,+v||0));save();if(f=='fin')render()}
+{const _gf=gcForm;gcForm=function(){let h=_gf.apply(this,arguments);if(!h||!S.gc||!S.gc.t2)return h;const T=S.gc.t2.tiers;let ti=0;
+ h=h.replace(/<div class="g2rws">/g,m=>{const t=T[ti],i=ti++;if(!t)return m;return `<div class="g2fin"><label>${ico('star',12)} Card finish</label><select onchange="g2TierFin(${i},'fin',this.value)"><option value="">None</option>${FINS.filter(f=>finOn(f[0])).map(f=>`<option value="${f[0]}" ${t.fin==f[0]?'selected':''}>${esc(f[1])}</option>`).join('')}</select>${t.fin?`<label class="g2fp"><input type="number" min="0" max="100" value="${t.finp==null?10:+t.finp}" onchange="g2TierFin(${i},'p',this.value)">% chance</label>`:''}</div>`+m});return h}}
 
 
 render();
