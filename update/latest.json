@@ -1,8 +1,8 @@
 {
- "version": "2.11 Beta",
- "build": 203,
+ "version": "2.12 Beta",
+ "build": 204,
  "html": "update/exodus.html",
- "notes": "Year-by-year history on every Lore record, plagues and wars in depth with a cold war mode, units per place, live faction power, and places with subregions and cities everywhere.",
+ "notes": "Regions shown as a tree with subregions and cities, and Table, Timeline and Stats views on every remaining Lore page.",
  "win": {
   "version": "1.9.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
