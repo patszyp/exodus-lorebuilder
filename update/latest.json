@@ -1,8 +1,8 @@
 {
- "version": "2.13 Beta",
- "build": 205,
+ "version": "2.14 Beta",
+ "build": 206,
  "html": "update/exodus.html",
- "notes": "Nine Lore sections redesigned with their own options: units, disasters, guilds and jobs, world stats, timeline, world calendar, who is alive, faction power and technology.",
+ "notes": "Alignment chart, family tree and chemistry redesigned with their own options, and regions in Lore open on tap.",
  "win": {
   "version": "1.9.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
