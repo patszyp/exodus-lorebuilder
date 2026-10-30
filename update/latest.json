@@ -1,8 +1,8 @@
 {
-  "version": "2.25 Beta",
-  "build": 217,
+  "version": "2.26 Beta",
+  "build": 218,
   "html": "update/exodus.html",
-  "notes": "Other redesigned: Magic systems, Documents, Spells and every page in Philosophy, Arts, Medicine, Military, Law, Time and Cosmos, with new options and group overviews.",
+  "notes": "Map creator: choose the map size, from standard to huge, wide panoramas or tall maps, and add space around or stretch.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
