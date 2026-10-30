@@ -1,8 +1,8 @@
 {
- "version": "2.8 Beta",
- "build": 200,
+ "version": "2.9 Beta",
+ "build": 201,
  "html": "update/exodus.html",
- "notes": "Underground layers and dimensions with their own maps, a cross-section view, cities in Lore regions, and a tidier Story toolbar.",
+ "notes": "Layers on the same level and a draggable side view, economies for regions and cities, a stock market, money worth between places, and reworked Lore record pages.",
  "win": {
   "version": "1.9.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
