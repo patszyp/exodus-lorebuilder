@@ -1,8 +1,8 @@
 {
-  "version": "2.21 Beta",
-  "build": 213,
+  "version": "2.22 Beta",
+  "build": 214,
   "html": "update/exodus.html",
-  "notes": "Supplies: silk, pyrotechnics and explosives, glass and vials, flax and spinning, and dyes and pigments.",
+  "notes": "Supplies: nine more kinds, and inputs shared between workshops by % for each region, subregion or city.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
