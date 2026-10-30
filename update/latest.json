@@ -1,8 +1,8 @@
 {
-  "version": "2.16 Beta",
-  "build": 208,
+  "version": "2.17 Beta",
+  "build": 209,
   "html": "update/exodus.html",
-  "notes": "New Supplies section in Worlds: farming, mining, carpentry, fishing, hunting, beekeeping, herding and gathering, with live stock per region, subregion and city, seasons, weather and trade.",
+  "notes": "Supplies: new Drinking water (sources, quality, rain and heat) and Magic saturation (strongest months, moon, weather, rising or fading, dead zones).",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
