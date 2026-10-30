@@ -1,8 +1,8 @@
 {
-  "version": "2.26 Beta",
-  "build": 218,
+  "version": "2.27 Beta",
+  "build": 219,
   "html": "update/exodus.html",
-  "notes": "Map creator: choose the map size, from standard to huge, wide panoramas or tall maps, and add space around or stretch.",
+  "notes": "Map places and lore places are now one: linked by name, names kept in sync, and weather, clocks and pickers show each place once.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",

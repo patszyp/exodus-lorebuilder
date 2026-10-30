@@ -3355,6 +3355,7 @@ html.lxcp #m .panel{padding:10px 12px!important;margin-bottom:8px!important}html
 @media (max-width:600px){.osg{grid-template-columns:repeat(2,minmax(0,1fr))}.lwp2{grid-template-columns:repeat(4,minmax(0,1fr))}.mgp{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .mcszg{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:6px;margin-bottom:10px}.mcszg button{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px;border:1px solid #785a2855;background:rgba(1,10,19,.5);color:#cdc6b4;cursor:pointer}.mcszg button.on{border-color:#0ac8b9;box-shadow:0 0 0 1px #0ac8b9 inset}.mcszg i{display:block;width:64px;max-height:56px;border:1px solid #4f86b0;background:linear-gradient(135deg,#2c5d8a,#1d3a5c)}.mcszg b{font-size:12px;color:#f0e6d2}.mcszg small{font-size:10px;color:#8a8577}
 .mcszm{display:flex;flex-direction:column;gap:4px;margin:4px 0 8px}.mcszm small{display:block;margin-left:22px}
+.mlnkb{font-size:12px;color:#0ac8b9;margin:2px 0 8px}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -8088,8 +8089,11 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.26';
+const WNV='2.27';
 const WN=[
+ ['2.27','30 Oct 2026',[
+  ['Lore','Map places and lore places are one','A region or city on the map and the same region or city in Lore are now one place. Places with the same name were linked, and map places without a lore entry got one. Weather, clocks, supplies, economy and every place picker show each place once, with subregions and cities under their region.',"lcat='Worlds';pickSub('lore','entries')"],
+  ['Lore','Names stay in sync','Rename a place on the map or in Lore and the other follows. A new region or city drawn on the map gets its lore entry by itself. Deleting one from the map asks whether to delete its lore entry too.',"lcat='Worlds';pickSub('lore','map')"]]],
  ['2.26','30 Oct 2026',[
   ['Lore','Map size in the map creator','A new size button in the map creator. Pick Standard, Wide, Large, Panorama, Huge, Square or Tall, or type your own width and height up to 4000 pixels. Add space around your map, or stretch it, choose where the old map sits and what fills the new space. Pins move with the map, and each map remembers its size.',"lcat='Worlds';pickSub('lore','map')"]]],
  ['2.25','30 Oct 2026',[
@@ -9767,7 +9771,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.26 Beta',APPB=218;
+const APPV='2.27 Beta',APPB=219;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -14102,6 +14106,57 @@ function mcSizeApply(){if(!MC)return;let w=Math.round(+document.getElementById('
  MC.pm=(MC.pm||[]).concat(mode=='stretch'?[]:[[ox,oy,ow,oh,w,h]]);MC.undo=[];MC.redo=[];MC.dirty=1;MC.zoom=1;if(z>1)mcZoom(0);mcBar();if(typeof mcGrid=='function')mcGrid();XCLOSE('mcsz');toast('Map is now '+w+'×'+h)}
 {const _s=mcSave;mcSave=async function(){if(!MC)return _s.apply(this,arguments);const key=MC.key,pm=MC.pm||[];const r=await _s.apply(this,arguments);S.mapSz=S.mapSz||{};S.mapSz[key]={w:MCW,h:MCH};
  if(pm.length){const lay=String(key).startsWith('L')?key.slice(1):'';(S.mapPins||[]).forEach(p=>{const mine=key=='base'?!p.era&&!p.lay:lay?p.lay==lay:p.era==key;if(!mine)return;pm.forEach(([ox,oy,ow,oh,w,h])=>{p.x=Math.round((p.x/100*ow+ox)/w*1000)/10;p.y=Math.round((p.y/100*oh+oy)/h*1000)/10})});if(MC)MC.pm=[]}save();return r}}
+
+/* ===== 2.27: map places and lore places are one ===== */
+Object.assign(PL,{"Linked map and lore":"Połączono mapę i lore","Map and lore":"Mapa i lore"});
+/* lore id -> map id, for every lore region or city that a map region or city stands for */
+let PLA={},PLAk='';
+function plAliases(){const R=WREG(),k=R.map(r=>r.id+':'+(r.lr||'')+'|'+(r.C||[]).map(c=>c.id+':'+(c.lr||'')).join(',')).join(';');if(k==PLAk)return PLA;const A={};R.forEach(r=>{if(r.lr)A[r.lr]=r.id;(r.C||[]).forEach(c=>{if(c.lr)A[c.lr]='c:'+c.id})});PLA=A;PLAk=k;return A}
+const plCanon=id=>{if(!id)return id;const a=plAliases()[id];return a||id};
+const plLore=id=>{if(!id)return null;const s=String(id);if(s.startsWith('c:')){const x=WCITY().find(([r,c])=>'c:'+c.id==s);return x&&x[1].lr?S.lore.find(l=>l.id==x[1].lr):null}const r=WREG().find(x=>x.id==s);return r&&r.lr?S.lore.find(l=>l.id==r.lr):S.lore.find(l=>l.id==s)||null};
+/* going up: a map place follows its lore parent when it has one */
+{const _u=placeUp;placeUp=function(id){id=plCanon(id);if(!id)return '';const L=plLore(id);if(L&&L.adv&&(L.adv.parent||L.adv.rid)&&(String(id).startsWith('c:')||WREG().some(r=>r.id==id)))return plCanon(L.adv.parent||L.adv.rid);return plCanon(_u.call(this,id))}}
+{const _i=placeIn;placeIn=function(id,scope){return _i.call(this,plCanon(id),plCanon(scope))}}
+{const _n=placeName;placeName=function(id){return _n.call(this,plCanon(id))||_n.call(this,id)}}
+{const _f=placeFind;placeFind=function(id){return _f.call(this,plCanon(id))}}
+/* one list of places: map regions and cities, with lore subregions and cities under them, and lore-only places */
+PLO=function(){const out=[],seen=new Set(),A=plAliases(),R=WREG(),LR=S.lore.filter(l=>typeof lrIsReg=='function'&&lrIsReg(l));
+ const node=new Map();const add=(id,n,par,k)=>{if(node.has(id))return;node.set(id,{id,n,par,k,kids:[]})};
+ R.forEach(r=>{const L=r.lr&&S.lore.find(l=>l.id==r.lr);add(r.id,r.n,L&&L.adv&&L.adv.parent?plCanon(L.adv.parent):'',L&&L.adv&&L.adv.parent?'sub':'map');(r.C||[]).forEach(c=>{const CL=c.lr&&S.lore.find(l=>l.id==c.lr);add('c:'+c.id,c.n,CL&&CL.adv&&CL.adv.rid?plCanon(CL.adv.rid):r.id,'city')})});
+ LR.forEach(l=>{if(A[l.id])return;add(l.id,l.title,l.adv&&l.adv.parent?plCanon(l.adv.parent):'',l.adv&&l.adv.parent?'sub':'region')});
+ LR.forEach(l=>(typeof lrCities=='function'?lrCities(l):[]).forEach(c=>{if(A[c.id])return;add(c.id,c.title,plCanon(l.id),'lcity')}));
+ node.forEach(n=>{const p=n.par&&node.get(n.par);if(p&&p!==n)p.kids.push(n);else n.par=''});
+ const walk=(n,d)=>{if(seen.has(n.id)||d>8)return;seen.add(n.id);out.push([n.id,n.n,d,n.k]);n.kids.forEach(k=>walk(k,d+1))};
+ [...node.values()].filter(n=>!n.par).forEach(n=>walk(n,0));node.forEach(n=>{if(!seen.has(n.id))walk(n,0)});
+ S.lore.filter(l=>['Worlds','Factions'].includes(l.cat)&&!seen.has(l.id)&&!A[l.id]&&!(l.adv&&(l.adv.rid||l.adv._t=='region'))).forEach(l=>{seen.add(l.id);out.push([l.id,l.title,0,'lore'])});return out};
+/* weather: a lore place that a map place stands for uses the map place's weather */
+{const _w=wxPD;wxPD=function(key,off){if(key&&key.startsWith('l:')){const a=plAliases()[key.slice(2)];if(a)key='m:'+a}return _w.call(this,key,off)}}
+{const _p=wxPlaces;wxPlaces=function(){const A=plAliases();return _p.apply(this,arguments).filter(x=>!(x[0]&&x[0].startsWith('l:')&&A[x[0].slice(2)]))}}
+/* keep them linked and named the same */
+function mapSyncNew(cat,title,adv,links){const l={id:'l'+(S.nid++),title,cat:'Worlds',sub:cat,text:'',links:links||[],adv};S.lore.push(l);try{newId(l,'LOR')}catch(e){}return l}
+let mapSyncLog=null;
+function mapSync(report){const R=WREG(),log={linked:[],made:[]};let ch=0;const used=new Set();R.forEach(r=>{if(r.lr)used.add(r.lr);(r.C||[]).forEach(c=>{if(c.lr)used.add(c.lr)})});
+ const LR=S.lore.filter(l=>lrIsReg(l)),LC=S.lore.filter(l=>l.adv&&(l.adv.rid||l.adv._t=='place')&&!lrIsReg(l));
+ R.forEach(r=>{if(r.lr&&!S.lore.some(l=>l.id==r.lr)){r.lr='';r.nolr=1;ch=1}
+  if(!r.lr&&!r.nolr&&r.n){const m=LR.find(l=>!used.has(l.id)&&lrNorm(l.title)==lrNorm(r.n));if(m){r.lr=m.id;used.add(m.id);log.linked.push(r.n);ch=1}else{const l=mapSyncNew('Regions',r.n,{_t:'region'});r.lr=l.id;used.add(l.id);log.made.push(r.n);ch=1}}
+  if(r.lr){const L=S.lore.find(l=>l.id==r.lr);if(L){if(r._ln==null)r._ln=r.n;if(r.n!==r._ln&&r.n){L.title=r.n;ch=1}else if(L.title!==r._ln&&L.title){r.n=L.title;ch=1}if(r._ln!==r.n){r._ln=r.n;ch=1}}}
+  (r.C||[]).forEach(c=>{if(c.lr&&!S.lore.some(l=>l.id==c.lr)){c.lr='';c.nolr=1;ch=1}
+   if(!c.lr&&!c.nolr&&c.n){const m=LC.find(l=>!used.has(l.id)&&lrNorm(l.title)==lrNorm(c.n)&&(!r.lr||!l.adv.rid||placeIn(l.adv.rid,r.lr)||l.adv.rid==r.lr));if(m){c.lr=m.id;used.add(m.id);log.linked.push(c.n);ch=1}else{const P=r.lr&&S.lore.find(l=>l.id==r.lr),l=mapSyncNew('Cities',c.n,{_t:'place',rid:P?P.id:'',region:P?P.title:''},P?[P.id]:[]);c.lr=l.id;used.add(l.id);log.made.push(c.n);ch=1}}
+   if(c.lr){const L=S.lore.find(l=>l.id==c.lr);if(L){if(c._ln==null)c._ln=c.n;if(c.n!==c._ln&&c.n){L.title=c.n;ch=1}else if(L.title!==c._ln&&L.title){c.n=L.title;ch=1}if(c._ln!==c.n){c._ln=c.n;ch=1}if(r.lr&&L.adv&&!L.adv.rid){L.adv.rid=r.lr;ch=1}}}})});
+ if(ch){PLAk='';save()}if(report&&(log.linked.length||log.made.length))mapSyncLog=log;return log}
+/* first run: link everything and tell what happened */
+setTimeout(()=>{try{if(!S.cfg)return;const first=!S.cfg.mapSync1;const log=mapSync(first);if(first){S.cfg.mapSync1=1;save();if(log.linked.length||log.made.length)setTimeout(mapSyncShow,1200)}}catch(e){}},900);
+function mapSyncShow(){const L=mapSyncLog;if(!L)return;XMOD('msync',`<h2 class="f" style="margin-top:0">${esc(nm('Linked map and lore'))}</h2><p class="mut">Places on your map and places in Lore are now one and the same. Weather, clocks, supplies, economy and pickers show each place once.</p>${L.linked.length?`<label>Linked by name (${L.linked.length})</label><div class="fdis">${L.linked.map(n=>`<span class="fdi">${esc(n)}</span>`).join('')}</div>`:''}${L.made.length?`<label>New lore entries made for map places (${L.made.length})</label><div class="fdis">${L.made.map(n=>`<span class="fdi">${esc(n)}</span>`).join('')}</div>`:''}<p class="mut" style="font-size:12px">Rename a place in either one and the other follows.</p><p class="wsrow"><button class="btn" onclick="XCLOSE('msync')">OK</button></p>`,520);mapSyncLog=null}
+/* after every change, keep them in step */
+{const _s=save;let busy=0;save=function(){const r=_s.apply(this,arguments);if(!busy){busy=1;try{mapSync()}catch(e){}busy=0}return r}}
+/* deleting a map region or city asks about its lore entry */
+function mapDelAsk(kind,id){const r=kind=='r'?WREG().find(x=>x.id==id):null,c=kind=='c'?WCITY().find(([R,C])=>C.id==id):null,o=r||(c&&c[1]),L=o&&o.lr&&S.lore.find(l=>l.id==o.lr);if(!o)return;
+ const doDel=keep=>{if(kind=='r'){S.wreg=WREG().filter(x=>x.id!=id);if(S.cfg.wloc==id)S.cfg.wloc='';if(S.cfg.wclkReg==id)S.cfg.wclkReg=''}else{c[0].C=(c[0].C||[]).filter(x=>x.id!=id)}if(L&&!keep)S.lore=S.lore.filter(l=>l.id!=L.id);XCLOSE('mdel');XCLOSE('wrm');XCLOSE('cym');PLAk='';save();render()};window._mdK=doDel;
+ XMOD('mdel',`<h2 class="f" style="margin-top:0">Delete ${esc(o.n)}?</h2>${L?`<p class="mut">It is also a lore entry, “${esc(L.title)}”.</p><p class="wsrow"><button class="btn red" onclick="_mdK(0)">Delete both</button><button class="btn" onclick="_mdK(1)">Delete from the map, keep the lore entry</button><button class="btn" onclick="XCLOSE('mdel')">Cancel</button></p>`:`<p class="wsrow"><button class="btn red" onclick="_mdK(1)">Delete</button><button class="btn" onclick="XCLOSE('mdel')">Cancel</button></p>`}`,480);const m=document.getElementById('mdel');if(m)m.style.zIndex=140}
+/* the Delete buttons in the region and city forms ask about the lore entry too */
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('#wrm button.btn.red,#cym button.btn.red');if(!b)return;const oc=b.getAttribute('onclick')||'',m=oc.match(/x\.id!='([^']+)'/);if(!m)return;e.preventDefault();e.stopImmediatePropagation();mapDelAsk(b.closest('#wrm')?'r':'c',m[1])},true);
+/* the dossier of a lore place shows that it is on the map */
+XPOST.push(function mapLinkBadge(){if(!(tab=='lore'&&sel))return;const A=plAliases(),a=A[sel];if(!a||document.querySelector('#m .mlnkb'))return;const h=document.querySelector('#m h1, #m h2');if(h)h.insertAdjacentHTML('afterend',`<p class="mlnkb">${ico('mapi',12)} On the map as ${esc(placeName(a))} · weather and clock come from the map</p>`)});
 
 
 render();
