@@ -1,8 +1,8 @@
 {
- "version": "2.12 Beta",
- "build": 204,
+ "version": "2.13 Beta",
+ "build": 205,
  "html": "update/exodus.html",
- "notes": "Regions shown as a tree with subregions and cities, and Table, Timeline and Stats views on every remaining Lore page.",
+ "notes": "Nine Lore sections redesigned with their own options: units, disasters, guilds and jobs, world stats, timeline, world calendar, who is alive, faction power and technology.",
  "win": {
   "version": "1.9.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
