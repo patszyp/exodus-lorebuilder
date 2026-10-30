@@ -3261,6 +3261,7 @@ html.lxcp #m .panel{padding:10px 12px!important;margin-bottom:8px!important}html
 .supl2 .supr.mgr{grid-template-columns:minmax(90px,1.4fr) 70px 76px 62px minmax(190px,1.3fr)}
 .mgwk small{font-size:9px}.mgyr{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:#785a2833}.mgyr>div{background:#010a13;padding:6px;text-align:center}.mgyr small{display:block;font-size:10px;color:#8a8577}.mgyr b{display:block;font-size:15px}.mgyr span{font-size:10px;color:#6c6a62}
 .supwl button.on.wr{border-color:#e8707a;color:#ff9aa2;background:#e8707a18}
+.supfeast{padding:8px 10px;border:1px solid #e0a96d66;background:#e0a96d12;margin-bottom:6px}.supfeast b{display:block;color:#f0e6d2}.supfeast small{color:#e0a96d}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -7994,8 +7995,11 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.18';
+const WNV='2.19';
 const WN=[
+ ['2.19','30 Oct 2026',[
+  ['Lore','Bakery stock','Bread, flour, yeast and pastries that keep only a few days. Link each one to a cereal from Farming: when that cereal runs out in a place, the ovens go cold. Feast days from the calendar double what people eat.',"supT='bake';lcat='Worlds';pickSub('lore','sup')"],
+  ['Lore','Food stock','Salted meat, dried fish, cheese, grain stores and preserves. A famine halves what comes in and raises use, war raises use, and each place can ration or feast.',"supT='food';lcat='Worlds';pickSub('lore','sup')"]]],
  ['2.18','30 Oct 2026',[
   ['Lore','Eight more kinds of supplies','Raw materials and building stock, alchemy raw stock, seeds and agriculture stock, defense and ammo, transport and animal gear, waste and byproducts, textile and raw fiber, and pharmacy and care.',"supT='ov';lcat='Worlds';pickSub('lore','sup')"],
   ['Lore','Supplies react to the world','Wars and tension make a place use arrows and armour faster. Plagues, curses, famines and wars raise medicine use. Building booms use bricks and stone faster, and mud and snow wear out carts and horseshoes.',"supT='def';lcat='Worlds';pickSub('lore','sup')"],
@@ -9642,7 +9646,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.18 Beta',APPB=210;
+const APPV='2.19 Beta',APPB=211;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -13105,7 +13109,7 @@ function supOv(RA,scope){const D=S.dev;
  const cards=SUPC.map(c=>{const L=RA.filter(([r])=>r.c==c[0]),A=L.filter(([,a])=>a.n),top=A.filter(([,a])=>a.a>0).sort((x,y)=>y[1].a-x[1].a)[0],mg=c[0]=='magic'&&A.length?A.slice().sort((x,y)=>y[1].avg-x[1].avg)[0]:null,low=A.reduce((n,[,a])=>n+a.low,0);
   return `<button class="supoc" style="--sc:${c[3]}" onclick="supTab('${c[0]}')"><span class="supoi">${ico(c[2],20)}</span><b>${esc(nm(c[1]))}</b><small>${L.length?`${L.length} kind${L.length==1?'':'s'} · ${A.length} in use`:'Nothing set up'}</small>${top?`<em>${esc(top[0].n)} · ${supF(top[1].a)} ${esc(top[0].u||c[4])} a year</em>`:mg?`<em>${esc(mg[0].n)} · ${Math.round(mg[1].avg)}% today</em>`:''}${low?`<u>${low} running low</u>`:''}</button>`}).join('');
  const act=RA.filter(([,a])=>a.n);
- const lowL=act.filter(([r])=>r.c!='waste').flatMap(([r,a])=>a.R.filter(x=>x.s.days<30&&x.s.use>0).map(x=>[r,x])).sort((a,b)=>a[1].s.days-b[1].s.days).slice(0,8);
+ const lowL=act.filter(([r])=>r.c!='waste'&&!(+r.life&&+r.life<30)).flatMap(([r,a])=>a.R.filter(x=>x.s.days<30&&x.s.use>0).map(x=>[r,x])).sort((a,b)=>a[1].s.days-b[1].s.days).slice(0,8);
  const tr=act.map(([r,a])=>[r,a.x-a.i]).filter(x=>Math.abs(x[1])>0).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1])).slice(0,8),tmx=Math.max(1,...tr.map(x=>Math.abs(x[1])));
  /* places table: direct children of the scope */
  const CU=SUPC.filter(c=>SUP().r.some(r=>r.c==c[0]));
@@ -13242,6 +13246,36 @@ function supAlchCard(scope){const L=SUP().r.filter(r=>r.c=='alch');return wsCard
 {const _sv=supSave;supSave=function(id){const g=i=>{const e=document.getElementById(i);return e?e.value:null},v1=g('sux1'),v2=g('sux2'),v3=g('sux3');_sv.apply(this,arguments);if(document.getElementById('su1'))return;const r=SUP().r.find(x=>x.id==(id||supSel));if(!r)return;if(v1!=null)r.vol=v1;if(v2!=null)r.life=v2===''?'':+v2;if(v3!=null)r.crop=v3;save();render()}}
 /* disasters and wars get a place, so supplies can react to them */
 ['dis','wars'].forEach(k=>{const D=RECS[k];if(!D||D.f.some(f=>f.k=='where'))return;const i=D.f.findIndex(f=>f.k=='ye');D.f.splice(i<0?D.f.length:i+1,0,{k:'where',l:'Region, subregion or city',t:'sel',o:()=>[['','—'],...PLO().map(x=>[x[0],'  '.repeat(x[2])+x[1]])]});delete D._f0});
+
+/* ===== 2.19: Supplies — bakery stock and food stock ===== */
+Object.assign(ICOP,{bakex:'M2.5 9.5C2.5 6 5 4 8 4s5.5 2 5.5 5.5V12h-11zM5.5 6.5l1 2M8 5.5v2.5M10.5 6.5l-1 2',foodstx:'M3 6h10v7.5H3zM2.5 3.5h11V6h-11zM6.5 8.5h3'});
+Object.assign(PL,{"Bakery stock":"Zapasy piekarni","Food stock":"Zapasy żywności","Rations":"Racje","Normal":"Normalnie","Rationing":"Racjonowanie","Feast":"Uczta","Feast days":"Dni świąteczne","Out of flour":"Brak mąki","Made from":"Robione z"});
+SUPC.push(
+ ['bake','Bakery stock','bakex','#e0a96d','loaves',['Bread','Flour','Yeast','Pastries','Cakes','Hardtack','Other'],'',.1,'Bread, flour, yeast and pastries. Fresh bread keeps only a few days. Link it to a cereal from Farming: when that cereal runs out in a place, the ovens go cold. People eat more on feast days.'],
+ ['food','Food stock','foodstx','#d4b26a','barrels',['Grain stores','Salted meat','Dried fish','Smoked meat','Cheese','Pickled','Dried fruit','Preserves','Other'],'',0,'Food kept in store for winter, sieges and bad years. A famine halves what comes in and makes people use more, a war uses more, and a place can ration or feast.']);
+const SUPRA=[['','Normal'],['r','Rationing'],['f','Feast']],SUPRM={'':1,r:.6,f:1.5};
+function supHolToday(off){const c=WC(),t=wcToday();return (c.hol||[]).filter(h=>+h.m==t.m&&+h.d==t.d)}
+function supHolNext(n){const c=WC(),M=c.months,t=wcToday(),tot=M.reduce((a,m)=>a+(+m.d||0),0)||1,doy=M.slice(0,t.m).reduce((a,m)=>a+(+m.d||0),0)+t.d;return (c.hol||[]).map(h=>{const d=M.slice(0,+h.m).reduce((a,m)=>a+(+m.d||0),0)+(+h.d||1);return [h,((d-doy)%tot+tot)%tot]}).sort((a,b)=>a[1]-b[1]).slice(0,n||5)}
+function supFamine(pid){return supActive('dis',pid).filter(o=>o.kind=='Famine')}
+function supCropOut(r,pid){if(!r.crop)return false;const cr=SUP().r.find(x=>x.id==r.crop);if(!cr)return false;const P=SUP().p;let p=pid,n=0;while(p&&n++<8){const q=P[p]&&P[p][cr.id];if(q)return supSim(cr,q).now<=0;p=placeUp(p)}return false}
+/* use: rations, famine and war; output: famine and empty flour stores */
+{const _um=supUM;supUM=function(r,pid){if(r.c!='bake'&&r.c!='food')return _um.apply(this,arguments);if(!pid)return 1;let m=SUPRM[(SUP().ra||{})[pid]||'']||1;if(r.c=='food'){if(supFamine(pid).length)m*=1.5;if(supWarOf(pid)=='w')m*=1.3}return m}}
+{const _ss=supSim;supSim=function(r,q){if(r.c!='bake'&&r.c!='food')return _ss.apply(this,arguments);const P=SUP().p,pid=Object.keys(P).find(k=>P[k][r.id]===q)||'',um=pid?supUM(r,pid):1;let q2=um!=1?Object.assign({},q,{_um:um}):q;
+ if(+r.life&&(q.s0===''||q.s0==null)){const a=+q.a||0,tp=(q.tp===''||q.tp==null?30:+q.tp)/100,U=q.t=='exp'?a:q.t=='imp'?a*(1+tp):a;q2=Object.assign({},q2,{s0:U*Math.min(+r.life,90)/365})}
+ return _ss.call(this,r,q2)}}
+{const _ac=supAcc;supAcc=function(r,pid){if(r.c=='bake')return supCropOut(r,pid)?0:1;if(r.c=='food')return supFamine(pid).length?.5:1;return _ac.apply(this,arguments)}}
+/* cards */
+function supRaSet(pid,v){const R=SUP().ra=SUP().ra||{};if(v)R[pid]=v;else delete R[pid];save();render()}
+function supRaCard(scope){const D=S.dev,R=SUP().ra||{},used=new Set();SUP().r.filter(r=>r.c=='food'||r.c=='bake').forEach(r=>Object.keys(SUP().p).forEach(p=>{if(SUP().p[p][r.id])used.add(p)}));Object.keys(R).forEach(p=>used.add(p));const L=[...used].filter(p=>!scope||placeIn(p,scope));
+ return wsCard('foodstx',nm('Rations'),'Rationing makes stores last longer, a feast empties them faster. Famines and wars count on their own.',L.length?`<div class="supwl">${L.map(p=>{const own=R[p]||'',fam=supFamine(p),war=supWarOf(p)=='w';return `<div><b>${esc(supPN(p))}</b><span>${D?SUPRA.map(([v,l])=>`<button class="${own==v?'on':''} ${v=='r'?'wr':''}" onclick="supRaSet('${p}','${v}')">${esc(nm(l))}</button>`).join(''):`<em>${esc(nm((SUPRA.find(x=>x[0]==own)||SUPRA[0])[1]))}</em>`}</span>${fam.length||war?`<small class="hot">${[...fam.map(o=>'Famine: '+esc(o.n)),war?'At war':''].filter(Boolean).join(' · ')}</small>`:''}</div>`}).join('')}</div>`:'<p class="mut">No places yet.</p>')}
+function supFeastCard(){const T=supHolToday(),N=supHolNext(5);return wsCard('bakex',nm('Feast days'),'From the world calendar. Bakers bake more and people eat more on these days.',`${T.length?`<div class="supfeast"><b>${T.map(h=>esc(h.n)).join(', ')}</b><small>today · people eat about twice as much</small></div>`:''}${N.length?N.map(([h,d])=>`<div class="suplw"><span><b>${esc(h.n)}</b><small>${esc((WC().months[+h.m]||{}).n||'')} ${h.d}</small></span><em>${d?'in '+d+' day'+(d==1?'':'s'):'today'}</em></div>`).join(''):'<p class="mut">No feast days in the calendar. Add them in Time › Calendar.</p>'}`)}
+function supBakeCard(scope){const L=SUP().r.filter(r=>r.c=='bake');return wsCard('farmx',nm('Made from'),'Which cereal each one needs, and whether the flour is there',`<div class="supql">${L.map(r=>{const cr=r.crop&&SUP().r.find(x=>x.id==r.crop),out=supAgg(r,scope).R.filter(x=>supCropOut(r,x.pid));return `<div><b>${esc(r.n)}</b><small class="mut">${cr?esc(cr.n):'No cereal linked'}${+r.life?' · keeps '+r.life+' days':''}${out.length?` · <span class="hot">${esc(nm('Out of flour'))} in ${out.map(x=>esc(supPN(x.pid))).join(', ')}</span>`:''}</small><span class="supq" style="--qc:${out.length?'#e8707a':cr?'#3fc98a':'#a09b8c'}">${out.length?'Ovens cold':cr?'Baking':'—'}</span></div>`}).join('')}</div>`)}
+{const _sc=supCat;supCat=function(c,scope){const h=_sc.apply(this,arguments);if(!SUP().r.some(r=>r.c==c[0]))return c[0]=='bake'?h+supFeastCard():h;return h+(c[0]=='bake'?`<div class="wsg2">${supBakeCard(scope)}${supFeastCard()}</div>`:c[0]=='food'?supRaCard(scope):'')}}
+/* today: feast days double what is eaten */
+{const _ag=supAgg;supAgg=function(r,scope){const a=_ag.apply(this,arguments);if((r.c=='bake'||r.c=='food')&&supHolToday().length){a.use*=2;a.days=a.use>0?a.now/a.use:Infinity}if(+r.life&&+r.life<30)a.low=a.R.filter(x=>x.s.days<.5).length;return a}}
+/* editor: link a cereal, how long it keeps */
+{const _se=supEdit;supEdit=function(id,cat){_se.apply(this,arguments);const r=SUP().r.find(x=>x.id==id)||{c:cat||supT},host=document.getElementById('su8');if(!host||(r.c!='bake'&&r.c!='food'))return;
+ host.previousElementSibling.insertAdjacentHTML('beforebegin',`<div class="gcdxg">${r.c=='bake'?`<div><label>Made from (cereal in Farming)</label><select id="sux3"><option value="">—</option>${SUP().r.filter(x=>x.c=='farm').map(x=>`<option value="${x.id}" ${r.crop==x.id?'selected':''}>${esc(x.n)}</option>`).join('')}</select></div>`:''}<div><label>Keeps for, days</label><input id="sux2" type="number" min="0" value="${esc(r.life??(r.id?'':r.c=='bake'?3:''))}" placeholder="${r.c=='bake'?'3':'365'}"></div></div>`)}}
 
 
 render();

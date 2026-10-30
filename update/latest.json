@@ -1,8 +1,8 @@
 {
-  "version": "2.18 Beta",
-  "build": 210,
+  "version": "2.19 Beta",
+  "build": 211,
   "html": "update/exodus.html",
-  "notes": "Supplies: eight more kinds (building stock, alchemy, seeds, defense and ammo, transport gear, waste, textiles, pharmacy) that react to wars, plagues, building booms and weather.",
+  "notes": "Supplies: Bakery stock (linked to cereals, feast days) and Food stock (famine, war, rationing and feasts).",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
