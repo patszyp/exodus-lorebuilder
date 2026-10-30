@@ -2945,6 +2945,34 @@ td.up,span.up{color:#3fc98a}td.dn,span.dn{color:#e8707a}
 .ecsx>table{width:100%}
 .mlsl text{pointer-events:none}
 .rcbd{display:block;width:100%}.rcbd .ecsx{width:100%}.rcbd table.rct{width:100%!important}.rct td,.rct th{white-space:nowrap}
+/* 2.10 weather window */
+.wxn .wxnh{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 44px 10px 0}
+.wxnp{display:flex;gap:8px;align-items:center;margin:0;flex:1;min-width:200px}.wxnp span{color:#a09b8c;font-size:13px}.wxnp select{flex:1;min-width:0}
+.wxn .wxxt{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:6px 0 10px}.wxn .wxxt b.f{font-size:54px;line-height:1}.wxn .wxxt>span{display:flex;flex-direction:column;font-size:20px;color:#f0e6d2}.wxn .wxxt>span small{font-size:12px;color:#a09b8c;margin-top:2px}.wxn .wxxmo{margin-left:auto;flex-direction:row!important;font-size:15px!important;gap:6px}
+.wxhs{display:flex;gap:4px;align-items:stretch;margin:0 0 12px}
+.wxha{flex:none;width:28px!important;height:auto!important;font-size:20px!important}
+.wxhl{flex:1;display:flex;gap:4px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;padding-bottom:4px}
+.wxhc{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:4px;width:62px;padding:8px 4px;border:1px solid #785a2844;background:rgba(1,10,19,.45);color:#cdc6b4;cursor:pointer;font:inherit}
+.wxhc small{font-size:11px;color:#a09b8c}.wxhc b{font:700 15px Inter,system-ui,sans-serif;color:#f0e6d2}.wxhc em{font-style:normal;font-size:11px;color:#5aa7ff;min-height:14px}
+.wxhc.nt{background:rgba(2,6,14,.8)}.wxhc.on{border-color:#c8aa6e;background:linear-gradient(180deg,rgba(200,170,110,.2),rgba(1,10,19,.5));box-shadow:inset 0 -2px 0 #c8aa6e}
+.wxhm{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:44px;color:#f0c060;font-size:10px}.wxhm.set{color:#8aa0ff}
+.wxhd{flex:none;display:flex;align-items:center;padding:0 4px}.wxhd small{writing-mode:vertical-rl;transform:rotate(180deg);font:600 10px Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#c8aa6e;border-left:1px solid #785a2866;padding-left:4px}
+.wxn .wxxf{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:6px}
+.wxn .wxxf button{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 2px;border:1px solid #785a2844;background:rgba(1,10,19,.4);color:#cdc6b4;cursor:pointer;font:inherit}.wxn .wxxf button.on{border-color:#c8aa6e;background:#c8aa6e14}.wxn .wxxf small{font-size:11px}
+@media(max-width:560px){.wxn .wxxf{grid-template-columns:repeat(4,minmax(0,1fr))}.wxn .wxxt b.f{font-size:44px}.wxn .wxxmo{margin-left:0}}
+/* subregions */
+.lrs{margin-top:12px;padding-top:10px;border-top:1px dashed #785a2855}
+.lrsl{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.lrsi{display:grid;grid-template-columns:minmax(110px,1fr) 2fr auto auto;gap:10px;align-items:center;padding:6px 8px;border:1px solid #785a2844;background:rgba(200,170,110,.04)}
+.lrsi b{color:#f0e6d2}.lrsi label{display:flex;gap:6px;align-items:center;margin:0;font-size:12px;color:#a09b8c}.lrsi label input{flex:1}
+.lrsv{margin:10px 0;padding:10px 12px;border:1px solid #785a2844;background:rgba(1,10,19,.4)}
+.lrcpt{display:inline-flex;gap:4px;align-items:center;font-size:12px;color:#f0c060}
+@media(max-width:600px){.lrsi{grid-template-columns:1fr auto}.lrsi label{grid-column:1/-1}}
+/* tool bar for Lore pages */
+.lxtb{padding:8px 10px;border:1px solid #785a2833;background:rgba(1,10,19,.45)}
+html.lxcp #m .panel{padding:10px 12px!important;margin-bottom:8px!important}html.lxcp #m p{margin:4px 0}html.lxcp #m table td,html.lxcp #m table th{padding:4px 6px!important}html.lxcp #m .lxh{padding:10px 12px}
+@media print{html.lxpr header,html.lxpr #nav,html.lxpr .lxtb,html.lxpr .crxin,html.lxpr #bbar,html.lxpr footer,html.lxpr button,html.lxpr .ovl{display:none!important}html.lxpr body{background:#fff!important;color:#000!important}html.lxpr #m *{color:#000!important;background:none!important;border-color:#999!important;box-shadow:none!important}}
+@media(max-width:560px){.wxn .wxxf{display:flex!important;overflow-x:auto;scrollbar-width:none}.wxn .wxxf button{flex:0 0 74px}}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -7678,8 +7706,12 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.9';
+const WNV='2.10';
 const WN=[
+ ['2.10','30 Oct 2026',[
+  ['Lore','Live hourly weather','Pick any region, subregion or city in the weather window and swipe through the hours. Temperature, clouds, rain, wind, humidity, visibility and sun strength follow the time of day.',"wxOpen()"],
+  ['Lore','Subregions with a capital','Regions can have subregions, each with its own capital and cities.',"go('lore');render()"],
+  ['Lore','Tools on every Lore page','Search, sort, compact view, open or close all, export and print on every Lore page.',"go('lore');render()"]]],
  ['2.9','30 Oct 2026',[
   ['Lore','Layers side by side, and a cut you can drag','Layers at the same depth share one level. In Cross-section › Side view, drag a layer to move it, its sides to change its length and its bottom to change its thickness.',"go('lore');lsub='map';mapLV='cut';render()"],
   ['Lore','Economies for regions and cities','Pick a region or city at the top of Economy to see its own economy, or give it one. New: a stock market with companies whose value changes every day, and the worth of money between places.',"go('lore');lsub='eco';render()"],
@@ -9288,7 +9320,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.9 Beta',APPB=201;
+const APPV='2.10 Beta',APPB=202;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -11517,7 +11549,7 @@ wclkWhich=function(){const k=S.cfg.wclkReg||'';if(k=='w')return wrWorld;if(k&&k!
 {const _wo2=wclkOpts;wclkOpts=function(){const h=_wo2.apply(this,arguments),C=WCITY().map(([r,c])=>`<option value="c:${c.id}" ${S.cfg.wclkReg=='c:'+c.id?'selected':''}>${esc(c.n)} (${esc(r.n)})</option>`).join('');return h.replace('<option value="off"',C+'<option value="off"')}}
 /* order: weather, clock, Wi-Fi, then the rest; the weather follows the chosen place */
 function tbOrder(){const t=document.querySelector('#mtb .tools');if(!t)return;const L=['wxb','wclk','wfmark'].map(i=>document.getElementById(i)).filter(Boolean);let prev=null;L.forEach(e=>{if(e.parentNode!==t)return;if(prev){if(prev.nextSibling!==e)prev.after(e)}else if(t.firstChild!==e)t.insertBefore(e,t.firstChild);prev=e});
- const b=document.getElementById('wxb');if(b&&S.cfg.wclkBar!==0){const p=wclkWhich();if(p&&p.id){try{const W=wxAt(p,0),h=`${ico(wxIco[W.w]||'cloudx',14)}<span>${wxT(W.temp)}</span>`;if(b.innerHTML!=h)b.innerHTML=h;b.title=nm('Weather')+' · '+(p.full||p.n)}catch(e){}}}}
+ const b=document.getElementById('wxb');if(b&&S.cfg.wclkBar!==0){const p=wclkWhich();if(p&&p.id){try{const W=typeof wxHour=='function'?(x=>({w:x.w,temp:x.t}))(wxHour('m:'+p.id,0,Math.floor(wxClock('m:'+p.id)))):wxAt(p,0),h=`${ico(wxIco[W.w]||'cloudx',14)}<span>${wxT(W.temp)}</span>`;if(b.innerHTML!=h)b.innerHTML=h;b.title=nm('Weather')+' · '+(p.full||p.n)}catch(e){}}}}
 {const _wm=wclkMark0;wclkMark0=function(){const r=_wm.apply(this,arguments);tbOrder();return r}}
 {const _wf=wfMark;wfMark=function(){const r=_wf.apply(this,arguments);tbOrder();return r}}
 XPOST.push(tbOrder);
@@ -11912,6 +11944,119 @@ if(!ICOP.chart)ICOP.chart='M2 14h12M4 11l3-4 3 2 4-6';
 /* the overview of a place shows its companies and how strong its money is */
 {const _ov=lecOv;lecOv=function(){let h=_ov.apply(this,arguments);if(!lecP)return h;const L=STX().co.filter(coInScope).map(c=>[c,coNow(c),coChg(c)]).sort((a,b)=>b[1]*(+b[0].sh||1)-a[1]*(+a[0].sh||1)).slice(0,5),v=fxNow(lecP),ch=fxChg(lecP);
  return h+`<div class="wsg2">`+wsCard('chart','Companies here','Today on the stock market.',L.length?`<table class="ect"><tbody>${L.map(([c,p,x])=>`<tr onclick="lecT='st';stkSel='${c.id}';render()" style="cursor:pointer"><td><b>${esc(c.n)}</b></td><td class="lcpr">${lfmt(p)} ${esc(wSym())}</td><td class="${x>=0?'up':'dn'}">${x>=0?'▲':'▼'} ${Math.abs(x).toFixed(2)}%</td></tr>`).join('')}</tbody></table>`:'<p class="mut" style="margin:0">No companies here yet.</p>')+wsCard('dia','Money here','How strong money is in '+esc(lecPN(lecP))+'.',`<div class="stdh"><b>${(v*100).toFixed(1)}</b><span class="${ch>=0?'up':'dn'}">${ch>=0?'▲':'▼'} ${Math.abs(ch).toFixed(2)}% today</span></div>${stChart(fxSeries(lecP,30),ch>=0?'#3fc98a':'#e8707a',300,60)}`)+`</div>`}}
+
+/* ===== 2.10: live hourly weather for any region, subregion or city ===== */
+Object.assign(PL,{"Now":"Teraz","Clear":"Bezchmurnie","Hourly":"Co godzinę","Next 7 days":"Następne 7 dni"});
+Object.assign(wxName,{clear:'Clear'});wxIco.clear='moonx';
+let wxK=(()=>{try{return localStorage.getItem('exodus.wxk')||''}catch(e){return ''}})(),wxSel=0;
+const hmN=s=>{const m=/(\d+):(\d+)/.exec(String(s||''));return m?+m[1]+(+m[2])/60:null};
+/* places that can have weather: map regions and cities, and lore regions, subregions and cities */
+function wxPlaces(){const out=[['','World (default)','']];try{lecRegs().forEach(([id,n,c])=>out.push(['m:'+id,n,c?'city':'map']))}catch(e){}
+ const lr=S.lore.filter(l=>typeof lrIsReg=='function'&&lrIsReg(l)),top=lr.filter(l=>!(l.adv&&l.adv.parent&&lr.some(x=>x.id==l.adv.parent)));
+ const walk=(R,dep)=>{out.push(['l:'+R.id,R.title,dep?'sub':'lore',dep]);lr.filter(x=>x.adv&&x.adv.parent==R.id).forEach(x=>walk(x,dep+1));(typeof lrCities=='function'?lrCities(R):[]).forEach(c=>out.push(['l:'+c.id,c.title,'lcity',dep+1]))};top.forEach(R=>walk(R,0));
+ (typeof WXR=='function'?WXR():[]).forEach(r=>{if(!out.some(x=>x[0]=='l:'+r.id)){const l=S.lore.find(x=>x.id==r.id);if(l)out.push(['l:'+r.id,l.title,'lore',0])}});return out}
+/* weather of a place for a day offset */
+const WXC={};
+function wxPD(key,off){const ck=key+'|'+off+'|'+ymd(new Date());if(WXC[ck])return WXC[ck];let d;
+ if(key.startsWith('m:')){const p=placeFind(key.slice(2));d=p?wxAt(p,off):wxDay(off,'')}
+ else if(key.startsWith('l:')){let id=key.slice(2),n=0;d=null;while(id&&n++<6){if(wxRegOf(id)){d=wxDay(off,id);break}const R=WREG().find(r=>r.lr==id);if(R){d=wxAt(R,off);break}let cc=null;WREG().forEach(r=>(r.C||[]).forEach(c=>{if(c.lr==id)cc=cityP(r,c)}));if(cc){d=wxAt(cc,off);break}const l=S.lore.find(x=>x.id==id);id=l&&l.adv?(l.adv.rid||l.adv.parent||''):''}if(!d)d=wxDay(off,'')}
+ else d=wxDay(off);WXC[ck]=d;return d}
+setInterval(()=>{Object.keys(WXC).forEach(k=>delete WXC[k])},6e5);
+/* the local clock of a place */
+function wxClock(key){let p=null;if(key.startsWith('m:'))p=placeFind(key.slice(2));else if(key.startsWith('l:')){let id=key.slice(2),n=0;while(id&&!p&&n++<6){const R=WREG().find(r=>r.lr==id);if(R)p=R;WREG().forEach(r=>(r.C||[]).forEach(c=>{if(c.lr==id)p=cityP(r,c)}));const l=S.lore.find(x=>x.id==id);id=l&&l.adv?(l.adv.rid||l.adv.parent||''):''}}else p=wclkWhich&&wclkWhich();const t=regTime(p&&p.id!=null?p:wrWorld);return t.h+t.m/60}
+/* one hour, worked out from the day: sun, temperature curve, clouds, rain, wind and the rest follow the time of day */
+const wxN=(s,k)=>((xHash(s+':'+k)>>>0)%1000)/1000;
+function wxSmooth(seed,h){const a=Math.floor(h/3),f=(h/3)-a,v0=wxN(seed,a),v1=wxN(seed,a+1);return v0+(v1-v0)*(1-Math.cos(f*Math.PI))/2}
+function wxHour(key,off,h){const d=wxPD(key,off),prev=wxPD(key,off-1),next=wxPD(key,off+1),M=wxMon(d.t.m),r=hmN(d.rise)??6,s=hmN(d.set)??20,pk=Math.min(s-1,Math.max(r+2,15)),seed=key+ymd(new Date(Date.now()+off*864e5));
+ const amp=dd=>{const m=wxMon(dd.t.m);return Math.max(3,(+m.tmax-+m.tmin)*.45)*(1-dd.cl/220)};const lo=dd=>dd.temp-amp(dd)/2,hi=dd=>dd.temp+amp(dd)/2;let t;
+ if(h>=r&&h<=pk)t=lo(d)+(hi(d)-lo(d))*(1-Math.cos(Math.PI*(h-r)/(pk-r)))/2;else if(h>pk)t=hi(d)-(hi(d)-lo(next))*(1-Math.cos(Math.PI*(h-pk)/(24+((hmN(next.rise)??r))-pk)))/2;else{const pr=hmN(prev.rise)??r,pp=Math.min((hmN(prev.set)??s)-1,Math.max(pr+2,15));t=hi(prev)-(hi(prev)-lo(d))*(1-Math.cos(Math.PI*(h+24-pp)/(24+r-pp)))/2}
+ const night=h<r||h>=s,day=night?0:Math.sin(Math.PI*(h-r)/(s-r));
+ let cl=Math.max(0,Math.min(100,d.cl+(wxSmooth(seed+'c',h)-.5)*40));
+ const wetDay={rain:1,storm:1,snow:1,hail:1}[d.w];const wn=wxSmooth(seed+'w',h),wetShare=Math.max(.15,Math.min(.85,(d.pop||50)/100*.8)),wet=wetDay&&wn<wetShare;
+ if(wet)cl=Math.max(cl,75);
+ let w;if(wet)w=d.w=='rain'&&t<=0?'snow':d.w=='snow'&&t>2?'rain':d.w;else if(d.w=='fog'&&(h<r+3||h>s+1))w='fog';else if((d.w=='sand'||d.w=='magic')&&wn<.55)w=d.w;else if(cl>68)w='cloud';else w=night?'clear':'sun';
+ let hu=Math.max(10,Math.min(100,d.hu+(d.temp-t)*2.6+(wet?12:0)+(w=='fog'?15:0)));
+ const a=17.27,b=237.7,al=a*t/(b+t)+Math.log(hu/100),dew=b*al/(a-al);
+ let wi=Math.max(0,d.wi*(.7+.5*day)*(.85+.3*wxSmooth(seed+'v',h))*(w=='storm'?1.5:1));
+ const dirs=WDIR,di=Math.max(0,dirs.indexOf(d.dir||'N')),dir=dirs[(di+(wxSmooth(seed+'d',h)>.7?1:wxSmooth(seed+'d',h)<.2?7:0))%8];
+ const feels=t>=26?t+(hu-40)/10:t<=10&&wi>4?13.1+.62*t-11.4*Math.pow(wi,.16)+.39*t*Math.pow(wi,.16):t;
+ const pop=Math.round(wet?55+wxN(seed+'p',h)*40:wetDay?10+cl*.2:Math.min(40,cl*.3*wxN(seed+'p2',Math.floor(h/3))));
+ const mm=wet?Math.round(((d.mm||2)/(24*wetShare))*(.5+wxN(seed+'m',h))*10)/10:0;
+ const pr=Math.round((d.pr||1013)+1.4*Math.sin(2*Math.PI*(h-10)/12)-(wet?2:0)-(w=='storm'?4:0));
+ let vis=w=='fog'?.3+wxN(seed+'f',h)*.9:w=='sand'?.3+wxN(seed+'f',h)*.6:w=='snow'||w=='hail'?1.5+wxN(seed+'f',h)*2:w=='rain'||w=='storm'?4+wxN(seed+'f',h)*4:Math.max(6,24-(hu-40)*.28);
+ const uv=night?0:Math.max(0,Math.round(Math.max(1,(d.uv||2)*1.35)*day*(1-cl/140)));
+ return {h,t,w,cl:Math.round(cl),hu:Math.round(hu),dew,wi:Math.round(wi),dir,feels,pop,mm,pr,vis:Math.round(vis*10)/10,uv,night,d,rise:d.rise,set:d.set}}
+/* ---------- the window ---------- */
+function wxHours(key){const now=wxClock(key),h0=Math.floor(now),out=[];for(let k=0;k<7*24-h0;k++){const hh=h0+k,off=Math.floor(hh/24),h=hh%24;out.push(Object.assign(wxHour(key,off,h),{k,off}))}return {now,h0,L:out}}
+const hh2=h=>String(Math.floor(h)).padStart(2,'0')+':00';
+wxOpen=function(keep){if(!keep)wxSel=0;const key=wxK,P=wxPlaces();if(key&&!P.some(p=>p[0]==key))wxK='';const {now,L}=wxHours(wxK),H=L[Math.min(wxSel,L.length-1)],T=H.d,ic=(w,s)=>ico(wxIco[w]||'cloudx',s||16);
+ const name=(P.find(p=>p[0]==wxK)||P[0])[1];
+ const grp=(lbl,f)=>{const L2=P.filter(f);return L2.length?`<optgroup label="${esc(lbl)}">${L2.map(([id,n,k,dep])=>`<option value="${id}" ${wxK==id?'selected':''}>${'  '.repeat((dep||0)+(k=='city'?1:0))}${k=='city'||k=='lcity'?'· ':''}${esc(n)}</option>`).join('')}</optgroup>`:''};
+ const sel=`<select onchange="wxK=this.value;try{localStorage.setItem('exodus.wxk',wxK)}catch(e){};wxOpen()"><option value="" ${!wxK?'selected':''}>${esc(nm('World (default)'))}</option>${grp('Map',p=>p[0].startsWith('m:'))}${grp('Lore',p=>p[0].startsWith('l:'))}</select>`;
+ const isHome=wxK.startsWith('m:')?S.cfg.wclkReg==wxK.slice(2):wxK.startsWith('l:')?WXS().home==wxK.slice(2):false;
+ const days=[];L.forEach(x=>{if(!days.some(d=>d.off==x.off))days.push({off:x.off,k:x.k,d:x.d,hs:L.filter(y=>y.off==x.off)})});
+ const tiles=[[wxT(H.feels),'Feels like'],[H.cl+'%','Clouds'],[H.hu+'%','Humidity'],[H.pop+'%','Chance of rain'],[(H.w=='snow'?Math.round(H.mm*1.2*10)/10+' cm':H.mm+' mm'),H.w=='snow'?'Snow':'Rain'],[wxT(H.dew),'Dew point'],[H.wi+' km/h '+H.dir,'Wind'],[H.pr+' hPa','Pressure'],[H.vis+' km','Visibility'],['UV '+H.uv,'Sun strength'],[T.rise,'Sunrise'],[T.set,'Sunset']];
+ const strip=L.map((x,i)=>{const rs=hmN(x.rise),st=hmN(x.set);let mk='';if(rs!=null&&Math.floor(rs)==x.h)mk=`<div class="wxhm sun" title="Sunrise">${ico('sunx',12)}<small>${esc(x.rise)}</small></div>`;if(st!=null&&Math.floor(st)==x.h)mk=`<div class="wxhm set" title="Sunset">${ico('moonx',12)}<small>${esc(x.set)}</small></div>`;
+  return `${x.h==0&&i?`<div class="wxhd"><small>${x.d.t.d} ${esc((x.d.mn||'').slice(0,3))}</small></div>`:''}<button class="wxhc ${i==wxSel?'on':''} ${x.night?'nt':''}" onclick="wxSel=${i};wxOpen(1)"><small>${i==0?esc(nm('Now')):hh2(x.h)}</small>${ic(x.w,18)}<b>${wxT(x.t)}</b><em>${x.pop>=20?x.pop+'%':'&nbsp;'}</em></button>${mk}`}).join('');
+ XMOD('wxm',`<div class="wxn"><div class="wxnh"><label class="wxnp"><span>${esc(nm('Region'))}</span>${sel}</label>${S.dev&&wxK?`<button class="btn ${isHome?'':'dev'}" ${isHome?'disabled':''} onclick="${wxK.startsWith('m:')?`S.cfg.wclkBar=1;S.cfg.wclkReg='${wxK.slice(2)}'`:`WXS().home='${wxK.slice(2)}'`};save();render();wxOpen(1)">${isHome?'Shown in the top bar':'Show in the top bar'}</button>`:''}</div>
+ <small class="evk">${esc(name)} · ${T.t.d} ${esc(T.mn)}, year ${T.t.y} · ${wxSel==0?esc(nm('Now'))+' '+String(Math.floor(now)).padStart(2,'0')+':'+String(Math.round((now%1)*60)).padStart(2,'0'):hh2(H.h)}</small>
+ <div class="wxxt">${ic(H.w,30)}<b class="f">${wxT(H.t)}</b><span>${esc(nm(wxName[H.w]||H.w))}<small>${esc(nm('Feels like'))} ${wxT(H.feels)} · ${wxT(Math.min(...days[0].hs.map(x=>x.t).concat([H.t])))} / ${wxT(Math.max(...days[0].hs.map(x=>x.t).concat([H.t])))}</small></span>${T.moon?`<span class="wxxmo" title="${esc(T.moon.n)}">${moonSvg(T.moon.ph)} ${esc(T.moon.nm)}</span>`:''}</div>${T.seasons.length||T.aur?`<p class="tag">${esc([...T.seasons,T.aur?'Northern lights tonight':''].filter(Boolean).join(' · '))}</p>`:''}
+ <div class="wxhs"><button class="ic wxha" onclick="document.getElementById('wxhl').scrollBy({left:-300,behavior:'smooth'})" aria-label="Earlier">‹</button><div class="wxhl" id="wxhl">${strip}</div><button class="ic wxha" onclick="document.getElementById('wxhl').scrollBy({left:300,behavior:'smooth'})" aria-label="Later">›</button></div>
+ <div class="styxs wxxs">${tiles.map(t=>`<div><b>${esc(t[0])}</b><small>${esc(nm(t[1]))}</small></div>`).join('')}</div>
+ <small class="evk">${esc(nm('Next 7 days'))}</small><div class="wxxf">${days.map((x,i)=>{const lo=Math.min(...x.hs.map(y=>y.t)),hi=Math.max(...x.hs.map(y=>y.t)),mid=x.hs.find(y=>y.h==13)||x.hs[Math.floor(x.hs.length/2)];const on=L[wxSel]&&L[wxSel].off==x.off;return `<button class="${on?'on':''}" onclick="wxSel=${(x.hs.find(y=>y.h==12)||x.hs[0]).k};wxOpen(1);setTimeout(()=>{const e=document.querySelector('#wxhl .wxhc.on');if(e)e.scrollIntoView({inline:'center',block:'nearest'})},30)"><small>${i==0?esc(nm('Today')):x.d.t.d+' '+esc((x.d.mn||'').slice(0,3))}</small>${ic(mid.w)}<b>${wxT(hi)}</b><small class="mut">${wxT(lo)}</small><small class="mut">${Math.max(...x.hs.map(y=>y.pop))}%</small></button>`}).join('')}</div>
+ ${S.dev?`<p style="margin:10px 0 0"><button class="btn" onclick="XCLOSE('wxm');lcat='Worlds';pickSub('lore','time');tlv='cal';render()">Edit weather</button></p>`:''}</div>`,640);
+ setTimeout(()=>{const e=document.querySelector('#wxhl .wxhc.on');if(e&&keep)e.scrollIntoView({inline:'center',block:'nearest'})},20)};
+/* stays live while open */
+let wxLH=-1;setInterval(()=>{if(!document.getElementById('wxm'))return;const h=Math.floor(wxClock(wxK));if(wxLH>=0&&h!=wxLH){const keep=wxSel;wxOpen(1);wxSel=keep}wxLH=h},30000);
+/* the top bar shows the weather of this hour, not the day */
+XPOST.push(function wxbHour(){const b=document.getElementById('wxb');if(!b)return;try{const p=wclkWhich(),key=p&&p.id?'m:'+p.id:'',H=wxHour(key,0,Math.floor(wxClock(key))),h=`${ico(wxIco[H.w]||'cloudx',14)}<span>${wxT(H.t)}</span>`;if(b.innerHTML!=h)b.innerHTML=h;b.onclick=()=>{wxK=key||wxK;wxOpen()}}catch(e){}});
+
+/* ===== 2.10: subregions with their own capital ===== */
+Object.assign(PL,{"Subregions":"Podregiony","Part of":"Część"});
+const lrSubs=R=>R?S.lore.filter(l=>l!==R&&lrIsReg(l)&&l.adv&&l.adv.parent==R.id):[];
+const lrParent=o=>o&&o.adv&&o.adv.parent?S.lore.find(x=>x.id==o.adv.parent):null;
+function lrAllCities(R,d){d=d||0;if(!R||d>5)return [];return lrCities(R).concat(...lrSubs(R).map(x=>lrAllCities(x,d+1)))}
+const lrSubsOn=rid=>{const R=S.lore.find(x=>x.id==rid);const A=advCtx=='l:'+rid&&advTmp?advTmp:(R&&R.adv)||{};return !!A.subs||lrSubs(R).length>0};
+function lrSubTog(rid,on){if(advCtx=='l:'+rid&&advTmp)advTmp.subs=on?1:0;const R=S.lore.find(x=>x.id==rid);if(R){R.adv=R.adv||{};R.adv.subs=on?1:0;save()}lrRedraw()}
+function lrSubNew(rid){const R=S.lore.find(x=>x.id==rid),n=(document.getElementById('lrsn')||{}).value,c=(document.getElementById('lrsc')||{}).value;if(!R||!n||!n.trim())return toast('Type the subregion’s name');const l={id:'l'+(S.nid++),title:n.trim(),cat:R.cat||'Worlds',sub:'Regions',text:'',links:[R.id],adv:{_t:'region',parent:R.id,capital:(c||'').trim()}};S.lore.push(l);try{newId(l,'LOR')}catch(e){}save();lrRedraw();toast(l.title+' added')}
+function lrSubLink(rid,id){const o=S.lore.find(x=>x.id==id);if(!o||id==rid)return;o.adv=o.adv||{};o.adv._t='region';o.adv.parent=rid;save();lrRedraw()}
+function lrSubUnlink(id){const o=S.lore.find(x=>x.id==id);if(o&&o.adv){delete o.adv.parent;save();lrRedraw()}}
+function lrSubCap(id,v){const o=S.lore.find(x=>x.id==id);if(o){o.adv=o.adv||{};o.adv.capital=v;save()}}
+{const _le=lrEdHtml;lrEdHtml=function(rid){let h=_le.apply(this,arguments);const R=S.lore.find(x=>x.id==rid);if(!R)return h;const on=lrSubsOn(rid),Sb=lrSubs(R),anc=new Set();let p=R,n=0;while(p&&n++<8){anc.add(p.id);p=lrParent(p)}
+ const free=S.lore.filter(l=>lrIsReg(l)&&!anc.has(l.id)&&!(l.adv&&l.adv.parent));const allC=lrAllCities(R);
+ const blk=`<div class="lrs">${wsTog(on,`lrSubTog('${rid}',this.checked)`,'This region has subregions','Smaller regions inside it, each with its own capital.')}
+ ${on?`<div class="lrsl">${Sb.map(s=>{const C=lrAllCities(s);return `<div class="lrsi"><b>${esc(s.title)}</b><label>Capital<input list="lrcl_${s.id}" value="${esc((s.adv||{}).capital||'')}" placeholder="Capital city" onchange="lrSubCap('${s.id}',this.value)"><datalist id="lrcl_${s.id}">${C.map(c=>`<option value="${esc(c.title)}">`).join('')}</datalist></label><small class="mut">${C.length} ${C.length==1?'city':'cities'}</small><button class="ic" onclick="lrSubUnlink('${s.id}')" aria-label="Remove">${ico('x',11)}</button></div>`}).join('')||'<p class="mut" style="margin:0">No subregions yet.</p>'}</div>
+ <div class="lrca"><input id="lrsn" placeholder="New subregion name"><input id="lrsc" placeholder="Its capital (optional)"><button class="btn dev" onclick="lrSubNew('${rid}')">${ico('plus',12)} New subregion</button>${free.length?`<select onchange="if(this.value)lrSubLink('${rid}',this.value)"><option value="">Or make a region a subregion…</option>${free.map(l=>`<option value="${l.id}">${esc(l.title)}</option>`).join('')}</select>`:''}</div>`:''}</div>
+ <datalist id="lrcap">${allC.map(c=>`<option value="${esc(c.title)}">`).join('')}</datalist>`;
+ const i=h.lastIndexOf('</div>');return h.slice(0,i)+blk+h.slice(i)}}
+/* the capital field suggests the region's own cities */
+{const _ah2=advHtml;advHtml=function(){let h=_ah2.apply(this,arguments);if(advType()=='region')h=h.replace(`oninput="advTmp['capital']=this.value"`,`oninput="advTmp['capital']=this.value" list="lrcap"`);return h}}
+/* on the page: subregions, and "part of" on a subregion */
+XPOST.push(function lrSubView(){if(edit||tab!='lore')return;document.querySelectorAll('#m .panel[ondrop^="entDrop(\'l:"]').forEach(p=>{if(p.querySelector('.lrsv'))return;const id=(p.getAttribute('ondrop').match(/l:([^']+)/)||[])[1],o=S.lore.find(x=>x.id==id);if(!o||!lrIsReg(o))return;
+ const par=lrParent(o),Sb=lrSubs(o);const a=p.querySelector('.advxv');if(par&&a&&!a.querySelector('.lrup'))a.insertAdjacentHTML('beforeend',`<a href="#" class="lrup" onclick="event.preventDefault();goRef('l:${par.id}')">${ico('arr',11)} ${esc(nm('Part of'))} ${esc(par.title)}</a>`);
+ if(!Sb.length){p.insertAdjacentHTML('beforeend','<i class="lrsv" hidden></i>');return}
+ const h=`<div class="lrsv"><small class="evk">${esc(nm('Subregions'))} · ${Sb.length}</small><div class="lrcg">${Sb.map(s=>{const A=s.adv||{},C=lrAllCities(s);return `<div class="lrci lrsc"><a href="#" onclick="event.preventDefault();goRef('l:${s.id}')"><b>${esc(s.title)}</b></a>${A.capital?`<span class="lrcpt">${ico('crownx',11)||'★'} ${esc(A.capital)}</span>`:''}<small>${[C.length?C.length+(C.length==1?' city':' cities'):'',A.terrain||'',A.climate||''].filter(Boolean).map(esc).join(' · ')||'&nbsp;'}</small></div>`}).join('')}</div></div>`;
+ const c=p.querySelector('.lrcv')||a;if(c)c.insertAdjacentHTML('beforebegin',h);else p.insertAdjacentHTML('beforeend',h)})});
+
+/* ===== 2.10: a tool bar for every other Lore page — search, sort, density, open all, export and print ===== */
+Object.assign(PL,{"Compact":"Kompaktowo","Open all":"Rozwiń wszystko","Close all":"Zwiń wszystko","Print":"Drukuj","shown":"widocznych"});
+const LXT={};const lxt=k=>LXT[k]=LXT[k]||{q:'',s:''};
+const lxOn=()=>tab=='lore'&&!sel&&!edit&&LXP[lsub]&&!RECS[lsub]&&!['map','eco','entries','smart'].includes(lsub);
+/* the biggest group of look-alike things on the page: cards, rows, entries */
+function lxGroup(){const m=document.getElementById('m');if(!m)return null;let best=null,bn=2;m.querySelectorAll('tbody,div,ul,ol,section').forEach(p=>{if(p.closest('.lxh,.lxtb,.crxin,nav,.xmodx,form,.gcdxg')||p.querySelector('input,textarea,select')&&p.children.length<3)return;const kids=[...p.children].filter(c=>!c.hidden&&c.offsetParent!==null||c.dataset.lxh);if(kids.length<=bn)return;const sig=c=>c.tagName+'.'+(c.classList[0]||'');const cnt={};kids.forEach(c=>{const s=sig(c);cnt[s]=(cnt[s]||0)+1});const [s,n]=Object.entries(cnt).sort((a,b)=>b[1]-a[1])[0]||[];if(n>bn&&n>=kids.length*.6&&kids.filter(c=>sig(c)==s).some(c=>c.textContent.trim().length>1)){bn=n;best={p,items:kids.filter(c=>sig(c)==s)}}});return best}
+function lxApply(){if(!lxOn())return;const G=lxGroup(),X=lxt(lsub),c=document.getElementById('lxtc');if(!G){if(c)c.textContent='';return}const q=X.q.trim().toLowerCase();let n=0;
+ G.items.forEach(e=>{const ok=!q||e.textContent.toLowerCase().includes(q);if(!ok){e.style.display='none';e.dataset.lxh=1}else{if(e.dataset.lxh){e.style.display='';delete e.dataset.lxh}n++}});
+ if(X.s){const key=e=>(e.querySelector('b,h3,h4,strong,td')||e).textContent.trim().toLowerCase();const L=G.items.slice().sort((a,b)=>X.s=='az'?key(a).localeCompare(key(b)):key(b).localeCompare(key(a)));L.forEach(e=>G.p.appendChild(e))}
+ if(c)c.textContent=`${n} / ${G.items.length} ${nm('shown')}`}
+function lxExport(){const m=document.getElementById('m'),t=m&&m.querySelector('table'),k=lsub,ttl=((LXP[k]||[])[0]||k).replace(/[^\w ]+/g,'');let blob,name;
+ if(t){const q=v=>'"'+String(v).replace(/\s+/g,' ').trim().replace(/"/g,'""')+'"';const rows=[...t.querySelectorAll('tr')].filter(r=>r.style.display!='none').map(r=>[...r.children].map(c=>q(c.querySelector('input,select')?(c.querySelector('input,select').value||''):c.textContent)).join(','));blob=new Blob(['﻿'+rows.join('\n')],{type:'text/csv'});name=ttl+'.csv'}
+ else{const G=lxGroup();const txt=(G?G.items.filter(e=>e.style.display!='none').map(e=>e.innerText.trim()).join('\n\n---\n\n'):m.innerText);blob=new Blob([txt],{type:'text/plain'});name=ttl+'.txt'}
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+function lxDen(v){try{localStorage.setItem('exodus.lxd',v?'1':'')}catch(e){}document.documentElement.classList.toggle('lxcp',!!v);render()}
+try{if(localStorage.getItem('exodus.lxd'))document.documentElement.classList.add('lxcp')}catch(e){}
+XPOST.push(function lxToolsPost(){if(!lxOn())return;const m=document.getElementById('m');if(!m||m.querySelector('.lxtb'))return;const h=m.querySelector('.lxh');if(!h)return;const X=lxt(lsub),det=m.querySelectorAll('details').length,cp=document.documentElement.classList.contains('lxcp');
+ h.insertAdjacentHTML('afterend',`<div class="lxtb rcb"><label class="clsr rcq">${ico('search',13)}<input placeholder="${esc(nm('Search'))}" value="${esc(X.q)}" oninput="lxt('${lsub}').q=this.value;lxApply()"></label><select onchange="lxt('${lsub}').s=this.value;render()" aria-label="${esc(nm('Sort'))}"><option value="">Normal order</option><option value="az" ${X.s=='az'?'selected':''}>A–Z</option><option value="za" ${X.s=='za'?'selected':''}>Z–A</option></select><small class="mut" id="lxtc"></small><span style="flex:1"></span>${det?`<button class="btn" onclick="document.querySelectorAll('#m details').forEach(d=>d.open=true)">${esc(nm('Open all'))}</button><button class="btn" onclick="document.querySelectorAll('#m details').forEach(d=>d.open=false)">${esc(nm('Close all'))}</button>`:''}<div class="rcv"><button class="${cp?'':'on'}" onclick="lxDen(0)" title="Comfortable">${ico('grid4',14)}</button><button class="${cp?'on':''}" onclick="lxDen(1)" title="${esc(nm('Compact'))}">${ico('menu',14)||ico('list',14)}</button></div><button class="btn" onclick="lxExport()">${ico('dl',13)} Export</button><button class="btn" onclick="document.documentElement.classList.add('lxpr');window.print();setTimeout(()=>document.documentElement.classList.remove('lxpr'),500)">${esc(nm('Print'))}</button></div>`);
+ lxApply()});
 
 
 render();

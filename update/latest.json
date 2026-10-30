@@ -1,8 +1,8 @@
 {
- "version": "2.9 Beta",
- "build": 201,
+ "version": "2.10 Beta",
+ "build": 202,
  "html": "update/exodus.html",
- "notes": "Layers on the same level and a draggable side view, economies for regions and cities, a stock market, money worth between places, and reworked Lore record pages.",
+ "notes": "Live hourly weather for any region, subregion or city, subregions with capitals, and tools on every Lore page.",
  "win": {
   "version": "1.9.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
