@@ -2744,6 +2744,65 @@ html[data-wtd=night]::after{background:rgba(40,60,160,.22)}
 .g2fin{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 8px;font-size:12px;color:#a09b8c}
 .g2fin label{margin:0;display:flex;gap:5px;align-items:center}.g2fin select{width:auto;min-width:110px}.g2fp input{width:70px}
 @media(max-width:760px){.wclk{padding:2px 5px;margin-right:2px;gap:3px}.wclk b{font-size:11px}}
+/* 2.7: cities, top bar, economy */
+.wclk{border:0!important;background:none!important;padding:0 6px!important;margin:0!important;height:28px}
+.wrwx{display:inline-flex;gap:4px;align-items:center;font-size:12px;color:#c8c3b5;white-space:nowrap;margin-left:auto;padding:0 8px}
+.wrr .wrwx+.wsrow{margin-left:0}
+.wrcs{margin:-4px 0 8px 22px;padding-left:12px;border-left:1px solid #785a2855}
+.wrc{padding:6px 8px!important;font-size:13px}.wrc .wrt b{font-size:12px}
+.wrca{padding:3px 10px!important;font-size:12px;margin:4px 0 2px}
+.wrcl{margin-top:12px}.wrci{display:flex;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid #ffffff0d}.wrci .wrwx{margin-left:auto}
+.mpct{font-size:10px!important;padding:1px 6px!important;opacity:.92}
+/* economy */
+.ecn{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;border:1px solid #785a2844;background:rgba(1,10,19,.55);padding:3px;margin:0 0 14px}
+.ecn::-webkit-scrollbar{display:none}
+.ecn button{flex:none;display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:#8a8577;padding:8px 12px;font:600 12px Inter,system-ui,sans-serif;cursor:pointer;white-space:nowrap}
+.ecn button:hover{color:#f0e6d2;background:#ffffff08}
+.ecn button.on{color:#f0e6d2;background:linear-gradient(180deg,rgba(200,170,110,.18),rgba(200,170,110,.06));box-shadow:inset 0 -2px 0 #c8aa6e}
+.eck{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:0 0 12px}
+.eckc{position:relative;border:1px solid #785a2844;background:linear-gradient(180deg,color-mix(in srgb,var(--ec) 10%,rgba(1,10,19,.6)),rgba(1,10,19,.6));padding:12px 12px 8px;overflow:hidden}
+.eckc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--ec)}
+.eckh{display:flex;gap:6px;align-items:center}.eckh small{color:#a09b8c;font-size:11px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eckc>b{display:block;font:700 26px/1.2 Inter,system-ui,sans-serif;color:#f0e6d2;margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.eckf{display:flex;gap:8px;align-items:baseline;font-size:12px;font-variant-numeric:tabular-nums}.eckf small{margin-left:auto;color:#6c6a62;font-size:10px}
+.up{color:#3fc98a}.dn{color:#e8707a}
+.ecsp{display:block;width:100%;height:28px;margin-top:6px;opacity:.9}
+.ect{width:100%;border-collapse:collapse;font-size:13px}
+.ect th{text-align:left;font:600 11px Inter,system-ui,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#8a8577;padding:6px 8px;border-bottom:1px solid #785a2855}
+.ect td{padding:7px 8px;border-bottom:1px solid #ffffff0b;vertical-align:middle;color:#cdc6b4}
+.ect tr:last-child td{border-bottom:0}.ect td:first-child{color:#f0e6d2}
+.ect input[type=number]{width:90px;padding:6px 8px}.ect select{width:auto;min-width:90px;padding:6px 8px}
+.ecsx{overflow-x:auto;margin:0 -2px}
+.ecch{display:inline-flex;gap:4px;align-items:center;padding:1px 7px;border:1px solid #ffffff14;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ecch.up{border-color:#3fc98a44}.ecch.dn{border-color:#e8707a44}
+.ecsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.ecst{display:flex;gap:10px;align-items:center;text-align:left;border:1px solid #785a2844;background:rgba(1,10,19,.4);padding:10px 12px;color:#cdc6b4;cursor:pointer;font:inherit}
+.ecst:hover{border-color:#c8aa6e88}.ecst i{flex:none;width:8px;height:8px;border-radius:50%;background:#4a4a48}.ecst.on i{background:#3fc98a;box-shadow:0 0 8px #3fc98a88}
+.ecst span{flex:1}.ecst b{display:block;color:#f0e6d2;font-size:13px}.ecst small{color:#8a8577;font-size:12px}
+.ecwl{display:flex;flex-direction:column}
+.ecwr{display:grid;grid-template-columns:auto 1fr 140px auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #ffffff0b}
+.ecwr:last-child{border-bottom:0}
+.ecwi{display:grid;place-items:center;width:38px;height:38px;border:1px solid color-mix(in srgb,var(--ec) 45%,transparent);background:color-mix(in srgb,var(--ec) 10%,transparent)}
+.ecwn b{display:block;color:#f0e6d2;font-size:14px}.ecwn small{color:#8a8577;font-size:12px}
+.ecwr input{font-variant-numeric:tabular-nums;text-align:right}
+.ecwb{display:flex;border:1px solid #785a2855}
+.ecwb button{background:none;border:0;border-right:1px solid #785a2833;color:#cdc6b4;padding:6px 9px;font:600 12px Inter,system-ui,sans-serif;cursor:pointer;font-variant-numeric:tabular-nums}
+.ecwb button:last-child{border-right:0}.ecwb button:hover{background:#c8aa6e18;color:#f0e6d2}.ecwb button.neg{color:#e8707a}
+.ecnote{margin:8px 0 0;font-size:12px;color:#8a8577}.ecnote.on{color:#3fc98a}
+.ecfl{display:flex;gap:4px;flex-wrap:wrap;margin:0 0 10px}
+.ecfl button{background:none;border:1px solid #785a2855;color:#a09b8c;padding:4px 12px;font:600 12px Inter,system-ui,sans-serif;cursor:pointer}.ecfl button.on{border-color:#c8aa6e;color:#f0e6d2;background:#c8aa6e14}
+.ecsb{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 16px;margin:0 0 12px;border:1px solid #e8707a66;background:linear-gradient(90deg,rgba(232,112,122,.18),rgba(1,10,19,.4));color:#f0e6d2}
+.ecsb b{font:700 14px Cinzel,Georgia,serif;letter-spacing:.06em;text-transform:uppercase}.ecsb span{font-weight:700;color:#ffb0b6}.ecsb small{margin-left:auto;color:#c8c3b5}
+.exw{margin-top:16px;padding-top:12px;border-top:1px solid #785a2844}.exw h3{margin:0 0 8px;font-size:15px;display:flex;gap:6px;align-items:center}
+.exr{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 0;border-bottom:1px solid #ffffff0b}
+.exa{display:inline-flex;gap:5px;align-items:center;font-variant-numeric:tabular-nums}.exa b{color:#f0e6d2}.exar{color:#c8aa6e}.exr small{margin-left:auto}
+.expv{border:1px dashed #785a2866;padding:0 12px 8px}.expv .exw{margin-top:0;border-top:0}
+@media(max-width:760px){.ecwr{grid-template-columns:auto 1fr;}.ecwr input{grid-column:1/-1}.ecwb{grid-column:1/-1}.ecwb button{flex:1}.eck{grid-template-columns:1fr 1fr}.eckc>b{font-size:20px}.wrcs{margin-left:8px}}
+.ecn{flex-wrap:nowrap!important}
+.eck{grid-template-columns:repeat(5,minmax(0,1fr))}.ecsg{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1100px){.eck{grid-template-columns:repeat(3,minmax(0,1fr))}.eck .eckc:nth-child(4){grid-column:span 1}.eck .eckc:nth-last-child(-n+2){grid-column:span 1}}
+@media(max-width:1100px) and (min-width:761px){.eck{grid-template-columns:repeat(6,minmax(0,1fr))}.eck .eckc{grid-column:span 2}.eck .eckc:nth-child(n+4){grid-column:span 3}}
+@media(max-width:760px){.eck{grid-template-columns:1fr 1fr}.eck .eckc{grid-column:auto}.eck .eckc:last-child{grid-column:1/-1}.ecsg{grid-template-columns:1fr 1fr}}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -3013,7 +3072,7 @@ const CLS=['Warrior','Assassin','Ranger','Mage','Sporo','Tank'],GEN=['Male','Fem
 let dd='',ssec='main',psub='acc',skSel=null,hubOpen=true,txOpen=false,gifPlay='',fcls='',fgen='',AC=null;
 const GIF={main:'',other:''};['main','other'].forEach(k=>mget('gc_'+k).then(v=>{if(v)GIF[k]=v.d}));
 const chf=c=>(!fcls||c.cls==fcls)&&(!fgen||c.gen==fgen);
-const pr=o=>Math.round((o.price||0)*(1-(o.disc||0)/100));
+const pr=o=>Math.round((o.price||0)*(1-(o.disc||0)/100)*(typeof ecoPM=='function'?ecoPM():1));
 const ph=(o,cu)=>(o.disc>0?`<s style="opacity:.6">${o.price}</s> `:'')+pr(o)+' '+(cu||'AT');
 const xpAt=L=>25*(L-1)*(L+2);
 function lvlOf(x){let L=1;while(x>=xpAt(L+1))L++;return L}
@@ -7477,8 +7536,11 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.6.1';
+const WNV='2.7';
 const WN=[
+ ['2.7','30 Oct 2026',[
+  ['Lore','Cities with their own time and weather','Regions can have cities. Each city follows its region or has its own time and weather, and the top bar can show any of them. Lore › Map.',"go('lore');lsub='map';render()"],
+  ['Store','Sales and currency exchange','Shop-wide sales show a banner in the Store, and you can swap one currency for another from the + next to Creators Essence.',"go('store');ssub='store';render()"]]],
  ['2.6.1','30 Oct 2026',[
   ['Lore','Simpler regions and a top bar clock','Add a region with one form and pick where it is on the map or globe. The top bar shows the weather and the time of the region you choose. Lore › Map.',"go('lore');lsub='map';render()"],
   ['Story','World news and Diaries in Story','Both now open from the icons at the top of the Story page.',"pickSub('story','paper')"],
@@ -9075,7 +9137,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.6.1 Beta',APPB=197;
+const APPV='2.7 Beta',APPB=198;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -10790,7 +10852,7 @@ function wMoon(){const w=WC(),p=+(w.moons[0]||{}).p||29.5,d=wNowMs()/864e5;retur
 const regOff=r=>r.auto!==0&&r.auto!==false&&(r.off==null||r.off==='')?Math.round((+r.lon||0)/15):+r.off||0;
 function regTime(r){const ms=wNowMs()+regOff(r)*36e5,f=((ms/864e5)%1+1)%1,h=Math.floor(f*24),m=Math.floor(f*1440)%60;return {h,m,f,txt:String(h).padStart(2,'0')+':'+String(m).padStart(2,'0'),day:f>.25&&f<.75}}
 function regDate(r){const c=WC(),tot=c.months.reduce((a,m)=>a+(+m.d||0),0)||1,days=Math.floor((wNowMs()+regOff(r)*36e5)/864e5),y=c.y0+Math.floor(days/tot);let d=((days%tot)+tot)%tot,mi=0;while(mi<c.months.length&&d>=+c.months[mi].d){d-=+c.months[mi].d;mi++}return {y,m:mi,d:d+1}}
-const myReg=()=>WREG().find(r=>r.id==S.cfg.wloc)||null;
+let myReg=()=>WREG().find(r=>r.id==S.cfg.wloc)||null;
 /* lon/lat <-> map % (the flat map is read as a world map: left edge 180°W, right edge 180°E) */
 const ll2xy=(lon,lat)=>({x:(lon+180)/3.6,y:(90-lat)/1.8});
 const xy2ll=(x,y)=>({lon:x*3.6-180,lat:90-y*1.8});
@@ -11215,7 +11277,7 @@ function wrPickGo(id){wrDraft=Object.assign(wrForm(),{id:id||''});wrAdd=1;mapAdd
 function wrPicked(lon,lat){const d=wrDraft||{n:'',auto:1,id:''};wrDraft=null;d.lon=Math.round(lon*10)/10;d.lat=Math.round(lat*10)/10;render();wrOpen(d.id||'',d)}
 /* which clock the top bar shows */
 function wclkWhich(){const k=S.cfg.wclkReg||'';if(k=='w')return wrWorld;if(k&&k!='me'){const r=WREG().find(x=>x.id==k);if(r)return r}return myReg()||WREG()[0]||wrWorld}
-const wclkOpts=()=>`<option value="me" ${!S.cfg.wclkReg||S.cfg.wclkReg=='me'?'selected':''}>Where I am${myReg()?' ('+esc(myReg().n)+')':''}</option><option value="w" ${S.cfg.wclkReg=='w'?'selected':''}>World time</option>${WREG().map(r=>`<option value="${r.id}" ${S.cfg.wclkReg==r.id?'selected':''}>${esc(r.n)}</option>`).join('')}<option value="off" ${S.cfg.wclkBar===0?'selected':''}>Don’t show a clock</option>`;
+let wclkOpts=()=>`<option value="me" ${!S.cfg.wclkReg||S.cfg.wclkReg=='me'?'selected':''}>Where I am${myReg()?' ('+esc(myReg().n)+')':''}</option><option value="w" ${S.cfg.wclkReg=='w'?'selected':''}>World time</option>${WREG().map(r=>`<option value="${r.id}" ${S.cfg.wclkReg==r.id?'selected':''}>${esc(r.n)}</option>`).join('')}<option value="off" ${S.cfg.wclkBar===0?'selected':''}>Don’t show a clock</option>`;
 function wclkSet(v){if(v=='off'){S.cfg.wclkBar=0}else{S.cfg.wclkBar=1;S.cfg.wclkReg=v}save();render()}
 wregPanel=function(){const L=WREG(),me=myReg(),c=WCK();const rows=L.map(r=>{const t=regTime(r),d=regDate(r);return `<div class="wrr ${r.id==S.cfg.wloc?'me':''}"><span class="wrt ${t.day?'dy':'nt'}">${ico(t.day?'sunx':'moonx',14)}<b data-rgt="${r.id}">${t.txt}</b></span><div><b>${esc(r.n)}</b><small>${esc(d.d+' '+((WC().months[d.m]||{}).n||''))} · UTC${regOff(r)>=0?'+':''}${regOff(r)}</small></div><div class="wsrow">${r.id==S.cfg.wloc?`<span class="qxbd">${esc(nm('You are here'))}</span>`:`<button class="btn" onclick="S.cfg.wloc='${r.id}';save();render()">${esc(nm('I am here'))}</button>`}${S.dev?`<button class="btn" onclick="wrOpen('${r.id}')">Edit</button>`:''}</div></div>`}).join('');
  return `<div class="panel wrp"><h3 style="margin-top:0">${ico('clock',14)} ${esc(nm('Regions and their time'))}</h3>${L.length?rows:`<p class="mut">${S.dev?'No regions yet. Add one: give it a name, then pick where it is on the map.':'No regions yet.'}</p>`}
@@ -11251,6 +11313,124 @@ XPOST.push(function g2EdKPost(){if(!g2EdK)return;const s=document.getElementById
 function g2TierFin(ti,f,v){const t=g2T(ti);if(!t)return;if(f=='fin')t.fin=v;else t.finp=Math.max(0,Math.min(100,+v||0));save();if(f=='fin')render()}
 {const _gf=gcForm;gcForm=function(){let h=_gf.apply(this,arguments);if(!h||!S.gc||!S.gc.t2)return h;const T=S.gc.t2.tiers;let ti=0;
  h=h.replace(/<div class="g2rws">/g,m=>{const t=T[ti],i=ti++;if(!t)return m;return `<div class="g2fin"><label>${ico('star',12)} Card finish</label><select onchange="g2TierFin(${i},'fin',this.value)"><option value="">None</option>${FINS.filter(f=>finOn(f[0])).map(f=>`<option value="${f[0]}" ${t.fin==f[0]?'selected':''}>${esc(f[1])}</option>`).join('')}</select>${t.fin?`<label class="g2fp"><input type="number" min="0" max="100" value="${t.finp==null?10:+t.finp}" onchange="g2TierFin(${i},'p',this.value)">% chance</label>`:''}</div>`+m});return h}}
+
+/* ===== 2.7: cities inside regions (own time and weather), top bar order ===== */
+const WFX=[['none','None'],['sand','Sandstorms'],['fog','Fog'],['snow','Snow'],['storm','Storms'],['magic','Magic storms'],['hail','Hail'],['sun','Always sunny']];
+const cityOff=(r,c)=>c.tz=='auto'?Math.round((+(c.lon??r.lon)||0)/15):c.tz=='set'?+c.off||0:regOff(r);
+const cityP=(r,c)=>({id:'c:'+c.id,n:c.n,full:c.n+', '+r.n,lon:+(c.lon??r.lon)||0,lat:+(c.lat??r.lat)||0,auto:0,off:cityOff(r,c),city:1,R:r,C:c});
+const WCITY=()=>WREG().flatMap(r=>(r.C||[]).map(c=>[r,c]));
+function placeFind(id){if(!id)return null;if(String(id).startsWith('c:')){const x=WCITY().find(([r,c])=>'c:'+c.id==id);return x?cityP(x[0],x[1]):null}return WREG().find(r=>r.id==id)||null}
+myReg=()=>placeFind(S.cfg.wloc);
+/* weather of a place: the world's weather, then the region's changes, then the city's */
+function wxMod(d,W,seed,off){if(!W)return d;const key=ymd(new Date(Date.now()+(off||0)*864e5)),r=k=>(xHash(key+seed+k)%1000)/1000,dt=+W.dt||0;
+ d.temp+=dt;d.feels=(d.feels??d.temp)+dt;d.dew=(d.dew??d.temp)+dt;d.cl=Math.max(0,Math.min(100,d.cl+(+W.dcl||0)));d.hu=Math.max(0,Math.min(100,d.hu+(+W.dhu||0)));d.wi=Math.max(0,Math.round(d.wi*(1+(+W.dwi||0)/100)));if(d.hours)d.hours.forEach(h=>h.t+=dt);
+ if(W.fx&&W.fx!='none'&&r('fx')<(+W.fxp||20)/100)d.w=W.fx;else if((d.w=='rain'||d.w=='storm')&&d.temp<=0)d.w='snow';else if(d.w=='snow'&&d.temp>3)d.w='rain';else if(d.w=='rain'&&+W.dhu<-20&&r('dr')<.6)d.w='cloud';return d}
+function wxAt(p,off){off=off||0;if(!p||!p.id)return wxDay(off);const R=p.R||p,lr=R.lr&&typeof wxRegOf=='function'&&wxRegOf(R.lr)?R.lr:'';let d=wxDay(off,lr);d=wxMod(d,R.wx,R.id,off);if(p.C&&p.C.wx&&p.C.wx.own)d=wxMod(d,p.C.wx,p.C.id,off);return d}
+const wxHas=W=>W&&(+W.dt||+W.dcl||+W.dhu||+W.dwi||(W.fx&&W.fx!='none'));
+function wxFields(pre,W){W=W||{};return `<div class="row"><div><label>Warmer or colder (°C)</label><input id="${pre}dt" type="number" value="${+W.dt||0}"></div><div><label>Clouds (± %)</label><input id="${pre}dcl" type="number" value="${+W.dcl||0}"></div></div><div class="row"><div><label>Humidity (± %)</label><input id="${pre}dhu" type="number" value="${+W.dhu||0}"></div><div><label>Wind (± %)</label><input id="${pre}dwi" type="number" value="${+W.dwi||0}"></div></div><div class="row"><div><label>Special weather</label><select id="${pre}fx">${WFX.map(o=>`<option value="${o[0]}" ${(W.fx||'none')==o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></div><div><label>How often (%)</label><input id="${pre}fxp" type="number" min="0" max="100" value="${W.fxp??20}"></div></div>`}
+function wxRead(pre){const g=i=>(document.getElementById(pre+i)||{}).value;if(g('dt')==null)return null;return {dt:+g('dt')||0,dcl:+g('dcl')||0,dhu:+g('dhu')||0,dwi:+g('dwi')||0,fx:g('fx')||'none',fxp:Math.max(0,Math.min(100,+g('fxp')||0))}}
+const wxMini=p=>{try{const W=wxAt(p,0);return `<span class="wrwx">${ico(wxIco[W.w]||'cloudx',13)}${wxT(W.temp)}</span>`}catch(e){return ''}};
+/* region editor: weather and cities */
+{const _wo=wrOpen;wrOpen=function(id,draft){if(id&&String(id).startsWith('c:')){const x=WCITY().find(([r,c])=>'c:'+c.id==id);if(!x)return;if(!S.dev){S.cfg.wloc=id;save();render();toast('You are in '+x[1].n);return}return cyOpen(x[0].id,x[1].id)}
+ const r=_wo.apply(this,arguments);const m=[...document.querySelectorAll('#wrm .wsrow')].pop();const ex=id?WREG().find(x=>x.id==id):null;if(!m||!S.dev)return r;const W=(draft&&draft.wx)||(ex&&ex.wx)||{};
+ m.insertAdjacentHTML('beforebegin',`<details class="wrad" ${wxHas(W)?'open':''}><summary>${ico('cloudx',13)} Weather here</summary><p class="mut" style="margin:4px 0 6px">Changes on top of the world’s weather (Lore › Timeline › World calendar).</p>${wxFields('wrw',W)}</details>
+ ${ex?`<div class="wrcl"><label>Cities</label>${(ex.C||[]).map(c=>{const p=cityP(ex,c),t=regTime(p);return `<div class="wrci"><span class="wrt ${t.day?'dy':'nt'}"><b>${t.txt}</b></span><b>${esc(c.n)}</b>${wxMini(p)}<button class="btn" onclick="wrKeep('${ex.id}');cyOpen('${ex.id}','${c.id}')">Edit</button></div>`}).join('')||'<p class="mut" style="margin:0">No cities yet.</p>'}<button class="btn" onclick="wrKeep('${ex.id}');cyOpen('${ex.id}','')">${ico('plus',12)} Add a city</button></div>`:'<p class="mut" style="margin:8px 0 0">Add the region first, then you can add its cities.</p>'}`);return r}}
+{const _ws=wrSave;wrSave=function(id){const W=wxRead('wrw'),before=new Set(WREG().map(x=>x.id));const r=_ws.apply(this,arguments);const R=id?WREG().find(x=>x.id==id):WREG().find(x=>!before.has(x.id));if(R&&W){R.wx=W;save();render()}return r}}
+/* saves the region form quietly before opening a city */
+function wrKeep(id){const R=WREG().find(x=>x.id==id);if(!R||!document.getElementById('wr1'))return;const f=wrForm(),W=wxRead('wrw');R.n=f.n||R.n;R.lon=f.lon;R.lat=f.lat;R.auto=f.auto;R.off=f.auto?'':f.off;R.lr=f.lr;if(W)R.wx=W;save()}
+function cyForm(){const g=i=>(document.getElementById(i)||{}).value;return {n:(g('cy1')||'').trim(),lon:Math.max(-180,Math.min(180,+g('cy2')||0)),lat:Math.max(-90,Math.min(90,+g('cy3')||0)),tz:g('cy4')||'reg',off:+g('cy5')||0,wx:Object.assign(wxRead('cyw')||{},{own:g('cy6')=='1'?1:0})}}
+function cyOpen(rid,cid,draft){const R=WREG().find(x=>x.id==rid);if(!R)return;const ex=cid?(R.C||[]).find(c=>c.id==cid):null;const c=Object.assign({n:'',lon:R.lon,lat:R.lat,tz:'reg',off:0,wx:{own:0}},ex||{},draft||{}),p=cityP(R,c),t=regTime(p),W=c.wx||{};XCLOSE('wrm');
+ XMOD('cym',`<h3 style="margin-top:0">${ico('home',15)||ico('clock',15)} ${ex?esc(ex.n):esc(nm('New city'))} <small class="mut">· ${esc(R.n)}</small></h3>
+ <label>Name</label><input id="cy1" value="${esc(c.n)}" placeholder="For example: Port Ilya">
+ <label>Its time</label><select id="cy4" onchange="document.querySelector('#cym .wrhr').hidden=this.value!='set'"><option value="reg" ${c.tz=='reg'?'selected':''}>Same as ${esc(R.n)}</option><option value="auto" ${c.tz=='auto'?'selected':''}>From where it is on the map</option><option value="set" ${c.tz=='set'?'selected':''}>I type the hours myself</option></select>
+ <div class="wrhr" ${c.tz!='set'?'hidden':''}><label>Hours ahead of world time</label><input id="cy5" type="number" step="0.5" value="${+c.off||0}"></div>
+ <label>Where it is</label><div class="wrpk"><button class="btn" onclick="cyPickGo('${rid}','${cid||''}')">${ico('mapi',13)||ico('globe',13)} Pick on the map</button><small class="mut">${Math.abs(+c.lon||0).toFixed(1)}°${+c.lon<0?'W':'E'}, ${Math.abs(+c.lat||0).toFixed(1)}°${+c.lat<0?'S':'N'}</small></div>
+ <details class="wrad"><summary>Exact position</summary><div class="row"><div><label>Longitude</label><input id="cy2" type="number" step="0.1" value="${+c.lon||0}"></div><div><label>Latitude</label><input id="cy3" type="number" step="0.1" value="${+c.lat||0}"></div></div></details>
+ <label>Its weather</label><select id="cy6" onchange="document.querySelector('#cym .cywx').hidden=this.value!='1'"><option value="0" ${!W.own?'selected':''}>Same as ${esc(R.n)}</option><option value="1" ${W.own?'selected':''}>Its own changes</option></select><div class="cywx" ${W.own?'':'hidden'}>${wxFields('cyw',W)}</div>
+ <p class="mut" style="margin:8px 0 0">Right now: <b>${t.txt}</b> ${wxMini(p)}</p>
+ <div class="wsrow" style="margin-top:12px"><button class="btn dev" onclick="cySave('${rid}','${cid||''}')">${ex?'Save':'Add city'}</button>${ex?`<button class="btn" onclick="S.cfg.wloc='c:${cid}';save();XCLOSE('cym');render()">I am here</button><button class="btn red" onclick="cfm('Delete this city?',()=>{const R=WREG().find(x=>x.id=='${rid}');R.C=(R.C||[]).filter(x=>x.id!='${cid}');if(S.cfg.wloc=='c:${cid}')S.cfg.wloc='';if(S.cfg.wclkReg=='c:${cid}')S.cfg.wclkReg='';save();XCLOSE('cym');render()})">Delete</button>`:''}<button class="btn" onclick="XCLOSE('cym');wrOpen('${rid}')">${esc(R.n)}</button></div>`,460)}
+function cySave(rid,cid){const R=WREG().find(x=>x.id==rid);if(!R)return;const f=cyForm();if(!f.n)return toast('Give the city a name');R.C=R.C||[];if(cid){const c=R.C.find(x=>x.id==cid);if(c)Object.assign(c,f)}else R.C.push(Object.assign({id:'ct'+Date.now().toString(36)},f));wrDraft=null;save();XCLOSE('cym');render();toast(cid?'City saved':'City added')}
+function cyPickGo(rid,cid){const f=cyForm();XCLOSE('cym');wrPickGo('');wrDraft=Object.assign(f,{city:1,rid,cid})}
+{const _wp=wrPicked;wrPicked=function(lon,lat){const d=wrDraft;if(d&&d.city){wrDraft=null;d.lon=Math.round(lon*10)/10;d.lat=Math.round(lat*10)/10;render();return cyOpen(d.rid,d.cid,d)}return _wp.apply(this,arguments)}}
+/* cities on the globe and on the flat map */
+{const _gp=glbPins;glbPins=function(){const out=_gp.apply(this,arguments);try{WCITY().forEach(([r,c])=>{const p=cityP(r,c);out.push({lon:p.lon,lat:p.lat,n:p.n,k:'reg',r:p})})}catch(e){}return out}}
+XPOST.push(function cityMapPost(){if(!(tab=='lore'&&lsub=='map')||mapMode=='globe'||!GLB.lab)return;const img=document.querySelector('#m img[onclick^="mapClick"]');if(!img)return;const box=img.parentElement;if(box.querySelector('.mpct'))return;
+ WCITY().forEach(([r,c])=>{const p=cityP(r,c),q=ll2xy(p.lon,p.lat),t=regTime(p);box.insertAdjacentHTML('beforeend',`<button class="mprg mpct ${t.day?'dy':'nt'} ${p.id==S.cfg.wloc?'me':''}" style="left:${q.x}%;top:${q.y}%" onclick="wrOpen('${p.id}')">${esc(c.n)} <b data-pgt="${p.id}">${t.txt}</b></button>`)})});
+setInterval(()=>{document.querySelectorAll('[data-pgt]').forEach(e=>{const p=placeFind(e.dataset.pgt);if(p){const t=regTime(p).txt;if(e.textContent!=t)e.textContent=t}})},20000);
+/* region list with its cities */
+{const _rp=wregPanel;wregPanel=function(){let h=_rp.apply(this,arguments);WREG().forEach(r=>{const i=h.indexOf(`<b data-rgt="${r.id}">`);if(i<0)return;const s=h.lastIndexOf('<div class="wrr',i),e=divEnd(h,s);let row=h.slice(s,e);row=row.replace('</small></div>',`</small></div>${wxMini(r)}`);const C=(r.C||[]).map(c=>{const p=cityP(r,c),t=regTime(p);return `<div class="wrr wrc ${p.id==S.cfg.wloc?'me':''}"><span class="wrt ${t.day?'dy':'nt'}">${ico(t.day?'sunx':'moonx',12)}<b data-pgt="${p.id}">${t.txt}</b></span><div><b>${esc(c.n)}</b><small>UTC${p.off>=0?'+':''}${p.off}${c.tz=='reg'?' · '+esc(nm('same as region')):''}</small></div>${wxMini(p)}<div class="wsrow">${p.id==S.cfg.wloc?`<span class="qxbd">${esc(nm('You are here'))}</span>`:`<button class="btn" onclick="S.cfg.wloc='${p.id}';save();render()">${esc(nm('I am here'))}</button>`}${S.dev?`<button class="btn" onclick="cyOpen('${r.id}','${c.id}')">Edit</button>`:''}</div></div>`}).join('');
+  h=h.slice(0,s)+row+(C||S.dev?`<div class="wrcs">${C}${S.dev?`<button class="btn wrca" onclick="cyOpen('${r.id}','')">${ico('plus',11)} ${esc(nm('Add a city'))}</button>`:''}</div>`:'')+h.slice(e)});
+ return h.replace('Regions and their time',esc(nm('Regions, cities and their time'))).replace('>'+esc(nm('Top bar clock'))+'<','>'+esc(nm('Top bar clock and weather'))+'<')}}
+/* the top bar can follow a city too */
+wclkWhich=function(){const k=S.cfg.wclkReg||'';if(k=='w')return wrWorld;if(k&&k!='me'){const r=placeFind(k);if(r)return r}return myReg()||WREG()[0]||wrWorld};
+{const _wo2=wclkOpts;wclkOpts=function(){const h=_wo2.apply(this,arguments),C=WCITY().map(([r,c])=>`<option value="c:${c.id}" ${S.cfg.wclkReg=='c:'+c.id?'selected':''}>${esc(c.n)} (${esc(r.n)})</option>`).join('');return h.replace('<option value="off"',C+'<option value="off"')}}
+/* order: weather, clock, Wi-Fi, then the rest; the weather follows the chosen place */
+function tbOrder(){const t=document.querySelector('#mtb .tools');if(!t)return;const L=['wxb','wclk','wfmark'].map(i=>document.getElementById(i)).filter(Boolean);let prev=null;L.forEach(e=>{if(e.parentNode!==t)return;if(prev){if(prev.nextSibling!==e)prev.after(e)}else if(t.firstChild!==e)t.insertBefore(e,t.firstChild);prev=e});
+ const b=document.getElementById('wxb');if(b&&S.cfg.wclkBar!==0){const p=wclkWhich();if(p&&p.id){try{const W=wxAt(p,0),h=`${ico(wxIco[W.w]||'cloudx',14)}<span>${wxT(W.temp)}</span>`;if(b.innerHTML!=h)b.innerHTML=h;b.title=nm('Weather')+' · '+(p.full||p.n)}catch(e){}}}}
+{const _wm=wclkMark0;wclkMark0=function(){const r=_wm.apply(this,arguments);tbOrder();return r}}
+{const _wf=wfMark;wfMark=function(){const r=_wf.apply(this,arguments);tbOrder();return r}}
+XPOST.push(tbOrder);
+{const _wg=wgData;wgData=function(){const c=NTC();if((c.w||'lotd')=='clock'){const r=wclkWhich();if(r&&r.id){const t=regTime(r),d=regDate(r);let w='';try{const W=wxAt(r,0);w=' · '+wxT(W.temp)}catch(e){}return ['TIME IN '+String(r.n).toUpperCase(),t.txt+(t.day?' · day':' · night')+w,wDateTxt(d),'Updates when you open the app']}}return _wg.apply(this,arguments)}}
+
+/* ===== 2.7: the Economy page — overview, wallet, earning, prices and sales, exchange, activity ===== */
+Object.assign(PL,{"Economy":"Ekonomia","Earning":"Zarabianie","Prices and sales":"Ceny i promocje","Exchange":"Wymiana","Activity":"Aktywność","XP and levels":"XP i poziomy","Exchange currencies":"Wymień waluty","Sale":"Promocja","Regions, cities and their time":"Regiony, miasta i ich czas","Top bar clock and weather":"Zegar i pogoda na górnym pasku","Add a city":"Dodaj miasto","New city":"Nowe miasto","same as region":"jak region","Weather":"Pogoda","Today":"Dzisiaj","Last 7 days":"Ostatnie 7 dni","on everything":"na wszystko","Ends":"Koniec","today":"dzisiaj"});
+if(!ICOP.sync)ICOP.sync='M2.5 6A5.5 5.5 0 0 1 12.6 4.2M13.5 2v3h-3M13.5 10A5.5 5.5 0 0 1 3.4 11.8M2.5 14v-3h3';
+function EKO(){S.cfg.ecx=S.cfg.ecx||{};const c=S.cfg.ecx;c.earn=c.earn||{};c.ex=c.ex||{on:0,rates:[]};c.ex.rates=c.ex.rates||[];return c}
+const ECW=[['tokens','AT','Astralis Tokens','#f0b232'],['ce','CE','Creators Essence','#0ac8b9'],['gt','GT','Gacha Tokens','#c15cff'],['shim','ST','Shim Tokens','#5aa7ff'],['se','SE','Sapphire Essence','#4f7bff']];
+const ecwOf=code=>ECW.find(x=>x[1]==code)||ECW[0];
+const ECE=[['lore saved','Lore entry',10],['character saved','Character',10],['skin saved','Skin',10],['item saved','Item',10],['chapter saved','Story chapter',10],['scene saved','Novel scene',5],['event saved','Timeline event',10],['shop entry saved','Shop entry',10],['bundle saved','Bundle',10],['patch note saved','Patch note',10],['word saved','Dictionary word',3],['term saved','Glossary term',3]];
+const ecoDay=()=>new Date().toDateString();
+/* ---------- earning: amounts, currency, XP and a daily limit ---------- */
+{const _ern=earn;earn=function(n,why){const c=EKO(),k=String(why||''),row=c.earn[k];let amt=+n||0,cur='AT',xp=1;if(row){if(row.n!=null&&row.n!=='')amt=Math.max(0,+row.n||0);cur=row.c||'AT';xp=row.xp!==0}
+ if(+c.cap>0){S.ecd=S.ecd&&S.ecd.d==ecoDay()?S.ecd:{d:ecoDay(),n:0};const left=Math.max(0,+c.cap-S.ecd.n);if(left<=0){if(!S.ecd.w){S.ecd.w=1;toast('Daily limit for creating rewards reached. Keep creating, rewards return tomorrow.')}return}amt=Math.min(amt,left);S.ecd.n+=amt}
+ if(cur=='AT'&&xp)return _ern.call(this,amt,why);if(cur=='none'||!amt){if(xp&&amt)gainXp(amt);return}const m=typeof booM=='function'?booM('cur'):1,v=Math.round(amt*m),w=ecwOf(cur);S[w[0]]=(+S[w[0]]||0)+v;if(xp)gainXp(amt);toast('+'+v+' '+cur+(xp?', +'+amt+' XP':'')+': '+why);try{snd('coin')}catch(e){}}}
+/* ---------- the shop sale ---------- */
+function ecoSale(){const c=S.cfg.ecx||{},p=Math.max(0,Math.min(90,+c.sale||0));if(!p)return 0;if(c.saleEnd&&Date.now()>c.saleEnd)return 0;if(c.saleStart&&Date.now()<c.saleStart)return 0;return p}
+function ecoPM(){try{return 1-ecoSale()/100}catch(e){return 1}}
+XPOST.push(function ecoSalePost(){const p=ecoSale();if(!p||tab!='store'||ssub!='store')return;const m=document.getElementById('m');if(!m||m.querySelector(".ecsb"))return;const c=S.cfg.ecx||{};m.insertAdjacentHTML('afterbegin',`<div class="ecsb"><b>${esc(c.saleName||nm('Sale'))}</b><span>−${p}% ${esc(nm('on everything'))}</span>${c.saleEnd?`<small>${esc(nm('Ends'))} ${new Date(c.saleEnd).toLocaleDateString([],{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</small>`:''}</div>`)});
+/* ---------- exchange for players ---------- */
+function exUsed(i){S.exd=S.exd&&S.exd.d==ecoDay()?S.exd:{d:ecoDay(),u:{}};return +S.exd.u[i]||0}
+function exDo(i,times){const c=EKO(),r=c.ex.rates[i];if(!c.ex.on||!r)return;times=Math.max(1,Math.floor(+times)||1);const lim=+r.lim||0;if(lim&&exUsed(i)+times>lim)return toast('You can do this '+lim+' times a day');const F=ecwOf(r.f),T=ecwOf(r.t),cost=(+r.a||1)*times,get=(+r.b||1)*times;if((+S[F[0]]||0)<cost)return toast('Not enough '+F[2]);S[F[0]]-=cost;S[T[0]]=(+S[T[0]]||0)+get;S.exd.u[i]=exUsed(i)+times;toast('Exchanged '+cost+' '+F[1]+' for '+get+' '+T[1]);save();render();try{ceDraw()}catch(e){}}
+function exHtml(){const c=EKO();if(!c.ex.on||!c.ex.rates.length)return '';return `<div class="exw"><h3 class="f">${ico('sync',15)||ico('dia',15)} ${esc(nm('Exchange currencies'))}</h3>${c.ex.rates.map((r,i)=>{const F=ecwOf(r.f),T=ecwOf(r.t),lim=+r.lim||0,used=exUsed(i),ok=(+S[F[0]]||0)>=(+r.a||1)&&(!lim||used<lim);return `<div class="exr"><span class="exa">${cIco(F[1])}<b>${+r.a||1}</b>${esc(F[1])}</span><span class="exar">→</span><span class="exa">${cIco(T[1])}<b>${+r.b||1}</b>${esc(T[1])}</span><small class="mut">${lim?`${used}/${lim} ${esc(nm('today'))}`:''}</small><button class="btn ${ok?'dev':''}" ${ok?'':'disabled'} onclick="exDo(${i},1)">${esc(nm('Exchange'))}</button></div>`}).join('')}</div>`}
+{const _cd=ceDraw;ceDraw=function(){const r=_cd.apply(this,arguments);try{const d=document.getElementById('cem'),p=d&&d.querySelector('.panel');if(p&&!p.querySelector('.exw')){const h=exHtml();if(h)p.insertAdjacentHTML('beforeend',h)}}catch(e){}return r}}
+/* ---------- numbers for the overview ---------- */
+function ecoFlow(days){const from=Date.now()-days*864e5,o={};ECW.forEach(w=>o[w[1]]={in:0,out:0,d:Array(days).fill(0)});(S.wlog||[]).forEach(x=>{if(x.t<from)return;const di=Math.min(days-1,Math.floor((x.t-from)/864e5));(x.c||[]).forEach(([l,n])=>{const b=o[l];if(!b)return;if(n>0)b.in+=n;else b.out-=n;b.d[di]+=n})});return o}
+function ecoSpark(arr,col){const mx=Math.max(1,...arr.map(Math.abs)),w=120,h=28,st=w/Math.max(1,arr.length-1);let acc=0;const cum=arr.map(v=>acc+=v),lo=Math.min(0,...cum),hi=Math.max(1,...cum),pts=cum.map((v,i)=>`${(i*st).toFixed(1)},${(h-2-(v-lo)/(hi-lo||1)*(h-4)).toFixed(1)}`).join(' ');return `<svg class="ecsp" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg>`}
+const ecoNum=n=>{n=+n||0;return Math.abs(n)>=1e6?(n/1e6).toFixed(1).replace(/\.0$/,'')+'M':Math.abs(n)>=1e4?(n/1e3).toFixed(1).replace(/\.0$/,'')+'k':String(Math.round(n))};
+function ecoQuestPay(){const o={};const K={rat:'AT',rce:'CE',rgt:'GT',rse:'SE',rst:'ST'};S.quests.filter(q=>!q.claimed&&!q.off&&!(typeof qEnded=='function'&&qEnded(q))).forEach(q=>Object.entries(K).forEach(([k,l])=>{if(+q[k])o[l]=(o[l]||0)+(+q[k])}));return o}
+function ecoPrices(){const o={};const add=(l,p)=>{p=+p||0;if(!p)return;const b=o[l]=o[l]||{n:0,s:0,lo:Infinity,hi:0};b.n++;b.s+=p;b.lo=Math.min(b.lo,p);b.hi=Math.max(b.hi,p)};S.chars.forEach(c=>add('AT',c.price));S.skins.forEach(k=>{add('AT',k.price);add('ST',k.shim)});S.items.forEach(i=>{add('AT',i.price);add('ST',i.shim)});(S.shop||[]).forEach(e=>add('CE',e.price));(S.bundles||[]).forEach(b=>add('CE',b.price));(S.gbs||[]).forEach(g=>add('GT',g.cost));return o}
+/* ---------- the page ---------- */
+let ecoLF='';
+const ECT=[['ov','Overview','grid4'],['wallet','Wallet','dia'],['earn','Earning','plus'],['spend','Prices and sales','store'],['ex','Exchange','sync'],['xp','XP and levels','star'],['chest','Chests','chest'],['orb','Orbs','dia'],['boost','Boosts','star'],['log','Activity','clock']];
+if(ecoT=='wallet')ecoT='ov';
+function ecoNav(){return `<nav class="ecn" role="tablist">${ECT.map(([k,l,i])=>`<button role="tab" class="${ecoT==k?'on':''}" onclick="ecoT='${k}';render()">${ico(i,14)||''}<span>${esc(nm(l))}</span></button>`).join('')}</nav>`}
+function ecoKpis(){const F=ecoFlow(7);return `<div class="eck">${ECW.map(([k,l,n,col])=>{const f=F[l];return `<div class="eckc" style="--ec:${col}"><div class="eckh">${cIco(l)}<small>${esc(n)}</small></div><b>${ecoNum(S[k])}</b><div class="eckf"><span class="up">+${ecoNum(f.in)}</span><span class="dn">−${ecoNum(f.out)}</span><small>${esc(nm('Last 7 days'))}</small></div>${ecoSpark(f.d,col)}</div>`}).join('')}</div>`}
+function ecoOv(){const c=EKO(),sale=ecoSale(),QP=ecoQuestPay(),P=ecoPrices(),cap=+c.cap||0,used=S.ecd&&S.ecd.d==ecoDay()?S.ecd.n:0,boo=typeof booM=='function'?booM('xp'):1;
+ const st=(on,l,d,go)=>`<button class="ecst ${on?'on':''}" onclick="${go}"><i></i><span><b>${esc(l)}</b><small>${d}</small></span>${ico('arr',12)||'›'}</button>`;
+ return ecoKpis()+`<div class="wsg2">`+wsCard('plus','Money coming in','What players can earn right now.',`<table class="ect"><tbody>
+  <tr><td>Creating things</td><td>${ECE.slice(0,4).map(e=>{const r=c.earn[e[0]]||{};return (r.n??e[2])}).join(' / ')} <small class="mut">AT for lore / characters / skins / items</small></td></tr>
+  <tr><td>Open quests</td><td>${Object.keys(QP).length?Object.entries(QP).map(([l,n])=>`<span class="ecch">${cIco(l)} ${ecoNum(n)}</span>`).join(' '):'<span class="mut">None</span>'}</td></tr>
+  <tr><td>Daily limit for creating</td><td>${cap?`${used} / ${cap} ${esc(nm('today'))}`:'<span class="mut">No limit</span>'}</td></tr></tbody></table>`)+
+ wsCard('store','Money going out','Prices across the shop, the Gacha and bundles.',Object.keys(P).length?`<table class="ect"><thead><tr><th>Currency</th><th>Things</th><th>Average</th><th>Cheapest – dearest</th></tr></thead><tbody>${Object.entries(P).map(([l,b])=>`<tr><td>${cIco(l)} ${esc(l)}</td><td>${b.n}</td><td>${ecoNum(b.s/b.n)}</td><td>${ecoNum(b.lo)} – ${ecoNum(b.hi)}</td></tr>`).join('')}</tbody></table>`:'<p class="mut" style="margin:0">Nothing has a price yet.</p>')+`</div>`+
+ wsCard('gear','Status','Tap one to change it.',`<div class="ecsg">${st(sale,'Shop sale',sale?`−${sale}% now`:'Off',"ecoT='spend';render()")}${st(c.ex.on&&c.ex.rates.length,'Exchange',c.ex.on?c.ex.rates.length+' rates':'Off',"ecoT='ex';render()")}${st(cap,'Daily limit',cap?cap+' a day':'Off',"ecoT='earn';render()")}${st(boo!=1,'Boosts',boo!=1?'XP ×'+boo:'Normal',"ecoT='boost';render()")}</div>`)}
+function ecoWalletT(){return wsCard('dia','Balances',S.dev?'Your test wallet. Normal play keeps its own wallet.':'The current wallet.',`<div class="ecwl">${ECW.map(([k,l,n,col])=>`<div class="ecwr" style="--ec:${col}"><span class="ecwi">${cIco(l).replace(/width="\d+" height="\d+"/,'width="22" height="22"')}</span><div class="ecwn"><b>${esc(n)}</b><small>${esc(l)}</small></div><input type="number" min="0" value="${+S[k]||0}" onchange="ecoSet('${k}',this.value)" aria-label="${esc(n)}"><div class="ecwb">${[-100,-10,10,100,1000].map(x=>`<button class="${x<0?'neg':''}" onclick="ecoAdd('${k}',${x})">${x>0?'+':''}${x}</button>`).join('')}<button onclick="ecoSet('${k}',0)">0</button></div></div>`).join('')}</div>`)}
+function ecoEarnT(){const c=EKO();return wsCard('plus','Rewards for creating','What players get each time they save something new.',`<div class="ecsx"><table class="ect ecte"><thead><tr><th>When they save a…</th><th>Amount</th><th>Pays in</th><th>Also XP</th></tr></thead><tbody>${ECE.map(([k,l,d])=>{const r=c.earn[k]||{};return `<tr><td>${esc(l)}</td><td><input type="number" min="0" value="${r.n??d}" onchange="ecoEarn('${k}','n',this.value)"></td><td><select onchange="ecoEarn('${k}','c',this.value)">${[['AT','AT'],['CE','CE'],['GT','GT'],['ST','ST'],['SE','SE'],['none','Nothing']].map(o=>`<option value="${o[0]}" ${(r.c||'AT')==o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></td><td><label class="wxts"><input type="checkbox" ${r.xp!==0?'checked':''} onchange="ecoEarn('${k}','xp',this.checked?1:0)"><i></i></label></td></tr>`}).join('')}</tbody></table></div><div class="wsrow" style="margin-top:10px"><button class="btn" onclick="EKO().earn={};save();render();toast('Back to the normal amounts')">Reset to normal</button></div>`)+
+ wsCard('clock','Daily limit','Stops players from farming rewards by saving many tiny things.',`<div class="row"><div><label>Most currency from creating per day (0 = no limit)</label><input type="number" min="0" value="${+c.cap||0}" onchange="EKO().cap=Math.max(0,+this.value||0);save();render()"></div><div><label>${esc(nm('Today'))}</label><input disabled value="${S.ecd&&S.ecd.d==ecoDay()?S.ecd.n:0}"></div></div>`)+
+ wsCard('qst','Quests, daily rewards and events','Set those where they are made.',`<div class="wsrow"><button class="btn" onclick="wsub='quests';render()">Quests</button><button class="btn" onclick="wsub='daily';render()">Daily rewards</button><button class="btn" onclick="wsub='events';render()">Events</button><button class="btn" onclick="ecoT='boost';render()">Boosts</button></div>`)}
+function ecoEarn(k,f,v){const c=EKO(),r=c.earn[k]=c.earn[k]||{};r[f]=f=='c'?v:Math.max(0,+v||0);save()}
+const ecoDt=v=>v?new Date(v-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,16):'';
+function ecoSpendT(){const c=EKO(),sale=ecoSale();return wsCard('store','Shop sale','Takes a percentage off every shop price.',`<div class="row"><div><label>Discount (%)</label><input type="number" min="0" max="90" value="${+c.sale||0}" onchange="EKO().sale=Math.max(0,Math.min(90,+this.value||0));save();render()"></div><div><label>Name shown in the shop</label><input value="${esc(c.saleName||'')}" placeholder="${esc(nm('Sale'))}" onchange="EKO().saleName=this.value;save()"></div></div><div class="row"><div><label>Starts (optional)</label><input type="datetime-local" value="${ecoDt(c.saleStart)}" onchange="EKO().saleStart=this.value?new Date(this.value).getTime():0;save();render()"></div><div><label>Ends (optional)</label><input type="datetime-local" value="${ecoDt(c.saleEnd)}" onchange="EKO().saleEnd=this.value?new Date(this.value).getTime():0;save();render()"></div></div><p class="ecnote ${sale?'on':''}">${sale?`On now: everything is ${sale}% cheaper.`:+c.sale?'Set, but not running right now.':'No sale.'}</p>`)+
+ wsCard('dia','Gacha prices','Gacha Tokens for one opening of each banner.',(S.gbs||[]).length?`<table class="ect"><tbody>${S.gbs.map((g,i)=>`<tr><td>${esc(g.name)}</td><td><input type="number" min="0" value="${+g.cost||0}" onchange="S.gbs[${i}].cost=Math.max(0,+this.value||0);save()"> <small class="mut">GT</small></td></tr>`).join('')}</tbody></table>`:'<p class="mut" style="margin:0">No banners yet.</p>')+
+ wsCard('grid4','Prices of things','Characters, skins and items have their price in their own editor.',`<div class="wsrow"><button class="btn" onclick="go('store');ssub='col';ccat='chars'">Characters</button><button class="btn" onclick="go('store');ssub='col';ccat='skins'">Skins</button><button class="btn" onclick="go('store');ssub='store';tsub='main'">Shop and bundles</button></div>`)}
+function ecoExT(){const c=EKO(),R=c.ex.rates,opt=v=>ECW.map(w=>`<option value="${w[1]}" ${v==w[1]?'selected':''}>${w[1]} · ${esc(w[2])}</option>`).join('');return wsCard('sync','Currency exchange','Players can turn one currency into another. It shows when they tap + next to Creators Essence.',wsTog(c.ex.on,"EKO().ex.on=this.checked?1:0;save();render()",'Exchange is open','Turn it off to hide it from players.')+
+ `<div class="ecsx"><table class="ect"><thead><tr><th>Pay</th><th></th><th>Get</th><th></th><th>Times a day</th><th></th></tr></thead><tbody>${R.map((r,i)=>`<tr><td><input type="number" min="1" value="${+r.a||1}" onchange="EKO().ex.rates[${i}].a=Math.max(1,+this.value||1);save()"></td><td><select onchange="EKO().ex.rates[${i}].f=this.value;save()">${opt(r.f)}</select></td><td><input type="number" min="1" value="${+r.b||1}" onchange="EKO().ex.rates[${i}].b=Math.max(1,+this.value||1);save()"></td><td><select onchange="EKO().ex.rates[${i}].t=this.value;save()">${opt(r.t)}</select></td><td><input type="number" min="0" value="${+r.lim||0}" title="0 = no limit" onchange="EKO().ex.rates[${i}].lim=Math.max(0,+this.value||0);save()"></td><td><button class="ic" onclick="EKO().ex.rates.splice(${i},1);save();render()" aria-label="Remove">${ico('x',12)}</button></td></tr>`).join('')||`<tr><td colspan="6" class="mut">No rates yet.</td></tr>`}</tbody></table></div><div class="wsrow" style="margin-top:10px"><button class="btn dev" onclick="EKO().ex.rates.push({f:'AT',a:100,t:'CE',b:10,lim:0});save();render()">${ico('plus',12)} Add a rate</button></div>${exHtml()?`<label style="margin-top:12px">What players see</label><div class="expv">${exHtml()}</div>`:''}`)}
+function ecoLogT(){const L=(S.wlog||[]).filter(x=>!ecoLF||x.c.some(c=>c[0]==ecoLF)).slice(0,80);return wsCard('clock','Activity','Every change to the wallet, newest first.',`<div class="ecfl"><button class="${!ecoLF?'on':''}" onclick="ecoLF='';render()">All</button>${ECW.map(w=>`<button class="${ecoLF==w[1]?'on':''}" onclick="ecoLF='${w[1]}';render()">${w[1]}</button>`).join('')}</div>${L.length?`<div class="ecsx"><table class="ect"><thead><tr><th>When</th><th>What</th><th>Change</th></tr></thead><tbody>${L.map(x=>`<tr><td class="mut">${new Date(x.t).toLocaleString([],{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</td><td>${esc(x.w)}</td><td>${x.c.map(([l,n])=>`<span class="ecch ${n>0?'up':'dn'}">${n>0?'+':'−'}${Math.abs(n)} ${esc(l)}</span>`).join(' ')}</td></tr>`).join('')}</tbody></table></div><div class="wsrow" style="margin-top:10px"><button class="btn red" onclick="cfm('Clear the activity list? Balances stay the same.',()=>{S.wlog=[];save();render()})">Clear the list</button></div>`:'<p class="mut" style="margin:0">Nothing yet.</p>'}`)}
+ecoPage=function(){const k=ecoT,sale=ecoSale(),F=ecoFlow(7),net=Object.values(F).reduce((a,b)=>a+b.in-b.out,0);
+ const head=wsHero('dia','Economy','Currencies, what players earn and pay, sales, exchange and loot, in one place.',[ECW.length+' currencies',(net>=0?'+':'−')+ecoNum(Math.abs(net))+' net this week',sale?'Sale −'+sale+'%':'No sale']);
+ const body=k=='wallet'?ecoWalletT():k=='earn'?ecoEarnT():k=='spend'?ecoSpendT():k=='ex'?ecoExT():k=='log'?ecoLogT():k=='xp'?ecoXp():k=='chest'?ecoChest():k=='orb'?ecoOrb():k=='boost'?ecoBoost():ecoOv();
+ return head+ecoNav()+`<div class="ecbd">${body}</div>`};
+/* the page is called Economy in the Workshop */
+{const _dve2=dev;dev=function(){let h=_dve2.apply(this,arguments);return h.split(esc(nm('Currency, XP and loot'))).join(esc(nm('Economy')))}}
 
 
 render();

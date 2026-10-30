@@ -1,8 +1,8 @@
 {
- "version": "2.6.1 Beta",
- "build": 197,
+ "version": "2.7 Beta",
+ "build": 198,
  "html": "update/exodus.html",
- "notes": "Simpler regions with a top bar clock, weather back in the top bar, World news and Diaries in Story, one Lore Wordle entry, card finishes in Gacha rewards and tiers, live sync fixes.",
+ "notes": "Cities with their own time and weather, weather and clock follow the chosen place, a new Economy page with sales, currency exchange, creating rewards, a daily limit and activity.",
  "win": {
   "version": "1.9.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
