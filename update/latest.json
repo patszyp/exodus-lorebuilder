@@ -1,8 +1,8 @@
 {
-  "version": "2.27.1 Beta",
-  "build": 220,
+  "version": "2.28 Beta",
+  "build": 221,
   "html": "update/exodus.html",
-  "notes": "Weather is set by the map: the weather picker lists only map places, regions with their cities under them.",
+  "notes": "World stats: live population for every region, subregion and city — ages, births and deaths today and this year, jobs, education, peoples, faith and wealth.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
