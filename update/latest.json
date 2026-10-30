@@ -1,8 +1,8 @@
 {
-  "version": "2.24 Beta",
-  "build": 216,
+  "version": "2.25 Beta",
+  "build": 217,
   "html": "update/exodus.html",
-  "notes": "Religions and Languages redesigned: Myth tree, Religious days, Rituals with Practice mode, Dictionary with flashcards, and Languages builder with name types.",
+  "notes": "Other redesigned: Magic systems, Documents, Spells and every page in Philosophy, Arts, Medicine, Military, Law, Time and Cosmos, with new options and group overviews.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
