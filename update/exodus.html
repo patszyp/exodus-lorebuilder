@@ -7999,8 +7999,11 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.20';
+const WNV='2.21';
 const WN=[
+ ['2.21','30 Oct 2026',[
+  ['Lore','Five more kinds of supplies','Sericulture and silk, pyrotechnic and explosive supplies, glassmaking and vials, flax and spinning, and dyeing and pigments, each in its group.',"supT='pyro';lcat='Worlds';pickSub('lore','sup')"],
+  ['Lore','How they behave','Silkworms need mulberry leaves and suffer in cold and storms. Powder mills stop in rain, war triples their use and feast days burn fireworks. Glass needs sand or fuel, linen needs flax, and dyes come from plants or minerals.',"supT='silk';lcat='Worlds';pickSub('lore','sup')"]]],
  ['2.20','30 Oct 2026',[
   ['Lore','19 more kinds of supplies','Brewery, dairy, heating and fuel, lighting, storage, camp gear, repair, scribe and ledger, cartography, foundry, tannery, masonry, ropemaking, luxury and morale, hygiene, archery, butchery, fish curing and veterinary care.',"supT='ov';lcat='Worlds';pickSub('lore','sup')"],
   ['Lore','Supplies sorted into groups','Food and drink, raw resources, materials and crafts, home and comfort, military and travel, health and care, knowledge and records, and magic and alchemy, each sorted by name. Groups fold open on tap.',"supT='ov';lcat='Worlds';pickSub('lore','sup')"],
@@ -9654,7 +9657,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.20 Beta',APPB=212;
+const APPV='2.21 Beta',APPB=213;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -13235,7 +13238,7 @@ function supUM(r,pid){if(!pid)return 1;if(r.c=='def')return SUPWM[supWarOf(pid)]
 function supWarSet(pid,v){const W=SUP().war=SUP().war||{};if(v)W[pid]=v;else delete W[pid];save();render()}
 function supBoomSet(pid,v){const B=SUP().boom=SUP().boom||{};if(v)B[pid]=v;else delete B[pid];save();render()}
 function supStateCard(kind,scope){const D=S.dev,isW=kind=='war',M=isW?(SUP().war||{}):(SUP().boom||{}),opts=isW?SUPWAR:[['','Normal'],['b','Building boom'],['s','Little building']];
- const used=new Set();SUP().r.filter(r=>r.c==(isW?'def':'build')).forEach(r=>Object.keys(SUP().p).forEach(p=>{if(SUP().p[p][r.id])used.add(p)}));Object.keys(M).forEach(p=>used.add(p));
+ const used=new Set();SUP().r.filter(r=>(isW?['def','arch','pyro','camp']:['build','mason']).includes(r.c)).forEach(r=>Object.keys(SUP().p).forEach(p=>{if(SUP().p[p][r.id])used.add(p)}));Object.keys(M).forEach(p=>used.add(p));
  const L=[...used].filter(p=>!scope||placeIn(p,scope));
  return wsCard(isW?'defx':'buildx',isW?nm('War state'):'Building',isW?'How much a place fights decides how fast it uses arrows and armour. Wars that are going on now count on their own.':'A building boom uses stock almost twice as fast.',L.length?`<div class="supwl">${L.map(p=>{const cur=isW?supWarOf(p):(M[p]||''),own=M[p]||'',auto=isW&&cur=='w'&&own!='w'&&supActive('wars',p).length;return `<div><b>${esc(supPN(p))}</b><span>${D?opts.map(([v,l])=>`<button class="${own==v?'on':''} ${isW&&v=='w'?'wr':''}" onclick="${isW?'supWarSet':'supBoomSet'}('${p}','${v}')">${l}</button>`).join(''):`<em>${esc((opts.find(x=>x[0]==cur)||opts[0])[1])}</em>`}</span>${auto?`<small class="hot">At war now: ${supActive('wars',p).map(o=>esc(o.n)).join(', ')}</small>`:isW&&cur?`<small>${cur=='w'?'Uses 3 times as much':'Uses half again as much'}</small>`:''}</div>`}).join('')}</div>`:'<p class="mut">No places yet. Add places to a supply first.</p>')}
 function supSickCard(scope){const L=SUP().r.filter(r=>r.c=='pharm');const pl=new Set();L.forEach(r=>Object.keys(SUP().p).forEach(p=>{if(SUP().p[p][r.id]&&(!scope||placeIn(p,scope)))pl.add(p)}));
@@ -13354,6 +13357,28 @@ function supTodayCard(c,scope){const pid=scope||(Object.keys(SUP().p)[0]||''),w=
 /* editor: link, keeps for */
 {const _se=supEdit;supEdit=function(id,cat){_se.apply(this,arguments);const r=SUP().r.find(x=>x.id==id)||{c:cat||supT},host=document.getElementById('su8');if(!host)return;const lk=SUPLINK[r.c],lf=SUPLIFE[r.c];if(!lk&&!lf)return;
  host.previousElementSibling.insertAdjacentHTML('beforebegin',`<div class="gcdxg">${lk?`<div><label>Made from</label><select id="sux3"><option value="">—</option>${SUP().r.filter(x=>lk.includes(x.c)).map(x=>`<option value="${x.id}" ${r.crop==x.id?'selected':''}>${esc(x.n)} · ${esc(nm(supC(x.c)[1]))}</option>`).join('')}</select></div>`:''}${lf?`<div><label>Keeps for, days</label><input id="sux2" type="number" min="0" value="${esc(r.life??(r.id?'':lf))}" placeholder="${lf}"></div>`:''}</div>`)}}
+
+/* ===== 2.21: Supplies — silk, pyrotechnics, glass, flax and spinning, dyes ===== */
+Object.assign(ICOP,{silkx:'M8 3c-3 0-4 2.5-4 5s1 5 4 5 4-2.5 4-5-1-5-4-5zM4.5 6.5c2 1 5 1 7 0M4.2 9.5c2 1 5.6 1 7.6 0M8 3c1-1 2.5-1 3-.5',pyrox:'M8 7v7M8 7l-3-3M8 7l3-3M8 7V2.5M5 4L3.5 2.5M11 4l1.5-1.5M6 14h4',glassx:'M5 2h6l-1 5a2 2 0 0 1-4 0zM8 9v4.5M5.5 13.5h5',flaxx:'M8 14V3M8 6l-3-2M8 6l3-2M8 9.5l-3-2M8 9.5l3-2M6 14h4',dyex:'M8 2.5C6 5.5 4.5 7.5 4.5 9.8a3.5 3.5 0 0 0 7 0C11.5 7.5 10 5.5 8 2.5zM5 10h6'});
+Object.assign(PL,{"Sericulture and silk stock":"Jedwabnictwo i jedwab","Pyrotechnic and explosive supplies":"Pirotechnika i materiały wybuchowe","Glassmaking and vial stock":"Szklarstwo i fiolki","Flax and spinning stock":"Len i przędzalnictwo","Dyeing and pigment stock":"Farbiarstwo i pigmenty"});
+SUPC.push(
+ ['silk','Sericulture and silk stock','silkx','#f0d9ff','skeins',['Silkworms','Cocoons','Raw silk','Silk thread','Silk cloth','Mulberry leaves','Other'],'ssn',.3,'Silkworms, cocoons, raw silk and cloth, with the rearing months. Worms eat mulberry leaves: link them from Farming or Gathering, and without leaves the worms stop spinning. Cold and storms hurt them.'],
+ ['pyro','Pyrotechnic and explosive supplies','pyrox','#ff6a3d','kegs',['Black powder','Fireworks','Fire pots','Saltpetre','Sulphur','Fuses','Other'],'',.6,'Black powder, fireworks and fire pots. Each one is stable, volatile or dangerous. Rain and storms stop the powder mills, war uses three times as much, and feast days burn fireworks twice as fast.'],
+ ['glass','Glassmaking and vial stock','glassx','#9fe3ff','crates',['Sand','Soda ash','Window panes','Bottles','Vials','Lenses','Beads','Other'],'',0,'Panes, bottles, vials for alchemists and lenses. Glass needs sand and a hot furnace: link the sand from Mining or the fuel from Heating, and without it the furnace goes cold.'],
+ ['flax','Flax and spinning stock','flaxx','#e3d39a','bundles',['Flax straw','Retted flax','Linen thread','Yarn','Spindles','Linen cloth','Other'],'ssn',.3,'Flax from the field to the spindle: straw, retted fibre, thread and linen, with the harvest months. Link the flax crop from Farming.'],
+ ['dye','Dyeing and pigment stock','dyex','#c45cff','pots',['Woad (blue)','Madder (red)','Weld (yellow)','Indigo','Saffron','Ochre','Sea purple','Mordants','Other'],'',.2,'Dyes and pigments for cloth, paint and ink, and the mordants that fix them. Link the plant or mineral they come from. Rain slows the drying.']);
+(SUPG.find(g=>g[0]=='raw')||[])[3].push('silk','flax','dye');(SUPG.find(g=>g[0]=='craft')||[])[3].push('glass');(SUPG.find(g=>g[0]=='mil')||[])[3].push('pyro');
+Object.assign(SUPLINK,{silk:['farm','herb'],glass:['mine','fuel'],flax:['farm'],dye:['herb','farm','mine','bee']});
+/* use: war and feasts for pyrotechnics */
+{const _um=supUM;supUM=function(r,pid){if(r.c=='pyro'&&pid)return SUPWM[supWarOf(pid)]||1;return _um.apply(this,arguments)}}
+{const _ss=supSim;supSim=function(r,q){if(r.c!='pyro')return _ss.apply(this,arguments);const P=SUP().p,pid=Object.keys(P).find(k=>P[k][r.id]===q)||'',um=pid?supUM(r,pid):1;return _ss.call(this,r,um!=1?Object.assign({},q,{_um:um}):q)}}
+{const _wf=supWF;supWF=function(r,pid,off){const o=_wf.apply(this,arguments);if(r.c=='pyro'&&(o.w=='rain'||o.w=='storm'))o.f=o.w=='storm'?0:Math.min(o.f,.3);if(r.c=='silk'&&(o.w=='snow'||o.w=='storm'))o.f=Math.min(o.f,.3);return o}}
+{const _ag=supAgg;supAgg=function(r,scope){const a=_ag.apply(this,arguments);if(r.c=='pyro'&&supHolToday().length&&a.R){let use=0;a.R.forEach(x=>{x.s.use*=2;x.s.days=x.s.use>0?x.s.now/x.s.use:Infinity;use+=x.s.use});a.use=use;a.days=use>0?a.now/use:Infinity;a.low=a.R.filter(x=>x.s.days<14).length}return a}}
+/* pyrotechnics: handling card */
+function supPyroCard(scope){const L=SUP().r.filter(r=>r.c=='pyro');return wsCard('pyrox','Handling','How dangerous each one is to keep, and the weather at the mills today',`<div class="supql">${L.map(r=>{const v=SUPVOL.find(x=>x[0]==(r.vol||''))||SUPVOL[0],a=supAgg(r,scope),stop=a.R.filter(x=>supWF(r,x.pid,0).f<.05);return `<div><b>${esc(r.n)}</b><small class="mut">${esc(r.k||'')}${stop.length?` · <span class="hot">mills stopped by weather in ${stop.map(x=>esc(supPN(x.pid))).join(', ')}</span>`:''}</small><span class="supq" style="--qc:${r.vol=='d'?'#e8707a':r.vol=='v'?'#e6c35c':'#3fc98a'}">${esc(v[1])}</span></div>`}).join('')}</div>`)}
+{const _sc=supCat;supCat=function(c,scope){const h=_sc.apply(this,arguments);if(!SUP().r.some(r=>r.c==c[0]))return h;let x='';if(c[0]=='pyro')x=supPyroCard(scope)+supStateCard('war',scope)+supFeastCard();return h+(x?`<div class="wsg2">${x}</div>`:'')}}
+/* editor: volatility for pyrotechnics */
+{const _se=supEdit;supEdit=function(id,cat){_se.apply(this,arguments);const r=SUP().r.find(x=>x.id==id)||{c:cat||supT},host=document.getElementById('su8');if(!host||r.c!='pyro')return;host.previousElementSibling.insertAdjacentHTML('beforebegin',`<label>${esc(nm('Volatility'))}</label><select id="sux1">${SUPVOL.map(([v,l])=>`<option value="${v}" ${(r.vol||'')==v?'selected':''}>${l}</option>`).join('')}</select>`)}}
 
 
 render();

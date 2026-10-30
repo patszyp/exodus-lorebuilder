@@ -1,8 +1,8 @@
 {
-  "version": "2.20 Beta",
-  "build": 212,
+  "version": "2.21 Beta",
+  "build": 213,
   "html": "update/exodus.html",
-  "notes": "Supplies: 19 more kinds, all supplies grouped into 8 sections and sorted by name, workshops that depend on their raw materials, and fuel, light, repairs and morale that react to the day.",
+  "notes": "Supplies: silk, pyrotechnics and explosives, glass and vials, flax and spinning, and dyes and pigments.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
