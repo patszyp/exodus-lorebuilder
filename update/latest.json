@@ -1,8 +1,8 @@
 {
-  "version": "2.23 Beta",
-  "build": 215,
+  "version": "2.24 Beta",
+  "build": 216,
   "html": "update/exodus.html",
-  "notes": "Factions redesigned (heraldry, rulers, wars, laws, relations), new Announcements with city notice boards and bounty contracts, and Report a bug fixed.",
+  "notes": "Religions and Languages redesigned: Myth tree, Religious days, Rituals with Practice mode, Dictionary with flashcards, and Languages builder with name types.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
