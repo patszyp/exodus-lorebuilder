@@ -1,8 +1,8 @@
 {
-  "version": "2.15 Beta",
-  "build": 207,
+  "version": "2.16 Beta",
+  "build": 208,
   "html": "update/exodus.html",
-  "notes": "Nature redesigned: Bestiary, Flora and fauna, Food chain, Cuisine, Encounters and Menus, each with new options. Regions in Worlds now open on tap.",
+  "notes": "New Supplies section in Worlds: farming, mining, carpentry, fishing, hunting, beekeeping, herding and gathering, with live stock per region, subregion and city, seasons, weather and trade.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
