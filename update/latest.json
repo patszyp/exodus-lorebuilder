@@ -1,8 +1,8 @@
 {
- "version": "2.7 Beta",
- "build": 198,
+ "version": "2.7.1 Beta",
+ "build": 199,
  "html": "update/exodus.html",
- "notes": "Cities with their own time and weather, weather and clock follow the chosen place, a new Economy page with sales, currency exchange, creating rewards, a daily limit and activity.",
+ "notes": "A reworked world economy page: coins, prices, wages, cost of living, markets, taxes, trade and price history.",
  "win": {
   "version": "1.9.0",
   "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
