@@ -8089,8 +8089,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.27';
+const WNV='2.27.1';
 const WN=[
+ ['2.27.1','30 Oct 2026',[
+  ['Weather','Weather is set by the map','The weather picker now lists only places on the map, as one tree: regions with their cities under them. Places that exist only in Lore get weather once you put them on the map.',"wxOpen()"]]],
  ['2.27','30 Oct 2026',[
   ['Lore','Map places and lore places are one','A region or city on the map and the same region or city in Lore are now one place. Places with the same name were linked, and map places without a lore entry got one. Weather, clocks, supplies, economy and every place picker show each place once, with subregions and cities under their region.',"lcat='Worlds';pickSub('lore','entries')"],
   ['Lore','Names stay in sync','Rename a place on the map or in Lore and the other follows. A new region or city drawn on the map gets its lore entry by itself. Deleting one from the map asks whether to delete its lore entry too.',"lcat='Worlds';pickSub('lore','map')"]]],
@@ -9771,7 +9773,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.27 Beta',APPB=219;
+const APPV='2.27.1 Beta',APPB=220;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -14157,6 +14159,9 @@ function mapDelAsk(kind,id){const r=kind=='r'?WREG().find(x=>x.id==id):null,c=ki
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('#wrm button.btn.red,#cym button.btn.red');if(!b)return;const oc=b.getAttribute('onclick')||'',m=oc.match(/x\.id!='([^']+)'/);if(!m)return;e.preventDefault();e.stopImmediatePropagation();mapDelAsk(b.closest('#wrm')?'r':'c',m[1])},true);
 /* the dossier of a lore place shows that it is on the map */
 XPOST.push(function mapLinkBadge(){if(!(tab=='lore'&&sel))return;const A=plAliases(),a=A[sel];if(!a||document.querySelector('#m .mlnkb'))return;const h=document.querySelector('#m h1, #m h2');if(h)h.insertAdjacentHTML('afterend',`<p class="mlnkb">${ico('mapi',12)} On the map as ${esc(placeName(a))} · weather and clock come from the map</p>`)});
+/* weather is set by the map: the weather picker lists only places on the map, as one tree */
+const plIsMap=id=>String(id).startsWith('c:')||WREG().some(r=>r.id==id);
+wxPlaces=function(){const out=[['','World (default)','']];PLO().filter(x=>plIsMap(x[0])).forEach(([id,n])=>{let d=0,p=placeUp(id),g=0;while(p&&g++<8){if(plIsMap(p))d++;p=placeUp(p)}const city=String(id).startsWith('c:');out.push(['m:'+id,n,city?'city':'map',Math.max(0,d-(city?1:0))])});return out};
 
 
 render();

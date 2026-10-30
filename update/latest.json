@@ -1,8 +1,8 @@
 {
-  "version": "2.27 Beta",
-  "build": 219,
+  "version": "2.27.1 Beta",
+  "build": 220,
   "html": "update/exodus.html",
-  "notes": "Map places and lore places are now one: linked by name, names kept in sync, and weather, clocks and pickers show each place once.",
+  "notes": "Weather is set by the map: the weather picker lists only map places, regions with their cities under them.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
