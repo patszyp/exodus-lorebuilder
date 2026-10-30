@@ -2837,6 +2837,70 @@ html[data-wtd=night]::after{background:rgba(40,60,160,.22)}
 .lcv .ic{width:100%!important}
 .wsg2>.wsc{height:calc(100% - 12px)}
 .ect .wxts{display:inline-block}
+/* 2.8: story tool icons sit in the tab row */
+nav.ptb{flex-wrap:nowrap!important;align-items:stretch;scrollbar-width:none}nav.ptb::-webkit-scrollbar{display:none}
+.ptb .ptbx{align-self:center;gap:0;margin-left:auto;padding:0 0 0 8px;border-left:1px solid #785a2855}
+.ptb .ptbi{width:32px!important;height:32px!important;border:0!important;border-radius:0!important;background:none!important;margin:0!important;color:#a09b8c;border-bottom:0!important}
+.ptb .ptbi:hover{color:#f0e6d2;background:#ffffff0a!important}
+.ptb .ptbi.on{color:var(--gold2);background:linear-gradient(0deg,#c8aa6e26,transparent)!important;box-shadow:inset 0 -2px 0 var(--gold)}
+@media(max-width:760px){.ptb>button:not(.ptbi){padding:9px 8px 8px!important;font-size:11px!important;letter-spacing:.05em!important}.ptb .ptbi{width:28px!important;height:30px!important}.ptb .ptbx{padding-left:4px}}
+/* map layers */
+.mlb{display:flex;gap:2px;align-items:stretch;overflow-x:auto;scrollbar-width:none;border:1px solid #785a2844;background:rgba(1,10,19,.55);padding:3px;margin:0 0 12px}
+.mlb::-webkit-scrollbar{display:none}
+.mlb button{flex:none;display:inline-flex;align-items:center;gap:7px;background:none;border:0;color:#a09b8c;padding:7px 11px;font:600 12px Inter,system-ui,sans-serif;cursor:pointer;white-space:nowrap;text-align:left}
+.mlb button small{display:block;font-weight:400;font-size:10px;color:#6c6a62}
+.mlb button:hover{color:#f0e6d2;background:#ffffff08}.mlb button.on{color:#f0e6d2;background:linear-gradient(180deg,rgba(200,170,110,.18),rgba(200,170,110,.06));box-shadow:inset 0 -2px 0 #c8aa6e}
+.mlsw{width:10px;height:10px;transform:rotate(45deg);flex:none;box-shadow:0 0 6px currentColor}
+.mlsep{flex:none;align-self:center;font:600 10px Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#6c6a62;padding:0 6px 0 10px;border-left:1px solid #785a2844;margin-left:4px}
+.mlsep:empty{padding:0;margin:0 4px}
+.mlb .mladd{margin-left:auto;color:#0ac8b9}
+.mlhd{display:flex;gap:12px;align-items:center;padding:10px 14px;margin:0 0 10px;border:1px solid color-mix(in srgb,var(--lc) 50%,transparent);background:linear-gradient(90deg,color-mix(in srgb,var(--lc) 18%,transparent),rgba(1,10,19,.4) 70%)}
+.mlhd>div{flex:1}.mlhd b{display:block;color:#f0e6d2;font:700 16px Cinzel,Georgia,serif;letter-spacing:.04em}.mlhd small{color:#a09b8c;font-size:12px}.mlhd p{margin:4px 0 0;font-size:13px;color:#cdc6b4}
+.mlhi{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--lc);color:var(--lc)}
+.mlpin{position:absolute;transform:translate(-50%,-50%);display:inline-flex;gap:4px;align-items:center;padding:3px 8px;font:600 11px/1.2 Inter,system-ui,sans-serif;color:#f0e6d2;background:color-mix(in srgb,var(--lc) 35%,#010a13);border:1px solid var(--lc);border-radius:999px;cursor:pointer;box-shadow:0 0 10px color-mix(in srgb,var(--lc) 60%,transparent);z-index:3}
+.mlk{display:flex;flex-direction:column;gap:6px}.mlk .chk{display:block;padding:8px 10px;border:1px solid #785a2844}.mlk small{display:block;color:#8a8577;margin:2px 0 0 22px}
+.mlcs{display:inline-flex;border:1px solid #785a2855;margin:0 0 10px}.mlcs button{display:inline-flex;gap:6px;align-items:center;background:none;border:0;color:#a09b8c;padding:6px 12px;font:600 12px Inter,system-ui,sans-serif;cursor:pointer}.mlcs button.on{background:#c8aa6e1f;color:#f0e6d2}
+.mlsv{border:1px solid #785a2844;background:#05070a;overflow:hidden}.mlsv svg{display:block;width:100%;height:auto}
+.mlst{fill:#f0e6d2;font:700 13px Cinzel,Georgia,serif;letter-spacing:.06em}
+.mlrg text{fill:#c8aa6e;font:600 11px Inter,system-ui,sans-serif}
+.mldp line{stroke:#ffffff14;stroke-dasharray:4 6}.mldp text{fill:#6c6a62;font:11px Inter,system-ui,sans-serif}
+.mlln{fill:#f0e6d2;font:700 13px Inter,system-ui,sans-serif;paint-order:stroke;stroke:#000a;stroke-width:3px}.mlld{fill:#a09b8c;font:11px Inter,system-ui,sans-serif}
+.mllay:hover rect{stroke-width:3}
+.mlway{stroke:#0ac8b9;stroke-width:1.5;stroke-dasharray:3 4}.mlwd{fill:#0ac8b9}
+.mlst3{display:grid;grid-template-columns:1fr;gap:12px}
+.mlsc{position:relative;perspective:1400px;overflow:hidden;border:1px solid #785a2844;background:radial-gradient(ellipse at 50% 30%,#122236,#040608 75%)}
+.mlpl{position:absolute;aspect-ratio:2/1;background:color-mix(in srgb,var(--lc) 30%,#0a0f14);background-size:cover;background-position:center;border:1.5px solid var(--lc);transform:rotateX(62deg) rotateZ(-28deg);transform-origin:50% 50%;box-shadow:0 30px 40px #000a,0 0 0 1px #0006 inset;cursor:pointer;transition:transform .25s,box-shadow .25s,filter .25s;filter:saturate(.85) brightness(.85)}
+.mlpl:hover,.mlpl.on{filter:none;box-shadow:0 30px 50px #000c,0 0 24px color-mix(in srgb,var(--lc) 70%,transparent)}
+.mlpl:hover{transform:rotateX(62deg) rotateZ(-28deg) translateZ(14px)}
+.mlpt{position:absolute;right:-8px;top:50%;transform:translate(100%,-50%) rotateZ(28deg) rotateX(-62deg);transform-origin:0 50%;white-space:nowrap;font:700 13px Inter,system-ui,sans-serif;color:#f0e6d2;text-shadow:0 1px 3px #000;pointer-events:none}
+.mlpt small{display:block;font:400 11px Inter,system-ui,sans-serif;color:#a09b8c}
+.mldm{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}.mldm .evk{width:100%}
+.mldc{flex:1;min-width:150px;max-width:240px;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center;padding:12px;border:1px solid color-mix(in srgb,var(--lc) 55%,transparent);background:radial-gradient(circle at 50% 0,color-mix(in srgb,var(--lc) 22%,transparent),rgba(1,10,19,.6) 70%);color:#cdc6b4;cursor:pointer;font:inherit}
+.mldc b{color:#f0e6d2}.mldc small{color:#8a8577;font-size:12px}
+.mldi{display:grid;place-items:center;width:90px;height:90px;border-radius:50%;background:#0a0f14 center/cover;border:1.5px solid var(--lc);box-shadow:0 0 18px color-mix(in srgb,var(--lc) 60%,transparent);color:var(--lc)}
+.mlls{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;margin-top:10px}
+.mlls button{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;align-items:center;text-align:left;padding:8px 10px;border:1px solid #785a2844;background:rgba(1,10,19,.45);color:#cdc6b4;cursor:pointer;font:inherit}
+.mlls i{grid-row:span 2;width:10px;height:10px;transform:rotate(45deg)}.mlls b{color:#f0e6d2;font-size:13px}.mlls small{color:#8a8577;font-size:11px}
+/* lore regions and cities */
+.lrc{margin-top:12px;padding-top:10px;border-top:1px dashed #785a2855}
+.lrcl{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.lrcp{display:inline-flex;gap:5px;align-items:center;padding:3px 4px 3px 9px;border:1px solid #785a2866;background:#c8aa6e12;color:#f0e6d2;font-size:13px}
+.lrcp .ic{width:20px!important;height:20px!important}
+.lrca{display:flex;gap:8px;flex-wrap:wrap}.lrca input{flex:1;min-width:140px}.lrca select{width:auto;min-width:160px}
+.lrcv{margin:10px 0;padding:10px 12px;border:1px solid #785a2844;background:rgba(1,10,19,.4)}
+.lrcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:6px}
+.lrci{display:flex;flex-direction:column;gap:3px;padding:8px 10px;border:1px solid #ffffff10;background:rgba(200,170,110,.04)}
+.lrci a{color:#f0e6d2;text-decoration:none}.lrci a:hover b{color:var(--gold2)}.lrci small{color:#8a8577;font-size:12px}
+.lrct{display:inline-flex;gap:4px;align-items:center;font:600 12px ui-monospace,Consolas,monospace;color:#c8c3b5}
+.lrci .btn{align-self:flex-start;padding:3px 8px!important;font-size:11px}
+.lrup{display:inline-flex;gap:4px;align-items:center;margin-top:6px;color:#c8aa6e;font-size:12px}
+@media(max-width:760px){.mlpt{font-size:11px}}
+.mlsc svg{display:block;width:100%;height:auto}
+.mlp3{cursor:pointer}.mlp3 image{filter:saturate(.85) brightness(.85);transition:filter .2s}.mlp3:hover image,.mlp3.on image{filter:none}
+.mlp3:hover>g:not([transform^="translate(0"]) rect[fill="none"]{stroke-width:3}
+.mlln3{fill:#f0e6d2;font:700 15px Inter,system-ui,sans-serif;paint-order:stroke;stroke:#000b;stroke-width:3px}
+.mlsc{perspective:none}
+@media(max-width:760px){.mlln3{font-size:30px}.mlsc .mlld{font-size:22px}.mlsv .mlln{font-size:22px}.mlsv .mlld,.mlsv .mlrg text,.mldp text{font-size:18px}}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -7570,8 +7634,11 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.7.1';
+const WNV='2.8';
 const WN=[
+ ['2.8','30 Oct 2026',[
+  ['Lore','Underground layers and dimensions','Give the map underground levels (for the whole world or under one region) and separate dimensions, each with its own map and pins. Pins can lead from one layer to another, and the Cross-section shows every level stacked or from the side. Lore › Map.',"go('lore');lsub='map';render()"],
+  ['Lore','Cities in regions','Pick Region in an entry’s Details to list its cities, add new ones or link existing places. Cities on the map show their time there.',"go('lore');render()"]]],
  ['2.7.1','30 Oct 2026',[
   ['Lore','A new world economy page','Coins with colours and materials, prices you can search and filter, wages and days of work, a cost of living budget, price levels for regions and cities, taxes on groups, trade partners and a price history chart. Lore › Economy.',"go('lore');lsub='eco';render()"]]],
  ['2.7','30 Oct 2026',[
@@ -9173,7 +9240,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.7.1 Beta',APPB=199;
+const APPV='2.8 Beta',APPB=200;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -11540,6 +11607,107 @@ ecoView=function(){const E=LEC(),D=S.dev;
  if(!E.cur.length&&D&&lecT!='set'&&lecT!='cur')lecT='cur';
  const b=lecBase(),body=lecT=='cur'?lecCurT():lecT=='pr'?lecPrT():lecT=='wg'?lecWgT():lecT=='mk'?lecMkT():lecT=='tx'?lecTxT():lecT=='tr'?lecTrT():lecT=='hi'?lecHiT():lecT=='set'?lecSetT():lecOv();
  return `<div class="lch"><div><h2 class="f hl" style="margin:0">${esc(nm('Economy'))}</h2><small class="mut">The money of this world: coins, what things cost, what people earn.</small></div>${!E.cur.length&&D?`<button class="btn dev" onclick="ecoSample();lecT='ov'">Start with an example</button>`:''}</div><nav class="ecn">${T.map(([k,l,i])=>`<button class="${lecT==k?'on':''}" onclick="lecT='${k}';render()">${ico(i,14)}<span>${esc(nm(l))}</span></button>`).join('')}</nav><div class="lcb">${body}</div>`};
+
+/* ===== 2.8: map layers — underground levels, underground region maps, dimensions, and a cut through all of them ===== */
+Object.assign(PL,{"Surface":"Powierzchnia","Underground":"Podziemia","Dimensions":"Wymiary","Cross-section":"Przekrój","Add a layer":"Dodaj warstwę","Way to another layer":"Przejście do innej warstwy","Cities":"Miasta","Add a city":"Dodaj miasto"});
+if(!ICOP.layers)ICOP.layers='M8 2l6 3-6 3-6-3zM2 8l6 3 6-3M2 11l6 3 6-3';
+if(!ICOP.portal)ICOP.portal='M8 1.5c3 0 5 2.9 5 6.5s-2 6.5-5 6.5S3 11.6 3 8s2-6.5 5-6.5zM8 4.5c1.4 0 2.3 1.6 2.3 3.5S9.4 11.5 8 11.5 5.7 9.9 5.7 8 6.6 4.5 8 4.5z';
+const MLY=()=>{S.mlay=S.mlay||[];return S.mlay};
+let mapL='',mapLV='map',mlD=null;
+const mlOf=id=>MLY().find(l=>l.id==id);
+const mlKey=id=>'L'+id;
+const mlUnder=()=>MLY().filter(l=>l.k!='dim').sort((a,b)=>(+a.d||0)-(+b.d||0));
+const mlDims=()=>MLY().filter(l=>l.k=='dim');
+function mlLoad(id){if(typeof mapEraLoad=='function')mapEraLoad(mlKey(id))}
+function mlImg(id){if(!id)return mapImg;mlLoad(id);return (MAPS||{})[mlKey(id)]||''}
+function mlGo(id,v){mapL=id||'';mapLV=v||'map';if(mapL)mlLoad(mapL);render();scrollTo(0,0)}
+const mlPlace=r=>{if(!r)return '';const p=typeof placeFind=='function'?placeFind(r):null;if(p)return p.full||p.n;const l=S.lore.find(x=>x.id==r);return l?l.title:''};
+/* the layer bar above the map */
+function mlBar(){const U=mlUnder(),D=mlDims();if(!U.length&&!D.length&&!S.dev)return '';const b=(id,v,ic,l,sub,col)=>`<button class="${(mapLV==v&&(v!='map'||mapL==id))?'on':''}" onclick="mlGo('${id}','${v}')">${col?`<i class="mlsw" style="background:${col}"></i>`:ico(ic,14)}<span>${esc(l)}${sub?`<small>${esc(sub)}</small>`:''}</span></button>`;
+ return `<nav class="mlb">${b('','map','globe',nm('Surface'))}${U.length?`<span class="mlsep">${esc(nm('Underground'))}</span>`+U.map(l=>b(l.id,'map','',l.n,(+l.d?(+l.d)+' m':'')+(l.reg?' · '+mlPlace(l.reg):''),l.col||'#8a6a4a')).join(''):''}${D.length?`<span class="mlsep">${esc(nm('Dimensions'))}</span>`+D.map(l=>b(l.id,'map','',l.n,'',l.col||'#a070ff')).join(''):''}${U.length||D.length?`<span class="mlsep"></span>${b('','cut','layers',nm('Cross-section'))}`:''}${S.dev?`<button class="mladd" onclick="mlOpen('')">${ico('plus',12)} ${esc(nm('Add a layer'))}</button>`:''}</nav>`}
+/* the map page: draw the chosen layer with its own picture and pins */
+{const _mvL=mapView;mapView=function(){if(mapLV=='cut')return `<h2 class="f hl" style="margin-top:0">Map</h2>`+mlBar()+mlCut();if(!mapL||!mlOf(mapL)){mapL='';const all=S.mapPins||[],vis=all.map((p,i)=>[p,i]).filter(([p])=>!p.lay);if(vis.length==all.length)return String(_mvL.apply(this,arguments)).replace('<h2 class="f hl" style="margin-top:0">Map</h2>','<h2 class="f hl" style="margin-top:0">Map</h2>'+mlBar());let h;S.mapPins=vis.map(x=>x[0]);try{h=String(_mvL.apply(this,arguments))}finally{S.mapPins=all}h=h.replace(/S\.mapPins\.splice\((\d+),1\)/g,(m,i)=>vis[+i]?'S.mapPins.splice('+vis[+i][1]+',1)':m);return h.replace('<h2 class="f hl" style="margin-top:0">Map</h2>','<h2 class="f hl" style="margin-top:0">Map</h2>'+mlBar())}
+ const L=mlOf(mapL),all=S.mapPins||[],vis=all.map((p,i)=>[p,i]).filter(([p])=>p.lay==mapL),bI=mapImg,bE=mapE,bR=S.eras,bM=mapMode,bW=S.wreg;let h;
+ mapImg=mlImg(mapL);mapE='';S.eras=[];mapMode='map';S.mapPins=vis.map(x=>x[0]);S.wreg=[];try{h=String(_mvL.apply(this,arguments))}finally{mapImg=bI;mapE=bE;S.eras=bR;mapMode=bM;S.mapPins=all;S.wreg=bW}
+ h=h.replace(/S\.mapPins\.splice\((\d+),1\)/g,(m,i)=>vis[+i]?'S.mapPins.splice('+vis[+i][1]+',1)':m);
+ const wi=h.indexOf('<div class="panel wrp">');if(wi>=0)h=h.slice(0,wi)+h.slice(divEnd(h,wi));h=h.replace(/<div class="mpsw">[\s\S]*?<\/span><\/div>/,'');
+ const head=`<div class="mlhd" style="--lc:${L.col||(L.k=='dim'?'#a070ff':'#8a6a4a')}"><span class="mlhi">${ico(L.k=='dim'?'portal':'layers',18)}</span><div><b>${esc(L.n)}</b><small>${L.k=='dim'?esc(nm('Dimension')):esc(nm('Underground'))+(+L.d?' · '+(+L.d)+' m deep':'')+(L.reg?' · under '+esc(mlPlace(L.reg)):'')}</small>${L.note?`<p>${esc(L.note)}</p>`:''}</div>${S.dev?`<button class="btn" onclick="mlOpen('${L.id}')">Edit</button>`:''}</div>`;
+ return h.replace('<h2 class="f hl" style="margin-top:0">Map</h2>','<h2 class="f hl" style="margin-top:0">Map</h2>'+mlBar()+head)}}
+/* uploads, drawing and removing go to the open layer */
+const mlWith=fn=>function(){if(!mapL)return fn.apply(this,arguments);const k=mapE;mapE=mlKey(mapL);try{return fn.apply(this,arguments)}finally{mapE=k}};
+pickMap=mlWith(pickMap);
+{const _mdL=mapDel;mapDel=function(){if(!mapL)return _mdL.apply(this,arguments);const id=mapL;cfm('Remove this layer’s map and its pins?',()=>{mdel('map_'+mlKey(id));mdel('mapsrc_'+mlKey(id));MAPS[mlKey(id)]='';S.mapPins=(S.mapPins||[]).filter(p=>p.lay!=id);save();render()})}}
+if(typeof mcOpen=='function')mcOpen=mlWith(mcOpen);
+{const _mcL=mapClick;mapClick=function(e){const n=(S.mapPins||[]).length;const r=_mcL.apply(this,arguments);if(mapL&&(S.mapPins||[]).length>n){const p=S.mapPins[S.mapPins.length-1];p.lay=mapL;delete p.era;save();render()}return r}}
+/* pins can lead to another layer: a cave mouth, a stairway, a portal */
+XPOST.push(function mlPinPost(){if(!(tab=='lore'&&lsub=='map')||mapLV=='cut')return;const s=document.getElementById('mp1');if(s&&!s.querySelector('optgroup.mlog')){const o=[['',nm('Surface')],...MLY().map(l=>[l.id,l.n])].filter(x=>x[0]!=mapL);s.insertAdjacentHTML('afterbegin',`<optgroup class="mlog" label="${esc(nm('Way to another layer'))}">${o.map(([id,n])=>`<option value="L:${id}">→ ${esc(n)}</option>`).join('')}</optgroup>`);s.value=s.querySelector('option:not([value^="L:"])')?s.querySelector('option:not([value^="L:"])').value:s.value}
+ const img=document.querySelector('#m img[onclick^="mapClick"]');if(!img)return;const box=img.parentElement;if(box.querySelector('.mlpin'))return;if(mapL)box.querySelectorAll('.mprg,.mpnt').forEach(e=>e.remove());(S.mapPins||[]).filter(p=>(p.lay||'')==mapL&&String(p.ref).startsWith('L:')&&(!p.era||p.era==mapE||mapL)).forEach(p=>{const to=p.ref.slice(2),L=to?mlOf(to):null;if(to&&!L)return;box.insertAdjacentHTML('beforeend',`<button class="mlpin" style="left:${p.x}%;top:${p.y}%;--lc:${L?L.col||(L.k=='dim'?'#a070ff':'#8a6a4a'):'#0ac8b9'}" onclick="mlGo('${to}')" title="${esc(L?L.n:nm('Surface'))}">${ico(L&&L.k=='dim'?'portal':'layers',12)}<span>${esc(L?L.n:nm('Surface'))}</span></button>`)});
+ if(S.dev)document.querySelectorAll('#m .panel p').forEach(pp=>{if(/^\(missing\)/.test(pp.textContent)){const b=pp.querySelector('button');const m=b&&/splice\((\d+)/.exec(b.getAttribute('onclick')||'');const p=m&&(S.mapPins||[])[+m[1]];if(p&&String(p.ref).startsWith('L:')){const L=mlOf(p.ref.slice(2));pp.firstChild.textContent='→ '+(L?L.n:nm('Surface'))+' '}}})});
+{const _gr=goRef;goRef=function(r){if(String(r).startsWith('L:')){tab='lore';lsub='map';return mlGo(r.slice(2))}return _gr.apply(this,arguments)}}
+/* add or change a layer */
+function mlOpen(id,draft){const ex=id?mlOf(id):null,L=Object.assign({n:'',k:'under',d:100,reg:'',size:40,col:'',note:''},ex||{},draft||{});const regs=typeof lecRegs=='function'?lecRegs():[],P=S.lore.filter(l=>['Worlds','Factions'].includes(l.cat));
+ XMOD('mlm',`<h3 style="margin-top:0">${ico('layers',15)} ${ex?esc(ex.n):esc(nm('Add a layer'))}</h3><label>Name</label><input id="ml1" value="${esc(L.n)}" placeholder="For example: The Deep Roads">
+ <label>Kind</label><div class="mlk"><label class="chk"><input type="radio" name="ml2" value="under" ${L.k!='dim'?'checked':''} onchange="document.getElementById('mlu').hidden=false"> ${esc(nm('Underground'))}<small>A level below the surface, for the whole world or under one region.</small></label><label class="chk"><input type="radio" name="ml2" value="dim" ${L.k=='dim'?'checked':''} onchange="document.getElementById('mlu').hidden=true"> ${esc(nm('Dimension'))}<small>Another plane with its own map, not under the ground.</small></label></div>
+ <div id="mlu" ${L.k=='dim'?'hidden':''}><div class="row"><div><label>Depth (metres)</label><input id="ml3" type="number" min="0" step="10" value="${+L.d||0}"></div><div><label>Under</label><select id="ml4"><option value="">The whole world</option>${regs.length?`<optgroup label="Map">${regs.map(([v,n,c])=>`<option value="${v}" ${L.reg==v?'selected':''}>${c?'· ':''}${esc(n)}</option>`).join('')}</optgroup>`:''}${P.length?`<optgroup label="Lore">${P.map(l=>`<option value="${l.id}" ${L.reg==l.id?'selected':''}>${esc(l.title)}</option>`).join('')}</optgroup>`:''}</select></div></div><label>How wide, compared with the world (%)</label><input id="ml5" type="range" min="5" max="100" value="${+L.size||40}" oninput="this.nextElementSibling.textContent=this.value+'%'"><small class="mut">${+L.size||40}%</small></div>
+ <div class="row"><div><label>Colour</label><input id="ml6" type="color" value="${L.col||(L.k=='dim'?'#a070ff':'#8a6a4a')}"></div><div></div></div><label>Note</label><textarea id="ml7" rows="2" placeholder="What lives here, how to get in…">${esc(L.note||'')}</textarea>
+ <div class="wsrow" style="margin-top:12px"><button class="btn dev" onclick="mlSave('${id||''}')">${ex?'Save':esc(nm('Add a layer'))}</button>${ex?`<button class="btn" onclick="XCLOSE('mlm');mlGo('${id}')">Open its map</button><button class="btn red" onclick="cfm('Delete this layer, its map and its pins?',()=>{S.mlay=MLY().filter(x=>x.id!='${id}');S.mapPins=(S.mapPins||[]).filter(p=>p.lay!='${id}'&&p.ref!='L:${id}');mdel('map_${mlKey(id)}');mdel('mapsrc_${mlKey(id)}');if(mapL=='${id}')mapL='';save();XCLOSE('mlm');render()})">Delete</button>`:''}</div>`,480)}
+function mlSave(id){const g=i=>(document.getElementById(i)||{}).value,n=(g('ml1')||'').trim();if(!n)return toast('Give the layer a name');const k=(document.querySelector('input[name="ml2"]:checked')||{}).value||'under';const o={n,k,d:Math.max(0,+g('ml3')||0),reg:g('ml4')||'',size:Math.max(5,Math.min(100,+g('ml5')||40)),col:g('ml6')||'',note:g('ml7')||''};
+ if(id){Object.assign(mlOf(id)||{},o)}else{const L=Object.assign({id:'ly'+Date.now().toString(36)},o);MLY().push(L);id=L.id}save();XCLOSE('mlm');mlGo(id);toast('Layer saved')}
+/* ---------- the cut: a 3D stack of planes and a side view ---------- */
+let mlCV=localStorage.getItem?(()=>{try{return localStorage.getItem('exodus.mlcv')||'stack'}catch(e){return 'stack'}})():'stack';
+function mlRegX(L){const p=L.reg&&typeof placeFind=='function'?placeFind(L.reg):null;if(p&&typeof ll2xy=='function'){const q=ll2xy(p.lon||0,p.lat||0);return {x:q.x,y:q.y}}return {x:50,y:50}}
+function mlCut(){const U=mlUnder(),D=mlDims(),mx=Math.max(100,...U.map(l=>+l.d||0));
+ const sw=`<div class="mlcs"><button class="${mlCV=='stack'?'on':''}" onclick="mlCV='stack';try{localStorage.setItem('exodus.mlcv','stack')}catch(e){};render()">${ico('layers',13)} Planes</button><button class="${mlCV=='side'?'on':''}" onclick="mlCV='side';try{localStorage.setItem('exodus.mlcv','side')}catch(e){};render()">${ico('grid4',13)} Side view</button></div>`;
+ if(!U.length&&!D.length)return sw+`<div class="stem">${ico('layers',40)}<p><b>Only the surface so far.</b><br><span class="mut">${S.dev?'Add underground levels and dimensions with “Add a layer”.':'Nothing below the ground yet.'}</span></p></div>`;
+ let body='';
+ if(mlCV=='side'){const W=1000,top=70,H=top+Math.max(260,U.length*70)+60,Y=d=>top+(+d||0)/mx*(H-top-80)+24;
+  const pins=(S.mapPins||[]).filter(p=>String(p.ref).startsWith('L:'));
+  body=`<div class="mlsv"><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMin meet"><defs><linearGradient id="mlgr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2a1a"/><stop offset="1" stop-color="#0b0806"/></linearGradient><linearGradient id="mlsk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d2540"/><stop offset="1" stop-color="#1a3a55"/></linearGradient></defs>
+  <rect x="0" y="0" width="${W}" height="${top}" fill="url(#mlsk)"/><rect x="0" y="${top}" width="${W}" height="${H-top}" fill="url(#mlgr)"/><path d="M0 ${top} ${Array.from({length:21},(_,i)=>`L${i*50} ${top-6+Math.sin(i*1.7)*5}`).join(' ')} L${W} ${top}" fill="#2f4a2a" stroke="#6a8a4a" stroke-width="1.5"/>
+  <text x="12" y="24" class="mlst">${esc(nm('Surface'))}</text>
+  ${(typeof WREG=='function'?WREG():[]).map(r=>{const x=(((+r.lon||0)+180)/360)*W;return `<g class="mlrg"><line x1="${x}" y1="${top-14}" x2="${x}" y2="${top}" stroke="#c8aa6e"/><text x="${x}" y="${top-18}" text-anchor="middle">${esc(r.n)}</text></g>`}).join('')}
+  ${[0.25,0.5,0.75,1].map(f=>`<g class="mldp"><line x1="0" y1="${Y(mx*f)}" x2="${W}" y2="${Y(mx*f)}"/><text x="${W-6}" y="${Y(mx*f)-4}" text-anchor="end">${Math.round(mx*f)} m</text></g>`).join('')}
+  ${pins.map(p=>{const from=p.lay?mlOf(p.lay):null,to=p.ref.slice(2)?mlOf(p.ref.slice(2)):null;if(p.ref.slice(2)&&!to||p.lay&&!from)return '';if((from&&from.k=='dim')||(to&&to.k=='dim'))return '';const xo=L=>{if(!L)return (+p.x||50)/100*W;const c=mlRegX(L),w=(+L.size||40)/100*W,cx=L.reg?c.x/100*W:W/2;return cx-w/2+(+p.x||50)/100*w};const x=xo(from),y1=from?Y(from.d):top,y2=to?Y(to.d):top;return `<line class="mlway" x1="${x}" y1="${y1}" x2="${x}" y2="${y2}"/><circle cx="${x}" cy="${y1}" r="4" class="mlwd"/>`}).join('')}
+  ${U.map(L=>{const c=mlRegX(L),w=(+L.size||40)/100*W,cx=L.reg?c.x/100*W:W/2,x=Math.max(4,Math.min(W-w-4,cx-w/2)),y=Y(L.d),col=L.col||'#8a6a4a',img=mlImg(L.id);return `<g class="mllay" onclick="mlGo('${L.id}')" style="cursor:pointer">${img?`<clipPath id="mlc${L.id}"><rect x="${x}" y="${y-14}" width="${w}" height="28" rx="14"/></clipPath><image href="${img}" x="${x}" y="${y-60}" width="${w}" height="120" preserveAspectRatio="xMidYMid slice" clip-path="url(#mlc${L.id})" opacity=".7"/>`:''}<rect x="${x}" y="${y-14}" width="${w}" height="28" rx="14" fill="${col}" fill-opacity="${img?.35:.55}" stroke="${col}" stroke-width="1.5"/><text x="${x+w/2}" y="${y+5}" text-anchor="middle" class="mlln">${esc(L.n)}</text><text x="${x+w/2}" y="${y+28}" text-anchor="middle" class="mlld">${+L.d||0} m${L.reg?' · '+esc(mlPlace(L.reg)):''}</text></g>`}).join('')}</svg></div>`}
+ else{const planes=[{id:'',n:nm('Surface'),d:0,size:100,col:'#4a8a5a',img:mapImg}].concat(U.map(l=>Object.assign({},l,{img:mlImg(l.id)})));const W=1000,gap=Math.max(95,Math.min(150,620/planes.length)),th=-28*Math.PI/180,k=.46,ca=Math.cos(th),sa=Math.sin(th),M=`${ca.toFixed(4)},${(k*sa).toFixed(4)},${(-sa).toFixed(4)},${(k*ca).toFixed(4)},0,0`,PW=560,H=planes.length*gap+150;
+  const geo=L=>{const c=L.id?mlRegX(L):{x:50,y:50},w=PW*(L.id?(+L.size||40)/100:1),h=w/2,ox=L.id&&L.reg?(c.x-50)/100*PW:0,oy=L.id&&L.reg?(c.y-50)/100*PW/2:0;return {w,h,ox,oy}};
+  const P2=(x,y,i)=>[W/2-40+ca*x-sa*y,135+i*gap+k*(sa*x+ca*y)];
+  const proj=(L,i,px,py)=>{const g=geo(L);return P2(g.ox+(px/100-.5)*g.w,g.oy+(py/100-.5)*g.h,i)};
+  const pins=(S.mapPins||[]).filter(p=>String(p.ref).startsWith('L:'));
+  const ways=pins.map(p=>{const fi=planes.findIndex(L=>L.id==(p.lay||'')),ti=planes.findIndex(L=>L.id==p.ref.slice(2));if(fi<0||ti<0)return '';const a=proj(planes[fi],fi,+p.x||50,+p.y||50),b=[a[0],a[1]+(ti-fi)*gap];return `<line class="mlway" x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}"/><circle cx="${a[0].toFixed(1)}" cy="${a[1].toFixed(1)}" r="4" class="mlwd"/><circle cx="${b[0].toFixed(1)}" cy="${b[1].toFixed(1)}" r="3" class="mlwd"/>`}).join('');
+  const pl=planes.map((L,i)=>{const g=geo(L),col=L.col||'#8a6a4a',c0=P2(g.ox,g.oy,i),tx=`translate(${c0[0].toFixed(1)},${c0[1].toFixed(1)}) matrix(${M})`,r=`x="${(-g.w/2).toFixed(1)}" y="${(-g.h/2).toFixed(1)}" width="${g.w.toFixed(1)}" height="${g.h.toFixed(1)}"`,lp=proj(L,i,100,0);
+   return `<g class="mlp3 ${L.id==mapL?'on':''}" onclick="mlGo('${L.id}')" style="--lc:${col}"><g transform="translate(0,9)"><g transform="${tx}"><rect ${r} fill="#000" opacity=".55"/></g></g><g transform="${tx}"><clipPath id="mlk${i}"><rect ${r}/></clipPath><rect ${r} fill="${col}" fill-opacity=".35"/>${L.img?`<image href="${L.img}" ${r} preserveAspectRatio="none" clip-path="url(#mlk${i})"/>`:''}<rect ${r} fill="none" stroke="${col}" stroke-width="2" vector-effect="non-scaling-stroke"/></g><line x1="${(lp[0]+6).toFixed(1)}" y1="${lp[1].toFixed(1)}" x2="${(lp[0]+30).toFixed(1)}" y2="${lp[1].toFixed(1)}" stroke="${col}" stroke-width="1"/><text x="${(lp[0]+36).toFixed(1)}" y="${(lp[1]-2).toFixed(1)}" class="mlln3">${esc(L.n)}</text><text x="${(lp[0]+36).toFixed(1)}" y="${(lp[1]+14).toFixed(1)}" class="mlld">${L.id?(+L.d||0)+' m'+(L.reg?' · '+esc(mlPlace(L.reg)):''):esc(nm('Surface'))}</text></g>`}).reverse().join('');
+  body=`<div class="mlst3"><div class="mlsc"><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMin meet">${pl}${ways}</svg></div>
+  ${D.length?`<div class="mldm"><small class="evk">${esc(nm('Dimensions'))}</small>${D.map(L=>{const img=mlImg(L.id);return `<button class="mldc" style="--lc:${L.col||'#a070ff'}" onclick="mlGo('${L.id}')"><span class="mldi" style="${img?`background-image:url(${img})`:''}">${img?'':ico('portal',22)}</span><b>${esc(L.n)}</b>${L.note?`<small>${esc(L.note.slice(0,80))}</small>`:''}</button>`}).join('')}</div>`:''}</div>`}
+ const list=`<div class="mlls">${U.map(L=>`<button onclick="mlGo('${L.id}')"><i style="background:${L.col||'#8a6a4a'}"></i><b>${esc(L.n)}</b><small>${+L.d||0} m${L.reg?' · '+esc(mlPlace(L.reg)):' · whole world'}</small></button>`).join('')}${mlCV=='side'?D.map(L=>`<button onclick="mlGo('${L.id}')"><i style="background:${L.col||'#a070ff'}"></i><b>${esc(L.n)}</b><small>${esc(nm('Dimension'))}</small></button>`).join(''):''}</div>`;
+ return sw+body+list}
+XPOST.push(function mlLoadPost(){if(tab=='lore'&&lsub=='map'&&mapLV=='cut')MLY().forEach(l=>mlLoad(l.id))});
+
+/* ===== 2.8: regions in Lore have cities ===== */
+ADV.region=['Region',[['capital','Capital'],['terrain','Terrain'],['climate','Climate',['','Arctic','Cold','Mild','Warm','Hot','Desert','Tropical','Magical']],['ruler','Ruler'],['pop','Population'],['known','Known for'],['danger','Danger',['','Safe','Low','Medium','High','Deadly']]]];
+{const _aa=advAuto;advAuto=function(){const s=String((document.getElementById('l4')||{}).value||'').toLowerCase();if(advCtx.startsWith('l:')&&/^region|^province|^land/.test(s))return 'region';return _aa.apply(this,arguments)}}
+const lrIsReg=o=>!!o&&S.lore.includes(o)&&((o.adv&&o.adv._t=='region')||(!(o.adv&&o.adv._t)&&/^(region|province|land)/i.test(o.sub||'')));
+const lrNorm=s=>String(s||'').trim().toLowerCase();
+function lrCities(R){if(!R)return [];return S.lore.filter(l=>l!==R&&l.adv&&(l.adv.rid==R.id||!l.adv.rid&&l.adv.region&&lrNorm(l.adv.region)==lrNorm(R.title)))}
+const lrMapReg=R=>typeof WREG=='function'?WREG().find(r=>r.lr==R.id):null;
+function lrLink(rid,cid){const R=S.lore.find(x=>x.id==rid),C=S.lore.find(x=>x.id==cid);if(!R||!C)return;C.adv=C.adv||{};if(!C.adv._t)C.adv._t='place';C.adv.region=R.title;C.adv.rid=R.id;save();lrRedraw()}
+function lrUnlink(cid){const C=S.lore.find(x=>x.id==cid);if(!C||!C.adv)return;delete C.adv.rid;C.adv.region='';save();lrRedraw()}
+function lrNew(rid){const R=S.lore.find(x=>x.id==rid),inp=document.getElementById('lrn'),n=inp&&inp.value.trim();if(!R||!n)return toast('Type the city’s name');const l={id:'l'+(S.nid++),title:n,cat:R.cat||'Worlds',sub:'Cities',text:'',links:[R.id],adv:{_t:'place',region:R.title,rid:R.id}};S.lore.push(l);try{newId(l,'LOR')}catch(e){}track&&track('lore');save();lrRedraw();toast(n+' added')}
+function lrToMap(cid){const C=S.lore.find(x=>x.id==cid),R=C&&S.lore.find(x=>x.id==C.adv.rid),M=R&&lrMapReg(R);if(!M)return;M.C=M.C||[];if(M.C.some(c=>c.lr==cid||lrNorm(c.n)==lrNorm(C.title)))return toast('Already on the map');M.C.push({id:'ct'+Date.now().toString(36),n:C.title,lon:M.lon,lat:M.lat,tz:'reg',wx:{own:0},lr:cid});save();render();toast(C.title+' is on the map. Pick its spot in Lore › Map.')}
+function lrRedraw(){const d=document.getElementById('lrcx');if(d){const id=d.dataset.r;d.outerHTML=lrEdHtml(id)}else render()}
+/* in the editor */
+function lrEdHtml(rid){const R=S.lore.find(x=>x.id==rid);if(!R)return '';const C=lrCities(R),free=S.lore.filter(l=>l!==R&&!C.includes(l)&&!lrIsReg(l)&&(!l.adv||!l.adv.rid)&&(l.adv&&l.adv._t=='place'||/^cit|^town|^village|^place/i.test(l.sub||'')||l.cat==R.cat));
+ return `<div id="lrcx" class="lrc" data-r="${rid}"><label>${esc(nm('Cities'))}</label><div class="lrcl">${C.map(c=>`<span class="lrcp">${ico('home',11)}${esc(c.title)}<button class="ic" onclick="lrUnlink('${c.id}')" aria-label="Remove">${ico('x',10)}</button></span>`).join('')||'<span class="mut">No cities yet.</span>'}</div>
+ <div class="lrca"><input id="lrn" placeholder="New city name"><button class="btn dev" onclick="lrNew('${rid}')">${ico('plus',12)} New city</button>${free.length?`<select onchange="if(this.value)lrLink('${rid}',this.value)"><option value="">Or link an entry…</option>${free.map(l=>`<option value="${l.id}">${esc(l.title)}</option>`).join('')}</select>`:''}</div></div>`}
+{const _ah=advHtml;advHtml=function(){let h=_ah.apply(this,arguments);try{if(advType()=='region'&&advCtx.startsWith('l:')&&advCtx!='l:new'){const id=advCtx.slice(2);if(S.lore.some(x=>x.id==id))h+=lrEdHtml(id)}else if(advType()=='region')h+='<p class="mut" style="margin:8px 0 0">Save the region first, then add its cities here.</p>';
+ if(advType()=='place'){const R=S.lore.filter(lrIsReg);if(R.length)h=h.replace(`oninput="advTmp['region']=this.value"`,`oninput="advTmp['region']=this.value;const r=S.lore.find(x=>lrIsReg(x)&&lrNorm(x.title)==lrNorm(this.value));advTmp.rid=r?r.id:''" list="lrdl"`)+`<datalist id="lrdl">${R.map(r=>`<option value="${esc(r.title)}">`).join('')}</datalist>`}}catch(e){}return h}}
+/* on the entry */
+XPOST.push(function lrViewPost(){if(edit||tab!='lore')return;document.querySelectorAll('#m .panel[ondrop^="entDrop(\'l:"]').forEach(p=>{if(p.querySelector('.lrcv'))return;const id=(p.getAttribute('ondrop').match(/l:([^']+)/)||[])[1],o=S.lore.find(x=>x.id==id);
+ if(o&&o.adv&&o.adv.rid&&!lrIsReg(o)){const R=S.lore.find(x=>x.id==o.adv.rid);const a=p.querySelector('.advxv');if(R&&a&&!a.querySelector('.lrup')){a.insertAdjacentHTML('beforeend',`<a href="#" class="lrup" onclick="event.preventDefault();goRef('l:${R.id}')">${ico('arr',11)} ${esc(R.title)}</a>`)}return}
+ if(!lrIsReg(o))return;const C=lrCities(o),M=lrMapReg(o);if(!C.length&&!S.dev&&!(M&&(M.C||[]).length))return;
+ const onMap=c=>M&&(M.C||[]).some(x=>x.lr==c.id||lrNorm(x.n)==lrNorm(c.title));
+ const h=`<div class="lrcv"><small class="evk">${esc(nm('Cities'))} · ${C.length}</small><div class="lrcg">${C.map(c=>{const A=c.adv||{},mc=M&&(M.C||[]).find(x=>x.lr==c.id||lrNorm(x.n)==lrNorm(c.title)),t=mc&&typeof cityP=='function'?regTime(cityP(M,mc)):null;return `<div class="lrci"><a href="#" onclick="event.preventDefault();goRef('l:${c.id}')"><b>${esc(c.title)}</b></a><small>${[A.pop?'Pop. '+esc(A.pop):'',A.ruler?esc(A.ruler):'',A.known?esc(A.known):''].filter(Boolean).join(' · ')||'&nbsp;'}</small>${t?`<span class="lrct">${ico(t.day?'sunx':'moonx',11)} ${t.txt}</span>`:S.dev&&M&&!onMap(c)?`<button class="btn" onclick="lrToMap('${c.id}')">${ico('mapi',11)} Put on the map</button>`:''}</div>`}).join('')||'<p class="mut" style="margin:0">No cities yet. Edit the region to add them.</p>'}</div>${S.dev&&!M?`<p class="mut" style="margin:6px 0 0;font-size:12px">Link a map region to this entry (Lore › Map › region › Exact position and link) to show city clocks here.</p>`:''}</div>`;
+ const a=p.querySelector('.advxv');if(a)a.insertAdjacentHTML('afterend',h);else{const t=p.querySelector(':scope>p');(t||p.querySelector('h3')).insertAdjacentHTML('afterend',h)}})});
 
 
 render();
