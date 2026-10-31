@@ -8205,8 +8205,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.30.1';
+const WNV='2.30.2';
 const WN=[
+ ['2.30.2','31 Oct 2026',[
+  ['Fix','City weather settings','Weather settings made for a city are now used for that city, also when it is on the map. A city without its own settings takes them from its district, country, region or continent. The weather updates right after you change a setting.',"wxOpen()"]]],
  ['2.30.1','31 Oct 2026',[
   ['Lore','Warehouse lost','A new political event: a city loses a warehouse to fire, looting, flood, sabotage, rot, theft, the army or collapse. Pick what was kept there (one supply, a whole kind, or everything) and how much was lost. That stock is gone from the city for the rest of the year, and Supplies list the lost warehouses.',"lcat='Factions';pickSub('lore','pev')"]]],
  ['2.30','31 Oct 2026',[
@@ -9910,7 +9912,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.30.1 Beta',APPB=225;
+const APPV='2.30.2 Beta',APPB=226;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -14607,6 +14609,17 @@ function pevWhLost(o){const out=[];const P=SUP().p;Object.keys(P).forEach(pid=>{
 const r_u=r=>r.u||supC(r.c)[4]||'';
 
 function pevWhCard(o,wh){return wsCard('supx','What was lost',esc(pevWhWhat(o))+' · '+pevLose(o)+'% of what was in store',wh.length?`<div class="prl">${wh.map(x=>`<div><span><b>${esc(x.r.n)}</b><small>${esc(supPN(x.pid))} · ${esc(nm(supC(x.r.c)[1]))}</small></span><i><u style="width:${Math.min(100,x.pc/2)}%;background:#e8707a"></u><em></em></i><b style="color:#e8707a">−${supF(x.amt)} ${esc(r_u(x.r))}</b></div>`).join('')}</div>`:'<p class="mut">Nothing of that was kept there, or it was lost in an earlier year.</p>')}
+
+/* ===== 2.30.2: city weather settings are used, and the weather refreshes after a change ===== */
+/* the nearest place up the lore chain that has its own weather settings: the city first, then its district, country, region, continent */
+function wxLoreOf(lid){let id=lid,n=0;while(id&&n++<10){if(wxRegOf(id))return id;const l=S.lore.find(x=>x.id==id);id=l&&l.adv?(l.adv.rid||l.adv.parent||''):''}return ''}
+wxAt=function(p,off){off=off||0;if(!p||!p.id)return wxDay(off);const R=p.R||p,start=(p.C&&p.C.lr)||R.lr||'',lr=start?wxLoreOf(start):'';let d=wxDay(off,lr);d=wxMod(d,R.wx,R.id,off);if(p.C&&p.C.wx&&p.C.wx.own)d=wxMod(d,p.C.wx,p.C.id,off);return d};
+/* lore-only places look up the same chain */
+{const _pd=wxPD;wxPD=function(key,off){if(key&&key.startsWith('l:')&&!(plAliases()[key.slice(2)])){const id=wxLoreOf(key.slice(2));if(id){const ck=key+'|'+off+'|'+ymd(new Date());if(!WXC[ck])WXC[ck]=wxDay(off,id);return WXC[ck]}}return _pd.apply(this,arguments)}}
+/* any change clears the remembered weather, so the tab shows the new settings at once */
+let wxSig='';{const _s=save;save=function(){const r=_s.apply(this,arguments);try{const sg=JSON.stringify([WXS().reg,(S.wreg||[]).map(x=>[x.id,x.lr,x.wx,(x.C||[]).map(c=>[c.id,c.lr,c.wx])]),WXS().seasons,WXS().home]);if(sg!==wxSig){wxSig=sg;Object.keys(WXC).forEach(k=>delete WXC[k]);if(typeof wxClear=='function')wxClear()}}catch(e){}return r}}
+/* the old second "Region" picker inside the weather window is gone: the city picker above does it */
+{const _wo=wxOpen;wxOpen=function(){const r=_wo.apply(this,arguments);const x=document.querySelector('#wxm .wxrx');if(x)x.remove();return r}}
 
 
 render();

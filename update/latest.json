@@ -1,8 +1,8 @@
 {
-  "version": "2.30.1 Beta",
-  "build": 225,
+  "version": "2.30.2 Beta",
+  "build": 226,
   "html": "update/exodus.html",
-  "notes": "New political event: Warehouse lost. A city loses the stock of one supply, a kind of supply or everything in store to fire, looting, flood and more.",
+  "notes": "City weather settings are now used for cities on the map too, inherited from district, country or region when a city has none, and the weather updates right after a change.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
