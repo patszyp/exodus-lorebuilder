@@ -1,8 +1,8 @@
 {
-  "version": "2.30 Beta",
-  "build": 224,
+  "version": "2.30.1 Beta",
+  "build": 225,
   "html": "update/exodus.html",
-  "notes": "Political events in Factions (death of the ruler, murder, civil war, putsch, rebellion and more) that change supply production, move the stock market and raise deaths. Stock market tab fixes.",
+  "notes": "New political event: Warehouse lost. A city loses the stock of one supply, a kind of supply or everything in store to fire, looting, flood and more.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",

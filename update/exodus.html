@@ -3470,6 +3470,8 @@ html.lxcp #m .panel{padding:10px 12px!important;margin-bottom:8px!important}html
 .pevl>button>b{font:600 14px Inter,system-ui,sans-serif;font-variant-numeric:tabular-nums}
 .pevl .up{color:#3fc98a}.pevl .dn{color:#e8707a}
 .pevdt{display:grid;grid-template-columns:64px minmax(0,1fr) 80px;gap:4px}
+.pevw2{}@media(min-width:641px){.pevw2{grid-column:span 2}}
+.pevwh{margin-top:10px}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -8203,8 +8205,10 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.30';
+const WNV='2.30.1';
 const WN=[
+ ['2.30.1','31 Oct 2026',[
+  ['Lore','Warehouse lost','A new political event: a city loses a warehouse to fire, looting, flood, sabotage, rot, theft, the army or collapse. Pick what was kept there (one supply, a whole kind, or everything) and how much was lost. That stock is gone from the city for the rest of the year, and Supplies list the lost warehouses.',"lcat='Factions';pickSub('lore','pev')"]]],
  ['2.30','31 Oct 2026',[
   ['Lore','Political events','A new Events section in Factions: death of the ruler, murder, civil war, putsch, rebellion, riots, succession crisis, coronation, royal wedding, peace treaty, embargo, crown bankruptcy, new taxes, reform, plot uncovered. Each has a place, start date, length, strength, person and faction.',"lcat='Factions';pickSub('lore','pev')"],
   ['Lore','Events change supplies','While an event goes on, production in its place goes up or down by kind of supply (a civil war hurts farming and helps weapon makers). After it ends the effect fades. Supplies show which events are changing production today.',"lcat='Worlds';pickSub('lore','sup')"],
@@ -9906,7 +9910,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.30 Beta',APPB=224;
+const APPV='2.30.1 Beta',APPB=225;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -14507,6 +14511,7 @@ const PEVK=[
  ['Crown bankruptcy','#c08a50',120,{all:-8,craft:-10},{all:-8,Banking:-25,Building:-10},0,'The treasury is empty and cannot pay its debts.'],
  ['New taxes','#a0a8b8',90,{all:-4},{all:-3},0,'The ruler takes more from everyone.'],
  ['Reform','#6fcf6f',180,{all:4},{all:3},0,'New laws that make work and trade easier.'],
+ ['Warehouse lost','#d9a066',30,{},{all:-1,Trade:-3},0,'A storehouse in a city burns, is looted, flooded or seized, and what was kept in it is gone.'],
  ['Plot uncovered','#8aa0ff',14,{all:-1},{all:-3,Banking:-4},0,'A conspiracy against the ruler is found out. Arrests and fear.'],
  ['Other','#8aa0ff',30,{},{},0,'Anything else that shakes the country.']];
 const PEVS=[['1','Small',.5],['2','Serious',1],['3','Major',1.35],['4','Catastrophic',1.8]];
@@ -14537,7 +14542,7 @@ function pevMkt(c,d){const day=d+pevDay0();let f=1;PEV().forEach(o=>{let w=1;if(
 const pevPct=v=>v==null?'':(v>0?'+':'')+Math.round(v)+'%';
 function pevDateTxt(o){return o.d0?annDate(o.d0):'today'}
 function pevLeft(o){const n=annNow(),s=pevStart(o),e=s+pevDays(o),st=pevState(o);return st=='coming'?'in '+(s-n)+' days':st=='now'?(e-n)+' days left':st=='rec'?Math.round(pevShape(o,n)*100)+'% of the effect left':'ended '+(n-e)+' days ago'}
-function pevChips(o){const L=[];const pa=pevEff(o,'prod','all');if(pa)L.push(['Production',pa]);SUPG.forEach(g=>{const v=pevEff(o,'prod',g[0]);if(v)L.push([g[1],(pa||0)+v])});const ma=pevEff(o,'mkt','all');if(ma)L.push(['Market',ma]);SEC.forEach(s=>{const v=pevEff(o,'mkt',s);if(v)L.push([s+' shares',(ma||0)+v])});return L}
+function pevChips(o){const L=[];if(o.k=='Warehouse lost')L.push(['Stock lost',-pevLose(o)]);const pa=pevEff(o,'prod','all');if(pa)L.push(['Production',pa]);SUPG.forEach(g=>{const v=pevEff(o,'prod',g[0]);if(v)L.push([g[1],(pa||0)+v])});const ma=pevEff(o,'mkt','all');if(ma)L.push(['Market',ma]);SEC.forEach(s=>{const v=pevEff(o,'mkt',s);if(v)L.push([s+' shares',(ma||0)+v])});return L}
 const pevChipH=L=>L.length?`<div class="pevc">${L.map(([l,v])=>`<span class="${v>0?'up':'dn'}">${esc(l)} <b>${pevPct(v)}</b></span>`).join('')}</div>`:'';
 /* the page */
 function pevView(){const D=S.dev,A=PEV(),inP=o=>!pevP||!o.where||placeIn(o.where,pevP)||placeIn(pevP,o.where);const L0=A.filter(inP),now=L0.filter(o=>pevState(o)=='now'),rec=L0.filter(o=>pevState(o)=='rec');
@@ -14555,34 +14560,53 @@ function pevOpen(id){const o=PEV().find(x=>x.id==id);if(!o)return;const k=pevK(o
  const prodRows=[['Everything else',pevEff(o,'prod','all')],...SUPG.filter(g=>pevEff(o,'prod',g[0])).map(g=>[g[1],(pevEff(o,'prod','all')||0)+(pevEff(o,'prod',g[0])||0)])].filter(x=>x[1]);
  const mktRows=[['Every other company',pevEff(o,'mkt','all')],...SEC.filter(x=>pevEff(o,'mkt',x)).map(s=>[s,(pevEff(o,'mkt','all')||0)+(pevEff(o,'mkt',s)||0)])].filter(x=>x[1]);
  const bars=R=>R.length?`<div class="prl">${R.map(([l,v])=>{const now=v*sh,pc=100+now,col=now>=1?'#3fc98a':now<=-1?'#e8707a':'#e6c35c';return `<div><span><b>${esc(l)}</b><small>set to ${pevPct(v)}${st!='now'?' · now '+pevPct(now):''}</small></span><i><u style="width:${Math.max(0,Math.min(100,pc/2))}%;background:${col}"></u><em></em></i><b style="color:${col}">${Math.round(pc)}%</b></div>`}).join('')}</div>`:'<p class="mut">None.</p>';
- const dpd=+o.dpd||k[5]*pevSv(o);
+ const dpd=+o.dpd||k[5]*pevSv(o);const wh=o.k=='Warehouse lost'?pevWhLost(o):null;
  XMOD('pevo',`<div class="fdch"><span class="fdk" style="--fc:${k[1]}">${esc(o.k)}</span><span class="pevs" style="--sc:${PEVST[st][1]}">${esc(nm(PEVST[st][0]))}</span></div><h2 class="f" style="margin:6px 0 2px">${esc(o.n||o.k)}</h2><p class="mut" style="margin:0">${esc(o.where?placeName(o.where):'Whole world')} · from ${esc(pevDateTxt(o))} for ${pevDays(o)} days · ${esc(pevLeft(o))}</p>${o.text?`<p>${esc(o.text)}</p>`:`<p class="mut">${esc(k[6])}</p>`}
-  <div class="wsg2">${wsCard('supx',nm('Effect on production'),'Today, compared with a normal day',bars(prodRows))}${wsCard('chart',nm('Effect on the market'),'Share prices, today',bars(mktRows))}</div>${dpd?`<p class="mut">${ico('disx',12)} About ${lfmt(Math.round(dpd))} more deaths a day for every 100 000 people while it goes on.</p>`:''}<p class="wsrow">${S.dev?`<button class="btn dev" onclick="XCLOSE('pevo');pevEdit('${o.id}')">${ico('pen',11)} Edit</button>`:''}<button class="btn" onclick="XCLOSE('pevo')">Close</button></p>`,720)}
+  <div class="wsg2">${wh?pevWhCard(o,wh):wsCard('supx',nm('Effect on production'),'Today, compared with a normal day',bars(prodRows))}${wsCard('chart',nm('Effect on the market'),'Share prices, today',bars(mktRows))}</div>${dpd?`<p class="mut">${ico('disx',12)} About ${lfmt(Math.round(dpd))} more deaths a day for every 100 000 people while it goes on.</p>`:''}<p class="wsrow">${S.dev?`<button class="btn dev" onclick="XCLOSE('pevo');pevEdit('${o.id}')">${ico('pen',11)} Edit</button>`:''}<button class="btn" onclick="XCLOSE('pevo')">Close</button></p>`,720)}
 /* editing */
 function pevEdit(id,draft){const base=PEV().find(x=>x.id==id),o=draft||(base?JSON.parse(JSON.stringify(base)):{k:'Death of the ruler',sev:'2',where:pevP,d0:Object.assign({},wcToday())});window._pevD=o,k=pevK(o),sv=pevSv(o),M=WC().months,t=o.d0||wcToday();
  const facs=S.lore.filter(l=>l.cat=='Factions'),pf=(w,key,d)=>{const v=(o[w]||{})[key];return `<input type="number" step="1" id="pe_${w}_${key}" value="${v??''}" placeholder="${d==null?'0':Math.round(d*sv)}">`};
  XMOD('peve',`<h2 class="f" style="margin-top:0">${id?'Edit':esc(nm('New event'))}</h2>
   <label>Kind</label><div class="pevkk">${PEVK.map(x=>`<button class="${x[0]==o.k?'on':''}" style="--ac:${x[1]}" onclick="pevKind('${id}','${x[0]}')">${esc(x[0])}</button>`).join('')}</div><p class="mut" style="font-size:12px;margin:4px 0 10px">${esc(k[6])}</p>
-  <div class="gcdxg"><div><label>Name</label><input id="pe1" value="${esc(o.n||'')}" placeholder="${esc(o.k)}"></div><div><label>Where</label><select id="pe2">${plOpts(o.where||'','Whole world')}</select></div>
-  <div><label>Starts (day, month, year)</label><div class="pevdt"><input id="pe3d" type="number" min="1" value="${+t.d||1}" ><select id="pe3m">${M.map((m,i)=>`<option value="${i}" ${+t.m==i?'selected':''}>${esc(m.n)}</option>`).join('')}</select><input id="pe3y" type="number" value="${+t.y||0}"></div></div>
+  <div class="gcdxg"><div class="pevw2"><label>Name</label><input id="pe1" value="${esc(o.n||'')}" placeholder="${esc(o.k)}"></div><div><label>Where</label><select id="pe2">${plOpts(o.where||'','Whole world')}</select></div>
+  <div class="pevw2"><label>Starts (day, month, year)</label><div class="pevdt"><input id="pe3d" type="number" min="1" value="${+t.d||1}" ><select id="pe3m">${M.map((m,i)=>`<option value="${i}" ${+t.m==i?'selected':''}>${esc(m.n)}</option>`).join('')}</select><input id="pe3y" type="number" value="${+t.y||0}"></div></div>
   <div><label>Lasts (days)</label><input id="pe4" type="number" min="1" value="${o.days||''}" placeholder="${k[2]}"></div>
   <div><label>How strong</label><select id="pe5">${PEVS.map(([v,l])=>`<option value="${v}" ${String(o.sev||'2')==v?'selected':''}>${l}</option>`).join('')}</select></div>
-  <div><label>Extra deaths a day per 100 000</label><input id="pe6" type="number" min="0" step=".5" value="${o.dpd??''}" placeholder="${k[5]*sv}"></div>
+  
   <div><label>Person</label><select id="pe7"><option value="">—</option>${S.chars.map(c=>`<option value="${c.id}" ${o.who==c.id?'selected':''}>${esc(c.name)}</option>`).join('')}</select></div>
   <div><label>Faction</label><select id="pe8"><option value="">—</option>${facs.map(l=>`<option value="${l.id}" ${o.fac==l.id?'selected':''}>${esc(l.title)}</option>`).join('')}</select></div></div>
+  ${o.k=='Warehouse lost'?pevWhF(o):''}
   <label>What happened</label><textarea id="pe9" rows="3">${esc(o.text||'')}</textarea>
-  <details class="pevad"><summary>${esc(nm('Effect on production'))} and ${esc(nm('Effect on the market')).toLowerCase()} (%, leave empty for the usual)</summary>
-   <small class="evk">Production</small><div class="pevgrid"><div><span>All supplies</span>${pf('prod','all',k[3].all)}</div>${SUPG.map(g=>`<div><span>${esc(g[1])}</span>${pf('prod',g[0],k[3][g[0]])}</div>`).join('')}</div>
+  <details class="pevad"><summary>Effects on production, the market and deaths (leave empty for the usual)</summary>
+   <div class="pevgrid"><div><span>Extra deaths a day per 100 000</span><input id="pe6" type="number" min="0" step=".5" value="${o.dpd??''}" placeholder="${k[5]*sv}"></div></div><small class="evk">Production</small><div class="pevgrid"><div><span>All supplies</span>${pf('prod','all',k[3].all)}</div>${SUPG.map(g=>`<div><span>${esc(g[1])}</span>${pf('prod',g[0],k[3][g[0]])}</div>`).join('')}</div>
    <small class="evk">Share prices</small><div class="pevgrid"><div><span>Every company</span>${pf('mkt','all',k[4].all)}</div>${SEC.map(s=>`<div><span>${esc(s)}</span>${pf('mkt',s,k[4][s])}</div>`).join('')}</div></details>
   <p class="wsrow"><button class="btn" onclick="pevSave('${id}')">${id?'Save':'Add event'}</button>${id?`<button class="btn red" onclick="cfm('Delete this event?',()=>{S.pev=PEV().filter(x=>x.id!='${id}');save();XCLOSE('peve');render()})">Delete</button>`:''}<button class="btn" onclick="XCLOSE('peve')">Cancel</button></p>`,720)}
-function pevForm(){const g=i=>(document.getElementById(i)||{}).value??'',o={n:g('pe1'),where:g('pe2'),d0:{d:Math.max(1,+g('pe3d')||1),m:+g('pe3m')||0,y:+g('pe3y')||0},days:g('pe4'),sev:g('pe5'),dpd:g('pe6'),who:g('pe7'),fac:g('pe8'),text:g('pe9'),prod:{},mkt:{}};['prod','mkt'].forEach(w=>document.querySelectorAll(`#peve input[id^="pe_${w}_"]`).forEach(i=>{if(i.value!=='')o[w][i.id.slice(4+w.length)]=+i.value}));return o}
+function pevForm(){const g=i=>(document.getElementById(i)||{}).value??'',o={sup:g('pe10'),cause:g('pe11'),lose:g('pe12'),n:g('pe1'),where:g('pe2'),d0:{d:Math.max(1,+g('pe3d')||1),m:+g('pe3m')||0,y:+g('pe3y')||0},days:g('pe4'),sev:g('pe5'),dpd:g('pe6'),who:g('pe7'),fac:g('pe8'),text:g('pe9'),prod:{},mkt:{}};['prod','mkt'].forEach(w=>document.querySelectorAll(`#peve input[id^="pe_${w}_"]`).forEach(i=>{if(i.value!=='')o[w][i.id.slice(4+w.length)]=+i.value}));return o}
 function pevKind(id,k){const d=Object.assign({},window._pevD||{},pevForm(),{k,prod:{},mkt:{}});pevEdit(id,d)}
-function pevSave(id){const f=pevForm(),k=(window._pevD||{}).k||'Other';let o=id&&PEV().find(x=>x.id==id);if(!o){o={id:uid('pe')};PEV().push(o)}Object.assign(o,f,{k,n:String(f.n).trim()});save();XCLOSE('peve');render();toast((o.n||o.k)+' saved')}
+function pevSave(id){const f=pevForm(),k=(window._pevD||{}).k||'Other';if(k=='Warehouse lost'&&!f.where)return toast('Choose the city that lost its warehouse');let o=id&&PEV().find(x=>x.id==id);if(!o){o={id:uid('pe')};PEV().push(o)}Object.assign(o,f,{k,n:String(f.n).trim()});save();XCLOSE('peve');render();toast((o.n||o.k)+' saved')}
 /* supplies overview and the stock market list what is going on */
-function pevNowCard(scope,what){const L=PEV().filter(o=>['now','rec'].includes(pevState(o))&&(!scope||!o.where||placeIn(o.where,scope)||placeIn(scope,o.where)));if(!L.length)return '';return wsCard('pevx',nm('Political events'),what=='mkt'?'Moving share prices right now':'Changing production right now',`<div class="pevl">${L.map(o=>{const k=pevK(o),v=what=='mkt'?pevEff(o,'mkt','all'):pevEff(o,'prod','all'),now=(v||0)*pevShape(o,annNow());return `<button onclick="pevOpen('${o.id}')" style="--ac:${k[1]}"><span><b>${esc(o.n||o.k)}</b><small>${esc(o.k)} · ${esc(o.where?placeName(o.where):'Whole world')} · ${esc(pevLeft(o))}</small></span><b class="${now>=0?'up':'dn'}">${pevPct(now)}</b></button>`}).join('')}</div>`)}
+function pevNowCard(scope,what){const L=PEV().filter(o=>['now','rec'].includes(pevState(o))&&(!scope||!o.where||placeIn(o.where,scope)||placeIn(scope,o.where)));if(!L.length)return '';return wsCard('pevx',nm('Political events'),what=='mkt'?'Moving share prices right now':'Changing production right now',`<div class="pevl">${L.map(o=>{const k=pevK(o),wh=o.k=='Warehouse lost'&&what!='mkt',v=what=='mkt'?pevEff(o,'mkt','all'):pevEff(o,'prod','all'),now=(v||0)*pevShape(o,annNow());return `<button onclick="pevOpen('${o.id}')" style="--ac:${k[1]}"><span><b>${esc(o.n||o.k)}</b><small>${esc(o.k)} · ${esc(o.where?placeName(o.where):'Whole world')} · ${wh?esc(pevWhWhat(o)):esc(pevLeft(o))}</small></span><b class="${wh||now<0?'dn':'up'}">${wh?'−'+pevLose(o)+'% stock':pevPct(now)}</b></button>`}).join('')}</div>`)}
 {const _ov=supOv;supOv=function(RA,scope){return pevNowCard(scope,'prod')+_ov.apply(this,arguments)}}
 {const _st=stT;stT=function(){const h=_st.apply(this,arguments);return pevNowCard(typeof lecP!='undefined'?lecP:'','mkt')+h}}
 {const _pn=lecPN;lecPN=function(p){const r=_pn.apply(this,arguments);return r=='?'||!r?(placeName(p)||r):r}}
+
+/* a city loses a warehouse: the stock of one supply, a kind of supply, or everything kept there */
+const PEVWC=['Fire','Looting','Flood','Sabotage','Rot and rats','Theft','Seized by the army','Collapse','Other'];
+const pevLose=o=>Math.max(0,Math.min(100,o.lose!==''&&o.lose!=null?+o.lose:Math.round(60*pevSv(o))));
+function pevWhWhat(o){const v=o.sup||'';if(!v)return 'Everything in store';if(v.startsWith('c:'))return 'All '+nm(supC(v.slice(2))[1]).toLowerCase();const r=SUP().r.find(x=>x.id==v);return r?r.n:'?'}
+function pevWhF(o){const R=SUP().r.filter(r=>r.c!='magic'&&r.c!='water');return `<div class="gcdxg pevwh"><div><label>What was kept there</label><select id="pe10"><option value="">Everything in store</option>${SUPG.map(g=>{const cs=SUPC.filter(c=>g[3].includes(c[0])&&R.some(r=>r.c==c[0]));return cs.length?`<optgroup label="${esc(g[1])}">${cs.map(c=>`<option value="c:${c[0]}" ${o.sup=='c:'+c[0]?'selected':''}>All ${esc(nm(c[1]).toLowerCase())}</option>${R.filter(r=>r.c==c[0]).map(r=>`<option value="${r.id}" ${o.sup==r.id?'selected':''}>  ${esc(r.n)}</option>`).join('')}`).join('')}</optgroup>`:''}).join('')}</select></div><div><label>What happened to it</label><select id="pe11">${PEVWC.map(c=>`<option ${o.cause==c?'selected':''}>${c}</option>`).join('')}</select></div><div><label>Share lost (%)</label><input id="pe12" type="number" min="0" max="100" value="${o.lose??''}" placeholder="${Math.round(60*pevSv(o))}"></div></div>`}
+const pevWhHits=(o,r)=>!o.sup||o.sup==r.id||o.sup=='c:'+r.c;
+/* stock on a given day of this year, from the year's flows */
+function pevStockAt(s,day){const M=s.M,t=wcToday(),y0=annDN({y:t.y,m:0,d:1});let d=day-y0,m=0;while(m<M.length-1&&d>=M[m].d){d-=M[m].d;m++}const f=s.fl[m]||{p:0,u:0,x:0,i:0},before=m?s.out[m-1]:s.s0;return {m,v:Math.max(0,before+(f.p-f.u-f.x+f.i)*(d/M[m].d))}}
+{const _ss=supSim;supSim=function(r,q){const s=_ss.apply(this,arguments);try{const L=PEV().filter(o=>o.k=='Warehouse lost'&&o.where&&pevWhHits(o,r));if(!L.length||!s.M)return s;const P=SUP().p,pid=Object.keys(P).find(k=>P[k][r.id]===q);if(!pid)return s;const t=wcToday(),y0=annDN({y:t.y,m:0,d:1}),n=annNow();
+ L.filter(o=>placeIn(pid,o.where)).sort((a,b)=>pevStart(a)-pevStart(b)).forEach(o=>{const ed=pevStart(o);if(ed<y0||ed>n)return;const at=pevStockAt(s,ed),amt=at.v*pevLose(o)/100;if(!amt)return;s.out=s.out.map((v,i)=>i>=at.m?Math.max(0,v-amt):v);s.now=Math.max(0,s.now-amt);(s.lost=s.lost||[]).push({o,amt,pc:pevLose(o)})});if(s.lost)s.days=s.use>0?s.now/s.use:Infinity}catch(e){}return s}}
+function pevWhLost(o){const out=[];const P=SUP().p;Object.keys(P).forEach(pid=>{if(!placeIn(pid,o.where))return;Object.keys(P[pid]).forEach(rid=>{const r=SUP().r.find(x=>x.id==rid);if(!r||!pevWhHits(o,r))return;const s=supSim(r,P[pid][rid]),l=(s.lost||[]).find(x=>x.o===o||x.o.id==o.id);if(l)out.push({r,pid,amt:l.amt,pc:l.pc})})});return out.sort((a,b)=>b.amt-a.amt)}
+/* supplies pages list lost warehouses */
+{const _sc=supCat;supCat=function(c,scope){const h=_sc.apply(this,arguments);const L=PEV().filter(o=>o.k=='Warehouse lost'&&o.where&&(!scope||placeIn(o.where,scope)||placeIn(scope,o.where))&&(!o.sup||o.sup=='c:'+c[0]||SUP().r.some(r=>r.id==o.sup&&r.c==c[0]))&&pevState(o)!='over');if(!L.length)return h;return h+wsCard('pevx','Lost warehouses','Stock that is gone this year',`<div class="pevl">${L.map(o=>`<button onclick="pevOpen('${o.id}')" style="--ac:#d9a066"><span><b>${esc(o.n||o.k)}</b><small>${esc(o.cause||'')} · ${esc(placeName(o.where))} · ${esc(pevWhWhat(o))} · ${esc(pevDateTxt(o))}</small></span><b class="dn">−${pevLose(o)}%</b></button>`).join('')}</div>`)}}
+
+const r_u=r=>r.u||supC(r.c)[4]||'';
+
+function pevWhCard(o,wh){return wsCard('supx','What was lost',esc(pevWhWhat(o))+' · '+pevLose(o)+'% of what was in store',wh.length?`<div class="prl">${wh.map(x=>`<div><span><b>${esc(x.r.n)}</b><small>${esc(supPN(x.pid))} · ${esc(nm(supC(x.r.c)[1]))}</small></span><i><u style="width:${Math.min(100,x.pc/2)}%;background:#e8707a"></u><em></em></i><b style="color:#e8707a">−${supF(x.amt)} ${esc(r_u(x.r))}</b></div>`).join('')}</div>`:'<p class="mut">Nothing of that was kept there, or it was lost in an earlier year.</p>')}
 
 
 render();
