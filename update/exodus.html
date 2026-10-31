@@ -3362,6 +3362,77 @@ html.lxcp #m .panel{padding:10px 12px!important;margin-bottom:8px!important}html
 .popt{display:flex;flex-direction:column;overflow-x:auto}.popt>*{display:grid;grid-template-columns:minmax(100px,1.6fr) repeat(5,minmax(56px,1fr));gap:6px;align-items:center;padding:7px 4px;border:0;border-bottom:1px solid #785a2826;background:none;color:#cdc6b4;text-align:left;font-size:12px;min-width:460px}.popt>button{cursor:pointer}.popt>button:hover{background:#c8aa6e0d}.popt b{color:#f0e6d2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.popt span{text-align:right;font-variant-numeric:tabular-nums}.popt .hd{font:600 10px Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8a8577}
 .popeg{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}.popm{display:flex;flex-direction:column;gap:4px;padding:8px;border:1px solid #785a2833;background:rgba(1,10,19,.4)}.popm>div{display:grid;grid-template-columns:1fr 64px auto auto;gap:4px;align-items:center;font-size:12px}.popm input{padding:3px 6px;font-size:12px}.popma{grid-template-columns:1fr 56px auto!important}
 @media (max-width:600px){.popk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* 2.29 atlas */
+.atsw{display:inline-flex;gap:2px;padding:3px;border:1px solid #785a2840;border-radius:10px;background:#0c0f14}
+.atsw button{border:0;background:none;color:#a09b8c;padding:6px 12px;border-radius:7px;font:600 12px Inter,system-ui,sans-serif;display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.atsw button.on{background:#c8aa6e1f;color:#f0e6d2}
+.atw{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.atc{border:1px solid #785a2833;border-left:3px solid var(--ac);border-radius:12px;background:linear-gradient(90deg,color-mix(in srgb,var(--ac) 7%,transparent),transparent 40%) #10141b}
+.atc .atc{background:#0c0f14}
+.atch{display:grid;grid-template-columns:16px 36px minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:12px 14px;cursor:pointer}
+.atch:hover{background:#c8aa6e08}
+.ati{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:var(--ac);background:color-mix(in srgb,var(--ac) 14%,transparent);border:1px solid color-mix(in srgb,var(--ac) 35%,transparent)}
+.att{min-width:0}
+.att small{display:block;font:600 10px Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ac)}
+.att b{display:block;font:600 16px Cinzel,serif;color:#f0e6d2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lv-continent>.atch .att b{font-size:19px}
+.atm{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.atm span{font-size:11px;color:#a09b8c;padding:1px 7px;border:1px solid #785a2833;border-radius:20px}
+.atm .atcap{color:#e6c35c;border-color:#e6c35c55}
+.atk{display:flex;gap:14px}
+.atk span{display:flex;flex-direction:column;align-items:flex-end;line-height:1.1}
+.atk b{font:600 14px Inter,system-ui,sans-serif;color:#f0e6d2;font-variant-numeric:tabular-nums}
+.atk small{font-size:10px;color:#8a8577}
+.atbt{display:flex;gap:4px}
+.atb{display:flex;flex-direction:column;gap:8px;padding:0 12px 10px 30px}
+.atcs{display:flex;flex-wrap:wrap;gap:6px;padding:2px 14px 12px 30px}
+.atct{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:9px;border:1px solid #785a2840;background:#151a22;color:#cdc6b4;font-size:12px;cursor:pointer}
+.atct:hover{border-color:#c8aa6e88}
+.atct i{font-style:normal}
+.atct b{color:#f0e6d2;font-weight:600}
+.atct small{color:#8a8577;font-variant-numeric:tabular-nums}
+.atct u{color:#3fa3ff;text-decoration:none;display:inline-flex}
+.atct.z-capital{border-color:#e6c35c88;background:#e6c35c14}
+.atct.z-capital b{color:#e6c35c}
+.atct.z-big b{font-size:13px}
+.atct.z-small{opacity:.85;padding:4px 8px}
+.atadr{padding:0 14px 12px 30px}
+.atad{display:inline-flex;gap:6px;flex-wrap:wrap}
+.atnc{border-left-color:#785a28}
+.attyp{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:4px 0 14px}
+.attyp button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border:1px solid #785a2840;border-radius:10px;background:#10141b;color:#a09b8c;cursor:pointer}
+.attyp button b{font:600 11px Inter,system-ui,sans-serif}
+.attyp button.on{border-color:var(--ac);color:var(--ac);background:color-mix(in srgb,var(--ac) 10%,transparent)}
+@media(max-width:640px){.atch{grid-template-columns:14px 32px minmax(0,1fr) auto}.atk{display:none}.atb,.atcs,.atadr{padding-left:14px}.attyp{grid-template-columns:repeat(3,1fr)}}
+/* deaths */
+.dcl{display:flex;flex-direction:column}
+.dcl>div{display:grid;grid-template-columns:minmax(0,1.4fr) 60px 70px minmax(60px,1fr) 40px;gap:8px;align-items:center;padding:6px 2px;border-bottom:1px solid #785a2822;font-size:12px}
+.dcl>div span:first-child{display:flex;align-items:center;gap:7px;color:#cdc6b4}
+.dcl i{width:8px;height:8px;border-radius:50%;flex:none}
+.dcl b{text-align:right;color:#f0e6d2;font-variant-numeric:tabular-nums}
+.dcl .hd{font:600 10px Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8a8577}
+.dcl .hd span{text-align:right}.dcl .hd span:first-child{text-align:left}
+.dcl .hot{color:#e8707a;font-size:10px}
+/* production % */
+.prl{display:flex;flex-direction:column;gap:2px}
+.prl>div{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(60px,1fr) 48px;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid #785a2822}
+.prl span{min-width:0}
+.prl span b{display:block;color:#f0e6d2;font-size:12px}
+.prl span small{display:block;color:#8a8577;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prl i{position:relative;height:6px;border-radius:4px;background:#ffffff10}
+.prl i u{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
+.prl i em{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:#f0e6d266}
+.prl>div>b{text-align:right;font:600 13px Inter,system-ui,sans-serif;font-variant-numeric:tabular-nums}
+/* budget editor */
+.bde{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px}
+.bde>div{display:grid;grid-template-columns:minmax(0,1fr) 64px 38px;gap:6px;align-items:center;padding:6px 8px;border:1px solid #785a2833;border-left:3px solid var(--bc);border-radius:8px;background:#0c0f14}
+.bde span{font-size:12px;color:#cdc6b4}
+.bde input{padding:4px 6px}
+.bde small{text-align:right;color:#8a8577;font-variant-numeric:tabular-nums}
+.bde em{grid-column:1/-1;font-style:normal;font-size:10px;color:#8a8577}
+.budk{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:640px){.budk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.dcl>div>small{text-align:right;color:#8a8577;font-variant-numeric:tabular-nums}.dcl>div{margin-bottom:0}
+.dcl u{display:block;height:5px;border-radius:3px;background:#ffffff10;overflow:hidden}.dcl u em{display:block;height:100%}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -8095,8 +8166,15 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.28';
+const WNV='2.29';
 const WN=[
+ ['2.29','31 Oct 2026',[
+  ['Lore','Atlas: continents, regions, countries, districts, cities','Worlds entries now open as an Atlas. Continents hold regions, regions hold countries (what used to be subregions), countries can have districts, and cities sit in a district or straight in the country. Cities have a size: capital, big, medium or small. Switch to All entries for the old list.',"lcat='Worlds';pickSub('lore','entries');atV='atlas'"],
+  ['Lore','New place form','One form for making any place: pick continent, region, country, district or city, where it belongs, its size, government, ruler, climate, land, people, founding year and a short code.',"lcat='Worlds';pickSub('lore','entries');atV='atlas'"],
+  ['Lore','Death by','Population shows what people die of, today and this year, with numbers. Plagues and wars going on show up by name.',"lcat='Worlds';pickSub('lore','wstats');wsT='pop'"],
+  ['Lore','Budgets','A new Budget tab in World stats. Set what a country, district or city spends a year and how it is shared: military, education, health, farming, crafts, roads and more. Places add up.',"lcat='Worlds';pickSub('lore','wstats');wsT='bud'"],
+  ['Lore','Budgets change supplies','Spending more on something makes its supplies grow faster, spending less slows them. Supplies show Production today, in % of a normal day, with the reasons: budget, weather, season.',"lcat='Worlds';pickSub('lore','sup')"],
+  ['Lore','Weather only for cities','The weather picker now lists only cities.',""]]],
  ['2.28','30 Oct 2026',[
   ['Lore','Live population in World stats','A new Population tab in World stats. Pick the whole world, a region, a subregion or a city and see how many people live there today, born today, died today, born and died this year and how fast it grows, moving day by day with the world calendar. A region adds up all its subregions and cities.',"lcat='Worlds';pickSub('lore','wstats');wsT='pop'"],
   ['Lore','Who the people are','Children, adults and old people, women and men, and life expectancy. Jobs (with your Guilds and jobs), education, peoples and races, faith and wealth for every place, shown as numbers of people. Plagues, disasters and wars going on in a place raise its deaths.',"lcat='Worlds';pickSub('lore','wstats');wsT='pop'"]]],
@@ -9782,7 +9860,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.28 Beta',APPB=221;
+const APPV='2.29 Beta',APPB=222;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -14219,12 +14297,125 @@ function popView(){const D=S.dev,pl=PLO();popPL=pl;const cur=popP&&pl.some(x=>x[
   const mixE=(k,t,opts)=>{const M=q[k]||{},tot=Object.values(M).reduce((a,b)=>a+(+b||0),0);return `<div class="popm"><small class="evk">${t}${tot?` · ${tot}% set`:''}</small>${Object.entries(M).map(([n2,v])=>`<div><span>${esc(k=='fai'?((S.lore.find(l=>l.id==n2)||{}).title||n2):n2)}</span><input type="number" min="0" max="100" value="${v}" onchange="popMix('${cur}','${k}','${esc(n2).replace(/'/g,'&#39;')}',this.value)"><small>%</small><button class="ic" onclick="popMix('${cur}','${k}','${esc(n2).replace(/'/g,'&#39;')}','')" aria-label="Remove">${ico('x',10)}</button></div>`).join('')}<div class="popma">${k=='fai'?`<select id="pmn_${k}"><option value="">Religion…</option>${RELS().map(l=>`<option value="${l.id}">${esc(l.title)}</option>`).join('')}</select>`:`<input id="pmn_${k}" list="pml_${k}" placeholder="Name"><datalist id="pml_${k}">${opts.map(x=>`<option value="${esc(x)}">`).join('')}</datalist>`}<input id="pmv_${k}" type="number" min="0" max="100" placeholder="%"><button class="btn dev" onclick="popMixAdd('${cur}','${k}')">${ico('plus',12)}</button></div></div>`};
   ed=`<div class="arme pope" style="grid-template-columns:1fr"><h3 class="f" style="margin:0">${esc(placeName(cur))} · ${esc(nm('Lives here'))}</h3><p class="mut" style="margin:0;font-size:12px">People living right here, not in the cities and subregions inside it. Those are counted on their own and added up above.</p>
   <div class="gcdxg">${num('n','People',o?'':'10000',o?'now '+f(o.n):'')}${num('br','Births a year per 1 000','30')}${num('dr','Deaths a year per 1 000','20')}${num('mig','People moving in a year per 1 000','0','minus means moving away')}${num('ch','Children, %','30')}${num('old','Old people, %','12')}${num('wom','Women, %','50')}${num('life','Life expectancy, years','45')}</div>
-  <div class="popeg">${mixE('jobs','Jobs, % of adults',[...new Set([...recL('jobs').map(j=>j.n),...POPJ])])}${mixE('edu','Education, % of people',POPE)}${mixE('peo','Peoples and races, %',[...new Set(S.lore.filter(l=>l.cat=='Nature'||l.cat=='Characters').map(l=>l.title).slice(0,40))])}${mixE('fai','Faith, %',[])}${mixE('wea','Wealth, %',POPW)}</div></div>`}
+  <div class="popeg">${mixE('jobs','Jobs, % of adults',[...new Set([...recL('jobs').map(j=>j.n),...POPJ])])}${mixE('edu','Education, % of people',POPE)}${mixE('peo','Peoples and races, %',[...new Set(S.lore.filter(l=>l.cat=='Nature'||l.cat=='Characters').map(l=>l.title).slice(0,40))])}${mixE('fai','Faith, %',[])}${mixE('wea','Wealth, %',POPW)}${mixE('dc','Death by, % of deaths in normal times',Object.keys(DCD))}</div></div>`}
  const o=cur&&popOwn(cur),life=o&&o.life;
- return pick+kpi+ed+`<div class="wsg2">${ageC}${wsCard('clock','Births and deaths','per 1 000 people a year',`<div class="lxbars"><div><span>Births</span><i><b style="width:${Math.min(100,(A.n?A.bY/A.n*1000/YD.d*YD.tot:0)/60*100)}%;background:#6fcf6f"></b></i><small>${A.n?(A.bY/A.n*1000/YD.d*YD.tot).toFixed(1):'—'}</small></div><div><span>Deaths</span><i><b style="width:${Math.min(100,(A.n?A.dY/A.n*1000/YD.d*YD.tot:0)/60*100)}%;background:#e8707a"></b></i><small>${A.n?(A.dY/A.n*1000/YD.d*YD.tot).toFixed(1):'—'}</small></div></div>${life?`<p class="mut" style="margin:8px 0 0">People here live about <b>${life}</b> years.</p>`:''}<p class="mut" style="font-size:12px;margin:6px 0 0">Numbers move day by day with the world calendar.</p>`)}</div><div class="wsg2">${mixC('jobs','jobx',nm('Jobs'),'adults by what they do')}${mixC('edu','book',nm('Education'),'')}</div><div class="wsg2">${mixC('peo','prof',nm('Peoples'),'')}${mixC('fai','cal2',nm('Faith'),'')}</div><div class="wsg2">${mixC('wea','coin',nm('Wealth'),'')}${modC}</div>${tbl}`}
+ return pick+kpi+ed+`<div class="wsg2">${ageC}${wsCard('clock','Births and deaths','per 1 000 people a year',`<div class="lxbars"><div><span>Births</span><i><b style="width:${Math.min(100,(A.n?A.bY/A.n*1000/YD.d*YD.tot:0)/60*100)}%;background:#6fcf6f"></b></i><small>${A.n?(A.bY/A.n*1000/YD.d*YD.tot).toFixed(1):'—'}</small></div><div><span>Deaths</span><i><b style="width:${Math.min(100,(A.n?A.dY/A.n*1000/YD.d*YD.tot:0)/60*100)}%;background:#e8707a"></b></i><small>${A.n?(A.dY/A.n*1000/YD.d*YD.tot).toFixed(1):'—'}</small></div></div>${life?`<p class="mut" style="margin:8px 0 0">People here live about <b>${life}</b> years.</p>`:''}<p class="mut" style="font-size:12px;margin:6px 0 0">Numbers move day by day with the world calendar.</p>`)}</div>${modC?`<div class="wsg2">${typeof dcCard=='function'?dcCard(A):''}${modC}</div>`:(typeof dcCard=='function'?dcCard(A):'')}<div class="wsg2">${mixC('jobs','jobx',nm('Jobs'),'adults by what they do')}${mixC('edu','book',nm('Education'),'')}</div><div class="wsg2">${mixC('peo','prof',nm('Peoples'),'')}${mixC('fai','cal2',nm('Faith'),'')}</div><div class="wsg2">${mixC('wea','coin',nm('Wealth'),'')}</div>${tbl}`}
 {const _w=wstView;wstView=function(){const h=_w.apply(this,arguments),tabs=`<div class="rcv supvt">${[['ov','Overview'],['pop',nm('Population')]].map(([v,l])=>`<button class="${wsT==v?'on':''}" onclick="wsT='${v}';render()">${l}</button>`).join('')}</div>`;const i=h.indexOf('<div class="wsg2">');if(wsT=='pop'){const head=i>0?h.slice(0,i):h;return head+tabs+popView()}return i>0?h.slice(0,i)+tabs+h.slice(i):h+tabs}}
 /* the World stats header counts people from Population too */
 {const _w=wstView;wstView=function(){popPL=PLO();let h;try{h=_w.apply(this,arguments)}finally{}try{const roots=PLO().filter(x=>!placeUp(x[0])).map(x=>x[0]);const n=roots.reduce((a,r)=>a+popAll(r).n,0);if(n)h=h.replace(/(<small>Population<\/small><b>)[^<]*(<\/b>)(<span>)[^<]*(<\/span>)/,`$1${lfmt(n)}$2$3live, today$4`)}catch(e){}popPL=null;return h}}
+
+/* ===== 2.29 part 1: continents › regions › countries › districts › cities, the Worlds atlas, the new place form, weather by city ===== */
+Object.assign(PL,{"Continent":"Kontynent","Continents":"Kontynenty","Region":"Region","Regions":"Regiony","Country":"Kraj","Countries":"Kraje","District":"Dystrykt","Districts":"Dystrykty","City":"Miasto","Cities":"Miasta","Capital":"Stolica","Atlas":"Atlas","New place":"Nowe miejsce","All entries":"Wszystkie wpisy","Big city":"Duże miasto","Medium city":"Średnie miasto","Small town":"Małe miasteczko","Not on a continent":"Poza kontynentem"});
+Object.assign(ICOP,{contx:'M2 8a6 6 0 1 0 12 0A6 6 0 1 0 2 8zM3.5 5.5c1.5.5 2 1.5 3.5 1s1.5-2 3-2M2.5 9.5c2 0 2.5 1.5 4 1.5s2-1 3.5-.5 1.5 2 2 2.5',ctryx:'M3 14V2.5M3 3h8l-1.5 2.5L11 8H3',distx:'M2.5 2.5h11v11h-11zM2.5 8h11M8 2.5v11',cityx:'M2 14V7l3-2v9M5 14V4l4-2v12M9 14V6l5 2v6M1.5 14h13'});
+const ATL=[['continent','Continent','Continents','contx','#3fa3ff'],['region','Region','Regions','globe','#6fcf6f'],['country','Country','Countries','ctryx','#e6c35c'],['district','District','Districts','distx','#c89bff'],['city','City','Cities','cityx','#ff9f45']];
+const ATLP={continent:[],region:['continent'],country:['region','continent'],district:['country'],city:['district','country','region']};
+const CSZ=[['capital','Capital','★'],['big','Big city','●●●'],['medium','Medium city','●●'],['small','Small town','●']];
+const atA=k=>ATL.find(x=>x[0]==k)||ATL[1];
+/* the level of a lore place */
+function atLvl(l,g){if(!l)return '';g=g||0;const A=l.adv||{};if(A._t=='place'||(!lrIsReg(l)&&A.rid))return 'city';if(!lrIsReg(l))return '';if(A.lvl)return A.lvl;if(!A.parent||g>6)return 'region';const P=S.lore.find(x=>x.id==A.parent),pl=atLvl(P,g+1);return pl=='continent'?'region':pl=='region'?'country':pl=='country'||pl=='district'?'district':'country'}
+const atKids=(id,lv)=>S.lore.filter(l=>l.adv&&(l.adv.parent==id||(lv=='city'&&l.adv.rid==id))&&atLvl(l)==lv);
+const atCities=id=>S.lore.filter(l=>l.adv&&l.adv.rid==id&&atLvl(l)=='city');
+const atSz=c=>{const A=c.adv||{};if(A.csz)return A.csz;const P=S.lore.find(l=>l.id==A.rid);if(P&&P.adv&&P.adv.capital&&lrNorm(P.adv.capital)==lrNorm(c.title))return 'capital';return 'medium'};
+function atAllCities(id,g){g=g||0;if(g>6)return [];return [...atCities(id),...S.lore.filter(l=>l.adv&&l.adv.parent==id&&lrIsReg(l)).flatMap(x=>atAllCities(x.id,g+1))]}
+function atPop(id){try{return popAll(plCanon(id)).n||0}catch(e){return 0}}
+/* the view */
+let atX=(()=>{try{return new Set(JSON.parse(localStorage.getItem('exodus.atx')||'[]'))}catch(e){return new Set()}})(),atV=(()=>{try{return localStorage.getItem('exodus.atv')||'atlas'}catch(e){return 'atlas'}})();
+function atTog(id){atX.has(id)?atX.delete(id):atX.add(id);try{localStorage.setItem('exodus.atx',JSON.stringify([...atX]))}catch(e){}render()}
+function atSetV(v){atV=v;try{localStorage.setItem('exodus.atv',v)}catch(e){}render()}
+{const i=XPOST.findIndex(f=>f.name=='lwTreePost');if(i>=0)XPOST.splice(i,1)}
+{const _lo=lore;lore=function(){if(tab=='lore'&&lsub=='entries'&&lcat=='Worlds'&&!sel&&!edit&&atV=='atlas')return atView();const h=_lo.apply(this,arguments);if(tab=='lore'&&lsub=='entries'&&lcat=='Worlds'&&!sel&&!edit)return atSw()+h;return h}}
+const atSw=()=>`<div class="rcv supvt atsw">${[['atlas',nm('Atlas'),'globe'],['all',nm('All entries'),'list']].map(([v,l,i])=>`<button class="${atV==v?'on':''}" onclick="atSetV('${v}')">${ico(i,13)} ${esc(l)}</button>`).join('')}</div>`;
+function atView(){const D=S.dev,R=S.lore.filter(l=>lrIsReg(l)),lv=l=>atLvl(l),C=R.filter(l=>lv(l)=='continent'),cities=S.lore.filter(l=>atLvl(l)=='city'),tot=R.filter(l=>!(l.adv||{}).parent).reduce((a,l)=>a+atPop(l.id),0);
+ const head=secHero({ic:'globe',col:'#3fa3ff',cat:nm('Worlds'),t:nm('Atlas'),d:'Your world from the top down: continents, their regions, the countries in each region, their districts, and every city from the capital to the smallest town.',side:D?`<button class="btn dev" onclick="atNew()">${ico('plus',12)} ${esc(nm('New place'))}</button>`:'',k:[[nm('Continents'),C.length,''],[nm('Regions'),R.filter(l=>lv(l)=='region').length,''],[nm('Countries'),R.filter(l=>lv(l)=='country').length,R.filter(l=>lv(l)=='district').length+' districts'],[nm('Cities'),cities.length,cities.filter(c=>atSz(c)=='capital').length+' capitals'+(tot?' · '+lfmt(tot)+' people':'')]]});
+ const bar=`<div class="scbar">${natSearch('.atq')}<div class="rcv"><button onclick="atX=new Set(${JSON.stringify(R.filter(l=>lv(l)!='continent').map(l=>l.id))});render()">Open all</button><button onclick="atX=new Set(${JSON.stringify(C.map(l=>l.id))});render()">Close all</button></div></div>`;
+ if(!R.length&&!cities.length)return atSw()+head+`<div class="sce">${ico('globe',36)}<b>Your atlas is empty</b><p>${D?'Start with a continent, or a region if your world has no continents.':'Turn on dev mode to add places.'}</p>${D?`<button class="btn dev" onclick="atNew('continent')">${ico('plus',12)} ${esc(nm('Continent'))}</button>`:''}</div>`;
+ const tops=R.filter(l=>{const p=(l.adv||{}).parent;return !p||!S.lore.some(x=>x.id==p)});const noC=tops.filter(l=>lv(l)!='continent');
+ const loose=cities.filter(c=>!S.lore.some(x=>x.id==(c.adv||{}).rid));
+ return atSw()+head+bar+`<div class="atw">${tops.filter(l=>lv(l)=='continent').map(l=>atNode(l,0)).join('')}${noC.length?`<div class="atc atnc"><div class="atch"><span class="ati">${ico('globe',18)}</span><div><small>${esc(nm('Not on a continent'))}</small><b>${noC.length} place${noC.length==1?'':'s'}</b></div></div><div class="atb">${noC.map(l=>atNode(l,1)).join('')}</div></div>`:''}${loose.length?`<div class="atc atnc"><div class="atch"><span class="ati">${ico('cityx',18)}</span><div><small>${esc(nm('Cities'))}</small><b>Not in a country yet</b></div></div><div class="atb"><div class="atcs">${loose.map(atCity).join('')}</div></div></div>`:''}</div>`}
+function atCity(c){const z=atSz(c),s=CSZ.find(x=>x[0]==z)||CSZ[2],pop=atPop(c.id),onMap=typeof plAliases=='function'&&plAliases()[c.id];return `<button class="atct z-${z} atq" data-q="${esc(lrNorm(c.title))}" onclick="readOpen('l','${c.id}')" title="${esc(s[1])}"><i>${s[2]}</i><b>${esc(c.title)}</b>${pop?`<small>${lfmt(pop)}</small>`:''}${onMap?`<u title="On the map">${ico('mapi',9)}</u>`:''}</button>`}
+function atNode(l,d){const D=S.dev,lv=atLvl(l),a=atA(lv),open=lv=='continent'?!atX.has(l.id):atX.has(l.id),A=l.adv||{};
+ const kids=ATL.map(x=>x[0]).filter(k=>k!='city'&&k!='continent').map(k=>[k,atKids(l.id,k)]).filter(x=>x[1].length),cs=atCities(l.id),allC=atAllCities(l.id),pop=atPop(l.id),cap=cs.find(c=>atSz(c)=='capital')||(A.capital?{title:A.capital}:null);
+ const nextT=lv=='continent'?'region':lv=='region'?'country':lv=='country'?'district':'';
+ const addB=D?`<span class="atad">${nextT?`<button class="lwc add" onclick="event.stopPropagation();atNew('${nextT}','${l.id}')">${ico('plus',10)} ${esc(nm(atA(nextT)[1]))}</button>`:''}${['country','district','region'].includes(lv)?`<button class="lwc add" onclick="event.stopPropagation();atNew('city','${l.id}')">${ico('plus',10)} ${esc(nm('City'))}</button>`:''}</span>`:'';
+ const stats=[kids.map(([k,L])=>`<span><b>${L.length}</b><small>${esc(nm(atA(k)[2]).toLowerCase())}</small></span>`).join(''),allC.length?`<span><b>${allC.length}</b><small>cities</small></span>`:'',pop?`<span><b>${lfmt(pop)}</b><small>people</small></span>`:''].join('');
+ const meta=[cap?`<span class="atcap">★ ${esc(cap.title)}</span>`:'',A.gov?`<span>${esc(A.gov)}</span>`:'',A.ruler?`<span>${esc(A.ruler)}</span>`:'',A.climate?`<span>${esc(A.climate)}</span>`:'',A.terrain?`<span>${esc(A.terrain)}</span>`:''].filter(Boolean).join('');
+ const body=open?`${kids.map(([k,L])=>`<div class="atb">${L.map(x=>atNode(x,d+1)).join('')}</div>`).join('')}${cs.length?`<div class="atcs">${cs.sort((x,y)=>CSZ.findIndex(s=>s[0]==atSz(x))-CSZ.findIndex(s=>s[0]==atSz(y))).map(atCity).join('')}</div>`:''}${addB?`<div class="atadr">${addB}</div>`:''}`:'';
+ return `<div class="atc lv-${lv} ${open?'open':''}" style="--ac:${a[4]}"><div class="atch atq" data-q="${esc(lrNorm(l.title))}" onclick="if(!event.target.closest('button'))atTog('${l.id}')"><span class="supar ${open?'on':''}">›</span><span class="ati">${ico(a[3],16)}</span><div class="att"><small>${esc(nm(a[1]))}${A.code?' · '+esc(A.code):''}</small><b>${esc(l.title)}</b>${meta?`<div class="atm">${meta}</div>`:''}</div><div class="atk">${stats}</div><div class="atbt"><button class="btn" onclick="readOpen('l','${l.id}')">Read</button>${D?`<button class="btn dev" onclick="atNew('${lv}','','${l.id}')">${ico('pen',11)}</button>`:''}</div></div>${body}</div>`}
+/* the new place form */
+function atNew(type,parent,eid){const e=eid&&S.lore.find(l=>l.id==eid),A=(e&&e.adv)||{};type=type||(e?atLvl(e):'country');const pid=parent||(e?(type=='city'?A.rid:A.parent):'')||'';
+ const opts=t=>S.lore.filter(l=>ATLP[t].includes(atLvl(l))&&l.id!=eid);
+ const dr=v=>`<option value="${v}">`;
+ XMOD('atnew',`<h2 class="f" style="margin-top:0">${e?'Edit':esc(nm('New place'))}</h2><div class="attyp">${ATL.map(([k,l,,ic,c])=>`<button class="${k==type?'on':''}" style="--ac:${c}" onclick="atNew('${k}',document.getElementById('atp')?document.getElementById('atp').value:'','${eid||''}')">${ico(ic,18)}<b>${esc(nm(l))}</b></button>`).join('')}</div>
+ <div class="gcdxg"><div><label>Name</label><input id="atn" value="${esc(e?e.title:'')}" placeholder="${({continent:'Eldmar',region:'The Sunlit Coast',country:'Kingdom of Valeria',district:'The Northern March',city:'Meriin'})[type]}"></div>
+ ${ATLP[type].length?`<div><label>Part of</label><select id="atp"><option value="">${type=='region'?'No continent':'—'}</option>${opts(type).map(l=>`<option value="${l.id}" ${l.id==pid?'selected':''}>${esc(nm(atA(atLvl(l))[1]))}: ${esc(l.title)}</option>`).join('')}</select></div>`:'<input type="hidden" id="atp" value="">'}
+ ${type=='city'?`<div><label>Size</label><select id="atz">${CSZ.map(([k,l])=>`<option value="${k}" ${(A.csz||'medium')==k?'selected':''}>${esc(nm(l))}</option>`).join('')}</select></div>`:''}
+ ${type=='country'?`<div><label>Government</label><select id="atg">${['','Kingdom','Empire','Republic','Principality','Duchy','Theocracy','Tribal lands','City-state','Council','Other'].map(g=>`<option ${A.gov==g?'selected':''}>${g}</option>`).join('')}</select></div><div><label>Ruler</label><input id="atr" value="${esc(A.ruler||'')}" placeholder="Queen Ysolde II"></div>`:''}
+ ${type!='city'?`<div><label>Climate</label><select id="atcl">${['','Arctic','Cold','Mild','Warm','Hot','Desert','Tropical','Magical'].map(g=>`<option ${A.climate==g?'selected':''}>${g}</option>`).join('')}</select></div><div><label>Land</label><input id="att" list="atll" value="${esc(A.terrain||'')}" placeholder="Hills and forests"><datalist id="atll">${['Plains','Hills','Mountains','Forests','Marshes','Desert','Coast','Islands','Tundra','Jungle'].map(dr).join('')}</datalist></div>`:''}
+ <div><label>People</label><input id="atpp" type="number" min="0" placeholder="Leave empty if unknown"></div><div><label>Founded in year</label><input id="atf" type="number" value="${esc(A.founded??'')}"></div><div><label>Short code</label><input id="atco" value="${esc(A.code||'')}" placeholder="VAL"></div></div>
+ <label>About it</label><textarea id="atd" style="min-height:70px">${esc(e?e.text||'':'')}</textarea>
+ <p class="mut" style="font-size:12px;margin:4px 0">${type=='city'?'A city in a country with districts belongs in one of its districts.':type=='district'?'Once a country has districts, its cities show inside them.':type=='country'?'Countries were called subregions before.':''}</p>
+ <p class="wsrow"><button class="btn dev" onclick="atSave('${type}','${eid||''}')">${e?'Save':'Add '+esc(nm(atA(type)[1]).toLowerCase())}</button>${e?`<button class="btn" onclick="XCLOSE('atnew');edit={t:'l',id:'${e.id}'};render()">Full editor</button>`:''}<button class="btn" onclick="XCLOSE('atnew')">Cancel</button></p>`,620);
+ if(!e)setTimeout(()=>{const n=document.getElementById('atn');if(n)n.focus()},30)}
+function atSave(type,eid){const g=i=>{const x=document.getElementById(i);return x?x.value:''};const n=g('atn').trim();if(!n)return toast('Give it a name');const par=g('atp');
+ let l=eid&&S.lore.find(x=>x.id==eid);if(!l){l={id:'l'+(S.nid++),title:n,cat:'Worlds',sub:nm(atA(type)[2]),text:'',links:[],adv:{}};S.lore.push(l);try{newId(l,'LOR')}catch(e){}}
+ l.title=n;l.text=g('atd');l.adv=l.adv||{};const A=l.adv;
+ if(type=='city'){A._t='place';A.rid=par;const P=S.lore.find(x=>x.id==par);A.region=P?P.title:'';A.csz=g('atz')||'medium';delete A.lvl;delete A.parent;if(A.csz=='capital'&&P){P.adv=P.adv||{};P.adv.capital=n;atCities(par).forEach(c=>{if(c!==l&&c.adv&&c.adv.csz=='capital')c.adv.csz='big'})}}
+ else{A._t='region';A.lvl=type;if(par)A.parent=par;else delete A.parent;if(type=='country'){A.gov=g('atg');A.ruler=g('atr').trim()}A.climate=g('atcl');A.terrain=g('att').trim()}
+ if(par&&!l.links.includes(par))l.links.push(par);A.code=g('atco').trim();A.founded=g('atf')===''?'':+g('atf');l.sub=nm(atA(type)[2]);
+ const pp=g('atpp');if(pp!==''&&typeof popSet=='function'){const k=plCanon(l.id);POP()[k]=Object.assign(POP()[k]||{},{n:+pp,d0:popDay()})}
+ save();XCLOSE('atnew');if(par)atX.add(par);render();toast(n+(eid?' saved':' added'))}
+/* weather is set by city only */
+wxPlaces=function(){const out=[['','World (default)','']];PLO().filter(x=>String(x[0]).startsWith('c:')||x[3]=='lcity'||(S.lore.find(l=>l.id==x[0])&&atLvl(S.lore.find(l=>l.id==x[0]))=='city')).forEach(([id,n])=>{const up=placeUp(id),country=up&&placeName(up);out.push([(String(id).startsWith('c:')?'m:':'l:')+id,n+(country?', '+country:''),'city',0])});return out};
+
+/* ===== 2.29 part 2: World stats › Population — what people die of ===== */
+Object.assign(PL,{"Death by":"Przyczyny śmierci"});
+const DCD={'Old age':40,'Illness':25,'Accidents':8,'Childbirth':6,'Violence':6,'Hunger':5,'Animals and monsters':4,'Cold or heat':3,'Other':3};
+const DCC={'Old age':'#a09b8c','Illness':'#9be15d','Accidents':'#e6c35c','Childbirth':'#ff8fa3','Violence':'#e05b5b','Hunger':'#c08a50','Animals and monsters':'#ff9f45','Cold or heat':'#5ad1ff','Other':'#6c6a62'};
+function dcSplit(total,W){const E=Object.entries(W).filter(x=>x[1]>0),S2=E.reduce((a,x)=>a+x[1],0)||1,raw=E.map(([k,w])=>[k,total*w/S2]),out={};let left=Math.round(total);raw.forEach(([k,v])=>{out[k]=Math.floor(v);left-=out[k]});raw.slice().sort((a,b)=>(b[1]%1)-(a[1]%1)).forEach(([k])=>{if(left>0){out[k]++;left--}});return out}
+{const _o=popOwn;popOwn=function(pid){const o=_o.apply(this,arguments);if(!o)return o;const q=o.q||{},W=Object.keys(q.dc||{}).length?q.dc:DCD,base=o.dr/(o.M?o.M.m:1),ex=Math.max(0,o.dr-base),wx=(o.M?o.M.why:[]),wsum=wx.reduce((a,x)=>a+Math.max(0,x[1]-1),0)||1;
+ const shareEv=o.dr?ex/o.dr:0,mk=tot=>{const evT=Math.round(tot*shareEv),out=dcSplit(tot-evT,W);if(evT&&wx.length){const ev=dcSplit(evT,Object.fromEntries(wx.map(([n,f])=>[n,Math.max(0,f-1)/wsum])));Object.entries(ev).forEach(([k,v])=>out[k]=(out[k]||0)+v)}return out};
+ o.dcT=mk(o.dT);o.dcY=mk(o.dY);o.dcEv=new Set(wx.map(x=>x[0]));return o}}
+{const _a=popAll;popAll=function(pid,dep){const A=_a.apply(this,arguments);A.dcT={};A.dcY={};A.dcEv=new Set();A.parts.forEach(([,o])=>{Object.entries(o.dcT||{}).forEach(([k,v])=>A.dcT[k]=(A.dcT[k]||0)+v);Object.entries(o.dcY||{}).forEach(([k,v])=>A.dcY[k]=(A.dcY[k]||0)+v);(o.dcEv||[]).forEach(x=>A.dcEv.add(x))});return A}}
+function dcCard(A){const E=Object.keys({...A.dcY,...A.dcT}).map(k=>[k,A.dcT[k]||0,A.dcY[k]||0]).filter(x=>x[1]||x[2]).sort((a,b)=>b[2]-a[2]),mx=Math.max(1,...E.map(x=>x[2])),tot=E.reduce((a,x)=>a+x[2],0)||1;
+ return wsCard('disx',nm('Death by'),'Today and this year',E.length?`<div class="dcl"><div class="hd"><span>Cause</span><span>Today</span><span>This year</span><span></span><span>Share</span></div>${E.map(([k,t,y])=>{const ev=A.dcEv&&A.dcEv.has(k),c=ev?'#e8707a':DCC[k]||'#b07cff';return `<div><span><i style="background:${c}"></i>${esc(k)}${ev?' <small class="hot">going on now</small>':''}</span><b>${lfmt(t)}</b><b>${lfmt(y)}</b><u><em style="width:${y/mx*100}%;background:${c}"></em></u><small>${Math.round(y/tot*100)}%</small></div>`}).join('')}</div>`:'<p class="mut">Nobody died yet.</p>')}
+
+/* ===== 2.29 part 3: budgets of every place, and how they change supplies and production ===== */
+Object.assign(PL,{"Budget":"Budżet","Per person":"Na osobę","Spent on":"Wydatki na","Production today":"Produkcja dziś","Production":"Produkcja"});
+/* category, colour, normal share %, supply kinds it helps */
+const BUDC=[['Military','#e05b5b',20,['def','arch','pyro','camp']],['Farming and food','#9be15d',12,['farm','herd','bee','herb','seed','food','bake','dairy','butch','fish','fcure','salt','brew','hunt']],['Industry and crafts','#c08a50',12,['mine','wood','foundry','mason','text','tan','rope','silk','flax','dye','glass','pot','bone','basket','build','store']],['Roads and transport','#d9a066',8,['trans','repair','ship']],['Health','#ff8fa3',7,['pharm','hyg','vet','water']],['Education','#3fa3ff',6,['scribe','carto']],['Magic and research','#b07cff',5,['alch','scroll']],['Religion','#f0d9ff',8,[]],['Law and order','#e6c35c',7,[]],['Court and nobility','#ff7ab6',8,['lux','cosm','tob','spice']],['Help for the poor','#6fcf6f',4,[]],['Buildings and works','#a0a8b8',3,['build','mason']]];
+const BUD=()=>{S.bud=S.bud||{};return S.bud};
+let wsBP='',bdEd=0;
+const budOf=pid=>BUD()[pid]||null;
+function budSet(pid,k,v){const B=BUD(),b=B[pid]=B[pid]||{tot:'',cur:'',sh:{}};if(k=='tot')b.tot=v===''?'':+v;else if(k=='cur')b.cur=v;else{b.sh=b.sh||{};if(v===''||+v<=0)delete b.sh[k];else b.sh[k]=+v}save();render()}
+function budNorm(b){const sh=b&&b.sh&&Object.keys(b.sh).length?b.sh:Object.fromEntries(BUDC.map(c=>[c[0],c[2]])),t=Object.values(sh).reduce((a,x)=>a+(+x||0),0)||1;return Object.fromEntries(Object.entries(sh).map(([k,v])=>[k,(+v||0)/t*100]))}
+/* a place with everything inside it */
+function budAll(pid,dep){dep=dep||0;const PL2=(typeof popPL!='undefined'&&popPL)||PLO(),kids=dep>8?[]:PL2.filter(x=>x[0]!=pid&&placeUp(x[0])==plCanon(pid)).map(x=>x[0]),b=budOf(pid),A={tot:0,by:{},parts:[]};
+ if(b&&+b.tot){const N=budNorm(b);A.tot+=+b.tot;Object.entries(N).forEach(([k,v])=>A.by[k]=(A.by[k]||0)+(+b.tot)*v/100);A.parts.push([pid,+b.tot,1])}
+ kids.forEach(k=>{const a=budAll(k,dep+1);if(!a.tot)return;A.tot+=a.tot;Object.entries(a.by).forEach(([x,v])=>A.by[x]=(A.by[x]||0)+v);A.parts.push([k,a.tot,0])});return A}
+/* how much a place's budget pushes a kind of supply: nearest budget up the chain */
+function budBoost(cat,pid){let p=plCanon(pid),n=0,b=null;while(p&&n++<9){b=budOf(p);if(b&&+b.tot)break;b=null;p=placeUp(p)}if(!b)return {f:1,why:''};const N=budNorm(b),C=BUDC.filter(c=>c[3].includes(cat));if(!C.length)return {f:1,why:''};let f=1,why=[];C.forEach(c=>{const sh=N[c[0]]||0,r=sh/c[2],x=sh<=0?.5:Math.max(.5,Math.min(1.6,1+.5*Math.log(r)));f*=x;why.push(c[0])});return {f,why:why.join(', '),at:p}}
+/* production follows the budget */
+{const _ss=supSim;supSim=function(r,q){if(r.c=='magic')return _ss.apply(this,arguments);const P=SUP().p,pid=Object.keys(P).find(k=>P[k][r.id]===q)||'';if(!pid)return _ss.apply(this,arguments);const B=budBoost(r.c,pid);if(B.f==1)return _ss.apply(this,arguments);const a0=q.a;q.a=(+q.a||0)*B.f;try{return _ss.apply(this,arguments)}finally{q.a=a0}}}
+/* live production: today against a normal day, and why */
+function supProdCard(c,scope){const L=SUP().r.filter(r=>r.c==c[0]);const rows=[];L.forEach(r=>supRows(r,scope).forEach(x=>{const q=x.q,a=+q.a||0,M=supMon(),mi=Math.min(wcToday().m,M.length-1),normDay=a/(M.reduce((s,m)=>s+m.d,0)||365),B=budBoost(r.c,x.pid),w=supWF(r,x.pid,0),acc=supAcc(r,x.pid);if(!normDay)return;rows.push([r,x,x.today/normDay*100,B,w,acc,x.s.inS])}));if(!rows.length)return '';
+ rows.sort((a,b)=>a[2]-b[2]);return wsCard('chart',nm('Production today'),'Compared with a normal day of the year',`<div class="prl">${rows.map(([r,x,pc,B,w,acc,inS])=>{const col=pc>=105?'#3fc98a':pc>=95?'#e6c35c':'#e8707a',why=[B.f!=1?`budget ${B.f>1?'+':''}${Math.round((B.f-1)*100)}%`:'',w.f<.99||w.f>1.01?`${SUPWE[w.w]||''} weather ${w.f>1?'+':''}${Math.round((w.f-1)*100)}%`:'',!acc?'no access':'',inS===false?'out of season':''].filter(Boolean);return `<div><span><b>${esc(r.n)}</b><small>${esc(supPN(x.pid))}${why.length?' · '+why.map(esc).join(' · '):''}</small></span><i><u style="width:${Math.min(100,pc/2)}%;background:${col}"></u><em></em></i><b style="color:${col}">${Math.round(pc)}%</b></div>`}).join('')}</div>`)}
+{const _sc=supCat;supCat=function(c,scope){const h=_sc.apply(this,arguments);if(c[0]=='magic'||!SUP().r.some(r=>r.c==c[0]))return h;return h+supProdCard(c,scope)}}
+/* overview: production of every kind right now */
+{const _ov=supOv;supOv=function(RA,scope){const h=_ov.apply(this,arguments);const rows=[];SUPC.filter(c=>c[0]!='magic').forEach(c=>{let a=0,t=0;SUP().r.filter(r=>r.c==c[0]).forEach(r=>supRows(r,scope).forEach(x=>{a+=(+x.q.a||0)/(supMon().reduce((s,m)=>s+m.d,0)||365);t+=x.today}));if(a)rows.push([c,t/a*100])});if(!rows.length)return h;return h+wsCard('chart',nm('Production today'),'Every kind of supply against a normal day',`<div class="prl">${rows.sort((x,y)=>y[1]-x[1]).map(([c,pc])=>{const col=pc>=105?'#3fc98a':pc>=95?'#e6c35c':'#e8707a';return `<div><span><b>${esc(nm(c[1]))}</b></span><i><u style="width:${Math.min(100,pc/2)}%;background:${col}"></u><em></em></i><b style="color:${col}">${Math.round(pc)}%</b></div>`}).join('')}</div>`)}}
+/* World stats › Budget */
+function budView(){const D=S.dev,pl=PLO(),cur=wsBP&&pl.some(x=>x[0]==wsBP)?wsBP:'';let A;if(cur)A=budAll(cur);else{A={tot:0,by:{},parts:[]};pl.filter(x=>!placeUp(x[0])).forEach(([r])=>{const a=budAll(r);if(!a.tot)return;A.tot+=a.tot;Object.entries(a.by).forEach(([k,v])=>A.by[k]=(A.by[k]||0)+v);A.parts.push([r,a.tot,0])})}
+ const b=cur&&budOf(cur),curr=(()=>{try{return ECO().cur}catch(e){return []}})(),cs=b&&b.cur&&curr.find(x=>x.id==b.cur),sym=cs?(cs.sym||cs.name):((curr[0]||{}).sym||''),pop=(()=>{try{return cur?popAll(cur).n:pl.filter(x=>!placeUp(x[0])).reduce((a,[r])=>a+popAll(r).n,0)}catch(e){return 0}})();
+ const pick=`<div class="scbar"><label class="schp" style="flex:1"><span>Place</span><select onchange="wsBP=this.value;bdEd=0;render()">${plOpts(cur,'Whole world')}</select></label>${D&&cur?`<button class="btn dev ${bdEd?'on':''}" onclick="bdEd=bdEd?0:1;render()">${ico('pen',12)} ${bdEd?'Done':'Set budget'}</button>`:''}</div>`;
+ const E=Object.entries(A.by).sort((x,y)=>y[1]-x[1]),top=E[0];
+ const kpi=`<div class="schk popk budk">${[[nm('Budget'),A.tot?lfmt(A.tot)+' '+esc(sym):'—','a year'],[nm('Per person'),A.tot&&pop?lfmt(Math.round(A.tot/pop*100)/100)+' '+esc(sym):'—',pop?lfmt(pop)+' people':''],['Biggest cost',top?esc(top[0]):'—',top?Math.round(top[1]/A.tot*100)+'%':''],['A day',A.tot?lfmt(Math.round(A.tot/365))+' '+esc(sym):'—','']].map(([l,v,s])=>`<div><small>${esc(l)}</small><b>${v}</b>${s?`<span>${s}</span>`:''}</div>`).join('')}</div>`;
+ let ed='';if(D&&cur&&bdEd){const bb=b||{},N=budNorm(bb),sum=Object.values(bb.sh||{}).reduce((a,x)=>a+(+x||0),0);ed=`<div class="arme pope" style="grid-template-columns:1fr"><h3 class="f" style="margin:0">${esc(placeName(cur))} · ${esc(nm('Budget'))}</h3><p class="mut" style="margin:0;font-size:12px">What this place itself spends in a year. Places inside it set their own, and everything is added up. Spending more than usual on something makes those supplies grow faster; spending less slows them down.</p>
+  <div class="gcdxg"><div><label>Budget a year</label><input type="number" min="0" value="${esc(bb.tot??'')}" onchange="budSet('${cur}','tot',this.value)"></div><div><label>Currency</label><select onchange="budSet('${cur}','cur',this.value)"><option value="">—</option>${curr.map(x=>`<option value="${x.id}" ${bb.cur==x.id?'selected':''}>${esc(x.name)}</option>`).join('')}</select></div></div>
+  <small class="evk">Share of the budget ${sum?`· ${sum}% set${sum!=100?' (shares are scaled to 100%)':''}`:'· normal shares until you set your own'}</small><div class="bde">${BUDC.map(([k,c,d,sp])=>`<div style="--bc:${c}"><span>${esc(k)}</span><input type="number" min="0" max="100" value="${(bb.sh||{})[k]??''}" placeholder="${d}" onchange="budSet('${cur}','${k}',this.value)"><small>${Math.round(N[k]||0)}%</small><em>${sp.length?(()=>{const r=(N[k]||0)/d,x=(N[k]||0)<=0?.5:Math.max(.5,Math.min(1.6,1+.5*Math.log(r)));return (x>=1?'+':'')+Math.round((x-1)*100)+'% '+sp.length+' supplies'})():''}</em></div>`).join('')}</div></div>`}
+ const by=wsCard('ecox',nm('Spent on'),A.tot?'a year, all places inside added up':'',E.length?`<div class="lxbars">${E.map(([k,v])=>{const c=(BUDC.find(x=>x[0]==k)||[])[1]||'#c8aa6e';return `<div><span>${esc(k)}</span><i><b style="width:${v/E[0][1]*100}%;background:${c}"></b></i><small>${lfmt(Math.round(v))} · ${Math.round(v/A.tot*100)}%</small></div>`}).join('')}</div>`:'<p class="mut">No budget set yet.</p>');
+ const eff=cur?wsCard('supx','What it does to supplies','Production compared with normal spending',(()=>{const R=BUDC.filter(c=>c[3].length).map(c=>[c,budBoost(c[3][0],cur)]);return R.some(([,x])=>x.f!=1)?`<div class="prl">${R.map(([c,x])=>{const pc=x.f*100,col=pc>=105?'#3fc98a':pc>=95?'#e6c35c':'#e8707a';return `<div><span><b>${esc(c[0])}</b><small>${c[3].map(k=>esc(nm(supC(k)[1]))).slice(0,3).join(', ')}${c[3].length>3?'…':''}</small></span><i><u style="width:${Math.min(100,pc/2)}%;background:${col}"></u><em></em></i><b style="color:${col}">${Math.round(pc)}%</b></div>`}).join('')}</div><small class="mut">From the budget of ${esc(placeName(R.find(([,x])=>x.at)?.[1].at||cur))}.</small>`:'<p class="mut">This place and the places above it have no budget, so production is normal.</p>'})()):'';
+ const tbl=A.parts.filter(([id,,own])=>!own).length?wsCard('mapi',cur?'Inside '+esc(placeName(cur)):'By place','Tap one to look inside',`<div class="popt">${A.parts.filter(([,,own])=>!own).sort((a,b)=>b[1]-a[1]).map(([id,t])=>`<button onclick="wsBP='${id}';bdEd=0;render()"><b>${esc(placeName(id))}</b><span>${lfmt(Math.round(t))}</span><span>${Math.round(t/A.tot*100)}%</span><span></span><span></span><span></span></button>`).join('')}</div>`):'';
+ return pick+kpi+ed+`<div class="wsg2">${by}${eff}</div>`+tbl}
+{const _w=wstView;wstView=function(){let h=_w.apply(this,arguments);const tb=`<button class="${wsT=='bud'?'on':''}" onclick="wsT='bud';render()">${esc(nm('Budget'))}</button>`;h=h.replace(/(<div class="rcv supvt">[\s\S]*?)(<\/div>)/,(m,a,b)=>a+tb+b);if(wsT=='bud'){const i=h.indexOf('<div class="rcv supvt">'),j=h.indexOf('</div>',i)+6;return h.slice(0,j)+budView()}return h}}
 
 
 render();
