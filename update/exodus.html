@@ -3433,6 +3433,15 @@ html.lxcp #m .panel{padding:10px 12px!important;margin-bottom:8px!important}html
 .budk{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:640px){.budk{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .dcl>div>small{text-align:right;color:#8a8577;font-variant-numeric:tabular-nums}.dcl>div{margin-bottom:0}
 .dcl u{display:block;height:5px;border-radius:3px;background:#ffffff10;overflow:hidden}.dcl u em{display:block;height:100%}
+/* regions on the flat map: territory labels, not pins */
+.mprg:not(.mpct){flex-direction:column-reverse;gap:1px;padding:0!important;background:none!important;border:0!important;border-radius:0;transform:translate(-50%,calc(-100% - 16px));color:#e8d9b0;font:700 11px Cinzel,Georgia,serif!important;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 3px #010a13,0 0 6px #010a13,0 0 2px #010a13;z-index:2}
+.mprg:not(.mpct)>svg{display:none}
+.mprg:not(.mpct) b{font:600 9px ui-monospace,Consolas,monospace;letter-spacing:0;color:#f0c060}
+.mprg:not(.mpct)::after{content:'';position:absolute;left:50%;bottom:-16px;width:7px;height:7px;margin-left:-3.5px;transform:rotate(45deg);background:#f0c060;opacity:.75;box-shadow:0 0 0 2px #010a1399}
+.mprg.nt:not(.mpct) b{color:#8aa0ff}.mprg.nt:not(.mpct)::after{background:#8aa0ff}
+.mprg.me:not(.mpct){color:#0ac8b9}.mprg.me:not(.mpct)::after{background:#0ac8b9}
+.mpct{z-index:4}
+.mpct::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.8}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -8166,15 +8175,18 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.29';
+const WNV='2.29.1';
 const WN=[
+ ['2.29.1','31 Oct 2026',[
+  ['Fix','Same place, one entry','A map city or region and a lore entry with the same name are now merged into one entry, keeping the text, details, links, population and supplies of both. The weather list shows each city once.',"wxOpen()"],
+  ['Lore','Regions look like regions','On the globe and the map, regions are shown as territory names with their time, and cities as pins, so they no longer look the same.',"lcat='Worlds';pickSub('lore','map')"]]],
  ['2.29','31 Oct 2026',[
   ['Lore','Atlas: continents, regions, countries, districts, cities','Worlds entries now open as an Atlas. Continents hold regions, regions hold countries (what used to be subregions), countries can have districts, and cities sit in a district or straight in the country. Cities have a size: capital, big, medium or small. Switch to All entries for the old list.',"lcat='Worlds';pickSub('lore','entries');atV='atlas'"],
   ['Lore','New place form','One form for making any place: pick continent, region, country, district or city, where it belongs, its size, government, ruler, climate, land, people, founding year and a short code.',"lcat='Worlds';pickSub('lore','entries');atV='atlas'"],
   ['Lore','Death by','Population shows what people die of, today and this year, with numbers. Plagues and wars going on show up by name.',"lcat='Worlds';pickSub('lore','wstats');wsT='pop'"],
   ['Lore','Budgets','A new Budget tab in World stats. Set what a country, district or city spends a year and how it is shared: military, education, health, farming, crafts, roads and more. Places add up.',"lcat='Worlds';pickSub('lore','wstats');wsT='bud'"],
   ['Lore','Budgets change supplies','Spending more on something makes its supplies grow faster, spending less slows them. Supplies show Production today, in % of a normal day, with the reasons: budget, weather, season.',"lcat='Worlds';pickSub('lore','sup')"],
-  ['Lore','Weather only for cities','The weather picker now lists only cities.',""]]],
+  ['Lore','Weather only for cities','The weather picker now lists only cities.',"wxOpen()"]]],
  ['2.28','30 Oct 2026',[
   ['Lore','Live population in World stats','A new Population tab in World stats. Pick the whole world, a region, a subregion or a city and see how many people live there today, born today, died today, born and died this year and how fast it grows, moving day by day with the world calendar. A region adds up all its subregions and cities.',"lcat='Worlds';pickSub('lore','wstats');wsT='pop'"],
   ['Lore','Who the people are','Children, adults and old people, women and men, and life expectancy. Jobs (with your Guilds and jobs), education, peoples and races, faith and wealth for every place, shown as numbers of people. Plagues, disasters and wars going on in a place raise its deaths.',"lcat='Worlds';pickSub('lore','wstats');wsT='pop'"]]],
@@ -9860,7 +9872,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.29 Beta',APPB=222;
+const APPV='2.29.1 Beta',APPB=223;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -11619,7 +11631,9 @@ function glbRender(){const c=document.getElementById('glbc');if(!c)return;const 
   {const P=[];for(let lo=-180;lo<=180;lo+=2)P.push([lo,0]);line(P,'rgba(255,200,90,.9)',1.6)}x.setLineDash([])}
  /* pins and regions */
  GLB.hit=[];if(GLB.lab&&R>90*k){x.textAlign='center';glbPins().forEach(p=>{const v=glbProj(p.lon,p.lat);if(v.z<.05)return;const X2=cx+v.x*R,Y2=cy-v.y*R;if(X2<-50||Y2<-50||X2>W+50||Y2>H+50)return;
-  if(p.k=='reg'){const t=regTime(p.r),mine=p.r.id==S.cfg.wloc;x.font=`600 ${12*k}px system-ui,sans-serif`;const lab=p.n+' · '+t.txt,tw=x.measureText(lab).width+14*k;x.fillStyle=mine?'rgba(10,200,185,.92)':'rgba(1,10,19,.82)';x.strokeStyle=t.day?'#f0c060':'#8aa0ff';x.lineWidth=k;const bx=X2-tw/2,by=Y2-26*k;x.beginPath();x.roundRect?x.roundRect(bx,by,tw,18*k,9*k):x.rect(bx,by,tw,18*k);x.fill();x.stroke();x.fillStyle=mine?'#010a13':'#f0e6d2';x.fillText(lab,X2,by+13*k);x.fillStyle=t.day?'#f0c060':'#8aa0ff';x.beginPath();x.arc(X2,Y2,4*k,0,7);x.fill();GLB.hit.push({x:X2/k,y:Y2/k,w:tw/k,p,top:by/k})}
+  if(p.k=='reg'&&!p.ct){const t=regTime(p.r),mine=p.r.id==S.cfg.wloc,col=mine?'#0ac8b9':t.day?'#f0c060':'#8aa0ff';x.save();x.strokeStyle=col;x.globalAlpha=.35;x.lineWidth=k;x.setLineDash([3*k,4*k]);x.beginPath();x.arc(X2,Y2,34*k,0,7);x.stroke();x.setLineDash([]);x.globalAlpha=.06;x.fillStyle=col;x.fill();x.restore();
+   const nmT=String(p.n).toUpperCase().split('').join(String.fromCharCode(8202));x.font=`700 ${13*k}px Cinzel,Georgia,serif`;x.lineWidth=4*k;x.strokeStyle='rgba(1,10,19,.85)';const ly=Y2-40*k;x.strokeText(nmT,X2,ly);x.fillStyle=mine?'#0ac8b9':'#e8d9b0';x.fillText(nmT,X2,ly);const tw=x.measureText(nmT).width;x.font=`600 ${9*k}px ui-monospace,Consolas,monospace`;x.lineWidth=3*k;x.strokeText(t.txt,X2,ly-14*k);x.fillStyle=col;x.fillText(t.txt,X2,ly-14*k);x.fillStyle=col;x.globalAlpha=.7;x.beginPath();x.moveTo(X2,Y2-4*k);x.lineTo(X2+4*k,Y2);x.lineTo(X2,Y2+4*k);x.lineTo(X2-4*k,Y2);x.closePath();x.fill();x.globalAlpha=1;GLB.hit.push({x:X2/k,y:ly/k,w:Math.max(tw/k,60),p,top:(ly-26*k)/k})}
+  else if(p.k=='reg'){const t=regTime(p.r),mine=p.r.id==S.cfg.wloc;x.font=`600 ${12*k}px system-ui,sans-serif`;const lab=p.n+' · '+t.txt,tw=x.measureText(lab).width+14*k;x.fillStyle=mine?'rgba(10,200,185,.92)':'rgba(1,10,19,.82)';x.strokeStyle=t.day?'#f0c060':'#8aa0ff';x.lineWidth=k;const bx=X2-tw/2,by=Y2-26*k;x.beginPath();x.roundRect?x.roundRect(bx,by,tw,18*k,9*k):x.rect(bx,by,tw,18*k);x.fill();x.stroke();x.fillStyle=mine?'#010a13':'#f0e6d2';x.fillText(lab,X2,by+13*k);x.fillStyle=t.day?'#f0c060':'#8aa0ff';x.beginPath();x.arc(X2,Y2,4*k,0,7);x.fill();GLB.hit.push({x:X2/k,y:Y2/k,w:tw/k,p,top:by/k})}
   else{x.fillStyle='#c8aa6e';x.strokeStyle='#010a13';x.lineWidth=1.5*k;x.beginPath();x.moveTo(X2,Y2);x.arc(X2,Y2-10*k,6*k,Math.PI*.75,Math.PI*2.25);x.closePath();x.fill();x.stroke();x.font=`600 ${11*k}px system-ui,sans-serif`;x.fillStyle='#f0e6d2';x.strokeStyle='rgba(0,0,0,.8)';x.lineWidth=3*k;x.strokeText(p.n,X2,Y2-20*k);x.fillText(p.n,X2,Y2-20*k);GLB.hit.push({x:X2/k,y:Y2/k,w:40,p,top:(Y2-30*k)/k})}})}
  const zl=document.getElementById('glbz');if(zl)zl.textContent=far?'Space view':''}
 function glbFit(){const c=document.getElementById('glbc');if(!c)return;if(!GLB.R)GLB.R=Math.min(c.clientWidth,c.clientHeight)*.42;glbDraw()}
@@ -12076,7 +12090,7 @@ function cySave(rid,cid){const R=WREG().find(x=>x.id==rid);if(!R)return;const f=
 function cyPickGo(rid,cid){const f=cyForm();XCLOSE('cym');wrPickGo('');wrDraft=Object.assign(f,{city:1,rid,cid})}
 {const _wp=wrPicked;wrPicked=function(lon,lat){const d=wrDraft;if(d&&d.city){wrDraft=null;d.lon=Math.round(lon*10)/10;d.lat=Math.round(lat*10)/10;render();return cyOpen(d.rid,d.cid,d)}return _wp.apply(this,arguments)}}
 /* cities on the globe and on the flat map */
-{const _gp=glbPins;glbPins=function(){const out=_gp.apply(this,arguments);try{WCITY().forEach(([r,c])=>{const p=cityP(r,c);out.push({lon:p.lon,lat:p.lat,n:p.n,k:'reg',r:p})})}catch(e){}return out}}
+{const _gp=glbPins;glbPins=function(){const out=_gp.apply(this,arguments);try{WCITY().forEach(([r,c])=>{const p=cityP(r,c);out.push({lon:p.lon,lat:p.lat,n:p.n,k:'reg',r:p,ct:1})})}catch(e){}return out}}
 XPOST.push(function cityMapPost(){if(!(tab=='lore'&&lsub=='map')||mapMode=='globe'||!GLB.lab)return;const img=document.querySelector('#m img[onclick^="mapClick"]');if(!img)return;const box=img.parentElement;if(box.querySelector('.mpct'))return;
  WCITY().forEach(([r,c])=>{const p=cityP(r,c),q=ll2xy(p.lon,p.lat),t=regTime(p);box.insertAdjacentHTML('beforeend',`<button class="mprg mpct ${t.day?'dy':'nt'} ${p.id==S.cfg.wloc?'me':''}" style="left:${q.x}%;top:${q.y}%" onclick="wrOpen('${p.id}')">${esc(c.n)} <b data-pgt="${p.id}">${t.txt}</b></button>`)})});
 setInterval(()=>{document.querySelectorAll('[data-pgt]').forEach(e=>{const p=placeFind(e.dataset.pgt);if(p){const t=regTime(p).txt;if(e.textContent!=t)e.textContent=t}})},20000);
@@ -12532,13 +12546,13 @@ const hh2=h=>String(Math.floor(h)).padStart(2,'0')+':00';
 wxOpen=function(keep){if(!keep)wxSel=0;const key=wxK,P=wxPlaces();if(key&&!P.some(p=>p[0]==key))wxK='';const {now,L}=wxHours(wxK),H=L[Math.min(wxSel,L.length-1)],T=H.d,ic=(w,s)=>ico(wxIco[w]||'cloudx',s||16);
  const name=(P.find(p=>p[0]==wxK)||P[0])[1];
  const grp=(lbl,f)=>{const L2=P.filter(f);return L2.length?`<optgroup label="${esc(lbl)}">${L2.map(([id,n,k,dep])=>`<option value="${id}" ${wxK==id?'selected':''}>${'  '.repeat((dep||0)+(k=='city'?1:0))}${k=='city'||k=='lcity'?'· ':''}${esc(n)}</option>`).join('')}</optgroup>`:''};
- const sel=`<select onchange="wxK=this.value;try{localStorage.setItem('exodus.wxk',wxK)}catch(e){};wxOpen()"><option value="" ${!wxK?'selected':''}>${esc(nm('World (default)'))}</option>${grp('Map',p=>p[0].startsWith('m:'))}${grp('Lore',p=>p[0].startsWith('l:'))}</select>`;
+ const sel=`<select onchange="wxK=this.value;try{localStorage.setItem('exodus.wxk',wxK)}catch(e){};wxOpen()"><option value="" ${!wxK?'selected':''}>${esc(nm('World (default)'))}</option>${grp('Cities',p=>!!p[0])}</select>`;
  const isHome=wxK.startsWith('m:')?S.cfg.wclkReg==wxK.slice(2):wxK.startsWith('l:')?WXS().home==wxK.slice(2):false;
  const days=[];L.forEach(x=>{if(!days.some(d=>d.off==x.off))days.push({off:x.off,k:x.k,d:x.d,hs:L.filter(y=>y.off==x.off)})});
  const tiles=[[wxT(H.feels),'Feels like'],[H.cl+'%','Clouds'],[H.hu+'%','Humidity'],[H.pop+'%','Chance of rain'],[(H.w=='snow'?Math.round(H.mm*1.2*10)/10+' cm':H.mm+' mm'),H.w=='snow'?'Snow':'Rain'],[wxT(H.dew),'Dew point'],[H.wi+' km/h '+H.dir,'Wind'],[H.pr+' hPa','Pressure'],[H.vis+' km','Visibility'],['UV '+H.uv,'Sun strength'],[T.rise,'Sunrise'],[T.set,'Sunset']];
  const strip=L.map((x,i)=>{const rs=hmN(x.rise),st=hmN(x.set);let mk='';if(rs!=null&&Math.floor(rs)==x.h)mk=`<div class="wxhm sun" title="Sunrise">${ico('sunx',12)}<small>${esc(x.rise)}</small></div>`;if(st!=null&&Math.floor(st)==x.h)mk=`<div class="wxhm set" title="Sunset">${ico('moonx',12)}<small>${esc(x.set)}</small></div>`;
   return `${x.h==0&&i?`<div class="wxhd"><small>${x.d.t.d} ${esc((x.d.mn||'').slice(0,3))}</small></div>`:''}<button class="wxhc ${i==wxSel?'on':''} ${x.night?'nt':''}" onclick="wxSel=${i};wxOpen(1)"><small>${i==0?esc(nm('Now')):hh2(x.h)}</small>${ic(x.w,18)}<b>${wxT(x.t)}</b><em>${x.pop>=20?x.pop+'%':'&nbsp;'}</em></button>${mk}`}).join('');
- XMOD('wxm',`<div class="wxn"><div class="wxnh"><label class="wxnp"><span>${esc(nm('Region'))}</span>${sel}</label>${S.dev&&wxK?`<button class="btn ${isHome?'':'dev'}" ${isHome?'disabled':''} onclick="${wxK.startsWith('m:')?`S.cfg.wclkBar=1;S.cfg.wclkReg='${wxK.slice(2)}'`:`WXS().home='${wxK.slice(2)}'`};save();render();wxOpen(1)">${isHome?'Shown in the top bar':'Show in the top bar'}</button>`:''}</div>
+ XMOD('wxm',`<div class="wxn"><div class="wxnh"><label class="wxnp"><span>${esc(nm('City'))}</span>${sel}</label>${S.dev&&wxK?`<button class="btn ${isHome?'':'dev'}" ${isHome?'disabled':''} onclick="${wxK.startsWith('m:')?`S.cfg.wclkBar=1;S.cfg.wclkReg='${wxK.slice(2)}'`:`WXS().home='${wxK.slice(2)}'`};save();render();wxOpen(1)">${isHome?'Shown in the top bar':'Show in the top bar'}</button>`:''}</div>
  <small class="evk">${esc(name)} · ${T.t.d} ${esc(T.mn)}, year ${T.t.y} · ${wxSel==0?esc(nm('Now'))+' '+String(Math.floor(now)).padStart(2,'0')+':'+String(Math.round((now%1)*60)).padStart(2,'0'):hh2(H.h)}</small>
  <div class="wxxt">${ic(H.w,30)}<b class="f">${wxT(H.t)}</b><span>${esc(nm(wxName[H.w]||H.w))}<small>${esc(nm('Feels like'))} ${wxT(H.feels)} · ${wxT(Math.min(...days[0].hs.map(x=>x.t).concat([H.t])))} / ${wxT(Math.max(...days[0].hs.map(x=>x.t).concat([H.t])))}</small></span>${T.moon?`<span class="wxxmo" title="${esc(T.moon.n)}">${moonSvg(T.moon.ph)} ${esc(T.moon.nm)}</span>`:''}</div>${T.seasons.length||T.aur?`<p class="tag">${esc([...T.seasons,T.aur?'Northern lights tonight':''].filter(Boolean).join(' · '))}</p>`:''}
  <div class="wxhs"><button class="ic wxha" onclick="document.getElementById('wxhl').scrollBy({left:-300,behavior:'smooth'})" aria-label="Earlier">‹</button><div class="wxhl" id="wxhl">${strip}</div><button class="ic wxha" onclick="document.getElementById('wxhl').scrollBy({left:300,behavior:'smooth'})" aria-label="Later">›</button></div>
@@ -14416,6 +14430,26 @@ function budView(){const D=S.dev,pl=PLO(),cur=wsBP&&pl.some(x=>x[0]==wsBP)?wsBP:
  const tbl=A.parts.filter(([id,,own])=>!own).length?wsCard('mapi',cur?'Inside '+esc(placeName(cur)):'By place','Tap one to look inside',`<div class="popt">${A.parts.filter(([,,own])=>!own).sort((a,b)=>b[1]-a[1]).map(([id,t])=>`<button onclick="wsBP='${id}';bdEd=0;render()"><b>${esc(placeName(id))}</b><span>${lfmt(Math.round(t))}</span><span>${Math.round(t/A.tot*100)}%</span><span></span><span></span><span></span></button>`).join('')}</div>`):'';
  return pick+kpi+ed+`<div class="wsg2">${by}${eff}</div>`+tbl}
 {const _w=wstView;wstView=function(){let h=_w.apply(this,arguments);const tb=`<button class="${wsT=='bud'?'on':''}" onclick="wsT='bud';render()">${esc(nm('Budget'))}</button>`;h=h.replace(/(<div class="rcv supvt">[\s\S]*?)(<\/div>)/,(m,a,b)=>a+tb+b);if(wsT=='bud'){const i=h.indexOf('<div class="rcv supvt">'),j=h.indexOf('</div>',i)+6;return h.slice(0,j)+budView()}return h}}
+
+/* ===== 2.29.1: a map place and a lore place with the same name are merged into one ===== */
+function mapMergeScore(l){return ((l.text||'').length)+Object.keys(l.adv||{}).filter(k=>l.adv[k]!==''&&l.adv[k]!=null).length*20+((l.links||[]).length)*10+(l.img?50:0)}
+function mapMergeInto(keep,gone){
+ if(!(keep.text||'').trim()&&gone.text)keep.text=gone.text;else if(gone.text&&gone.text.trim()&&!keep.text.includes(gone.text.trim()))keep.text=keep.text+'\n\n'+gone.text;
+ keep.adv=keep.adv||{};Object.entries(gone.adv||{}).forEach(([k,v])=>{if(v!==''&&v!=null&&(keep.adv[k]===''||keep.adv[k]==null))keep.adv[k]=v});
+ keep.links=[...new Set([...(keep.links||[]),...(gone.links||[])])].filter(x=>x!=keep.id&&x!=gone.id);
+ ['img','tags','sub'].forEach(k=>{if(gone[k]&&!keep[k])keep[k]=gone[k]});
+ S.lore=S.lore.filter(l=>l.id!=gone.id);
+ /* everything that pointed at the removed entry now points at the kept one */
+ const q=JSON.stringify(gone.id),r=JSON.stringify(keep.id),qw=JSON.stringify('l:'+gone.id),rw=JSON.stringify('l:'+keep.id);
+ Object.keys(S).forEach(k=>{const v=S[k];if(v==null||typeof v!='object')return;let j;try{j=JSON.stringify(v)}catch(e){return}if(!j||(!j.includes(q)&&!j.includes(qw)))return;j=j.split(q).join(r).split(qw).join(rw);j=j.split('"'+gone.id+'":').join('"'+keep.id+'":');try{S[k]=JSON.parse(j)}catch(e){}})}
+function mapMerge(){let n=0;const R=WREG(),used=new Set();R.forEach(r=>{if(r.lr)used.add(r.lr);(r.C||[]).forEach(c=>{if(c.lr)used.add(c.lr)})});
+ const isCity=l=>l.adv&&(l.adv._t=='place'||l.adv.rid)&&!lrIsReg(l);
+ const pass=(o,test)=>{if(!o.lr||!o.n)return;const L=S.lore.find(l=>l.id==o.lr);if(!L)return;const D=S.lore.filter(l=>l.id!=L.id&&!used.has(l.id)&&test(l)&&lrNorm(l.title)==lrNorm(o.n));D.forEach(d=>{const keep=mapMergeScore(d)>mapMergeScore(L)?d:L,gone=keep===L?d:L;mapMergeInto(keep,gone);if(keep!==L){o.lr=keep.id;used.delete(L.id);used.add(keep.id)}o._ln=keep.title=o.n;n++})};
+ R.forEach(r=>{pass(r,l=>lrIsReg(l));(r.C||[]).forEach(c=>pass(c,isCity))});
+ if(n){PLAk='';if(typeof popPL!='undefined')try{popPL=null}catch(e){}}return n}
+{const _ms=mapSync;mapSync=function(){const r=_ms.apply(this,arguments);try{if(mapMerge()){PLAk='';save()}}catch(e){}return r}}
+/* the weather list never shows a city twice */
+{const _wp=wxPlaces;wxPlaces=function(){const L=_wp.apply(this,arguments),seen=new Set();return L.filter(x=>{if(!x[0])return true;const id=x[0].slice(2),k=plCanon(id);if(seen.has(k))return false;seen.add(k);return true})}}
 
 
 render();

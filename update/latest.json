@@ -1,8 +1,8 @@
 {
-  "version": "2.29 Beta",
-  "build": 222,
+  "version": "2.29.1 Beta",
+  "build": 223,
   "html": "update/exodus.html",
-  "notes": "Atlas: continents, regions, countries, districts and cities (capital, big, medium, small). New place form. Death by causes. Budgets for every place, which change supply production. Production today in Supplies. Weather only for cities.",
+  "notes": "Map and lore places with the same name are merged into one entry; weather lists each city once. Regions on the globe and map look like territories, cities like pins.",
   "win": {
     "version": "1.9.0",
     "url": "https://github.com/patszyp/exodus-lorebuilder/releases/download/2.6/Exodus-Lorebuilder-2.6-Beta-Windows.zip",
