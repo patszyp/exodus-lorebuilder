@@ -2933,7 +2933,7 @@ nav.ptb{flex-wrap:nowrap!important;align-items:stretch;scrollbar-width:none}nav.
 .lsb{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 12px;margin:0 0 10px;border:1px solid #785a2855;background:linear-gradient(90deg,rgba(10,200,185,.08),rgba(1,10,19,.4) 60%)}
 .lsb label{display:flex;gap:8px;align-items:center;margin:0}.lsb label span{font:600 11px Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#a09b8c}.lsb select{width:auto;min-width:200px}.lsbs{font-size:13px;color:#cdc6b4}
 .lck b.up{color:#3fc98a}.lck b.dn{color:#e8707a}
-.stt tbody tr{cursor:pointer}.stt tbody tr:hover td,.stt tr.on td{background:#c8aa6e0d}
+.sttb tbody tr{cursor:pointer}.sttb tbody tr:hover td,.sttb tr.on td{background:#c8aa6e0d}
 .stlg{display:inline-grid;place-items:center;min-width:38px;height:22px;padding:0 4px;margin-right:8px;font:700 10px Inter,system-ui,sans-serif;color:#0a0f14;background:var(--sc);vertical-align:middle}
 .stsp{width:120px}.stsp .stch{width:110px;height:28px;display:block}
 .stch{display:block;width:100%}
@@ -3442,6 +3442,34 @@ html.lxcp #m .panel{padding:10px 12px!important;margin-bottom:8px!important}html
 .mprg.me:not(.mpct){color:#0ac8b9}.mprg.me:not(.mpct)::after{background:#0ac8b9}
 .mpct{z-index:4}
 .mpct::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.8}
+/* 2.30 political events */
+.pevg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.pevk{position:relative;display:flex;flex-direction:column;gap:5px;padding:14px;border:1px solid #785a2833;border-top:3px solid var(--ac);border-radius:12px;background:linear-gradient(180deg,color-mix(in srgb,var(--ac) 8%,transparent),transparent 60%) #10141b;cursor:pointer}
+.pevk:hover{border-color:color-mix(in srgb,var(--ac) 55%,transparent)}
+.pevk h3{margin:2px 0 0;font-size:17px}
+.pevk.st-over{opacity:.62}
+.pevs{font:600 10px Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--sc);padding:2px 8px;border:1px solid color-mix(in srgb,var(--sc) 50%,transparent);border-radius:20px}
+.pevbar{display:block;height:4px;border-radius:3px;background:#ffffff10;overflow:hidden;margin:4px 0}
+.pevbar u{display:block;height:100%;background:var(--ac)}
+.pevc{display:flex;flex-wrap:wrap;gap:4px}
+.pevc span{font-size:11px;padding:2px 7px;border-radius:6px;background:#0c0f14;border:1px solid #785a2833;color:#cdc6b4}
+.pevc .up b{color:#3fc98a}.pevc .dn b{color:#e8707a}
+.pevkk{display:flex;flex-wrap:wrap;gap:5px}
+.pevkk button{padding:6px 10px;border-radius:8px;border:1px solid #785a2840;border-left:3px solid var(--ac);background:#10141b;color:#cdc6b4;font:600 12px Inter,system-ui,sans-serif;cursor:pointer}
+.pevkk button.on{background:color-mix(in srgb,var(--ac) 16%,transparent);color:#f0e6d2;border-color:var(--ac)}
+.pevad{margin:12px 0;border:1px solid #785a2833;border-radius:10px;padding:8px 12px}
+.pevad summary{cursor:pointer;color:#c8aa6e;font-size:13px}
+.pevgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:5px;margin:4px 0 10px}
+.pevgrid>div{display:grid;grid-template-columns:minmax(0,1fr) 70px;gap:6px;align-items:center;font-size:12px;color:#cdc6b4}
+.pevgrid input{padding:4px 6px}
+.pevl{display:flex;flex-direction:column}
+.pevl button{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 6px 8px 10px;border:0;border-left:3px solid var(--ac);border-bottom:1px solid #785a2822;background:none;text-align:left;cursor:pointer;color:#cdc6b4}
+.pevl button:hover{background:#c8aa6e0a}
+.pevl span b{display:block;color:#f0e6d2;font-size:13px}
+.pevl span small{color:#8a8577;font-size:11px}
+.pevl>button>b{font:600 14px Inter,system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.pevl .up{color:#3fc98a}.pevl .dn{color:#e8707a}
+.pevdt{display:grid;grid-template-columns:64px minmax(0,1fr) 80px;gap:4px}
 </style></head><body>
 <header><div class="top"><div class="logo f">Exodus Lorebuilder</div><div class="tools"><button class="ic dev" id="devb" hidden style="display:none" aria-hidden="true" tabindex="-1">&lt;/&gt;</button><button class="ic" id="srb" onclick="srOpen()" title="Search" aria-label="Search"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="ic" id="tpb" style="display:none" onclick="tPause()" title="Text editing: on (click to pause)">&#9998;&#xFE0E;</button><button class="ic gear" id="setb" onclick="openSet()" title="Settings" aria-label="Settings">&#9881;&#xFE0E;</button></div></div><div class="lane"><nav id="nav"></nav><span class="pill" id="tok"></span></div></header>
 <main id="m"></main><div id="toast"></div><div id="intro"><div class="il">EXODUS</div><div class="is">LOREBUILDER</div></div>
@@ -8175,8 +8203,14 @@ Object.assign(PLB,{bug:['Bug','#e06666'],todo:['To-do','#8fa3b8'],known:['Known 
 {const _fmx=fmt;fmt=function(t){return String(_fmx(t)).replace(/\[(bug|to-?do|known issue|balance)\]/gi,(a,k)=>{k=k.toLowerCase().replace(/^to-?do$/,'todo').replace('known issue','known');const x=PLB[k];return x?`<span class="plb" style="--c:${x[1]}">${x[0]}</span>`:a})}}
 
 /* ---- What's new ---- */
-const WNV='2.29.1';
+const WNV='2.30';
 const WN=[
+ ['2.30','31 Oct 2026',[
+  ['Lore','Political events','A new Events section in Factions: death of the ruler, murder, civil war, putsch, rebellion, riots, succession crisis, coronation, royal wedding, peace treaty, embargo, crown bankruptcy, new taxes, reform, plot uncovered. Each has a place, start date, length, strength, person and faction.',"lcat='Factions';pickSub('lore','pev')"],
+  ['Lore','Events change supplies','While an event goes on, production in its place goes up or down by kind of supply (a civil war hurts farming and helps weapon makers). After it ends the effect fades. Supplies show which events are changing production today.',"lcat='Worlds';pickSub('lore','sup')"],
+  ['Lore','Events move the stock market','Share prices of companies in the place jump or fall by sector, then recover. Companies with no place feel it at half strength.',"lcat='Worlds';pickSub('lore','eco')"],
+  ['Lore','Events kill people','Civil wars, rebellions, coups and riots raise deaths in their place and show up in Death by.',"lcat='Worlds';pickSub('lore','wstats');wsT='pop'"],
+  ['Fix','Stock market','The Stock market tab showed Money worth before a currency was set, and its table was squashed. Both fixed.',"lcat='Worlds';pickSub('lore','eco')"]]],
  ['2.29.1','31 Oct 2026',[
   ['Fix','Same place, one entry','A map city or region and a lore entry with the same name are now merged into one entry, keeping the text, details, links, population and supplies of both. The weather list shows each city once.',"wxOpen()"],
   ['Lore','Regions look like regions','On the globe and the map, regions are shown as territory names with their time, and cities as pins, so they no longer look the same.',"lcat='Worlds';pickSub('lore','map')"]]],
@@ -9872,7 +9906,7 @@ if(!SRF.some(f=>f[0]=='Nav'))SRF.splice(1,0,['Nav','Pages and tools']);
 {const _so=srOpen;srOpen=function(){_so.apply(this,arguments);const q=document.getElementById('srq');if(q)q.placeholder='Search everything: lore, characters, pages, tools, settings…'}}
 
 /* ===== 1.0.0 Beta ===== */
-const APPV='2.29.1 Beta',APPB=223;
+const APPV='2.30 Beta',APPB=224;
 Object.assign(PL,{"Install update file":"Zainstaluj plik aktualizacji","Open data folder":"Otwórz folder danych","Discord app ID":"ID aplikacji Discord"});
 {const _lv6=lookView;lookView=function(c){return String(_lv6(c)).replace(/<h3>Windows app<\/h3><h3>Check for updates automatically<\/h3>[\s\S]*?(?=<h3>|$)/,'')}}
 {const _rp=rpc;rpc=function(){try{const x=window.exodus;if(x&&x.discordId)x.discordId(String(S.cfg.rpcId||'').trim())}catch(e){}return _rp.apply(this,arguments)}}
@@ -12432,7 +12466,7 @@ const ECP=()=>{S.ecoP=S.ecoP||{};return S.ecoP};
 /* which economy a place uses: its own, its region's, or the world's */
 function lecEcoOf(p){if(!p)return '';if(ECP()[p])return p;if(String(p).startsWith('c:')){const x=typeof placeFind=='function'?placeFind(p):null;if(x&&x.R&&ECP()[x.R.id])return x.R.id}return ''}
 function lecScope(){if(!(tab=='lore'&&lsub=='eco')||!lecP)return null;const id=lecEcoOf(lecP);return id?ECP()[id]:null}
-const lecPN=p=>!p?nm('World'):(()=>{const x=typeof placeFind=='function'?placeFind(p):null;return x?(x.full||x.n):'?'})();
+let lecPN=p=>!p?nm('World'):(()=>{const x=typeof placeFind=='function'?placeFind(p):null;return x?(x.full||x.n):'?'})();
 function lecPick(p){lecP=p||'';try{localStorage.setItem('exodus.lecp',lecP)}catch(e){}lecR=lecP&&!lecEcoOf(lecP)?lecP:'';stkSel='';render()}
 function lecOwn(how){if(!lecP)return;const src=how=='world'?S.eco:how=='region'?ECP()[lecEcoOf(lecP)]:null;ECP()[lecP]=src?JSON.parse(JSON.stringify(Object.assign({},src,{co:undefined,shock:undefined,fx:undefined}))):{cur:[],it:[]};delete ECP()[lecP].co;delete ECP()[lecP].shock;delete ECP()[lecP].fx;save();lecR='';render();toast(lecPN(lecP)+' has its own economy now')}
 function lecDrop(){if(!lecP||!ECP()[lecP])return;cfm('Remove '+lecPN(lecP)+'’s own economy? It goes back to using '+(String(lecP).startsWith('c:')&&lecEcoOf(placeFind(lecP).R.id)?'its region’s':'the world’s')+'.',()=>{delete ECP()[lecP];save();lecR=lecP;render()})}
@@ -12464,7 +12498,7 @@ function stT(){const E=STX(),L=E.co.filter(coInScope),D=S.dev,sym=wSym();const r
  const head=`<div class="lcks">${kp(nm('Companies'),rows.length,lecP?esc(lecPN(lecP)):'whole world')}${kp('Market today',(idx>=0?'+':'')+idx.toFixed(2)+'%','average change',idx>=0?'up':'dn')}${kp('Total value',lfmt(tot)+' '+esc(sym),'all shares')}${kp('Biggest',rows[0]?esc(rows[0].c.n):'—',rows[0]?lfmt(rows[0].cap)+' '+esc(sym):'')}</div>`;
  const det=sel?(()=>{const S2=coSeries(sel.c,stRange),hi=Math.max(...S2.map(x=>x[1])),lo=Math.min(...S2.map(x=>x[1])),first=S2[0][1],chg=(sel.p/first-1)*100;const news=E.shock.filter(s=>(!s.co||s.co==sel.c.id||s.co=='s:'+sel.c.sec)&&+s.d>stDay()-stRange).sort((a,b)=>b.d-a.d);
   return wsCard('chart',sel.c.n,`${esc(sel.c.sec||'Other')}${sel.c.reg?' · '+esc(lecPN(sel.c.reg)):''}`,`<div class="stdh"><b>${lfmt(sel.p)} ${esc(sym)}</b><span class="${sel.ch>=0?'up':'dn'}">${sel.ch>=0?'▲':'▼'} ${Math.abs(sel.ch).toFixed(2)}% today</span><span class="${chg>=0?'up':'dn'}">${chg>=0?'+':''}${chg.toFixed(1)}% in ${stRange} days</span><span style="flex:1"></span><div class="rcv">${[7,30,90,365].map(n=>`<button class="${stRange==n?'on':''}" onclick="stRange=${n};render()">${n<365?n+'d':'1y'}</button>`).join('')}</div></div><div class="stbig">${stChart(S2,chg>=0?'#3fc98a':'#e8707a',600,180)}<div class="stax"><small>${dayTxt(S2[0][0])}</small><small>High ${lfmt(hi)} · Low ${lfmt(lo)}</small><small>${esc(nm('Today'))}</small></div></div>${sel.c.note?`<p class="mut" style="margin:8px 0 0">${esc(sel.c.note)}</p>`:''}${news.length?`<label>News</label>${news.map(s=>`<div class="stnw"><small>${dayTxt(+s.d)}</small><span class="${+s.p>=0?'up':'dn'}">${+s.p>=0?'+':''}${s.p}%</span><span>${esc(s.why||'')}</span></div>`).join('')}`:''}<div class="wsrow" style="margin-top:10px"><button class="btn" onclick="stkSel='';render()">${ico('x',12)} Close</button>${D?`<button class="btn" onclick="coEdit('${sel.c.id}')">Edit</button>`:''}</div>`)})():'';
- const tbl=wsCard('chart',nm('Stock market'),'Prices change every day. Tap a company for its chart.',rows.length?`<div class="ecsx"><table class="ect stt"><thead><tr><th>Company</th><th>Sector</th>${lecP?'':'<th>Where</th>'}<th>Price</th><th>Today</th><th>30 days</th><th>Value</th></tr></thead><tbody>${rows.map(r=>`<tr class="${stkSel==r.c.id?'on':''}" onclick="stkSel='${r.c.id}';render()"><td><span class="stlg" style="--sc:${r.c.col||'#c8aa6e'}">${esc((r.c.tk||r.c.n||'?').slice(0,4).toUpperCase())}</span><b>${esc(r.c.n)}</b></td><td><span class="lcg">${esc(r.c.sec||'Other')}</span></td>${lecP?'':`<td>${esc(r.c.reg?lecPN(r.c.reg):'—')}</td>`}<td class="lcpr">${lfmt(r.p)} ${esc(sym)}</td><td class="${r.ch>=0?'up':'dn'}">${r.ch>=0?'▲':'▼'} ${Math.abs(r.ch).toFixed(2)}%</td><td class="stsp">${stChart(r.s,r.col,110,28)}</td><td>${lfmt(r.cap)}</td></tr>`).join('')}</tbody></table></div>`:`<p class="mut" style="margin:0">${D?'No companies yet. Add one below.':'No companies here yet.'}</p>`)+
+ const tbl=wsCard('chart',nm('Stock market'),'Prices change every day. Tap a company for its chart.',rows.length?`<div class="ecsx"><table class="ect sttb"><thead><tr><th>Company</th><th>Sector</th>${lecP?'':'<th>Where</th>'}<th>Price</th><th>Today</th><th>30 days</th><th>Value</th></tr></thead><tbody>${rows.map(r=>`<tr class="${stkSel==r.c.id?'on':''}" onclick="stkSel='${r.c.id}';render()"><td><span class="stlg" style="--sc:${r.c.col||'#c8aa6e'}">${esc((r.c.tk||r.c.n||'?').slice(0,4).toUpperCase())}</span><b>${esc(r.c.n)}</b></td><td><span class="lcg">${esc(r.c.sec||'Other')}</span></td>${lecP?'':`<td>${esc(r.c.reg?lecPN(r.c.reg):'—')}</td>`}<td class="lcpr">${lfmt(r.p)} ${esc(sym)}</td><td class="${r.ch>=0?'up':'dn'}">${r.ch>=0?'▲':'▼'} ${Math.abs(r.ch).toFixed(2)}%</td><td class="stsp">${stChart(r.s,r.col,110,28)}</td><td>${lfmt(r.cap)}</td></tr>`).join('')}</tbody></table></div>`:`<p class="mut" style="margin:0">${D?'No companies yet. Add one below.':'No companies here yet.'}</p>`)+
  (D?`<div class="wsrow" style="margin:-4px 0 12px"><button class="btn dev" onclick="coEdit('')">${ico('plus',12)} Add a company</button><button class="btn" onclick="shEdit()">${ico('plus',12)} Add market news</button></div>`:'');
  return head+det+tbl+(D&&E.shock.length?wsCard('clock','Market news','Things that moved prices on one day.',`<div class="ecsx"><table class="ect"><tbody>${E.shock.slice().sort((a,b)=>b.d-a.d).map(s=>`<tr><td>${dayTxt(+s.d)}</td><td class="${+s.p>=0?'up':'dn'}">${+s.p>=0?'+':''}${s.p}%</td><td>${esc(s.co?(s.co.startsWith('s:')?s.co.slice(2)+' (sector)':((E.co.find(c=>c.id==s.co)||{}).n||'?')):'Every company')}</td><td>${esc(s.why||'')}</td><td><button class="ic" onclick="STX().shock=STX().shock.filter(x=>x.id!='${s.id}');save();render()" aria-label="Remove">${ico('x',12)}</button></td></tr>`).join('')}</tbody></table></div>`):'')}
 function coEdit(id){const c=STX().co.find(x=>x.id==id)||{n:'',sec:'Trade',reg:lecP||'',base:100,vol:2,dr:0,sh:1000,col:'#c8aa6e',tk:'',note:''};const regs=typeof lecRegs=='function'?lecRegs():[];
@@ -12486,12 +12520,12 @@ function fxT_(){const regs=typeof lecRegs=='function'?lecRegs():[],D=S.dev,P=[['
  if(fxT&&!P.some(p=>p[0]==fxT))fxT='';if(!fxF&&!fxT&&regs[0])fxT=regs[0][0];const pw=p=>fxNow(p)/lecMul(p);const res=fxA*pw(fxF)/pw(fxT);
  const conv=wsCard('sync','Between places','What the same money buys in another place, counting how strong money is there and its prices.',`<div class="lcv"><input type="number" min="0" step="any" value="${fxA}" onchange="fxA=+this.value||0;render()"><select onchange="fxF=this.value;render()">${P.map(([id,n,c])=>`<option value="${id}" ${fxF==id?'selected':''}>${c?'· ':''}${esc(n)}</option>`).join('')}</select><b class="lcvo"><span class="lcve">=</span><span>${lfmt(res)}</span><small class="mut" style="font-size:12px;font-weight:400">worth in</small></b><select onchange="fxT=this.value;render()">${P.map(([id,n,c])=>`<option value="${id}" ${fxT==id?'selected':''}>${c?'· ':''}${esc(n)}</option>`).join('')}</select><button class="ic" title="Swap" onclick="[fxF,fxT]=[fxT,fxF];render()">⇄</button></div>`);
  const rows=P.map(([id,n,c])=>{const s=fxSeries(id,30),v=fxNow(id),ch=fxChg(id),cf=fxCfg(id);return `<tr class="${c?'lcsub':''}"><td>${c?'· ':''}<b>${esc(n)}</b></td><td class="lcpr">${(v*100).toFixed(1)}</td><td class="${ch>=0?'up':'dn'}">${ch>=0?'▲':'▼'} ${Math.abs(ch).toFixed(2)}%</td><td class="stsp">${stChart(s,ch>=0?'#3fc98a':'#e8707a',110,28)}</td><td>${Math.round(lecMul(id)*100)}%</td><td><b>${(pw(id)*100).toFixed(0)}</b></td>${D?`<td><input type="number" min="10" max="300" value="${+cf.lv||100}" style="width:70px" title="Normal strength" onchange="STX().fx['${id||'_w'}']=Object.assign(fxCfg('${id}'),{lv:+this.value||100});save();render()"> <select onchange="STX().fx['${id||'_w'}']=Object.assign(fxCfg('${id}'),{vol:+this.value});save();render()">${[[.2,'Calm'],[.6,'Normal'],[1.5,'Wild']].map(([a,b])=>`<option value="${a}" ${(+cf.vol||.6)==a?'selected':''}>${b}</option>`).join('')}</select></td>`:''}</tr>`}).join('');
- return conv+wsCard('dia',nm('Money worth'),'100 = as strong as normal. Buying power counts the local price level too.',`<div class="ecsx"><table class="ect stt"><thead><tr><th>Place</th><th>Strength</th><th>Today</th><th>30 days</th><th>Prices</th><th>Buying power</th>${D?'<th>Normal · moves</th>':''}</tr></thead><tbody>${rows}</tbody></table></div>`)}
+ return conv+wsCard('dia',nm('Money worth'),'100 = as strong as normal. Buying power counts the local price level too.',`<div class="ecsx"><table class="ect sttb"><thead><tr><th>Place</th><th>Strength</th><th>Today</th><th>30 days</th><th>Prices</th><th>Buying power</th>${D?'<th>Normal · moves</th>':''}</tr></thead><tbody>${rows}</tbody></table></div>`)}
 /* ---------- hook into the economy page ---------- */
 LECT.splice(LECT.findIndex(t=>t[0]=='tx'),0,['st','Stock market','chart'],['fx','Money worth','sync']);
 if(!ICOP.chart)ICOP.chart='M2 14h12M4 11l3-4 3 2 4-6';
 {const _ev=ecoView;ecoView=function(){if(lecP&&!(typeof placeFind=='function'&&placeFind(lecP)))lecP='';const scoped=lecP&&!lecEcoOf(lecP);if(scoped&&!lecR)lecR=lecP;
- let h;if(lecT=='st'||lecT=='fx'){h=_ev.apply(this,arguments);const i=h.indexOf('<div class="lcb">');if(i>=0){const j=divEnd(h,i);h=h.slice(0,i)+`<div class="lcb">${lecT=='st'?stT():fxT_()}</div>`+h.slice(j)}}else h=_ev.apply(this,arguments);
+ let h;if(lecT=='st'||lecT=='fx'){const lt0=lecT;h=_ev.apply(this,arguments);const i=lecT==lt0?h.indexOf('<div class="lcb">'):-1;if(i>=0){const j=divEnd(h,i);h=h.slice(0,i)+`<div class="lcb">${lecT=='st'?stT():fxT_()}</div>`+h.slice(j)}}else h=_ev.apply(this,arguments);
  const k=h.indexOf('<nav class="ecn">');if(k>=0)h=h.slice(0,k)+lecScopeBar()+h.slice(k);
  if(lecP)h=h.replace('<small class="mut">The money of this world: coins, what things cost, what people earn.</small>',`<small class="mut">${esc(lecPN(lecP))}: ${ECP()[lecP]?'its own coins, prices and wages.':'using '+(lecEcoOf(lecP)?esc(lecPN(lecEcoOf(lecP)))+'’s':'the world’s')+' economy with local prices.'}</small>`);
  return h}}
@@ -12713,7 +12747,7 @@ function fpLiveView(){const fac=fpFac(),cols=['#c8aa6e','#0ac8b9','#b07cff','#e0
  const evs=FPL().ev.filter(e=>+e.d>t-fpRng&&+e.d<=t);
  const chart=`<svg class="fpc" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${[0,5,10].map(v=>`<line x1="30" x2="${W-10}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ffffff14"/><text x="8" y="${Y(v)+4}" fill="#a09b8c" font-size="11">${v}</text>`).join('')}${evs.map(e=>{const x=X(fpRng-(t-+e.d));return `<line x1="${x}" x2="${x}" y1="10" y2="${H-24}" stroke="#ffffff30" stroke-dasharray="3 4"/><text x="${x+3}" y="20" fill="#cdc6b4" font-size="10">${esc((FPE.find(k=>k[0]==e.k)||[0,e.k])[1])}</text>`}).join('')}${series.map((s,fi)=>`<polyline points="${s.map((v,i)=>X(i).toFixed(1)+','+Y(v).toFixed(1)).join(' ')}" fill="none" stroke="${cols[fi%cols.length]}" stroke-width="2" vector-effect="non-scaling-stroke"/>`).join('')}<text x="30" y="${H-6}" fill="#a09b8c" font-size="11">${dayTxt(t-fpRng)}</text><text x="${W-10}" y="${H-6}" fill="#a09b8c" font-size="11" text-anchor="end">${esc(nm('Today'))}</text></svg>`;
  const rows=fac.map((f,fi)=>{const v=fpLiveVal(f,t,m),y=fpLiveVal(f,t-1,m),w=fpLiveVal(f,t-7,m);return [f,fi,v,v-y,v-w]}).sort((a,b)=>b[2]-a[2]);
- const tbl=`<div class="ecsx"><table class="ect stt"><thead><tr><th>#</th><th>Faction</th><th>${esc((FPK.find(k=>k[0]==m)||[])[1]||'')}</th><th>Today</th><th>7 days</th><th>Power · Wealth · Influence</th></tr></thead><tbody>${rows.map(([f,fi,v,d1,d7],i)=>`<tr><td>${i+1}</td><td><i class="fpdot" style="background:${cols[fi%cols.length]}"></i><b>${esc(f.title)}</b></td><td class="lcpr"><b>${v.toFixed(2)}</b></td><td class="${d1>=0?'up':'dn'}">${d1>=0?'▲':'▼'} ${Math.abs(d1).toFixed(2)}</td><td class="${d7>=0?'up':'dn'}">${d7>=0?'+':''}${d7.toFixed(2)}</td><td>${['p','w','i'].map(k=>`<span class="fpmtr" style="--c:${(FPK.find(x=>x[0]==k)||[])[2]}"><i style="width:${fpLiveVal(f,t,k)*10}%"></i></span>`).join('')}</td></tr>`).join('')}</tbody></table></div>`;
+ const tbl=`<div class="ecsx"><table class="ect sttb"><thead><tr><th>#</th><th>Faction</th><th>${esc((FPK.find(k=>k[0]==m)||[])[1]||'')}</th><th>Today</th><th>7 days</th><th>Power · Wealth · Influence</th></tr></thead><tbody>${rows.map(([f,fi,v,d1,d7],i)=>`<tr><td>${i+1}</td><td><i class="fpdot" style="background:${cols[fi%cols.length]}"></i><b>${esc(f.title)}</b></td><td class="lcpr"><b>${v.toFixed(2)}</b></td><td class="${d1>=0?'up':'dn'}">${d1>=0?'▲':'▼'} ${Math.abs(d1).toFixed(2)}</td><td class="${d7>=0?'up':'dn'}">${d7>=0?'+':''}${d7.toFixed(2)}</td><td>${['p','w','i'].map(k=>`<span class="fpmtr" style="--c:${(FPK.find(x=>x[0]==k)||[])[2]}"><i style="width:${fpLiveVal(f,t,k)*10}%"></i></span>`).join('')}</td></tr>`).join('')}</tbody></table></div>`;
  const evl=FPL().ev.slice().sort((a,b)=>b.d-a.d);
  const evc=wsCard('clock',nm('Faction events'),'Something happened and a faction’s power, wealth or influence moved. The effect fades over the days you set.',`${evl.length?`<div class="ecsx"><table class="ect"><tbody>${evl.map(e=>{const f=fac.find(x=>x.id==e.f),K=FPE.find(k=>k[0]==e.k)||[0,e.k];return `<tr><td>${dayTxt(+e.d)}</td><td><span class="lcg">${esc(K[1])}</span></td><td>${e.f=='*'?'Every faction':esc(f?f.title:'?')}</td><td>${['p','w','i'].map(k=>(e.fx||{})[k]?`<span class="${e.fx[k]>0?'up':'dn'}">${(FPK.find(x=>x[0]==k)||[])[1]} ${e.fx[k]>0?'+':''}${e.fx[k]}</span>`:'').filter(Boolean).join(' · ')}</td><td class="mut">${esc(e.why||'')} · ${+e.len||30} days</td>${D?`<td><button class="ic" onclick="FPL().ev=FPL().ev.filter(x=>x.id!='${e.id}');save();render()" aria-label="Remove">${ico('x',11)}</button></td>`:''}</tr>`}).join('')}</tbody></table></div>`:'<p class="mut" style="margin:0">No events yet.</p>'}
  ${D?`<div class="chf"><div class="row3"><div><label>Faction</label><select id="fe1"><option value="*">Every faction</option>${fac.map(f=>`<option value="${f.id}">${esc(f.title)}</option>`).join('')}</select></div><div><label>What happened</label><select id="fe2" onchange="const K=${JSON.stringify(FPE)}.find(k=>k[0]==this.value)||[];['p','w','i'].forEach(m=>{const e=document.getElementById('fe_'+m);if(e)e.value=K[2]==m?K[3]:K[4]==m?K[5]:0})">${FPE.map(k=>`<option value="${k[0]}">${k[1]}</option>`).join('')}</select></div><div><label>Day</label><input id="fe3" type="date" value="${new Date().toISOString().slice(0,10)}"></div></div><div class="row3">${FPK.map(k=>`<div><label>${k[1]} change (−5 to 5)</label><input id="fe_${k[0]}" type="number" min="-5" max="5" step="0.5" value="${k[0]=='p'?-1.5:k[0]=='w'?-1:0}"></div>`).join('')}</div><div class="row"><div><label>Fades over (days)</label><input id="fe4" type="number" min="1" value="30"></div><div><label>Why</label><input id="fe5" placeholder="The northern army was crushed"></div></div><div class="wsrow" style="margin-top:8px"><button class="btn dev" onclick="const g=i=>document.getElementById(i).value;FPL().ev.push({id:uid('fe'),f:g('fe1'),k:g('fe2'),d:dayOf(g('fe3')),fx:{p:+g('fe_p')||0,w:+g('fe_w')||0,i:+g('fe_i')||0},len:+g('fe4')||30,why:g('fe5')});save();render()">${ico('plus',12)} Add event</button><label class="lsb2">Daily movement <select onchange="FPL().vol=+this.value;save();render()">${[[0,'None'],[1,'Calm'],[2,'Normal'],[4,'Wild']].map(([a,b])=>`<option value="${a}" ${(+FPL().vol)==a?'selected':''}>${b}</option>`).join('')}</select></label></div></div>`:''}`);
@@ -14412,7 +14446,7 @@ function budBoost(cat,pid){let p=plCanon(pid),n=0,b=null;while(p&&n++<9){b=budOf
 {const _ss=supSim;supSim=function(r,q){if(r.c=='magic')return _ss.apply(this,arguments);const P=SUP().p,pid=Object.keys(P).find(k=>P[k][r.id]===q)||'';if(!pid)return _ss.apply(this,arguments);const B=budBoost(r.c,pid);if(B.f==1)return _ss.apply(this,arguments);const a0=q.a;q.a=(+q.a||0)*B.f;try{return _ss.apply(this,arguments)}finally{q.a=a0}}}
 /* live production: today against a normal day, and why */
 function supProdCard(c,scope){const L=SUP().r.filter(r=>r.c==c[0]);const rows=[];L.forEach(r=>supRows(r,scope).forEach(x=>{const q=x.q,a=+q.a||0,M=supMon(),mi=Math.min(wcToday().m,M.length-1),normDay=a/(M.reduce((s,m)=>s+m.d,0)||365),B=budBoost(r.c,x.pid),w=supWF(r,x.pid,0),acc=supAcc(r,x.pid);if(!normDay)return;rows.push([r,x,x.today/normDay*100,B,w,acc,x.s.inS])}));if(!rows.length)return '';
- rows.sort((a,b)=>a[2]-b[2]);return wsCard('chart',nm('Production today'),'Compared with a normal day of the year',`<div class="prl">${rows.map(([r,x,pc,B,w,acc,inS])=>{const col=pc>=105?'#3fc98a':pc>=95?'#e6c35c':'#e8707a',why=[B.f!=1?`budget ${B.f>1?'+':''}${Math.round((B.f-1)*100)}%`:'',w.f<.99||w.f>1.01?`${SUPWE[w.w]||''} weather ${w.f>1?'+':''}${Math.round((w.f-1)*100)}%`:'',!acc?'no access':'',inS===false?'out of season':''].filter(Boolean);return `<div><span><b>${esc(r.n)}</b><small>${esc(supPN(x.pid))}${why.length?' · '+why.map(esc).join(' · '):''}</small></span><i><u style="width:${Math.min(100,pc/2)}%;background:${col}"></u><em></em></i><b style="color:${col}">${Math.round(pc)}%</b></div>`}).join('')}</div>`)}
+ rows.sort((a,b)=>a[2]-b[2]);return wsCard('chart',nm('Production today'),'Compared with a normal day of the year',`<div class="prl">${rows.map(([r,x,pc,B,w,acc,inS])=>{const col=pc>=105?'#3fc98a':pc>=95?'#e6c35c':'#e8707a',why=[B.f!=1?`budget ${B.f>1?'+':''}${Math.round((B.f-1)*100)}%`:'',w.f<.99||w.f>1.01?`${SUPWE[w.w]||''} weather ${w.f>1?'+':''}${Math.round((w.f-1)*100)}%`:'',!acc?'no access':'',inS===false?'out of season':'',...(typeof pevProd=='function'?pevProd(r.c,x.pid).why.map(([n,p])=>n+' '+(p>0?'+':'')+p+'%'):[])].filter(Boolean);return `<div><span><b>${esc(r.n)}</b><small>${esc(supPN(x.pid))}${why.length?' · '+why.map(esc).join(' · '):''}</small></span><i><u style="width:${Math.min(100,pc/2)}%;background:${col}"></u><em></em></i><b style="color:${col}">${Math.round(pc)}%</b></div>`}).join('')}</div>`)}
 {const _sc=supCat;supCat=function(c,scope){const h=_sc.apply(this,arguments);if(c[0]=='magic'||!SUP().r.some(r=>r.c==c[0]))return h;return h+supProdCard(c,scope)}}
 /* overview: production of every kind right now */
 {const _ov=supOv;supOv=function(RA,scope){const h=_ov.apply(this,arguments);const rows=[];SUPC.filter(c=>c[0]!='magic').forEach(c=>{let a=0,t=0;SUP().r.filter(r=>r.c==c[0]).forEach(r=>supRows(r,scope).forEach(x=>{a+=(+x.q.a||0)/(supMon().reduce((s,m)=>s+m.d,0)||365);t+=x.today}));if(a)rows.push([c,t/a*100])});if(!rows.length)return h;return h+wsCard('chart',nm('Production today'),'Every kind of supply against a normal day',`<div class="prl">${rows.sort((x,y)=>y[1]-x[1]).map(([c,pc])=>{const col=pc>=105?'#3fc98a':pc>=95?'#e6c35c':'#e8707a';return `<div><span><b>${esc(nm(c[1]))}</b></span><i><u style="width:${Math.min(100,pc/2)}%;background:${col}"></u><em></em></i><b style="color:${col}">${Math.round(pc)}%</b></div>`}).join('')}</div>`)}}
@@ -14450,6 +14484,105 @@ function mapMerge(){let n=0;const R=WREG(),used=new Set();R.forEach(r=>{if(r.lr)
 {const _ms=mapSync;mapSync=function(){const r=_ms.apply(this,arguments);try{if(mapMerge()){PLAk='';save()}}catch(e){}return r}}
 /* the weather list never shows a city twice */
 {const _wp=wxPlaces;wxPlaces=function(){const L=_wp.apply(this,arguments),seen=new Set();return L.filter(x=>{if(!x[0])return true;const id=x[0].slice(2),k=plCanon(id);if(seen.has(k))return false;seen.add(k);return true})}}
+
+/* ===== 2.30: Factions › Events — deaths of rulers, murders, civil wars, coups... and what they do to supplies, the stock market and deaths ===== */
+Object.assign(ICOP,{pevx:'M3 11.5l1-6 2.5 3L8 4l1.5 4.5 2.5-3 1 6zM3 13.5h10M8 4l-.6 3.2.9 1.3-.5 3'});
+Object.assign(PL,{"Events":"Wydarzenia","Political events":"Wydarzenia polityczne","Going on now":"Trwa teraz","Recovering":"Odbudowa","Over":"Zakończone","Coming":"Nadchodzi","Effect on production":"Wpływ na produkcję","Effect on the market":"Wpływ na giełdę","New event":"Nowe wydarzenie"});
+LXP.pev=['Political events','Factions'];LXI.pev='pevx';(LXO.Factions=LXO.Factions||[]).push('pev');
+{const _lo=lore;lore=function(){if(lsub=='pev'&&!sel&&!edit)return pevView();return _lo.apply(this,arguments)}}
+const PEV=()=>{S.pev=S.pev||[];return S.pev};
+/* kind, colour, normal length in days, production % by supply group, market % by sector, deaths a day per 100 000 people, what it is */
+const PEVK=[
+ ['Death of the ruler','#a09b8c',30,{all:-4,food:-2},{all:-5,Banking:-6},0,'The king, queen or other ruler dies. Mourning, closed markets, worry about who comes next.'],
+ ['Murder','#e8707a',14,{all:-2},{all:-4,Banking:-6},0,'Someone important is killed: a noble, a minister, an heir. People are afraid and money hides.'],
+ ['Civil war','#c0392b',240,{all:-15,food:-15,mil:40,home:-10,raw:-5},{all:-10,Weapons:25,Trade:-12,Banking:-15,Shipping:-8,Building:-10},10,'The country fights itself. Fields burn, roads close, smiths make weapons instead of ploughs.'],
+ ['Putsch','#ff9f45',21,{all:-8,mil:15},{all:-8,Banking:-12,Weapons:10},2,'The army or a faction takes power by force.'],
+ ['Rebellion','#e05b5b',90,{all:-10,food:-10,mil:25},{all:-6,Weapons:12,Trade:-8},4,'People rise against those who rule them.'],
+ ['Riots','#e6a23c',7,{all:-6,home:-6},{all:-3,Trade:-5,Entertainment:-5},1,'Angry crowds in the streets: shops shut, windows break.'],
+ ['Succession crisis','#b07cff',60,{all:-3},{all:-6,Banking:-8},0,'Nobody agrees who should rule next. Everyone waits.'],
+ ['Coronation','#e6c35c',7,{all:-2,food:6},{all:4,Entertainment:10,Food:5},0,'A new ruler is crowned. Feasts, guests and hope.'],
+ ['Royal wedding','#ff7ab6',7,{food:5,home:8},{all:3,Entertainment:8},0,'A marriage that joins two houses.'],
+ ['Peace treaty','#3fc98a',60,{all:5,food:5,mil:-15},{all:6,Trade:10,Shipping:8,Weapons:-10},0,'A war ends. Roads open, trade comes back.'],
+ ['Embargo','#5aa7ff',120,{all:-5,food:-6},{all:-4,Trade:-18,Shipping:-22},0,'Trade with someone is forbidden or the ports are blocked.'],
+ ['Crown bankruptcy','#c08a50',120,{all:-8,craft:-10},{all:-8,Banking:-25,Building:-10},0,'The treasury is empty and cannot pay its debts.'],
+ ['New taxes','#a0a8b8',90,{all:-4},{all:-3},0,'The ruler takes more from everyone.'],
+ ['Reform','#6fcf6f',180,{all:4},{all:3},0,'New laws that make work and trade easier.'],
+ ['Plot uncovered','#8aa0ff',14,{all:-1},{all:-3,Banking:-4},0,'A conspiracy against the ruler is found out. Arrests and fear.'],
+ ['Other','#8aa0ff',30,{},{},0,'Anything else that shakes the country.']];
+const PEVS=[['1','Small',.5],['2','Serious',1],['3','Major',1.35],['4','Catastrophic',1.8]];
+let pevF='',pevP='',pevSel='';
+const pevK=o=>PEVK.find(k=>k[0]==o.k)||PEVK[PEVK.length-1];
+const pevSv=o=>(PEVS.find(s=>s[0]==String(o.sev||'2'))||PEVS[1])[2];
+const pevDays=o=>+o.days>0?+o.days:pevK(o)[2];
+const pevStart=o=>o.d0?annDN(o.d0):annNow();
+/* how strong it is on a world day: full while it goes on, then fading */
+function pevShape(o,day){const s=pevStart(o),e=s+pevDays(o);if(day<s)return 0;if(day<=e)return 1;const a=day-e;return a>180?0:Math.pow(.5,a/25)}
+function pevState(o,day){day=day??annNow();const s=pevStart(o),e=s+pevDays(o);return day<s?'coming':day<=e?'now':pevShape(o,day)>.05?'rec':'over'}
+const PEVST={coming:['Coming','#8aa0ff'],now:['Going on now','#e8707a'],rec:['Recovering','#e6c35c'],over:['Over','#6c6a62']};
+/* the effect it was set to have, % */
+function pevEff(o,which,key){const own=(o[which]||{})[key];if(own!==''&&own!=null)return +own;const d=pevK(o)[which=='prod'?3:4][key];return d==null?null:d*pevSv(o)}
+const pevHere=(o,pid)=>!o.where||(pid&&placeIn(pid,o.where));
+const supGrp=c=>{const g=SUPG.find(g=>g[3].includes(c));return g?g[0]:''};
+/* production: every event going on where the supply is made */
+function pevProd(cat,pid,day){day=day??annNow();const g=supGrp(cat);let f=1;const why=[];PEV().forEach(o=>{if(!pevHere(o,pid))return;const sh=pevShape(o,day);if(!sh)return;const a=pevEff(o,'prod','all'),b=g?pevEff(o,'prod',g):null,p=(a||0)+(b||0);if(!p)return;const x=Math.max(.05,1+p*sh/100);f*=x;why.push([o.n||o.k,Math.round((x-1)*100)])});return {f,why}}
+{const _ac=supAcc;supAcc=function(r,pid){const a=_ac.apply(this,arguments);if(!a||r.c=='magic')return a;return a*pevProd(r.c,pid).f}}
+/* the stock market: a company feels events in its place, or everywhere if it has no place */
+const pevDay0=()=>annNow()-stDay();
+function pevMkt(c,d){const day=d+pevDay0();let f=1;PEV().forEach(o=>{let w=1;if(o.where&&c.reg){if(placeIn(c.reg,o.where))w=1;else if(placeIn(o.where,c.reg))w=.6;else return}else if(o.where&&!c.reg)w=.5;const sh=pevShape(o,day);if(!sh)return;const a=pevEff(o,'mkt','all')||0,b=pevEff(o,'mkt',c.sec||'Other')||0;if(a+b)f*=Math.max(.05,1+(a+b)*sh*w/100)});return f}
+{const _cs=coSeries;coSeries=function(c,n){const out=_cs.apply(this,arguments);if(!PEV().length)return out;return out.map(([d,p])=>[d,p*pevMkt(c,d)])}}
+/* deaths: wars inside a country kill people */
+{const _pm=popMod;popMod=function(pid){const r=_pm.apply(this,arguments);try{PEV().forEach(o=>{if(pevState(o)!='now'||!pevHere(o,pid))return;const k=pevK(o),x=+o.dpd!==0&&o.dpd!==''&&o.dpd!=null?+o.dpd:k[5]*pevSv(o);if(!x)return;const f=1+x*365/100000/0.02;r.m*=f;r.why.push([o.n||o.k,f])})}catch(e){}return r}}
+{const _po=popOwn;popOwn=function(pid){const o=_po.apply(this,arguments);try{if(o&&o.dcT){PEV().forEach(e=>{if(pevState(e)=='now'&&pevHere(e,pid)&&(+e.dpd||pevK(e)[5])){o.dcEv=o.dcEv||new Set();o.dcEv.add(e.n||e.k)}})}}catch(x){}return o}}
+/* text helpers */
+const pevPct=v=>v==null?'':(v>0?'+':'')+Math.round(v)+'%';
+function pevDateTxt(o){return o.d0?annDate(o.d0):'today'}
+function pevLeft(o){const n=annNow(),s=pevStart(o),e=s+pevDays(o),st=pevState(o);return st=='coming'?'in '+(s-n)+' days':st=='now'?(e-n)+' days left':st=='rec'?Math.round(pevShape(o,n)*100)+'% of the effect left':'ended '+(n-e)+' days ago'}
+function pevChips(o){const L=[];const pa=pevEff(o,'prod','all');if(pa)L.push(['Production',pa]);SUPG.forEach(g=>{const v=pevEff(o,'prod',g[0]);if(v)L.push([g[1],(pa||0)+v])});const ma=pevEff(o,'mkt','all');if(ma)L.push(['Market',ma]);SEC.forEach(s=>{const v=pevEff(o,'mkt',s);if(v)L.push([s+' shares',(ma||0)+v])});return L}
+const pevChipH=L=>L.length?`<div class="pevc">${L.map(([l,v])=>`<span class="${v>0?'up':'dn'}">${esc(l)} <b>${pevPct(v)}</b></span>`).join('')}</div>`:'';
+/* the page */
+function pevView(){const D=S.dev,A=PEV(),inP=o=>!pevP||!o.where||placeIn(o.where,pevP)||placeIn(pevP,o.where);const L0=A.filter(inP),now=L0.filter(o=>pevState(o)=='now'),rec=L0.filter(o=>pevState(o)=='rec');
+ const worst=L0.filter(o=>pevState(o)!='over'&&pevState(o)!='coming').map(o=>[o,pevEff(o,'prod','all')*pevShape(o,annNow())]).sort((a,b)=>a[1]-b[1])[0];
+ const head=secHero({ic:'pevx',col:'#e8707a',cat:nm('Factions'),t:nm('Political events'),d:'Deaths of rulers, murders, civil wars, coups, rebellions, treaties and embargoes. Each one changes what places produce, moves the stock market and, when there is fighting, how many people die.',side:`<label class="schp"><span>Place</span><select onchange="pevP=this.value;render()">${plOpts(pevP,'Whole world')}</select></label>`,k:[[nm('Events'),L0.length,''],[nm('Going on now'),now.length,now.length?now.map(o=>o.k).slice(0,2).join(', '):'',now.length?'hot':''],[nm('Recovering'),rec.length,'effects fading'],['Hardest hit',worst&&worst[1]?pevPct(worst[1]):'—',worst&&worst[1]?esc(worst[0].n||worst[0].k)+' · production':'']]});
+ let L=L0.slice();if(pevF)L=pevF.startsWith('s:')?L.filter(o=>pevState(o)==pevF.slice(2)):L.filter(o=>o.k==pevF);
+ const ord={now:0,coming:1,rec:2,over:3};L.sort((a,b)=>ord[pevState(a)]-ord[pevState(b)]||pevStart(b)-pevStart(a));
+ const chips=secChips([['','All',L0.length],...['now','rec','coming','over'].map(s=>['s:'+s,nm(PEVST[s][0]),L0.filter(o=>pevState(o)==s).length]).filter(x=>x[2]),...PEVK.map(k=>[k[0],k[0],L0.filter(o=>o.k==k[0]).length]).filter(x=>x[2])],pevF,'pevChip');
+ const bar=`<div class="scbar">${natSearch('.pevk')}${D?`<button class="btn dev" onclick="pevEdit('')">${ico('plus',12)} ${esc(nm('New event'))}</button>`:''}</div>`;
+ const card=o=>{const k=pevK(o),st=pevState(o),S2=PEVST[st],who=o.who&&xCh(o.who),fac=o.fac&&S.lore.find(l=>l.id==o.fac);return `<div class="pevk st-${st}" style="--ac:${k[1]}" data-q="${esc([o.n,o.k,o.text,placeName(o.where)].join(' ').toLowerCase())}" onclick="if(!event.target.closest('button'))pevOpen('${o.id}')"><div class="fdch"><span class="fdk" style="--fc:${k[1]}">${esc(o.k)}</span><span class="pevs" style="--sc:${S2[1]}">${esc(nm(S2[0]))}</span><span style="flex:1"></span>${D?`<button class="btn dev" onclick="pevEdit('${o.id}')">${ico('pen',11)}</button>`:''}</div><h3 class="f">${esc(o.n||o.k)}</h3><small class="mut">${esc(o.where?placeName(o.where):'Whole world')} · ${esc(pevDateTxt(o))} · ${esc(pevLeft(o))}</small>${who||fac?`<small class="mut">${[who?esc(who.name):'',fac?esc(fac.title):''].filter(Boolean).join(' · ')}</small>`:''}${st!='over'?`<i class="pevbar"><u style="width:${st=='coming'?0:Math.round(pevShape(o,annNow())*100)}%"></u></i>`:''}${pevChipH(pevChips(o).slice(0,4))}</div>`};
+ return head+chips+bar+(L.length?`<div class="pevg">${L.map(card).join('')}</div>`:`<div class="ennone"><p class="mut">No events yet.${D?' Add a death of a ruler, a murder, a civil war or a coup and watch supplies and the market react.':''}</p></div>`)}
+function pevChip(v){pevF=v;render()}
+/* reading one */
+function pevOpen(id){const o=PEV().find(x=>x.id==id);if(!o)return;const k=pevK(o),st=pevState(o),n=annNow(),sh=pevShape(o,n);
+ const prodRows=[['Everything else',pevEff(o,'prod','all')],...SUPG.filter(g=>pevEff(o,'prod',g[0])).map(g=>[g[1],(pevEff(o,'prod','all')||0)+(pevEff(o,'prod',g[0])||0)])].filter(x=>x[1]);
+ const mktRows=[['Every other company',pevEff(o,'mkt','all')],...SEC.filter(x=>pevEff(o,'mkt',x)).map(s=>[s,(pevEff(o,'mkt','all')||0)+(pevEff(o,'mkt',s)||0)])].filter(x=>x[1]);
+ const bars=R=>R.length?`<div class="prl">${R.map(([l,v])=>{const now=v*sh,pc=100+now,col=now>=1?'#3fc98a':now<=-1?'#e8707a':'#e6c35c';return `<div><span><b>${esc(l)}</b><small>set to ${pevPct(v)}${st!='now'?' · now '+pevPct(now):''}</small></span><i><u style="width:${Math.max(0,Math.min(100,pc/2))}%;background:${col}"></u><em></em></i><b style="color:${col}">${Math.round(pc)}%</b></div>`}).join('')}</div>`:'<p class="mut">None.</p>';
+ const dpd=+o.dpd||k[5]*pevSv(o);
+ XMOD('pevo',`<div class="fdch"><span class="fdk" style="--fc:${k[1]}">${esc(o.k)}</span><span class="pevs" style="--sc:${PEVST[st][1]}">${esc(nm(PEVST[st][0]))}</span></div><h2 class="f" style="margin:6px 0 2px">${esc(o.n||o.k)}</h2><p class="mut" style="margin:0">${esc(o.where?placeName(o.where):'Whole world')} · from ${esc(pevDateTxt(o))} for ${pevDays(o)} days · ${esc(pevLeft(o))}</p>${o.text?`<p>${esc(o.text)}</p>`:`<p class="mut">${esc(k[6])}</p>`}
+  <div class="wsg2">${wsCard('supx',nm('Effect on production'),'Today, compared with a normal day',bars(prodRows))}${wsCard('chart',nm('Effect on the market'),'Share prices, today',bars(mktRows))}</div>${dpd?`<p class="mut">${ico('disx',12)} About ${lfmt(Math.round(dpd))} more deaths a day for every 100 000 people while it goes on.</p>`:''}<p class="wsrow">${S.dev?`<button class="btn dev" onclick="XCLOSE('pevo');pevEdit('${o.id}')">${ico('pen',11)} Edit</button>`:''}<button class="btn" onclick="XCLOSE('pevo')">Close</button></p>`,720)}
+/* editing */
+function pevEdit(id,draft){const base=PEV().find(x=>x.id==id),o=draft||(base?JSON.parse(JSON.stringify(base)):{k:'Death of the ruler',sev:'2',where:pevP,d0:Object.assign({},wcToday())});window._pevD=o,k=pevK(o),sv=pevSv(o),M=WC().months,t=o.d0||wcToday();
+ const facs=S.lore.filter(l=>l.cat=='Factions'),pf=(w,key,d)=>{const v=(o[w]||{})[key];return `<input type="number" step="1" id="pe_${w}_${key}" value="${v??''}" placeholder="${d==null?'0':Math.round(d*sv)}">`};
+ XMOD('peve',`<h2 class="f" style="margin-top:0">${id?'Edit':esc(nm('New event'))}</h2>
+  <label>Kind</label><div class="pevkk">${PEVK.map(x=>`<button class="${x[0]==o.k?'on':''}" style="--ac:${x[1]}" onclick="pevKind('${id}','${x[0]}')">${esc(x[0])}</button>`).join('')}</div><p class="mut" style="font-size:12px;margin:4px 0 10px">${esc(k[6])}</p>
+  <div class="gcdxg"><div><label>Name</label><input id="pe1" value="${esc(o.n||'')}" placeholder="${esc(o.k)}"></div><div><label>Where</label><select id="pe2">${plOpts(o.where||'','Whole world')}</select></div>
+  <div><label>Starts (day, month, year)</label><div class="pevdt"><input id="pe3d" type="number" min="1" value="${+t.d||1}" ><select id="pe3m">${M.map((m,i)=>`<option value="${i}" ${+t.m==i?'selected':''}>${esc(m.n)}</option>`).join('')}</select><input id="pe3y" type="number" value="${+t.y||0}"></div></div>
+  <div><label>Lasts (days)</label><input id="pe4" type="number" min="1" value="${o.days||''}" placeholder="${k[2]}"></div>
+  <div><label>How strong</label><select id="pe5">${PEVS.map(([v,l])=>`<option value="${v}" ${String(o.sev||'2')==v?'selected':''}>${l}</option>`).join('')}</select></div>
+  <div><label>Extra deaths a day per 100 000</label><input id="pe6" type="number" min="0" step=".5" value="${o.dpd??''}" placeholder="${k[5]*sv}"></div>
+  <div><label>Person</label><select id="pe7"><option value="">—</option>${S.chars.map(c=>`<option value="${c.id}" ${o.who==c.id?'selected':''}>${esc(c.name)}</option>`).join('')}</select></div>
+  <div><label>Faction</label><select id="pe8"><option value="">—</option>${facs.map(l=>`<option value="${l.id}" ${o.fac==l.id?'selected':''}>${esc(l.title)}</option>`).join('')}</select></div></div>
+  <label>What happened</label><textarea id="pe9" rows="3">${esc(o.text||'')}</textarea>
+  <details class="pevad"><summary>${esc(nm('Effect on production'))} and ${esc(nm('Effect on the market')).toLowerCase()} (%, leave empty for the usual)</summary>
+   <small class="evk">Production</small><div class="pevgrid"><div><span>All supplies</span>${pf('prod','all',k[3].all)}</div>${SUPG.map(g=>`<div><span>${esc(g[1])}</span>${pf('prod',g[0],k[3][g[0]])}</div>`).join('')}</div>
+   <small class="evk">Share prices</small><div class="pevgrid"><div><span>Every company</span>${pf('mkt','all',k[4].all)}</div>${SEC.map(s=>`<div><span>${esc(s)}</span>${pf('mkt',s,k[4][s])}</div>`).join('')}</div></details>
+  <p class="wsrow"><button class="btn" onclick="pevSave('${id}')">${id?'Save':'Add event'}</button>${id?`<button class="btn red" onclick="cfm('Delete this event?',()=>{S.pev=PEV().filter(x=>x.id!='${id}');save();XCLOSE('peve');render()})">Delete</button>`:''}<button class="btn" onclick="XCLOSE('peve')">Cancel</button></p>`,720)}
+function pevForm(){const g=i=>(document.getElementById(i)||{}).value??'',o={n:g('pe1'),where:g('pe2'),d0:{d:Math.max(1,+g('pe3d')||1),m:+g('pe3m')||0,y:+g('pe3y')||0},days:g('pe4'),sev:g('pe5'),dpd:g('pe6'),who:g('pe7'),fac:g('pe8'),text:g('pe9'),prod:{},mkt:{}};['prod','mkt'].forEach(w=>document.querySelectorAll(`#peve input[id^="pe_${w}_"]`).forEach(i=>{if(i.value!=='')o[w][i.id.slice(4+w.length)]=+i.value}));return o}
+function pevKind(id,k){const d=Object.assign({},window._pevD||{},pevForm(),{k,prod:{},mkt:{}});pevEdit(id,d)}
+function pevSave(id){const f=pevForm(),k=(window._pevD||{}).k||'Other';let o=id&&PEV().find(x=>x.id==id);if(!o){o={id:uid('pe')};PEV().push(o)}Object.assign(o,f,{k,n:String(f.n).trim()});save();XCLOSE('peve');render();toast((o.n||o.k)+' saved')}
+/* supplies overview and the stock market list what is going on */
+function pevNowCard(scope,what){const L=PEV().filter(o=>['now','rec'].includes(pevState(o))&&(!scope||!o.where||placeIn(o.where,scope)||placeIn(scope,o.where)));if(!L.length)return '';return wsCard('pevx',nm('Political events'),what=='mkt'?'Moving share prices right now':'Changing production right now',`<div class="pevl">${L.map(o=>{const k=pevK(o),v=what=='mkt'?pevEff(o,'mkt','all'):pevEff(o,'prod','all'),now=(v||0)*pevShape(o,annNow());return `<button onclick="pevOpen('${o.id}')" style="--ac:${k[1]}"><span><b>${esc(o.n||o.k)}</b><small>${esc(o.k)} · ${esc(o.where?placeName(o.where):'Whole world')} · ${esc(pevLeft(o))}</small></span><b class="${now>=0?'up':'dn'}">${pevPct(now)}</b></button>`}).join('')}</div>`)}
+{const _ov=supOv;supOv=function(RA,scope){return pevNowCard(scope,'prod')+_ov.apply(this,arguments)}}
+{const _st=stT;stT=function(){const h=_st.apply(this,arguments);return pevNowCard(typeof lecP!='undefined'?lecP:'','mkt')+h}}
+{const _pn=lecPN;lecPN=function(p){const r=_pn.apply(this,arguments);return r=='?'||!r?(placeName(p)||r):r}}
 
 
 render();
